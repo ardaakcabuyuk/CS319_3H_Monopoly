@@ -1,5 +1,17 @@
-# cs319_monopoly
+# Project Name: Monopoly
 
+Description
+-
+.......
 
-ghjklşlk
-as
+Group Members (Group 2D)
+-
+* Arda Akça Büyük
+* Ömer Ünlüsoy
+* İrem Tekin
+* Ece Ünal
+* Furkan Ahi
+
+Project Reports
+-
+.......
