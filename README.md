@@ -2,7 +2,7 @@
 
 Description
 -
-.......
+Monopoly is a well-known board game.
 
 Group Members (Group 2D)
 -
