@@ -16,7 +16,7 @@ Every player will control the game with a mouse by clicking buttons. The dice fe
 
 **Gameplay:**
 
-The aim is to become the rector of the University by dominating the whole Bilkent by opening Bilkas and Starbuckses to places and pushing the other players to go bankrupt. (Starbucks and Bilka are equivalent to house and hotel in classic Monopoly respectively.) All the classic Monopoly rules currently available also apply to this game. Credit cards will be used instead of paper money in the classic Monopoly. As a new feature, we will have the rule known as the "Free Parking Rule" to our game. In this rule, all money paid by the players to the bank (excluding the land sales) goes to the middle area. While the game continues, whoever comes to the "Free Parking" point gets all the money saved in the middle. When a player opens three Starbuckses in a place, s/he will be allowed to open a Bilka in that place. 
+The aim is to become the rector of the University by dominating the whole Bilkent by opening Bilkas and Starbuckses to places and pushing the other players to go bankrupt. (Starbucks and Bilka are equivalent to house and hotel in classic Monopoly respectively.) All the classic Monopoly rules currently available also apply to this game. Credit cards will be used instead of paper money in the classic Monopoly. As another new feature, we will have the rule known as the "Free Parking Rule" to our game. In this rule, all money paid by the players to the bank (excluding the land sales) goes to the middle area. While the game continues, whoever comes to the "Free Parking" point gets all the money saved in the middle. When a player opens three Starbuckses in a place, s/he will be allowed to open a Bilka in that place. 
 
 
 Group Members (Group 3H)
