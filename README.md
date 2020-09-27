@@ -29,8 +29,6 @@ Group Members (Group 3H)
 
 Project Reports
 - 
-Description: 
+**Description:** 
 [Project Description](https://github.com/ardaakcabuyuk/CS319_3H_Monopoly/blob/master/Reports/Project%20Descriptions.pdf)
--
-Path:
-Reports/Project Descriptions.pdf
+
