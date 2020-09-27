@@ -4,7 +4,7 @@ Description
 -
 Monopoly is a well-known board game.
 
-Group Members (Group 2D)
+Group Members (Group 3H)
 -
 * Arda Akça Büyük
 * Ömer Ünlüsoy
@@ -14,4 +14,4 @@ Group Members (Group 2D)
 
 Project Reports
 -
-.......
+........
