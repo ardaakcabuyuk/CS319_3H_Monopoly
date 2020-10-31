@@ -28,10 +28,11 @@ Group Members (Group 3H)
 * Furkan Ahi
 
 Project Reports
-- 
-**Description:** 
-[Project Description](https://github.com/ardaakcabuyuk/CS319_3H_Monopoly/blob/master/Reports/Project%20Descriptions.pdf)
 -
 **Analysis Report Iter 1:** 
 [Analysis Report Iter 1](https://github.com/ardaakcabuyuk/CS319_3H_Monopoly/blob/master/Reports/Analysis%20Report%20Iter1.pdf)
+- 
+**Description:** 
+[Project Description](https://github.com/ardaakcabuyuk/CS319_3H_Monopoly/blob/master/Reports/Project%20Descriptions.pdf)
+
 
