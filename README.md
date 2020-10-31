@@ -32,6 +32,6 @@ Project Reports
 **Description:** 
 [Project Description](https://github.com/ardaakcabuyuk/CS319_3H_Monopoly/blob/master/Reports/Project%20Descriptions.pdf)
 -
-**Anallysis Report Iter 1 (Not for TAs):** 
-[Anallysis Report Iter 1](https://1drv.ms/w/s!AmgGNgsYGy-Pgz-eB9ifUKYCL9aj?e=s0DZXn)
+**Anallysis Report Iter 1:** 
+[Anallysis Report Iter 1](https://github.com/ardaakcabuyuk/CS319_3H_Monopoly/blob/master/Reports/Analysis%20Report%20Iter1.pdf)
 
