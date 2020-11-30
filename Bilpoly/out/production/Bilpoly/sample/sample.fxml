@@ -25,12 +25,12 @@
                         <Font name="Calibri" size="43.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="300.0" text="Options" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="125.0">
+                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="340.0" text="Options" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="125.0">
                      <font>
                         <Font name="Calibri" size="43.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="300.0" text="How to Play" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="125.0">
+                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="340.0" text="How to Play" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="125.0">
                      <font>
                         <Font name="Calibri" size="43.0" />
                      </font>
