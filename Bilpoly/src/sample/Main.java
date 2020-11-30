@@ -2,8 +2,10 @@ package sample;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -12,9 +14,11 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Bilpoly");
-        Scene scene = new Scene(root, 1440, 800);
+        Rectangle2D screenBounds = Screen.getPrimary().getBounds();
+        Scene scene = new Scene(root, screenBounds.getMaxX(), screenBounds.getMaxY());
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
+        primaryStage.setFullScreen(true);
         primaryStage.show();
     }
 
