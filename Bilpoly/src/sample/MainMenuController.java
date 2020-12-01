@@ -45,11 +45,15 @@ public class MainMenuController {
         System.out.println("options Button clicked. ");
         Parent root = FXMLLoader.load(getClass().getResource("options.fxml"));
         Stage window = (Stage)( ((Node) event.getSource()).getScene().getWindow());
-        window.getScene().setRoot(root);    }
+        window.getScene().setRoot(root);
+    }
 
     //TODO change scene
-    public void creditsButtonClicked(){
+    public void creditsButtonClicked(ActionEvent event) throws Exception {
         System.out.println("credits Button clicked. ");
+        Parent root = FXMLLoader.load(getClass().getResource("credits.fxml"));
+        Stage window = (Stage)( ((Node) event.getSource()).getScene().getWindow());
+        window.getScene().setRoot(root);
     }
 
     //TODO quit the game ----maybe a confirmbox to ask user

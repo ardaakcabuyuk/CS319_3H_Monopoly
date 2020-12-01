@@ -13,6 +13,7 @@
                   <Font size="48.0" />
                </font>
             </Label>
+            <Button layoutX="57.0" layoutY="304.0" mnemonicParsing="false" onAction="#backButtonClicked" prefWidth="102.0" text="Back" />
          </children>
       </AnchorPane>
    </children>
