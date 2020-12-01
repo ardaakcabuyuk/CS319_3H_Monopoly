@@ -7,7 +7,10 @@ public class Pawn {
     private ImageView image;
     private Location location;
 
-    public Pawn(String name, ImageView image)
+    public Pawn(String name, ImageView image) {
+        this.name = name;
+
+    }
 
     public void movePawn(int move) {
 
