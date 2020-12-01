@@ -23,7 +23,7 @@ public abstract class Buyable extends Landable {
     }
     public String getOwner() { return owner; }
     public void mortgage() {
-        if (isBought && !isMortgaged) {
+        if (isBought) {
             isMortgaged = true;
         }
     }

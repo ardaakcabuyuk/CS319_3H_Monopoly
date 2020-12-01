@@ -28,7 +28,7 @@ public class Land extends Buyable {
     public Land(Color color, int primaryCost, int secondaryCost, int rent,
                 int rentWithSet, int rentWith1Secondary, int rentWith2Secondary,
                 int rentWith3Secondary, int rentWith4Secondary, int rentWithPrimary) {
-        this.type = LandableType.LAND;
+        this.type = LandableType.CAFE;
         COLOR = color;
         PRIMARY_COST = primaryCost;
         SECONDARY_COST = secondaryCost;
