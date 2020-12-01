@@ -2,8 +2,8 @@
 
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="156.0" prefWidth="73.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="156.0" prefWidth="73.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PreGameSettingsController">
    <children>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+      <AnchorPane layoutX="-114.0" prefHeight="486.0" prefWidth="744.0" />
    </children>
 </AnchorPane>
