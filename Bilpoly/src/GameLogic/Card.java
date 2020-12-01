@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 enum CardType {
     CHANCE,
-    RECTORSWHISPER
+    RECTORS_WHISPER
 }
 
 public class Card {

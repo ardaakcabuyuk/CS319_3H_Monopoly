@@ -10,8 +10,8 @@ enum LandableType {
 
 public abstract class Landable {
     //variables
-    private int index;
-    private Location location;
-    private Location[] location_available;
-    private LandableType type;
+    protected int index;
+    protected Location location;
+    protected Location[] location_available;
+    protected LandableType type;
 }
