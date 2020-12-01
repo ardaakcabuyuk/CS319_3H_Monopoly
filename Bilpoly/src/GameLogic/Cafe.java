@@ -2,17 +2,12 @@ package GameLogic;
 
 import java.util.Arrays;
 
-public class Cafe extends Landable {
+public class Cafe extends Buyable {
     //attributes
-    private String name;
-    private int cost;
     private int rentWith1;
     private int rentWith2;
     private int rentWith3;
     private int rentWith4;
-    private Player owner;
-    private boolean isBought;
-    private boolean isMortgaged;
 
     //constructor
     public Cafe(String name, int cost, int rentWith1, int rentWith2,
@@ -32,15 +27,6 @@ public class Cafe extends Landable {
         this.location_available = Arrays.copyOf(location_available, location_available.length);
     }
     //methods
-    //TODO should be improved
-    public boolean mortgage() {
-        if (isBought) {
-            isMortgaged = true;
-            return true;
-        }
-        return false;
-    }
-
     //TODO will be implemented
     public void showCard() {
 
@@ -50,5 +36,30 @@ public class Cafe extends Landable {
     public void closeCard() {
 
     }
+
+    @Override
+    public void buy(String playerName) {
+        super.buy(playerName);
+    }
+
+    @Override
+    public void sell() {
+        super.sell();
+    }
+
+    //TODO should be improved
+    @Override
+    public void mortgage() {
+        super.mortgage();
+    }
+
+    @Override
+    public boolean isBought() { return super.isBought(); }
+
+    @Override
+    public int getCost() { return super.getCost(); }
+
+    @Override
+    public String getOwner() { return super.getOwner(); }
 
 }

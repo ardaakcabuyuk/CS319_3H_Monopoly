@@ -2,10 +2,10 @@ package GameLogic;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Collections;
 
 //Player Class
 public class Player {
-
     //constants
     private final String NAME;
     private final Color COLOR;
@@ -18,7 +18,8 @@ public class Player {
     private boolean isBankrupt;
     private boolean isInAtalarsRoom;
     private int atalarsRoomFreeCardNum;
-    private ArrayList<Buyable> ownedLands;
+    private ArrayList<Land> ownedLands;
+    private ArrayList<Cafe> ownedCafes;
 
     //constructor
     public Player(String name, Pawn pawn, int initMoney, int initScore, boolean isTurn,
@@ -32,7 +33,22 @@ public class Player {
         this.isBankrupt = false;
         this.isInAtalarsRoom = false;
         this.atalarsRoomFreeCardNum = 0;
-        this.ownedLands =  new ArrayList<Buyable>();
+        this.ownedLands =  new ArrayList<Land>();
+        this.ownedCafes = new ArrayList<Cafe>();
+    }
+
+    public Player(Player p) {
+        this.NAME = p.NAME;
+        this.pawn = p.pawn;
+        this.money = p.money;
+        this.score = p.score;
+        this.isTurn = p.isTurn;
+        this.COLOR = p.COLOR;
+        this.isBankrupt = p.isBankrupt;
+        this.isInAtalarsRoom = p.isInAtalarsRoom;
+        this.atalarsRoomFreeCardNum = p.atalarsRoomFreeCardNum;
+        Collections.copy(p.ownedLands, ownedLands);
+        Collections.copy(p.ownedCafes, ownedCafes);
     }
 
     //methods
@@ -57,22 +73,54 @@ public class Player {
             return 0;
     }
 
-    // This method buys a buyable for player.
-    // TODO Buyable has to change and this method has to be implemented.
-    public boolean buyLandOrCafe(Buyable buyable){
-        //check if the buyable is avaliable
-        buyable.buy();
-        //add buyable to the ownedLands
+    // This method buys a land for player.
+    // TODO land has to change and this method has to be implemented.
+    public boolean buyLand(Land land){
+        //check if the cafe is avaliable
+        if (!land.isBought()) {
+            if (money >= land.getCost()) {
+                land.buy(NAME);
+                changeMoney(-land.getCost());
+                ownedLands.add(land);
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
+
+    // This method buys a cafe for player.
+    // TODO cafe has to change and this method has to be implemented.
+    public boolean buyCafe(Cafe cafe){
+        //check if the cafe is avaliable
+        if (!cafe.isBought()) {
+            if (money >= cafe.getCost()) {
+                cafe.buy(NAME);
+                changeMoney(-cafe.getCost());
+                ownedCafes.add(cafe);
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
+
+    // This method sells a land for player.
+    // TODO land has to change and this method has to be implemented.
+    public boolean sellLand(Land land){
+        //check if the land owned by this player
+        land.sell();
+        //delete land from the ownedLands
         //changeMoney();
         return true;
     }
 
-    // This method sells a buyable for player.
-    // TODO Buyable has to change and this method has to be implemented.
-    public boolean sellLandOrCafe(Buyable buyable){
-        //check if the buyable owned by this player
-        buyable.sell();
-        //delete buyable from the ownedLands
+    // This method sells a cafe for player.
+    // TODO cafe has to change and this method has to be implemented.
+    public boolean sellCafe(Cafe cafe){
+        //check if the cafe owned by this player
+        cafe.sell();
+        //delete cafe from the ownedCafes
         //changeMoney();
         return true;
     }
@@ -113,5 +161,8 @@ public class Player {
     public Color getColor() { return COLOR; }
 
     // getter ownedLands
-    public ArrayList<Buyable> getOwnedLands() { return ownedLands; }
+    public ArrayList<Land> getOwnedLands() { return ownedLands; }
+
+    // getter ownedCafes
+    public ArrayList<Cafe> getOwnedCafes() { return ownedCafes; }
 }
