@@ -84,6 +84,7 @@ public class Player {
                 ownedLands.add(land);
                 return true;
             }
+            //TODO Warning insufficient funds
             return false;
         }
         return false;
