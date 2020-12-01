@@ -28,20 +28,24 @@ public class MainMenuController {
     public void playButtonClicked(ActionEvent event) throws Exception {
         System.out.println("play Button clicked. ");
         Parent root = FXMLLoader.load(getClass().getResource("game_screen.fxml"));
-        Scene gameScreenScene = new Scene(root);
         Stage window = (Stage)( ((Node) event.getSource()).getScene().getWindow());
-        window.setScene(gameScreenScene);
+        window.getScene().setRoot(root);
     }
 
     //TODO change scene
-    public void howToPlayButtonClicked(){
-        System.out.println("how to play Button clicked. ");
-    }
-
-    //TODO change scene
-    public void optionsButtonClicked(){
+    public void howToPlayButtonClicked(ActionEvent event) throws Exception {
         System.out.println("options Button clicked. ");
+        Parent root = FXMLLoader.load(getClass().getResource("how_to_play.fxml"));
+        Stage window = (Stage)( ((Node) event.getSource()).getScene().getWindow());
+        window.getScene().setRoot(root);
     }
+
+    //TODO change scene
+    public void optionsButtonClicked(ActionEvent event) throws Exception {
+        System.out.println("options Button clicked. ");
+        Parent root = FXMLLoader.load(getClass().getResource("options.fxml"));
+        Stage window = (Stage)( ((Node) event.getSource()).getScene().getWindow());
+        window.getScene().setRoot(root);    }
 
     //TODO change scene
     public void creditsButtonClicked(){
