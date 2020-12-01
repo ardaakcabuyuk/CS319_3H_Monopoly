@@ -2,6 +2,7 @@ package GameLogic;
 
 import java.util.Arrays;
 
+// enum for functional place type
 enum FunctionalPlaceType {
     NIZAMIYE,
     FREE_PARKING,
@@ -9,6 +10,7 @@ enum FunctionalPlaceType {
     TAX
 }
 
+// FunctionalPlace Class
 public class FunctionalPlace extends Landable {
     //constants
     private final LandableType TYPE = LandableType.FUNCTIONAL_PLACE;
@@ -27,4 +29,14 @@ public class FunctionalPlace extends Landable {
         this.location = new Location(location.getX(), location.getY());
         this.location_available = Arrays.copyOf(location_available, location_available.length);
     }
+
+    //methods
+
+    // This method executes the functional place.
+    // TODO will be implemented.
+    public void executeFuctional(Player player){
+
+    }
+
+    //GETTERS AND SETTERS
 }

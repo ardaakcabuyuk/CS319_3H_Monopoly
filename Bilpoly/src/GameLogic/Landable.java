@@ -1,4 +1,5 @@
 package GameLogic;
+
 enum LandableType {
     FUNCTIONAL_PLACE,
     ATALARS_ROOM,
@@ -8,6 +9,7 @@ enum LandableType {
 };
 
 public abstract class Landable {
+    //variables
     private int index;
     private Location location;
     private Location[] location_available;
