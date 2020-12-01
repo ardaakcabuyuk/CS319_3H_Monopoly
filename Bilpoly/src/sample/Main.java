@@ -12,7 +12,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("game_screen.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Bilpoly");
         Rectangle2D screenBounds = Screen.getPrimary().getBounds();
         Scene scene = new Scene(root, screenBounds.getMaxX(), screenBounds.getMaxY());

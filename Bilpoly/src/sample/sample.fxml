@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainMenuController">
    <children>
       <ImageView fitHeight="960.0" fitWidth="1440.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
@@ -20,22 +20,22 @@
          <children>
             <AnchorPane prefWidth="800.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="275.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="300.0" text="Play Game" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="0.0">
+                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="300.0" text="Play Game" onAction="#playButtonClicked" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="0.0">
                      <font>
                         <Font name="Calibri" size="43.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="340.0" text="Options" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="125.0">
+                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="340.0" text="Options" onAction="#optionsButtonClicked" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="125.0">
                      <font>
                         <Font name="Calibri" size="43.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="340.0" text="How to Play" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="125.0">
+                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="340.0" text="How to Play" onAction="#howToPlayButtonClicked" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="125.0">
                      <font>
                         <Font name="Calibri" size="43.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="300.0" text="Credits" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="250.0">
+                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="300.0" text="Credits" onAction="#creditsButtonClicked" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="250.0">
                      <font>
                         <Font name="Calibri" size="43.0" />
                      </font>
