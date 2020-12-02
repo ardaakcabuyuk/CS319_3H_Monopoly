@@ -9,18 +9,47 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="1194.0" prefWidth="2258.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainMenuController">
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainMenuController">
    <children>
-      <ImageView fitHeight="1198.0" fitWidth="2258.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ImageView fitHeight="960.0" fitWidth="1440.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@1600171821-757171.jpg" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="-2.0" layoutY="72.0" prefHeight="1209.0" prefWidth="2260.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane prefWidth="981.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="209.0" AnchorPane.topAnchor="100.0">
          <children>
-            <Text layoutX="640.0" layoutY="293.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="6.0" text="Bilpoly" textAlignment="CENTER" wrappingWidth="738.6521624361452" AnchorPane.bottomAnchor="860.6884765625" AnchorPane.leftAnchor="640.0" AnchorPane.rightAnchor="879.3478375638547" AnchorPane.topAnchor="135.8955078125">
+            <AnchorPane prefWidth="800.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="275.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="300.0" text="Play Game" onAction="#playButtonClicked" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="0.0">
+                     <font>
+                        <Font name="Calibri" size="43.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="340.0" text="Options" onAction="#optionsButtonClicked" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="125.0">
+                     <font>
+                        <Font name="Calibri" size="43.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="340.0" text="How to Play" onAction="#howToPlayButtonClicked" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="125.0">
+                     <font>
+                        <Font name="Calibri" size="43.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="300.0" text="Credits" onAction="#creditsButtonClicked" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="250.0">
+                     <font>
+                        <Font name="Calibri" size="43.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" text="Quit" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="375.0">
+                     <font>
+                        <Font name="Calibri" size="43.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <Text layoutX="241.0" layoutY="134.6953125" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="5.0" text="Bilpoly" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="0.0">
                <font>
-                  <Font name="Calibri" size="165.0" />
+                  <Font size="140.0" />
                </font>
                <fill>
                   <LinearGradient endX="1.0" endY="0.6834532374100719">
@@ -32,31 +61,6 @@
                   </LinearGradient>
                </fill>
             </Text>
-            <Button id="main menu" layoutX="531.0" layoutY="589.0" mnemonicParsing="false" onAction="#optionsButtonClicked" prefHeight="118.0" prefWidth="360.0" style="-fx-background-color: orange; -fx-border-color: white; -fx-border-width: 5;" text="Options" textFill="WHITE" AnchorPane.bottomAnchor="491.0" AnchorPane.leftAnchor="531.0" AnchorPane.rightAnchor="1367.0" AnchorPane.topAnchor="589.0">
-               <font>
-                  <Font name="Calibri" size="43.0" />
-               </font>
-            </Button>
-            <Button layoutX="841.0" layoutY="784.0" mnemonicParsing="false" onAction="#creditsButtonClicked" prefHeight="119.0" prefWidth="356.0" style="-fx-background-color: orange; -fx-border-color: white; -fx-border-width: 5;" text="Credits" textFill="WHITE" AnchorPane.bottomAnchor="295.0" AnchorPane.leftAnchor="841.0" AnchorPane.rightAnchor="1061.0" AnchorPane.topAnchor="784.0">
-               <font>
-                  <Font name="Calibri" size="43.0" />
-               </font>
-            </Button>
-            <Button layoutX="841.0" layoutY="957.0" mnemonicParsing="false" prefHeight="118.0" prefWidth="360.0" style="-fx-background-color: orange; -fx-border-color: white; -fx-border-width: 5;" text="Quit" textFill="WHITE" AnchorPane.bottomAnchor="123.0" AnchorPane.leftAnchor="841.0" AnchorPane.rightAnchor="1057.0" AnchorPane.topAnchor="957.0">
-               <font>
-                  <Font name="Calibri" size="43.0" />
-               </font>
-            </Button>
-            <Button layoutX="1125.0" layoutY="592.0" mnemonicParsing="false" onAction="#creditsButtonClicked" prefHeight="118.0" prefWidth="360.0" style="-fx-background-color: orange; -fx-border-color: white; -fx-border-width: 5;" text="How to Play" textFill="WHITE" AnchorPane.bottomAnchor="499.0" AnchorPane.leftAnchor="1125.0" AnchorPane.rightAnchor="775.0" AnchorPane.topAnchor="592.0">
-               <font>
-                  <Font name="Calibri" size="43.0" />
-               </font>
-            </Button>
-            <Button layoutX="830.0" layoutY="431.0" mnemonicParsing="false" onAction="#creditsButtonClicked" prefHeight="118.0" prefWidth="360.0" style="-fx-background-color: orange; -fx-border-color: white; -fx-border-width: 5;" text="Play Game" textFill="WHITE" AnchorPane.bottomAnchor="660.0" AnchorPane.leftAnchor="830.0" AnchorPane.rightAnchor="1070.0" AnchorPane.topAnchor="431.0">
-               <font>
-                  <Font name="Calibri" size="43.0" />
-               </font>
-            </Button>
          </children>
       </AnchorPane>
    </children>
