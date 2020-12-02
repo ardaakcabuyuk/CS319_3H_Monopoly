@@ -14,6 +14,28 @@
                </font>
             </Label>
             <Button layoutX="14.0" layoutY="245.0" mnemonicParsing="false" onAction="#backButtonClicked" text="Back" AnchorPane.bottomAnchor="13.666666666666668" AnchorPane.leftAnchor="14.0" />
+            <Button layoutX="69.0" layoutY="91.0" mnemonicParsing="false" text="2 Players" />
+            <Button layoutX="69.0" layoutY="142.0" mnemonicParsing="false" text="3 Players" />
+            <Button layoutX="69.0" layoutY="194.0" mnemonicParsing="false" text="4 Players" />
+            <GridPane layoutX="246.0" layoutY="46.0" style="-fx-background-color: light blue;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="105.0" minWidth="10.0" prefWidth="105.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="95.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="61.0" text="Player 1" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Label prefHeight="17.0" prefWidth="60.0" text="Name" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <Label text="Pawn" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+            <Button layoutX="380.0" layoutY="245.0" mnemonicParsing="false" text="Next" />
          </children>
       </AnchorPane>
    </children>
