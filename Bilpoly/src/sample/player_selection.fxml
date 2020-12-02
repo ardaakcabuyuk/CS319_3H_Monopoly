@@ -6,7 +6,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="bodybg" stylesheets="@background.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PlayerSelectionController">
    <children>
-      <AnchorPane layoutX="77.0" layoutY="58.0" prefHeight="283.0" prefWidth="445.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="77.0" AnchorPane.rightAnchor="77.0" AnchorPane.topAnchor="58.0">
+      <AnchorPane layoutX="65.0" layoutY="58.0" prefHeight="283.0" prefWidth="445.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="65.0" AnchorPane.rightAnchor="89.0" AnchorPane.topAnchor="58.0">
          <children>
             <Label layoutX="14.0" layoutY="14.0" text="Player Selection" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
                <font>
@@ -14,10 +14,7 @@
                </font>
             </Label>
             <Button layoutX="14.0" layoutY="245.0" mnemonicParsing="false" onAction="#backButtonClicked" text="Back" AnchorPane.bottomAnchor="13.666666666666668" AnchorPane.leftAnchor="14.0" />
-            <Button layoutX="69.0" layoutY="91.0" mnemonicParsing="false" text="2 Players" />
-            <Button layoutX="69.0" layoutY="142.0" mnemonicParsing="false" text="3 Players" />
-            <Button layoutX="69.0" layoutY="194.0" mnemonicParsing="false" text="4 Players" />
-            <GridPane layoutX="246.0" layoutY="46.0" style="-fx-background-color: light blue;">
+            <GridPane layoutX="150.0" layoutY="62.0" style="-fx-background-color: blue;">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="105.0" minWidth="10.0" prefWidth="105.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="100.0" />
@@ -29,14 +26,81 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="61.0" text="Player 1" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                  <Label prefHeight="17.0" prefWidth="60.0" text="Name" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                  <Label text="Pawn" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="61.0" text="Player 1" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Label text="Pawn" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
                   <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label layoutX="48.0" layoutY="77.0" text="Name" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                </children>
             </GridPane>
-            <Button layoutX="380.0" layoutY="245.0" mnemonicParsing="false" text="Next" onAction="#nextButtonClicked" />
+            <VBox layoutX="23.0" layoutY="107.0" prefHeight="163.0" prefWidth="95.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="2 Players" />
+                  <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="95.0" text="3 Players" />
+                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="95.0" text="4 Players" />
+               </children>
+            </VBox>
+            <GridPane layoutX="150.0" layoutY="168.0" style="-fx-background-color: orange;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="105.0" minWidth="10.0" prefWidth="105.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="95.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="61.0" text="Player 2" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Label text="Pawn" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label layoutX="48.0" layoutY="77.0" text="Name" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+               </children>
+            </GridPane>
+
+            <Button layoutX="380.0" layoutY="245.0" mnemonicParsing="false" onAction="#nextButtonClicked" text="Next" />
+
          </children>
       </AnchorPane>
+      <GridPane layoutX="215.0" layoutY="335.0" style="-fx-background-color: magenta;">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="105.0" minWidth="10.0" prefWidth="105.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="95.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="61.0" text="Player 3" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Label text="Pawn" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label layoutX="48.0" layoutY="77.0" text="Name" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="215.0" layoutY="450.0" style="-fx-background-color: green;">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="105.0" minWidth="10.0" prefWidth="105.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="95.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="61.0" text="Player 4" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Label text="Pawn" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label layoutX="48.0" layoutY="77.0" text="Name" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>
