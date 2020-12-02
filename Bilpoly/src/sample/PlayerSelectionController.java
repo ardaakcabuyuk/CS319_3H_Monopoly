@@ -15,4 +15,12 @@ public class PlayerSelectionController {
         Stage window = (Stage)( ((Node) event.getSource()).getScene().getWindow());
         window.getScene().setRoot(root);
     }
+
+    @FXML
+    public void nextButtonClicked(ActionEvent event) throws Exception {
+        System.out.println("next Button clicked. ");
+        Parent root = FXMLLoader.load(getClass().getResource("pre_game_settings.fxml"));
+        Stage window = (Stage)( ((Node) event.getSource()).getScene().getWindow());
+        window.getScene().setRoot(root);
+    }
 }

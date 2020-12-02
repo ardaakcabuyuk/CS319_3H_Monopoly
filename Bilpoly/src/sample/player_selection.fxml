@@ -35,7 +35,7 @@
                   <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <Button layoutX="380.0" layoutY="245.0" mnemonicParsing="false" text="Next" />
+            <Button layoutX="380.0" layoutY="245.0" mnemonicParsing="false" text="Next" onAction="#nextButtonClicked" />
          </children>
       </AnchorPane>
    </children>
