@@ -29,16 +29,17 @@
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="61.0" text="Player 1" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                   <Label text="Pawn" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="name1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="combo1" onAction="#select1" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Label layoutX="48.0" layoutY="77.0" text="Name" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <Button fx:id="okButton1" mnemonicParsing="false" onAction="#okButtonClicked1" text="Ok" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                </children>
             </GridPane>
-            <VBox layoutX="23.0" layoutY="107.0" prefHeight="163.0" prefWidth="95.0">
+            <VBox layoutX="23.0" layoutY="107.0" spacing="30" prefHeight="163.0" prefWidth="95.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="2 Players" />
-                  <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="95.0" text="3 Players" />
-                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="95.0" text="4 Players" />
+                  <Button fx:id="twoPlayersButton" mnemonicParsing="false" onAction="#twoPlayersButtonClicked" prefHeight="30.0" prefWidth="100.0" text="2 Players" />
+                  <Button fx:id="threePlayersButton" mnemonicParsing="false" onAction="#threePlayersButtonClicked" prefHeight="29.0" prefWidth="95.0" text="3 Players" />
+                  <Button mnemonicParsing="false" onAction="#fourPlayersButtonClicked" prefHeight="30.0" prefWidth="95.0" text="4 Players" />
                </children>
             </VBox>
             <GridPane layoutX="150.0" layoutY="168.0" style="-fx-background-color: orange;">
@@ -55,9 +56,10 @@
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="61.0" text="Player 2" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                   <Label text="Pawn" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="name2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="combo2" onAction="#select2" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Label layoutX="48.0" layoutY="77.0" text="Name" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <Button fx:id="okButton2" mnemonicParsing="false" onAction="#okButtonClicked2" text="Ok" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                </children>
             </GridPane>
          </children>
@@ -76,9 +78,10 @@
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="61.0" text="Player 3" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
             <Label text="Pawn" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="name3" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ComboBox fx:id="combo3" onAction="#select3" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label layoutX="48.0" layoutY="77.0" text="Name" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="okButton3" mnemonicParsing="false" onAction="#okButtonClicked3" text="Ok" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
       <GridPane layoutX="215.0" layoutY="450.0" style="-fx-background-color: green;">
@@ -95,9 +98,10 @@
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="61.0" text="Player 4" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
             <Label text="Pawn" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="name4" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ComboBox fx:id="combo4" onAction="#select4" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label layoutX="48.0" layoutY="77.0" text="Name" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="okButton4" mnemonicParsing="false" onAction="#okButtonClicked4" text="Ok" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
    </children>
