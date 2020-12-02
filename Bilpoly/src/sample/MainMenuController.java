@@ -27,7 +27,7 @@ public class MainMenuController {
     @FXML
     public void playButtonClicked(ActionEvent event) throws Exception {
         System.out.println("play Button clicked. ");
-        Parent root = FXMLLoader.load(getClass().getResource("game_screen.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("player_selection.fxml"));
         Stage window = (Stage)( ((Node) event.getSource()).getScene().getWindow());
         window.getScene().setRoot(root);
     }

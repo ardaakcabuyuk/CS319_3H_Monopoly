@@ -4,11 +4,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.HowToPlayController">
+<AnchorPane prefHeight="417.0" prefWidth="617.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.HowToPlayController">
    <children>
-      <AnchorPane layoutX="67.0" layoutY="27.0" prefHeight="262.0" prefWidth="357.0">
+      <AnchorPane layoutX="42.0" layoutY="27.0" prefHeight="331.0" prefWidth="539.0">
          <children>
-            <Label layoutX="4.0" layoutY="62.0" prefHeight="68.0" prefWidth="264.0" text="How to play">
+            <Label layoutY="14.0" prefHeight="68.0" prefWidth="264.0" text="How to play">
                <font>
                   <Font size="48.0" />
                </font>
