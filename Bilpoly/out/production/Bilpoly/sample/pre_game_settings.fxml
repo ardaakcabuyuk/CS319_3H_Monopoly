@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="bodybg" stylesheets="@background.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PreGameSettingsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="697.0" prefWidth="898.0" styleClass="bodybg" stylesheets="@background.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PreGameSettingsController">
    <children>
       <AnchorPane layoutX="65.0" layoutY="58.0" style="-fx-background-color: white; -fx-background-radius: 30;" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="65.0" AnchorPane.rightAnchor="89.0" AnchorPane.topAnchor="58.0">
          <children>
@@ -15,6 +15,26 @@
             </Label>
             <Button layoutX="14.0" layoutY="245.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="75.0" prefWidth="300.0" text="Back" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" />
             <Button layoutX="24.0" layoutY="245.0" mnemonicParsing="false" onAction="#startButtonClicked" prefHeight="75.0" prefWidth="300.0" text="Start" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0" />
+            <VBox  spacing="30" AnchorPane.bottomAnchor="201.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="408.0" AnchorPane.topAnchor="150.0">
+               <children>
+                  <Label alignment="TOP_CENTER" prefHeight="24.0" prefWidth="300.0" text="INITIAL MONEY">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Label>
+                  <Button mnemonicParsing="false" prefHeight="66.0" prefWidth="303.0" text="\$50,000">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Button layoutX="10.0" layoutY="34.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="303.0" text="\$100,000">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Button layoutX="10.0" layoutY="100.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="303.0" text="\$150,000">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+               </children>
+            </VBox>
          </children>
       </AnchorPane>
    </children>
