@@ -15,6 +15,7 @@ public class PreGameSettingsController {
         Parent root = FXMLLoader.load(getClass().getResource("game_screen.fxml"));
         Stage window = (Stage)( ((Node) event.getSource()).getScene().getWindow());
         window.getScene().setRoot(root);
+        AssetManager.constructGameManager();
     }
 
     @FXML

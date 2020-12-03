@@ -10,7 +10,7 @@
    <children>
       <ImageView pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@1600171821-757171.jpg" />
+            <Image url="@Images/1600171821-757171.jpg" />
          </image>
       </ImageView>
       <AnchorPane prefWidth="981.0" AnchorPane.bottomAnchor="292.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="209.0" AnchorPane.topAnchor="100.0">

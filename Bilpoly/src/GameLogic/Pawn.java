@@ -6,10 +6,12 @@ public class Pawn {
     private final String NAME;
     private ImageView image;
     private Location currentLocation;
+    private PawnType type;
 
     //constructor
-    public Pawn(String name, ImageView image) {
+    public Pawn(String name, PawnType pType) {
         this.NAME = name;
+        this.type = pType;
     }
 
     //methods

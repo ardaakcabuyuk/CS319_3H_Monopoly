@@ -11,14 +11,14 @@
    <children>
       <ImageView fitHeight="920.0" fitWidth="1440.0" opacity="0.5" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@1600171821-757171.jpg" />
+            <Image url="@Images/1600171821-757171.jpg" />
          </image>
       </ImageView>
       <AnchorPane prefHeight="282.0" prefWidth="256.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0">
          <children>
             <ImageView fitHeight="228.0" fitWidth="255.0" pickOnBounds="true">
                <image>
-                  <Image url="@card_deck_red_turn.png" />
+                  <Image url="@Images/card_deck_red_turn.png" />
                </image>
             </ImageView>
             <Button layoutX="86.0" layoutY="294.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" text="Roll Dice" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
@@ -42,7 +42,7 @@
          <children>
             <ImageView fitHeight="230.0" fitWidth="170.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
-                  <Image url="@next_player.png" />
+                  <Image url="@Images/next_player.png" />
                </image>
             </ImageView>
             <Label layoutX="32.0" layoutY="26.0" prefHeight="23.0" prefWidth="108.0" text="NEXT TURN" textFill="WHITE" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="26.0">
@@ -66,7 +66,7 @@
          <children>
             <ImageView fitHeight="72.0" fitWidth="245.0" layoutX="3.0" layoutY="1.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
-                  <Image url="@timer.png" />
+                  <Image url="@Images/timer.png" />
                </image>
             </ImageView>
             <Label layoutX="45.0" layoutY="-3.0" prefHeight="78.0" prefWidth="157.0" text="timer" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="0.0">
@@ -80,7 +80,7 @@
          <children>
             <ImageView fitHeight="93.0" fitWidth="245.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
-                  <Image url="@history.png" />
+                  <Image url="@Images/history.png" />
                </image>
             </ImageView>
             <Label layoutX="16.0" layoutY="37.0" prefHeight="0.0" prefWidth="92.0" text="history1" textFill="WHITE" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="10.0">
@@ -104,7 +104,7 @@
          <children>
             <ImageView fitHeight="860.0" fitWidth="930.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
-                  <Image url="@board.png" />
+                  <Image url="@Images/board.png" />
                </image></ImageView>
             <AnchorPane layoutX="410.0" layoutY="366.0" prefHeight="150.0" prefWidth="150.0" AnchorPane.bottomAnchor="355.0" AnchorPane.leftAnchor="390.0" AnchorPane.rightAnchor="390.0" AnchorPane.topAnchor="355.0" />
          </children>

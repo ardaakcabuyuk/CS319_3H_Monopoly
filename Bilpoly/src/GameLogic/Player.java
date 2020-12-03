@@ -6,11 +6,10 @@ import java.util.Collections;
 
 //Player Class
 public class Player {
-    //constants
-    private final String NAME;
-    private final Color COLOR;
 
     //variables
+    private String name;
+    private Color color;
     private Pawn pawn;
     private int money;
     private int score;
@@ -22,33 +21,31 @@ public class Player {
     private ArrayList<Cafe> ownedCafes;
 
     //constructor
-    public Player(String name, Pawn pawn, int initMoney, int initScore, boolean isTurn,
-                  Color color){
-        this.NAME = name;
+    public Player(String name, Pawn pawn, int initMoney, Color color){
+        this.name = name;
         this.pawn = pawn;
         this.money = initMoney;
-        this.score = initScore;
-        this.isTurn = isTurn;
-        this.COLOR = color;
+        this.score = 0;
+        this.isTurn = false;
+        this.color = color;
         this.isBankrupt = false;
         this.isInAtalarsRoom = false;
         this.atalarsRoomFreeCardNum = 0;
         this.ownedLands =  new ArrayList<Land>();
         this.ownedCafes = new ArrayList<Cafe>();
     }
-
-    public Player(Player p) {
-        this.NAME = p.NAME;
-        this.pawn = p.pawn;
-        this.money = p.money;
-        this.score = p.score;
-        this.isTurn = p.isTurn;
-        this.COLOR = p.COLOR;
-        this.isBankrupt = p.isBankrupt;
-        this.isInAtalarsRoom = p.isInAtalarsRoom;
-        this.atalarsRoomFreeCardNum = p.atalarsRoomFreeCardNum;
-        Collections.copy(p.ownedLands, ownedLands);
-        Collections.copy(p.ownedCafes, ownedCafes);
+    public Player(){
+        this.name = "";
+        this.pawn = null;
+        this.money = 0;
+        this.score = 0;
+        this.isTurn = false;
+        this.color = null;
+        this.isBankrupt = false;
+        this.isInAtalarsRoom = false;
+        this.atalarsRoomFreeCardNum = 0;
+        this.ownedLands =  new ArrayList<Land>();
+        this.ownedCafes = new ArrayList<Cafe>();
     }
 
     //methods
@@ -79,7 +76,7 @@ public class Player {
         //check if the cafe is avaliable
         if (!land.isBought()) {
             if (money >= land.getCost()) {
-                land.buy(NAME);
+                land.buy(name);
                 changeMoney(-land.getCost());
                 ownedLands.add(land);
                 return true;
@@ -96,7 +93,7 @@ public class Player {
         //check if the cafe is avaliable
         if (!cafe.isBought()) {
             if (money >= cafe.getCost()) {
-                cafe.buy(NAME);
+                cafe.buy(name);
                 changeMoney(-cafe.getCost());
                 ownedCafes.add(cafe);
                 return true;
@@ -153,17 +150,26 @@ public class Player {
     public void setAtalarsRoomFreeCardNum(int atalarsRoomFreeCardNum) { this.atalarsRoomFreeCardNum = atalarsRoomFreeCardNum; }
 
     // getter name
-    public String getName() { return NAME; }
+    public String getName() { return name; }
 
     // getter pawn
     public Pawn getPawn() { return pawn; }
 
     // getter color
-    public Color getColor() { return COLOR; }
+    public Color getColor() { return color; }
 
     // getter ownedLands
     public ArrayList<Land> getOwnedLands() { return ownedLands; }
 
     // getter ownedCafes
     public ArrayList<Cafe> getOwnedCafes() { return ownedCafes; }
+
+    // set name
+    public void setName(String name1) { name = name1; }
+    // set pawn
+    public void setPawn(Pawn pawn1) { pawn = pawn1; }
+    // set color
+    public void setColor(Color color) { this.color = color; }
+    // set initial money
+    public void setInitMoney(int money) { this.money = money; }
 }

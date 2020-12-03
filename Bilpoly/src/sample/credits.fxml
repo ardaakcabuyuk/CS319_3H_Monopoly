@@ -14,7 +14,7 @@
                <children>
                   <ImageView pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="57.33333333333334" AnchorPane.leftAnchor="93.0" AnchorPane.rightAnchor="73.66666666666669" AnchorPane.topAnchor="68.0">
                      <image>
-                        <Image url="@credits_screen.png" />
+                        <Image url="@Images/credits_screen.png" />
                      </image>
                   </ImageView>
                </children>
