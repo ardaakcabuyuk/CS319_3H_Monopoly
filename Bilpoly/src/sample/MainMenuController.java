@@ -59,6 +59,7 @@ public class MainMenuController {
     //TODO quit the game ----maybe a confirmbox to ask user
     public void quitButtonClicked(){
         System.out.println("quit Button clicked. ");
+        System.exit(0);
     }
 
 }
