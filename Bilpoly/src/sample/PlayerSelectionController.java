@@ -149,21 +149,6 @@ public class PlayerSelectionController {
         String nameOne = name1.getText();
         System.out.println("name1: "+ nameOne);
 
-        //pawn
-        System.out.println("selected: "+ combo1.getSelectionModel().getSelectedItem().toString());
-        String pawnName = combo1.getSelectionModel().getSelectedItem().toString();
-        PawnType pType = null;
-        if(pawnName == "Ferrari")
-            pType = PawnType.FERRARI;
-        else if(pawnName == "TMD")
-            pType = PawnType.TMD;
-        else if(pawnName == "TAXI")
-            pType = PawnType.TAXI;
-        else if(pawnName == "BMW")
-            pType = PawnType.BMW;
-        if(AssetManager.players[0] != null && pType != null){
-            AssetManager.players[0].setPawn(new Pawn(pawnName, pType));
-        }
     }
 
     @FXML
@@ -175,21 +160,6 @@ public class PlayerSelectionController {
         String nameTwo = name2.getText();
         System.out.println("name2: "+ nameTwo);
 
-        //pawn
-        System.out.println("selected: "+ combo2.getSelectionModel().getSelectedItem().toString());
-        String pawnName = combo2.getSelectionModel().getSelectedItem().toString();
-        PawnType pType = null;
-        if(pawnName == "Ferrari")
-            pType = PawnType.FERRARI;
-        else if(pawnName == "TMD")
-            pType = PawnType.TMD;
-        else if(pawnName == "TAXI")
-            pType = PawnType.TAXI;
-        else if(pawnName == "BMW")
-            pType = PawnType.BMW;
-        if(AssetManager.players[1] != null && pType != null){
-            AssetManager.players[1].setPawn(new Pawn(pawnName, pType));
-        }
     }
 
     @FXML
@@ -201,21 +171,6 @@ public class PlayerSelectionController {
         String nameThree = name3.getText();
         System.out.println("name3: "+ nameThree);
 
-        //pawn
-        System.out.println("selected: "+ combo3.getSelectionModel().getSelectedItem().toString());
-        String pawnName = combo3.getSelectionModel().getSelectedItem().toString();
-        PawnType pType = null;
-        if(pawnName == "Ferrari")
-            pType = PawnType.FERRARI;
-        else if(pawnName == "TMD")
-            pType = PawnType.TMD;
-        else if(pawnName == "TAXI")
-            pType = PawnType.TAXI;
-        else if(pawnName == "BMW")
-            pType = PawnType.BMW;
-        if(AssetManager.players[2] != null && pType != null){
-            AssetManager.players[2].setPawn(new Pawn(pawnName, pType));
-        }
     }
 
     @FXML
@@ -226,22 +181,7 @@ public class PlayerSelectionController {
         }
         String nameFour = name4.getText();
         System.out.println("name4: "+ nameFour);
-
-        //pawn
-        System.out.println("selected: "+ combo4.getSelectionModel().getSelectedItem().toString());
-        String pawnName = combo4.getSelectionModel().getSelectedItem().toString();
-        PawnType pType = null;
-        if(pawnName == "Ferrari")
-            pType = PawnType.FERRARI;
-        else if(pawnName == "TMD")
-            pType = PawnType.TMD;
-        else if(pawnName == "TAXI")
-            pType = PawnType.TAXI;
-        else if(pawnName == "BMW")
-            pType = PawnType.BMW;
-        if(AssetManager.players[3] != null && pType != null){
-            AssetManager.players[3].setPawn(new Pawn(pawnName, pType));
-        }
+        
     }
 
     @FXML
