@@ -77,6 +77,6 @@ public class PreGameSettingsController {
             timeLabel.setText("%" + Integer.toString((int) newValue.intValue()));
 
 
-        }); 
+        });
     }
 }

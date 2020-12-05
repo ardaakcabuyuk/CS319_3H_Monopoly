@@ -199,6 +199,8 @@ public class PlayerSelectionController {
         AssetManager.setPlayers(new Player[2]);
         player1.setDisable(false);
         player2.setDisable(false);
+        player3.setDisable(true);
+        player4.setDisable(true);
 
     }
 
@@ -210,6 +212,8 @@ public class PlayerSelectionController {
         player1.setDisable(false);
         player2.setDisable(false);
         player3.setDisable(false);
+        player4.setDisable(true);
+
     }
 
     @FXML
