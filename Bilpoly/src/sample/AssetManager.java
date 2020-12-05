@@ -47,6 +47,9 @@ public class AssetManager extends Application {
     public static void setPlayerNumber(int playerNum){
         playerNumber = playerNum;
     }
+    public static int getPlayerNumber(){
+        return playerNumber;
+    }
     public static void setPlayers(Player[] players1){
         players = Arrays.copyOf(players1, players1.length);
     }
