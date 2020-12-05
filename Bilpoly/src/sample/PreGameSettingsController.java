@@ -5,9 +5,45 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class PreGameSettingsController {
+
+    @FXML
+    public void money3ButtonClicked(ActionEvent event) throws Exception {
+        System.out.println("$150k Button clicked. ");
+    }
+
+    @FXML
+    public void money2ButtonClicked(ActionEvent event) throws Exception {
+        System.out.println("$100k Button clicked. ");
+    }
+
+    @FXML
+    public void money1ButtonClicked(ActionEvent event) throws Exception {
+        System.out.println("$50k Button clicked. ");
+    }
+
+    @FXML
+    public void buildingsButtonClicked(ActionEvent event) throws Exception {
+        System.out.println("Buildings mode selected. ");
+    }
+
+    @FXML
+    public void coursesButtonClicked(ActionEvent event) throws Exception {
+        System.out.println("Courses mode selected. ");
+    }
+
+    @FXML
+    public void normalButtonClicked(ActionEvent event) throws Exception {
+        System.out.println("Normal time mode selected. ");
+    }
+
+    @FXML
+    public void timedButtonClicked(ActionEvent event) throws Exception {
+        System.out.println("Timed mode selected. ");
+    }
 
     @FXML
     public void startButtonClicked(ActionEvent event) throws Exception {

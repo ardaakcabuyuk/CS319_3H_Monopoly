@@ -30,14 +30,6 @@ public class PlayerSelectionController {
     @FXML
     private TextField name4;
     @FXML
-    private Button okButton1;
-    @FXML
-    private Button okButton2;
-    @FXML
-    private Button okButton3;
-    @FXML
-    private Button okButton4;
-    @FXML
      private ComboBox combo1;
     @FXML
      private ComboBox combo2;
@@ -45,13 +37,6 @@ public class PlayerSelectionController {
      private ComboBox combo3;
     @FXML
      private ComboBox combo4;
-    @FXML
-    private Button twoPlayersButton;
-    @FXML
-    private Button threePlayersButton;
-    @FXML
-    private Button fourPlayersButton;
-
 
     @FXML
     public void select1(ActionEvent event) throws Exception {

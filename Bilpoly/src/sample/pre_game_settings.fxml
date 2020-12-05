@@ -21,15 +21,15 @@
                      <font>
                         <Font size="24.0" />
                      </font></Label>
-                  <Button mnemonicParsing="false" prefHeight="66.0" prefWidth="303.0" text="\$50,000">
+                  <Button fx:id="money1Button" mnemonicParsing="false" onAction="#money1ButtonClicked" prefHeight="66.0" prefWidth="303.0" text="\$50,000">
                      <font>
                         <Font size="24.0" />
                      </font></Button>
-                  <Button layoutX="10.0" layoutY="34.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="303.0" text="\$100,000">
+                  <Button fx:id="money2Button" layoutX="10.0" layoutY="34.0" mnemonicParsing="false" onAction="#money2ButtonClicked" prefHeight="66.0" prefWidth="303.0" text="\$100,000">
                      <font>
                         <Font size="24.0" />
                      </font></Button>
-                  <Button layoutX="10.0" layoutY="100.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="303.0" text="\$150,000">
+                  <Button fx:id="money3Button" layoutX="10.0" layoutY="100.0" mnemonicParsing="false" onAction="#money3ButtonClicked" prefHeight="66.0" prefWidth="303.0" text="\$150,000">
                      <font>
                         <Font size="24.0" />
                      </font></Button>
@@ -53,8 +53,8 @@
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <Button mnemonicParsing="false" prefHeight="150.0" prefWidth="250.0" text="Buildings " GridPane.rowIndex="1" />
-                        <Button mnemonicParsing="false" prefHeight="150.0" prefWidth="250.0" text="Courses " GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="buildingsButton" mnemonicParsing="false" onAction="#buildingsButtonClicked" prefHeight="150.0" prefWidth="250.0" text="Buildings " GridPane.rowIndex="1" />
+                        <Button fx:id="coursesButton" mnemonicParsing="false" onAction="#coursesButtonClicked" prefHeight="150.0" prefWidth="250.0" text="Courses " GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                   <GridPane hgap="50.0" layoutX="10.0" layoutY="10.0" prefHeight="91.0" prefWidth="568.0">
@@ -73,8 +73,8 @@
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="249.0" text="Normal" GridPane.rowIndex="1" />
-                        <Button mnemonicParsing="false" prefHeight="150.0" prefWidth="250.0" text="Timed" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="normalButton" mnemonicParsing="false" onAction="#normalButtonClicked" prefHeight="52.0" prefWidth="249.0" text="Normal" GridPane.rowIndex="1" />
+                        <Button fx:id="timedButton" mnemonicParsing="false" onAction="#timedButtonClicked" prefHeight="150.0" prefWidth="250.0" text="Timed" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                   <VBox prefHeight="55.0" prefWidth="563.0">
