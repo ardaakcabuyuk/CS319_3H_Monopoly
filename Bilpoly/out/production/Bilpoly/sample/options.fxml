@@ -4,16 +4,30 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.OptionsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="697.0" prefWidth="898.0" styleClass="bodybg" stylesheets="@background.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.OptionsController">
    <children>
-      <AnchorPane layoutX="163.0" layoutY="63.0" prefHeight="254.0" prefWidth="275.0">
+      <AnchorPane layoutX="65.0" layoutY="58.0" style="-fx-background-color: white; -fx-background-radius: 30;" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="65.0" AnchorPane.rightAnchor="89.0" AnchorPane.topAnchor="58.0">
          <children>
-            <Label layoutX="11.0" layoutY="31.0" prefHeight="69.0" prefWidth="257.0" text="Options" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0">
+            <Label layoutX="14.0" layoutY="14.0" text="Options" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0">
                <font>
                   <Font size="48.0" />
                </font>
             </Label>
-            <Button layoutX="57.0" layoutY="304.0" mnemonicParsing="false" onAction="#backButtonClicked" prefWidth="102.0" text="Back" />
+            <Button layoutX="14.0" layoutY="245.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="75.0" prefWidth="300.0" text="Back" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" />
+            <VBox fillWidth="false" layoutX="381.0" layoutY="150.0" spacing="20" AnchorPane.bottomAnchor="172.0" AnchorPane.rightAnchor="113.0" AnchorPane.topAnchor="150.0">
+               <children>
+                  <VBox prefHeight="55.0" prefWidth="563.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="350.0" text="                                                                                     MUSIC" />
+                        <Slider fx:id="musicSlider" prefHeight="16.0" prefWidth="448.0" />
+                        <Label fx:id = "musicLabel" prefHeight="17.0" prefWidth="333.0" text="\%0" />
+                        <Label prefHeight="17.0" prefWidth="350.0" text="                                                                                    SOUNDFX" />
+                        <Slider fx:id="effectsSlider" prefHeight="16.0" prefWidth="448.0" />
+                        <Label fx:id = "effectsLabel" prefHeight="17.0" prefWidth="333.0" text="\%0" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
          </children>
       </AnchorPane>
    </children>

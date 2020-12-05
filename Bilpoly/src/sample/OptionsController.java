@@ -7,9 +7,22 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import javafx.scene.control.*;
 
 public class OptionsController {
     Button backButton = new Button();
+
+    @FXML
+    Slider musicSlider;
+
+    @FXML
+    Slider effectsSlider;
+
+    @FXML
+    Label musicLabel;
+
+    @FXML
+    Label effectsLabel;
 
     @FXML
     public void backButtonClicked(ActionEvent event) throws Exception {
@@ -17,5 +30,23 @@ public class OptionsController {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         Stage window = (Stage)( ((Node) event.getSource()).getScene().getWindow());
         window.getScene().setRoot(root);
+    }
+
+    public void initialize() {
+
+        musicSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+
+            musicLabel.setText("%" + Integer.toString((int) newValue.intValue()));
+
+
+        });
+
+        effectsSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+
+            effectsLabel.setText("%" + Integer.toString((int) newValue.intValue()));
+
+
+        });
+
     }
 }
