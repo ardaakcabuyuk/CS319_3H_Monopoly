@@ -108,7 +108,7 @@
                   </GridPane>
                </children>
             </VBox>
-            <Button fx:id="nextButton" layoutX="24.0" layoutY="245.0" mnemonicParsing="false" onAction="#nextButtonClicked" prefHeight="75.0" prefWidth="300.0" text="Next" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0" />
+            <Button fx:id="nextButton" disable="true" layoutX="24.0" layoutY="245.0" mnemonicParsing="false" onAction="#nextButtonClicked" prefHeight="75.0" prefWidth="300.0" text="Next" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0" />
          </children>
       </AnchorPane>
    </children>

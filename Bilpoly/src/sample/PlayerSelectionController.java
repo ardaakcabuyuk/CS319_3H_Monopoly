@@ -4,6 +4,7 @@ import GameLogic.*;
 import GameLogic.Pawn;
 import GameLogic.PawnType;
 import GameLogic.Player;
+import com.sun.media.jfxmedia.events.PlayerEvent;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,6 +18,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import java.util.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -131,62 +133,91 @@ public class PlayerSelectionController {
         combo2.setItems(pawnList);
         combo3.setItems(pawnList);
         combo4.setItems(pawnList);
+
         //nextButton.setDisable(true);
         player1.setDisable(true);
         player2.setDisable(true);
         player3.setDisable(true);
         player4.setDisable(true);
+
     }
 
 
 
     @FXML
     public void okButtonClicked1(ActionEvent event) throws Exception {
+
         if(AssetManager.players[0] != null){
             AssetManager.players[0].setName(name1.getText());
             AssetManager.players[0].setColor(Color.BLUE);
         }
+
         String nameOne = name1.getText();
-        System.out.println("name1: "+ nameOne);
+        System.out.println("name1 : "+ nameOne);
+        System.out.println("name1: "+ AssetManager.players[0].getName() );
+
+        enableNextButton();
 
     }
 
     @FXML
     public void okButtonClicked2(ActionEvent event) throws Exception {
         if(AssetManager.players[1] != null){
-            AssetManager.players[1].setName(name3.getText());
+            AssetManager.players[1].setName(name2.getText());
             AssetManager.players[1].setColor(Color.PINK);
         }
+
+        //checking if it is set or not
         String nameTwo = name2.getText();
         System.out.println("name2: "+ nameTwo);
+
+        System.out.println("name2 checking again: "+ AssetManager.players[1].getName() );
+
+        enableNextButton();
+
 
     }
 
     @FXML
     public void okButtonClicked3(ActionEvent event) throws Exception {
+
         if(AssetManager.players[2] != null){
             AssetManager.players[2].setName(name3.getText());
             AssetManager.players[2].setColor(Color.PINK);
         }
+
         String nameThree = name3.getText();
         System.out.println("name3: "+ nameThree);
+
+        //checking if it is set or not
+        System.out.println("name3 checking again:  "+ AssetManager.players[2].getName() );
+
+        //deciding if the next button should be activated after clicking ok
+        enableNextButton();
 
     }
 
     @FXML
     public void okButtonClicked4(ActionEvent event) throws Exception {
+
         if(AssetManager.players[3] != null){
             AssetManager.players[3].setName(name4.getText());
             AssetManager.players[3].setColor(Color.GREEN);
         }
         String nameFour = name4.getText();
         System.out.println("name4: "+ nameFour);
-        
+
+
+        //checking if it is set or not
+        System.out.println("second check name4: "+ AssetManager.players[3].getName() );
+
+        enableNextButton();
+
     }
 
     @FXML
     public void backButtonClicked(ActionEvent event) throws Exception {
-        System.out.println("back Button clicked. ");
+        System.out.println("Back Button clicked. ");
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         Stage window = (Stage)( ((Node) event.getSource()).getScene().getWindow());
         window.getScene().setRoot(root);
@@ -196,7 +227,9 @@ public class PlayerSelectionController {
     public void twoPlayersButtonClicked(ActionEvent event) throws Exception {
         System.out.println("2 players selected");
         AssetManager.setPlayerNumber(2);
-        AssetManager.setPlayers(new Player[2]);
+
+        AssetManager.setPlayers(initializePlayerArray(2));
+
         player1.setDisable(false);
         player2.setDisable(false);
         player3.setDisable(true);
@@ -208,7 +241,9 @@ public class PlayerSelectionController {
     public void threePlayersButtonClicked(ActionEvent event) throws Exception {
         System.out.println("3 players selected");
         AssetManager.setPlayerNumber(3);
-        AssetManager.setPlayers(new Player[3]);
+
+        AssetManager.setPlayers(initializePlayerArray(3));
+
         player1.setDisable(false);
         player2.setDisable(false);
         player3.setDisable(false);
@@ -220,7 +255,10 @@ public class PlayerSelectionController {
     public void fourPlayersButtonClicked(ActionEvent event) throws Exception {
         System.out.println("4 players selected");
         AssetManager.setPlayerNumber(4);
-        AssetManager.setPlayers(new Player[4]);
+
+        AssetManager.setPlayers(initializePlayerArray(4));
+
+
         player1.setDisable(false);
         player2.setDisable(false);
         player3.setDisable(false);
@@ -236,4 +274,40 @@ public class PlayerSelectionController {
         Stage window = (Stage)( ((Node) event.getSource()).getScene().getWindow());
         window.getScene().setRoot(root);
     }
+
+    //initializes an array according to the choosen player number
+    //everytime user pushes the player number buttons
+    public Player[] initializePlayerArray(int playerCount)
+    {
+        Player[] playerArray = new Player[playerCount];
+        for ( int i = 0; i < playerArray.length; i++)
+        {
+            playerArray[i] = new Player();
+        }
+
+        return playerArray;
+    }
+
+    //enables next button if pawns are decided for each player
+    //can be extended for the names
+    public void enableNextButton()
+    {
+        boolean full = true;
+
+        for ( int i = 0; i < AssetManager.getPlayerNumber(); i++ )
+        {
+            if ( AssetManager.players[i].getPawn() == null )
+            {
+                full = false;
+            }
+        }
+
+        //if there is no pawns undecided, enable next button
+        if ( full )
+        {
+            nextButton.setDisable(false);
+        }
+    }
+
 }
+
