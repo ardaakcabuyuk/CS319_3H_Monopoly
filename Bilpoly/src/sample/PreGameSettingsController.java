@@ -4,11 +4,18 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.control.*;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class PreGameSettingsController {
+
+    @FXML
+    private Slider timeSlider;
+
+    @FXML
+    private Label timeLabel;
 
     @FXML
     public void money3ButtonClicked(ActionEvent event) throws Exception {
@@ -62,4 +69,14 @@ public class PreGameSettingsController {
         window.getScene().setRoot(root);
     }
 
+    //initialize timeLabel text according to the sliders value
+    public void initialize() {
+
+        timeSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+
+            timeLabel.setText(Double.toString(newValue.intValue()));
+
+
+        });
+    }
 }
