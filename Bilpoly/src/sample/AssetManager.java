@@ -8,9 +8,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
+import java.net.URL;
 import java.util.Arrays;
 
 public class AssetManager extends Application {
@@ -33,6 +36,13 @@ public class AssetManager extends Application {
         primaryStage.setResizable(false);
         primaryStage.setFullScreen(true);
         primaryStage.show();
+
+        //music
+         URL resource = getClass().getResource("music/fever.mp3");
+          Media media = new Media(resource.toString());
+          MediaPlayer mediaPlayer = new MediaPlayer(media);
+         mediaPlayer.play();
+
     }
 
 
