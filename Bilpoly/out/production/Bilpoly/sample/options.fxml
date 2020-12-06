@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="697.0" prefWidth="898.0" styleClass="bodybg" stylesheets="@background.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.OptionsController">
+<AnchorPane fx:id="anchorBackground" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="697.0" prefWidth="898.0" styleClass="bodybg" stylesheets="@background.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.OptionsController">
    <children>
       <AnchorPane layoutX="65.0" layoutY="58.0" style="-fx-background-color: white; -fx-background-radius: 30;" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="65.0" AnchorPane.rightAnchor="89.0" AnchorPane.topAnchor="58.0">
          <children>
@@ -41,7 +41,7 @@
                   <Font name="Calibri" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="image1Button1" layoutX="198.0" layoutY="367.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="82.0">
+            <Button fx:id="image1Button1" layoutX="198.0" layoutY="367.0" mnemonicParsing="false" onAction="#image2ButtonClicked" prefHeight="40.0" prefWidth="82.0">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="70.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -50,7 +50,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="image1Button11" layoutX="81.0" layoutY="369.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="89.0" />
+            <Button fx:id="image1Button11" layoutX="81.0" layoutY="369.0" mnemonicParsing="false" onAction="#image1ButtonClicked" prefHeight="44.0" prefWidth="89.0" />
             <ImageView fitHeight="36.0" layoutX="89.0" layoutY="373.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/1600171821-757171.jpg" />

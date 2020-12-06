@@ -4,22 +4,21 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="bodybg" stylesheets="@background.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.HowToPlayController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="bodybg" stylesheets="@background.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CreditsController">
    <children>
-      <AnchorPane layoutX="77.0" layoutY="58.0" prefHeight="283.0" prefWidth="445.0" style="-fx-background-color: white; -fx-background-radius: 30;" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="77.0" AnchorPane.rightAnchor="77.0" AnchorPane.topAnchor="58.0">
+      <AnchorPane layoutX="44.0" layoutY="58.0" prefHeight="325.0" prefWidth="503.0" style="-fx-background-color: white; -fx-background-radius: 30;" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="44.0" AnchorPane.rightAnchor="53.0" AnchorPane.topAnchor="58.0">
          <children>
-            <Label layoutX="14.0" layoutY="14.0" text="How To Play" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+            <Label layoutX="7.0" layoutY="14.0" prefHeight="70.0" prefWidth="278.0" text="How to play">
                <font>
-                  <Font size="24.0" />
+                  <Font size="48.0" />
                </font>
             </Label>
-            <Button layoutX="14.0" layoutY="245.0" mnemonicParsing="false" onAction="#backButtonClicked" text="Back" AnchorPane.bottomAnchor="13.666666666666668" AnchorPane.leftAnchor="14.0" />
-            <TextArea editable="false" layoutX="134.0" layoutY="49.0" prefHeight="200.0" prefWidth="200.0" text="How to play..." AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="134.0" AnchorPane.rightAnchor="112.0" AnchorPane.topAnchor="49.0">
+            <TextArea editable="false" layoutX="26.0" layoutY="84.0" prefHeight="178.0" prefWidth="447.0" text="How to play..." AnchorPane.bottomAnchor="63.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="84.0">
                <font>
                   <Font size="15.0" />
                </font>
             </TextArea>
-         </children>
-      </AnchorPane>
+            <Button layoutX="14.0" layoutY="285.0" mnemonicParsing="false" onAction="#backButtonClicked" prefWidth="102.0" text="Back" AnchorPane.bottomAnchor="14.666666666666668" AnchorPane.leftAnchor="14.0" />
+         </children></AnchorPane>
    </children>
 </AnchorPane>
