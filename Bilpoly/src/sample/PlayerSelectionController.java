@@ -199,7 +199,6 @@ public class PlayerSelectionController {
 
     @FXML
     public void okButtonClicked4(ActionEvent event) throws Exception {
-
         if(AssetManager.players[3] != null){
             AssetManager.players[3].setName(name4.getText());
             AssetManager.players[3].setColor(Color.GREEN);
@@ -207,12 +206,9 @@ public class PlayerSelectionController {
         String nameFour = name4.getText();
         System.out.println("name4: "+ nameFour);
 
-
         //checking if it is set or not
         System.out.println("second check name4: "+ AssetManager.players[3].getName() );
-
         enableNextButton();
-
     }
 
     @FXML
@@ -265,7 +261,6 @@ public class PlayerSelectionController {
         player4.setDisable(false);
     }
 
-
     @FXML
     public void nextButtonClicked(ActionEvent event) throws Exception {
 
@@ -280,11 +275,9 @@ public class PlayerSelectionController {
     public Player[] initializePlayerArray(int playerCount)
     {
         Player[] playerArray = new Player[playerCount];
-        for ( int i = 0; i < playerArray.length; i++)
-        {
+        for ( int i = 0; i < playerArray.length; i++) {
             playerArray[i] = new Player();
         }
-
         return playerArray;
     }
 
@@ -294,20 +287,16 @@ public class PlayerSelectionController {
     {
         boolean full = true;
 
-        for ( int i = 0; i < AssetManager.getPlayerNumber(); i++ )
-        {
-            if ( AssetManager.players[i].getPawn() == null )
-            {
+        for ( int i = 0; i < AssetManager.getPlayerNumber(); i++ ) {
+            if ( AssetManager.players[i].getPawn() == null ) {
                 full = false;
             }
         }
 
         //if there is no pawns undecided, enable next button
-        if ( full )
-        {
+        if ( full ) {
             nextButton.setDisable(false);
         }
     }
-
 }
 

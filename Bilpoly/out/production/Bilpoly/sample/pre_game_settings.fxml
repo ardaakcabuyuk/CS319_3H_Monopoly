@@ -81,7 +81,7 @@
                      <children>
                         <Label prefHeight="17.0" prefWidth="350.0" text="                                                                                    TIME" />
                         <Slider fx:id="timeSlider" prefHeight="16.0" prefWidth="448.0" />
-                        <Label fx:id = "timeLabel" prefHeight="17.0" prefWidth="333.0" text="\%0" />
+                        <Label fx:id = "timeLabel" prefHeight="17.0" prefWidth="333.0" text="a" />
                      </children>
                   </VBox>
                </children>

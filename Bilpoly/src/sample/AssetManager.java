@@ -14,6 +14,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class AssetManager extends Application {
@@ -44,7 +45,6 @@ public class AssetManager extends Application {
           Media media = new Media(resource.toString());
           mediaPlayer = new MediaPlayer(media);
          mediaPlayer.play();
-
     }
 
 
@@ -53,6 +53,11 @@ public class AssetManager extends Application {
     }
 
     public static void constructGameManager(){
+        System.out.println("constructGameManager() is called.");
+        ArrayList<Player> playerList = new ArrayList<Player>();
+        for(int i = 0; i < players.length; i++){
+            playerList.add(players[i]);
+        }
         //GameManager gameManager = new GameManager();
     }
 
