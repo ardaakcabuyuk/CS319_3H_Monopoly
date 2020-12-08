@@ -18,11 +18,14 @@ public class GameManager {
     private HistoryManager historyManager;
     //private GameOver gameOver;
     //private PauseMenu pauseMenu;
+    private boolean timeMode;
+    private int timeLimit;
 
 
     //constructor
     public GameManager(//GameScreen gameScreen,
-                       PlayerDeck playerDeck, Landable[] landableList, CardDeck cardDeck
+                       PlayerDeck playerDeck, Landable[] landableList, CardDeck cardDeck,
+                       boolean timeMode, int timeLimit
                        //GameOver gameOver, PauseMenu pauseMenu
                         ){
         this.timer = new Timer();
@@ -36,6 +39,8 @@ public class GameManager {
         this.historyManager =  new HistoryManager();
         //this.gameOver =  new GameOver();
         //this.pauseMenu =  new PauseMenu();
+        this.timeMode = timeMode;
+        this.timeLimit = timeLimit;
     }
 
     //methods
