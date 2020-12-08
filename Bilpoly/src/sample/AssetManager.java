@@ -58,7 +58,10 @@ public class AssetManager extends Application {
         for(int i = 0; i < players.length; i++){
             playerList.add(players[i]);
         }
-        //GameManager gameManager = new GameManager();
+        PlayerDeck playerDeck = new PlayerDeck(playerList);
+        Landable[] landableList = null;
+        CardDeck cardDeck = null;
+        GameManager gameManager = new GameManager(playerDeck, landableList, cardDeck);
     }
 
     public static void setPlayerNumber(int playerNum){

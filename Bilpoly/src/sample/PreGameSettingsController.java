@@ -20,36 +20,52 @@ public class PreGameSettingsController {
     @FXML
     public void money3ButtonClicked(ActionEvent event) throws Exception {
         System.out.println("$150k Button clicked. ");
+        for(int i = 0; i < AssetManager.players.length; i++){
+            AssetManager.players[i].setInitMoney(150000);
+        }
     }
 
     @FXML
     public void money2ButtonClicked(ActionEvent event) throws Exception {
         System.out.println("$100k Button clicked. ");
+        for(int i = 0; i < AssetManager.players.length; i++){
+            AssetManager.players[i].setInitMoney(100000);
+        }
     }
 
     @FXML
     public void money1ButtonClicked(ActionEvent event) throws Exception {
         System.out.println("$50k Button clicked. ");
+        for(int i = 0; i < AssetManager.players.length; i++){
+            AssetManager.players[i].setInitMoney(50000);
+        }
     }
 
     @FXML
     public void buildingsButtonClicked(ActionEvent event) throws Exception {
         System.out.println("Buildings mode selected. ");
+        AssetManager.boardMode = false;
     }
 
     @FXML
     public void coursesButtonClicked(ActionEvent event) throws Exception {
         System.out.println("Courses mode selected. ");
+        AssetManager.boardMode = true;
     }
 
     @FXML
     public void normalButtonClicked(ActionEvent event) throws Exception {
         System.out.println("Normal time mode selected. ");
+        AssetManager.timeMode = false;
     }
 
     @FXML
     public void timedButtonClicked(ActionEvent event) throws Exception {
         System.out.println("Timed mode selected. ");
+        AssetManager.timeMode = true;
+        timeSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            AssetManager.timeLimit = (int) newValue.intValue();
+        });
     }
 
     @FXML
@@ -71,12 +87,8 @@ public class PreGameSettingsController {
 
     //initialize timeLabel text according to the sliders value
     public void initialize() {
-
         timeSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
-
             timeLabel.setText("%" + Integer.toString((int) newValue.intValue()));
-
-
         });
     }
 }

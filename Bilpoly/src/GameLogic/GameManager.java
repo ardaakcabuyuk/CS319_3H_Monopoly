@@ -22,8 +22,7 @@ public class GameManager {
 
     //constructor
     public GameManager(//GameScreen gameScreen,
-                       Landable[] landableList,
-                       PlayerDeck playerDeck, CardDeck cardDeck
+                       PlayerDeck playerDeck, Landable[] landableList, CardDeck cardDeck
                        //GameOver gameOver, PauseMenu pauseMenu
                         ){
         this.timer = new Timer();
