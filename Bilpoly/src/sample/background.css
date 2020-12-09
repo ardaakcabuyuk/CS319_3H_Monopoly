@@ -18,3 +18,7 @@
 #anchorPreGame{
 	-fx-background-image: url("/sample/Images/1600171821-757171.jpg");
 }
+
+#anchorGame{
+	-fx-background-image: url("/sample/Images/default_transparent.png");
+}

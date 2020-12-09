@@ -1,20 +1,24 @@
 /*classic background*/
 #anchorOptions{
-    -fx-background-image: url("/sample/Images/odeon.jpg");
+    -fx-background-image: url("/sample/Images/odeon.v2.jpg");
 }
 
 #anchorCredits{
-    -fx-background-image: url("/sample/Images/odeon.jpg");
+    -fx-background-image: url("/sample/Images/odeon.v2.jpg");
 }
 
 #anchorHowToPlay{
-    -fx-background-image: url("/sample/Images/odeon.jpg");
+    -fx-background-image: url("/sample/Images/odeon.v2.jpg");
 }
 
 #anchorPlayerSelection{
-    -fx-background-image: url("/sample/Images/odeon.jpg");
+    -fx-background-image: url("/sample/Images/odeon.v2.jpg");
 }
 
 #anchorPreGame{
-    -fx-background-image: url("/sample/Images/odeon.jpg");
+    -fx-background-image: url("/sample/Images/odeon.v2.jpg");
+}
+
+#anchorGame{
+    -fx-background-image: url("/sample/Images/odeon_game_scene.png");
 }

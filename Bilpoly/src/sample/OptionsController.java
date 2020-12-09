@@ -31,6 +31,7 @@ public class OptionsController {
 
     private String urlTheme1 = getClass().getResource("background.css").toExternalForm();
     private String urlTheme2 = getClass().getResource("background2.css").toExternalForm();
+    private String urlTheme3 = getClass().getResource("background3.css").toExternalForm();
 
     @FXML
     public void image1ButtonClicked(ActionEvent event) throws Exception {
@@ -49,6 +50,17 @@ public class OptionsController {
         Scene scene1 =  ((Node) event.getSource()).getScene();
         scene1.getStylesheets().remove(urlTheme1);
         scene1.getStylesheets().add(urlTheme2);
+    }
+
+    @FXML
+    public void image3ButtonClicked(ActionEvent event) throws Exception {
+        System.out.println("center Button clicked. ");
+
+        Scene scene1 =  ((Node) event.getSource()).getScene();
+        scene1.getStylesheets().remove(urlTheme1);
+        scene1.getStylesheets().remove(urlTheme2);
+
+        scene1.getStylesheets().add(urlTheme3);
     }
 
     @FXML

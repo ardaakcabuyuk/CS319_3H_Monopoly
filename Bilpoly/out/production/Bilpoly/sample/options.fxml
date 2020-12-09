@@ -82,11 +82,11 @@
                      </graphic>
                   </Button>
                   <Button fx:id="image1Button12" layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#image2ButtonClicked" prefHeight="43.0" prefWidth="93.0" text="Upload..." GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button fx:id="image1Button13" layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#image2ButtonClicked" prefHeight="46.0" prefWidth="91.0" GridPane.rowIndex="2">
+                  <Button fx:id="image3Button13" layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#image3ButtonClicked" prefHeight="46.0" prefWidth="91.0" GridPane.rowIndex="2">
                      <graphic>
                         <ImageView fitHeight="36.0" fitWidth="70.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@Images/odeon.jpg" />
+                              <Image url="@Images/rsz_center.jpg" />
                            </image>
                         </ImageView>
                      </graphic>
