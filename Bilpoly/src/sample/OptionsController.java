@@ -35,9 +35,10 @@ public class OptionsController {
     @FXML
     public void image1ButtonClicked(ActionEvent event) throws Exception {
         System.out.println("default bilkent Button clicked. ");
-        //anchorOptions.getStyleClass().remove("bodybg2");
-        //anchorOptions.getStyleClass().add("bodybg");
 
+        Scene scene1 =  ((Node) event.getSource()).getScene();
+        scene1.getStylesheets().remove(urlTheme2);
+        scene1.getStylesheets().add(urlTheme1);
 
     }
 
