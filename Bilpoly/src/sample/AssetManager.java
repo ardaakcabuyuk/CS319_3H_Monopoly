@@ -35,6 +35,8 @@ public class AssetManager extends Application {
         primaryStage.setTitle("Bilpoly");
         Rectangle2D screenBounds = Screen.getPrimary().getBounds();
         Scene scene = new Scene(root, screenBounds.getMaxX(), screenBounds.getMaxY());
+        //initialize the theme
+        scene.getStylesheets().add(getClass().getResource("background.css").toString());
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.setFullScreen(true);

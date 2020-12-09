@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -26,20 +27,27 @@ public class OptionsController {
     Label effectsLabel;
 
     @FXML
-    AnchorPane anchorBackground;
+    AnchorPane anchorOptions;
+
+    private String urlTheme1 = getClass().getResource("background.css").toExternalForm();
+    private String urlTheme2 = getClass().getResource("background2.css").toExternalForm();
 
     @FXML
     public void image1ButtonClicked(ActionEvent event) throws Exception {
         System.out.println("default bilkent Button clicked. ");
-        anchorBackground.getStyleClass().remove("bodybg2");
-        anchorBackground.getStyleClass().add("bodybg");
+        //anchorOptions.getStyleClass().remove("bodybg2");
+        //anchorOptions.getStyleClass().add("bodybg");
+
+
     }
 
     @FXML
     public void image2ButtonClicked(ActionEvent event) throws Exception {
         System.out.println("odeon Button clicked. ");
-        anchorBackground.getStyleClass().remove("bodybg");
-        anchorBackground.getStyleClass().add("bodybg2");
+
+        Scene scene1 =  ((Node) event.getSource()).getScene();
+        scene1.getStylesheets().remove(urlTheme1);
+        scene1.getStylesheets().add(urlTheme2);
     }
 
     @FXML

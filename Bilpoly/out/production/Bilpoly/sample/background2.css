@@ -1,0 +1,20 @@
+/*classic background*/
+#anchorOptions{
+    -fx-background-image: url("/sample/Images/odeon.jpg");
+}
+
+#anchorCredits{
+    -fx-background-image: url("/sample/Images/odeon.jpg");
+}
+
+#anchorHowToPlay{
+    -fx-background-image: url("/sample/Images/odeon.jpg");
+}
+
+#anchorPlayerSelection{
+    -fx-background-image: url("/sample/Images/odeon.jpg");
+}
+
+#anchorPreGame{
+    -fx-background-image: url("/sample/Images/odeon.jpg");
+}
