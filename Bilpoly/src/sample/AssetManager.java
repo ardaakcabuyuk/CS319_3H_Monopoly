@@ -43,10 +43,11 @@ public class AssetManager extends Application {
         primaryStage.show();
 
         //music
-         URL resource = getClass().getResource("music/fever.mp3");
+         URL resource = getClass().getResource("music/fever_cut.mp3");
           Media media = new Media(resource.toString());
           mediaPlayer = new MediaPlayer(media);
-         mediaPlayer.play();
+          mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+          mediaPlayer.play();
     }
 
 
