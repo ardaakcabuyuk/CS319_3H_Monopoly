@@ -23,7 +23,6 @@ public class MainMenuController {
     Button quitButton = new Button();
 
 
-    //TODO change scene -- going directly to play game scree for now
     @FXML
     public void playButtonClicked(ActionEvent event) throws Exception {
         System.out.println("play Button clicked. ");
@@ -32,7 +31,6 @@ public class MainMenuController {
         window.getScene().setRoot(root);
     }
 
-    //TODO change scene
     public void howToPlayButtonClicked(ActionEvent event) throws Exception {
         System.out.println("options Button clicked. ");
         Parent root = FXMLLoader.load(getClass().getResource("how_to_play.fxml"));
@@ -40,7 +38,6 @@ public class MainMenuController {
         window.getScene().setRoot(root);
     }
 
-    //TODO change scene
     public void optionsButtonClicked(ActionEvent event) throws Exception {
         System.out.println("options Button clicked. ");
         Parent root = FXMLLoader.load(getClass().getResource("options.fxml"));
@@ -48,7 +45,6 @@ public class MainMenuController {
         window.getScene().setRoot(root);
     }
 
-    //TODO change scene
     public void creditsButtonClicked(ActionEvent event) throws Exception {
         System.out.println("credits Button clicked. ");
         Parent root = FXMLLoader.load(getClass().getResource("credits.fxml"));

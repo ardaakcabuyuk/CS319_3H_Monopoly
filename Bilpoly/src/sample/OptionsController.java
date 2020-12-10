@@ -75,12 +75,6 @@ public class OptionsController {
 
     public void initialize() {
 
-        //musicSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
-
-            //musicLabel.setText("%" + Integer.toString((int) newValue.intValue()));
-
-        //});
-
         //music slider updates the volume
         musicSlider.setValue(AssetManager.mediaPlayer.getVolume()*100);
         musicLabel.setText("%" + Integer.toString((int)musicSlider.getValue()));
