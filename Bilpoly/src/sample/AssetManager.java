@@ -27,7 +27,7 @@ public class AssetManager extends Application {
     protected static boolean timeMode;
     protected static int timeLimit = -1;
 
-    private static MediaPlayer mediaPlayer;
+    public static MediaPlayer mediaPlayer;
 
     @Override
     public void start(Stage primaryStage) throws Exception{

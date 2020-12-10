@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -73,11 +75,21 @@ public class OptionsController {
 
     public void initialize() {
 
-        musicSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+        //musicSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
 
-            musicLabel.setText("%" + Integer.toString((int) newValue.intValue()));
+            //musicLabel.setText("%" + Integer.toString((int) newValue.intValue()));
 
+        //});
 
+        //music slider updates the volume
+        musicSlider.setValue(AssetManager.mediaPlayer.getVolume()*100);
+        musicLabel.setText("%" + Integer.toString((int)musicSlider.getValue()));
+        musicSlider.valueProperty().addListener(new InvalidationListener() {
+            @Override
+            public void invalidated(Observable observable) {
+                AssetManager.mediaPlayer.setVolume(musicSlider.getValue()/100);
+                musicLabel.setText("%" + Integer.toString((int)musicSlider.getValue()));
+            }
         });
 
         effectsSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
