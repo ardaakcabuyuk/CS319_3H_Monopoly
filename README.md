@@ -35,7 +35,7 @@ Project Reports
 **Analysis Report Iter 2:** 
 [Analysis Report](https://github.com/ardaakcabuyuk/CS319_3H_Monopoly/blob/master/Reports/Analysis%20Report%20Iter%202.pdf)
 
-**Design Report Iter 1:** 
-[Design Report](https://github.com/ardaakcabuyuk/CS319_3H_Monopoly/blob/master/Reports/Design%20Report%20Iter%201.pdf)
+**Design Report Iter 2:** 
+[Design Report](https://github.com/ardaakcabuyuk/CS319_3H_Monopoly/blob/master/Reports/Design%20Report%20Iter%202.pdf)
 
 
