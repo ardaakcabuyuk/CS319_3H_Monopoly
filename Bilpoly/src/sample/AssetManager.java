@@ -27,7 +27,7 @@ public class AssetManager extends Application {
     protected static boolean timeMode;
     protected static int timeLimit = -1;
 
-    private static MediaPlayer mediaPlayer;
+    public static MediaPlayer mediaPlayer;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -35,16 +35,19 @@ public class AssetManager extends Application {
         primaryStage.setTitle("Bilpoly");
         Rectangle2D screenBounds = Screen.getPrimary().getBounds();
         Scene scene = new Scene(root, screenBounds.getMaxX(), screenBounds.getMaxY());
+        //initialize the theme
+        scene.getStylesheets().add(getClass().getResource("background.css").toString());
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.setFullScreen(true);
         primaryStage.show();
 
         //music
-         URL resource = getClass().getResource("music/fever.mp3");
-         Media media = new Media(resource.toString());
-         mediaPlayer = new MediaPlayer(media);
-         mediaPlayer.play();
+         URL resource = getClass().getResource("music/fever_cut.mp3");
+          Media media = new Media(resource.toString());
+          mediaPlayer = new MediaPlayer(media);
+          mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+          mediaPlayer.play();
     }
 
 

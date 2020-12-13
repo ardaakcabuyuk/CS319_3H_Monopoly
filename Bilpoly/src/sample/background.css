@@ -1,6 +1,24 @@
-.bodybg{
+/*classic background*/
+#anchorOptions{
 	-fx-background-image: url("/sample/Images/1600171821-757171.jpg");
 }
-.bodybg2{
-	-fx-background-image: url("/sample/Images/odeon.jpg");
+
+#anchorCredits{
+	-fx-background-image: url("/sample/Images/1600171821-757171.jpg");
+}
+
+#anchorHowToPlay{
+	-fx-background-image: url("/sample/Images/1600171821-757171.jpg");
+}
+
+#anchorPlayerSelection{
+	-fx-background-image: url("/sample/Images/1600171821-757171.jpg");
+}
+
+#anchorPreGame{
+	-fx-background-image: url("/sample/Images/1600171821-757171.jpg");
+}
+
+#anchorGame{
+	-fx-background-image: url("/sample/Images/default_transparent.png");
 }
