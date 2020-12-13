@@ -83,7 +83,7 @@ public class GameManager {
     // gameScreen.update()
 
     public void playTurn(Player curPlayer){
-        
+
         if(curPlayer.isInAtalarsRoom()){
             atalarsRoom.tryToGetOut(curPlayer);
             return;
