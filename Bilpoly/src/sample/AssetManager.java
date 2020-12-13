@@ -66,6 +66,7 @@ public class AssetManager extends Application {
         CardDeck cardDeck = getCardDeck(boardMode);
         System.out.println("GameManager is initialized.");
         GameManager gameManager = new GameManager(playerDeck, landableList, cardDeck, timeMode, timeLimit);
+        //gameManager.playGame();
     }
 
     public static void setPlayerNumber(int playerNum){

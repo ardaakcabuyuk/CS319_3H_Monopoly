@@ -36,6 +36,7 @@ public class PlayerDeck {
         Collections.rotate(playerList, 1);
         // update current player
         this.currentPlayer = playerList.get(0);
+        // update player deck UI
     }
 
     // This method deletes the given player from the player deck.

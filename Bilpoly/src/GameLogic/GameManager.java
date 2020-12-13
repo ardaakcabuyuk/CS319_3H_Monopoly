@@ -17,6 +17,7 @@ public class GameManager {
     private HistoryManager historyManager;
     private boolean timeMode;
     private int timeLimit;
+    private boolean isGameOver;
 
     //private GameOver gameOver;
     //private PauseMenu pauseMenu;
@@ -38,6 +39,7 @@ public class GameManager {
         this.historyManager =  new HistoryManager();
         this.timeMode = timeMode;
         this.timeLimit = timeLimit;
+        this.isGameOver = false;
         //this.gameOver =  new GameOver();
         //this.pauseMenu =  new PauseMenu();
         //this.gameScreen = gameScreen;
@@ -46,58 +48,65 @@ public class GameManager {
     //methods
     // This method handles the game turn system.
     // TODO will be implemented.
-    /*
-        playGame(){
-        while(!isGameOver()){
-            if(!currentPlayer.isTurn)
-                currentPlayer = ...;
-                playerDeck.updateDec();
-            playTurn(Player currentPlayer)
+    public void playGame(){
+        // if timer => start timer;
+        // you have landable[] => built the board;
+        // you have playerDeck => built player cards
+        // built next player
+        // built history
+        while(!isGameOver){
+            if(!playerDeck.getCurrentPlayer().isTurn()){
+                playerDeck.nextPlayer();
+                // update playerDeck UI
+            }
+            playTurn(playerDeck.getCurrentPlayer());
         }
-        gameOver.update();
-        }
-     */
-    public void playGame(){}
+        // gameOver.update();
+    }
+
 
     // This method handles the each turn for given player.
     // TODO will be implemented.
-    /*
-        playTurn(Player currentPlayer){
 
-        wait for rollDice();
-        rollDice();
-        movePawn();
+    // wait for rollDice();
+    // rollDice();
+    // movePawn();
+    // executeLadable(Landlable land);
+    // history.update();
+    // gameScreen.update()
 
-        executeLadable(Landlable land);
+    public void playTurn(Player curPlayer){
+        dice.rollDice();
+        int diceValue = dice.getTotalFaceValue();
+        int pawnNewIndex = curPlayer.getPawn().movePawn(diceValue, landableList.length);
+        executeLandable(landableList[pawnNewIndex]);
+    }
 
-        history.update();
-        gameScreen.update()
-        }
-     */
-    public void playTurn(Player curPlayer){}
+
 
     // This method executes the given land.
     // TODO will be implemented.
-    /*
-        executeLadable(Landlable land){
-        if land.type == card{
-            cardn.executeCard()
-        }
-        else if land.type == funct
-        else if land.type == land
-            wait
-        else if land.type == cafe
-            wait
-            if(bought)
-                history.update();
-        else if land.type == atalar
-            history.update();
-        else{
 
-        }
-        }
-     */
-    public void executeLandable(Landable landable){}
+    // executeLadable(Landlable land){
+    //    if land.type == card{
+    //        cardn.executeCard()
+    //    }
+    //    else if land.type == funct
+    //    else if land.type == land
+    //        wait
+    //    else if land.type == cafe
+    //        wait
+    //        if(bought)
+    //            history.update();
+    //    else if land.type == atalar
+    //        history.update();
+    //    else{
+    //    }
+    // }
+
+    public void executeLandable(Landable landable){
+
+    }
 
 
     //GETTERS AND SETTERS
