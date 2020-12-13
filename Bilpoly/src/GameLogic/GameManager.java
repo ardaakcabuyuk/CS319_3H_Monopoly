@@ -10,37 +10,37 @@ public class GameManager {
     private Timer timer;
     private Player winner;
     private int freeParkingMoney;
-    //private GameScreen gameScreen;
     private Landable[] landableList;
     private PlayerDeck playerDeck;
     private CardDeck cardDeck;
     private Dice dice;
     private HistoryManager historyManager;
-    //private GameOver gameOver;
-    //private PauseMenu pauseMenu;
     private boolean timeMode;
     private int timeLimit;
 
+    //private GameOver gameOver;
+    //private PauseMenu pauseMenu;
+    //private GameScreen gameScreen;
+
 
     //constructor
-    public GameManager(//GameScreen gameScreen,
-                       PlayerDeck playerDeck, Landable[] landableList, CardDeck cardDeck,
+    public GameManager(PlayerDeck playerDeck, Landable[] landableList, CardDeck cardDeck,
                        boolean timeMode, int timeLimit
-                       //GameOver gameOver, PauseMenu pauseMenu
+                       //GameOver gameOver, PauseMenu pauseMenu, GameScreen gameScreen,
                         ){
         this.timer = new Timer();
         this.winner = null;
         this.freeParkingMoney = 0;
-        //this.gameScreen = gameScreen;
         this.landableList = landableList;
         this.playerDeck = playerDeck;
         this.cardDeck = cardDeck;
         this.dice = new Dice();
         this.historyManager =  new HistoryManager();
-        //this.gameOver =  new GameOver();
-        //this.pauseMenu =  new PauseMenu();
         this.timeMode = timeMode;
         this.timeLimit = timeLimit;
+        //this.gameOver =  new GameOver();
+        //this.pauseMenu =  new PauseMenu();
+        //this.gameScreen = gameScreen;
     }
 
     //methods
