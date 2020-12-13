@@ -42,8 +42,8 @@ public class AssetManager extends Application {
 
         //music
          URL resource = getClass().getResource("music/fever.mp3");
-          Media media = new Media(resource.toString());
-          mediaPlayer = new MediaPlayer(media);
+         Media media = new Media(resource.toString());
+         mediaPlayer = new MediaPlayer(media);
          mediaPlayer.play();
     }
 
@@ -93,6 +93,7 @@ public class AssetManager extends Application {
         return null;
     }
     private static CardDeck getCardDeck(boolean boardMode){
-        return null;
+        CardDeck cardDeck = null;
+        return cardDeck;
     }
 }
