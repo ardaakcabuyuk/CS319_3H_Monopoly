@@ -59,8 +59,6 @@ public class GameManager {
         // built next player
         // built history
 
-        cardDeck.shuffleAllCards();
-
         while(!isGameOver){
             if(!playerDeck.getCurrentPlayer().isTurn()){
                 playerDeck.nextPlayer();

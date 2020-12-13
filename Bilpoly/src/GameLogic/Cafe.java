@@ -37,15 +37,18 @@ public class Cafe extends Buyable {
 
     }
 
+    /*
     @Override
     public void buy(String playerName) {
-        super.buy(playerName);
+        super.buy();
+
     }
 
     @Override
     public void sell() {
         super.sell();
     }
+
 
     //TODO should be improved
     @Override
@@ -61,5 +64,7 @@ public class Cafe extends Buyable {
 
     @Override
     public String getOwner() { return super.getOwner(); }
+
+     */
 
 }

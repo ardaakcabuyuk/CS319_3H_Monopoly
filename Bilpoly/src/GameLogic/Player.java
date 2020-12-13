@@ -20,6 +20,7 @@ public class Player {
     private ArrayList<Land> ownedLands;
     private ArrayList<Cafe> ownedCafes;
 
+
     //constructor
     public Player(String name, Pawn pawn, int initMoney, Color color){
         this.name = name;
@@ -76,7 +77,7 @@ public class Player {
         //check if the cafe is avaliable
         if (!land.isBought()) {
             if (money >= land.getCost()) {
-                land.buy(name);
+                land.buy(this);
                 changeMoney(-land.getCost());
                 ownedLands.add(land);
                 return true;
@@ -93,7 +94,7 @@ public class Player {
         //check if the cafe is avaliable
         if (!cafe.isBought()) {
             if (money >= cafe.getCost()) {
-                cafe.buy(name);
+                cafe.buy(this);
                 changeMoney(-cafe.getCost());
                 ownedCafes.add(cafe);
                 return true;

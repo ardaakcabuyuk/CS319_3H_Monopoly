@@ -4,15 +4,15 @@ public abstract class Buyable extends Landable {
     //attributes
     protected String name;
     protected int cost;
-    protected String owner;
+    protected Player owner;
     protected boolean isBought;
     protected boolean isMortgaged;
 
     //methods
-    public void buy(String playerName) {
+    public void buy(Player player) {
         if (!isBought) {
             isBought = true;
-            owner = playerName;
+            owner = player;
         }
     }
     public void sell() {
@@ -21,7 +21,7 @@ public abstract class Buyable extends Landable {
             owner = null;
         }
     }
-    public String getOwner() { return owner; }
+    public Player getOwner() { return owner; }
     public void mortgage() {
         if (isBought && !isMortgaged) {
             isMortgaged = true;

@@ -24,6 +24,8 @@ public class Land extends Buyable {
     private int secondaryNumber;
     private boolean hasPrimary;
     private int currentRent;
+    private int mortgageRate;
+
 
     public Land(Color color, int primaryCost, int secondaryCost, int rent,
                 int rentWithSet, int rentWith1Secondary, int rentWith2Secondary,
@@ -58,6 +60,7 @@ public class Land extends Buyable {
 
     }
 
+    /*
     @Override
     public void buy(String playerName) {
         super.buy(playerName);
@@ -82,6 +85,8 @@ public class Land extends Buyable {
 
     @Override
     public String getOwner() { return super.getOwner(); }
+*/
+
 
     public boolean addSecondary() {
         if (secondaryNumber < MAX_SECONDARY) {
