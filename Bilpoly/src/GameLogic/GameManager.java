@@ -18,6 +18,7 @@ public class GameManager {
     private boolean timeMode;
     private int timeLimit;
     private boolean isGameOver;
+    private GoToAtalarsRoom atalarsRoom;
 
     //private GameOver gameOver;
     //private PauseMenu pauseMenu;
@@ -40,6 +41,9 @@ public class GameManager {
         this.timeMode = timeMode;
         this.timeLimit = timeLimit;
         this.isGameOver = false;
+
+        // TODO fix initilization
+        this.atalarsRoom = new GoToAtalarsRoom(0 ,0 ,null, null);
         //this.gameOver =  new GameOver();
         //this.pauseMenu =  new PauseMenu();
         //this.gameScreen = gameScreen;
@@ -54,6 +58,9 @@ public class GameManager {
         // you have playerDeck => built player cards
         // built next player
         // built history
+
+        cardDeck.shuffleAllCards();
+
         while(!isGameOver){
             if(!playerDeck.getCurrentPlayer().isTurn()){
                 playerDeck.nextPlayer();
@@ -76,10 +83,16 @@ public class GameManager {
     // gameScreen.update()
 
     public void playTurn(Player curPlayer){
+        
+        if(curPlayer.isInAtalarsRoom()){
+            atalarsRoom.tryToGetOut(curPlayer);
+            return;
+        }
+
         dice.rollDice();
         int diceValue = dice.getTotalFaceValue();
         int pawnNewIndex = curPlayer.getPawn().movePawn(diceValue, landableList.length);
-        executeLandable(landableList[pawnNewIndex]);
+        executeLandable(landableList[pawnNewIndex], curPlayer);
     }
 
 
@@ -104,8 +117,59 @@ public class GameManager {
     //    }
     // }
 
-    public void executeLandable(Landable landable){
+    public void executeLandable(Landable landable, Player curPlayer){
+        switch (landable.type){
 
+            case LAND:
+                if(((Land)landable).isBought){
+                    // player has to pay rent
+                }
+                else{
+                    // ask player if he wants to buy
+                }
+
+                break;
+
+
+            case CAFE:
+                if(((Cafe)landable).isBought){
+                    // player has to pay rent
+                }
+                else{
+                    // ask player if he wants to buy
+                }
+
+                break;
+
+
+            case CARD_PLACE:
+
+                cardDeck.drawCard(((CardPlace)landable).getCardType());
+                cardDeck.executeCard();
+
+                break;
+
+
+
+            case FUNCTIONAL_PLACE:
+
+                // i have no idea what to do here -ömer
+
+                break;
+
+
+
+            case GO_TO_ATALARS_ROOM:
+
+                atalarsRoom.goToAtalarsRoom(curPlayer);
+
+                break;
+
+
+
+            default:
+                // error
+        }
     }
 
 

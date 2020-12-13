@@ -21,4 +21,9 @@ public class CardPlace extends Landable {
 
     //TODO will be implemented
     public void closeCard() {}
+
+    // GETTERS SETTERS
+    public CardType getCardType(){
+        return cardType;
+    }
 }

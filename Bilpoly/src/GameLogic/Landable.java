@@ -2,7 +2,7 @@ package GameLogic;
 
 enum LandableType {
     FUNCTIONAL_PLACE,
-    ATALARS_ROOM,
+    GO_TO_ATALARS_ROOM,
     CARD_PLACE,
     CAFE,
     LAND
