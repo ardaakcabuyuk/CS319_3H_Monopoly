@@ -23,7 +23,7 @@
          <children>
             <Text stroke="WHITE" strokeType="OUTSIDE" strokeWidth="5.0" text="Bilpoly" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="550.0" AnchorPane.topAnchor="62.69921875">
                <font>
-                  <Font size="140.0" />
+                  <Font name="Futura Medium" size="140.0" />
                </font>
                <fill>
                   <LinearGradient endX="1.0" endY="0.6834532374100719">
@@ -35,7 +35,7 @@
                   </LinearGradient>
                </fill>
             </Text>
-            <VBox alignment="CENTER" fillWidth="false" prefHeight="626.0" prefWidth="1272.0" spacing="50.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="400.0">
+            <VBox alignment="CENTER" fillWidth="false" spacing="50.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="400.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#playButtonClicked" prefHeight="84.0" prefWidth="286.0" style="-fx-background-radius: 30;" text="Play Game">
                      <font>
@@ -80,7 +80,7 @@
                   </Button>
                </children>
                <padding>
-                  <Insets bottom="70.0" right="300.0" />
+                  <Insets bottom="140.0" right="300.0" />
                </padding>
             </VBox>
          </children>
