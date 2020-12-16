@@ -28,13 +28,14 @@ public class GameScreen {
     public static Popup popup = new Popup();
     @FXML
     public AnchorPane boardAnchorPane;
+    public ImageView boardImage;
 
     @FXML
     public void pauseButtonClicked(ActionEvent event) throws Exception {
         System.out.println("pause Button clicked.");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pause_menu.fxml"));
         popup.getContent().add((Parent)loader.load());
-        Parent root = FXMLLoader.load(getClass().getResource("../GameLogic/game_screen.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("game_screen.fxml"));
         Stage window = (Stage)( ((Node) event.getSource()).getScene().getWindow());
         popup.show(window);
     }
@@ -47,6 +48,9 @@ public class GameScreen {
     }
 
     public void initializePawns(){
+
+        double boardWidth = boardImage.getFitWidth();
+        double boardHeight = boardImage.getFitHeight();
         //pawn1
         ImageView pawn1 = new ImageView(getClass().getResource("Images/pawns/p1.jpg").toExternalForm());
         pawn1.relocate(830, 800);
@@ -72,5 +76,13 @@ public class GameScreen {
         System.out.println(boardAnchorPane.getLayoutY());
         System.out.println(boardAnchorPane.widthProperty().doubleValue());
         System.out.println(boardAnchorPane.heightProperty().doubleValue());
+
+        Rectangle2D screenBounds = Screen.getPrimary().getBounds();
+        double width =  screenBounds.getMaxX();
+        double height = screenBounds.getMaxY();
+        System.out.println("width: " + width + " height: " + height);
+
+        boardImage.setFitWidth(width * 0.645);
+        boardImage.setFitHeight(height * 0.955);
     }
 }
