@@ -68,5 +68,9 @@ public class GameScreen {
         pawn4.setFitHeight(40);
         pawn4.setFitWidth(40);
         boardAnchorPane.getChildren().addAll(pawn1, pawn2, pawn3, pawn4);
+        System.out.println(boardAnchorPane.getLayoutX());
+        System.out.println(boardAnchorPane.getLayoutY());
+        System.out.println(boardAnchorPane.widthProperty().doubleValue());
+        System.out.println(boardAnchorPane.heightProperty().doubleValue());
     }
 }
