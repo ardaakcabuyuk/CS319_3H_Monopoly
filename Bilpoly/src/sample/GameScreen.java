@@ -47,13 +47,8 @@ public class GameScreen {
     }
 
     public void addImage(){
-        //Image pawn = new Image("/Images/pawns/p2.jpg");
-        BufferedImage pawn = new BufferedImage();
-        try {
-            pawn = ImageIO.read(new File("/Images/pawns/p2.jpg"));
-        } catch (IOException e) {
-            System.out.println(e);
-        }
-        boardAnchorPane.getChildren().addAll(new ImageView(pawn));
+        //Image pawn = new Image("p2.jpg");
+        ImageView pawn = new ImageView(getClass().getResource("p2.jpg").toExternalForm());
+        boardAnchorPane.getChildren().addAll(pawn);
     }
 }
