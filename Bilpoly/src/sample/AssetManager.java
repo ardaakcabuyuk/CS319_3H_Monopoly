@@ -47,7 +47,7 @@ public class AssetManager extends Application {
           Media media = new Media(resource.toString());
           mediaPlayer = new MediaPlayer(media);
           mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-          mediaPlayer.play();
+          //mediaPlayer.play();
     }
 
 

@@ -11,8 +11,8 @@ public class GoToAtalarsRoom extends Landable {
         FEE = fee;
         type = LandableType.GO_TO_ATALARS_ROOM;
         this.index = index;
-        this.location = new Location(location.getX(), location.getY());
-        this.location_available = Arrays.copyOf(location_available, location_available.length);
+        this.location = null;
+        //this.location_available = Arrays.copyOf(location_available, location_available.length);
     }
 
     //methods
