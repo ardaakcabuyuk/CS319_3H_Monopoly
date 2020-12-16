@@ -1,6 +1,0 @@
-You saved a cat. Animal Friends Society gave you 100 Bilcoin as,chance,-1,100,0,0,0 
-You caught the coronavirus! Go to 55. Dormitory for quarantine!,chance,-1,-1,1,0,0
-Today is Mr. Atalar's birthday and you are obligated to organize a surprise party. All expenses are covered by you. Pay 2000 Bilcoin,rector,2000,-1,0,0,1
-You did wrong parking. Pay 200 Bilcoin,chance,200,-1,0,0,1
-Mr. Atalar caught you smoke. Go to Atalar's Room and pay 300 Bilcoin,rector,300,-1,0,0,1
-
