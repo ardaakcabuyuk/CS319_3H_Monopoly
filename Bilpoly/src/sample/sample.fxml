@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainMenuController">
    <children>
@@ -13,38 +16,38 @@
             <Image url="@Images/1600171821-757171.jpg" />
          </image>
       </ImageView>
-      <AnchorPane prefWidth="981.0" AnchorPane.bottomAnchor="292.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="209.0" AnchorPane.topAnchor="100.0">
+      <AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <AnchorPane prefWidth="800.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="275.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#playButtonClicked" prefHeight="75.0" prefWidth="340.0" style="-fx-background-radius: 30;" text="Play Game" AnchorPane.bottomAnchor="375.0" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="0.0">
+                  <Button mnemonicParsing="false" onAction="#playButtonClicked" style="-fx-background-radius: 30;" text="Play Game" AnchorPane.bottomAnchor="375.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="550.0" AnchorPane.topAnchor="0.0">
                      <font>
                         <Font name="Calibri" size="43.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#optionsButtonClicked" prefHeight="75.0" prefWidth="340.0" style="-fx-background-radius: 30;" text="Options" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="600.0" AnchorPane.topAnchor="125.0">
+                  <Button mnemonicParsing="false" onAction="#optionsButtonClicked" style="-fx-background-radius: 30;" text="Options" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="820.0" AnchorPane.topAnchor="125.0">
                      <font>
                         <Font name="Calibri" size="43.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#howToPlayButtonClicked" prefHeight="75.0" prefWidth="340.0" style="-fx-background-radius: 30;" text="How to Play" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="125.0">
+                  <Button layoutX="1264.0" mnemonicParsing="false" onAction="#howToPlayButtonClicked" style="-fx-background-radius: 30;" text="How to Play" AnchorPane.leftAnchor="820.0" AnchorPane.rightAnchor="280.0" AnchorPane.topAnchor="125.0">
                      <font>
                         <Font name="Calibri" size="43.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#creditsButtonClicked" prefHeight="75.0" prefWidth="300.0" style="-fx-background-radius: 30;" text="Credits" AnchorPane.bottomAnchor="125.0" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="250.0">
+                  <Button mnemonicParsing="false" onAction="#creditsButtonClicked" prefHeight="75.0" prefWidth="300.0" style="-fx-background-radius: 30;" text="Credits" AnchorPane.bottomAnchor="125.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="550.0" AnchorPane.topAnchor="250.0">
                      <font>
                         <Font name="Calibri" size="43.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#quitButtonClicked" style="-fx-background-radius: 30;" text="Quit" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="375.0">
+                  <Button mnemonicParsing="false" onAction="#quitButtonClicked" style="-fx-background-radius: 30;" text="Quit" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="550.0" AnchorPane.topAnchor="375.0">
                      <font>
                         <Font name="Calibri" size="43.0" />
                      </font>
                   </Button>
                </children>
             </AnchorPane>
-            <Text layoutX="241.0" layoutY="134.6953125" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="5.0" text="Bilpoly" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="0.0">
+            <Text stroke="WHITE" strokeType="OUTSIDE" strokeWidth="5.0" text="Bilpoly" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="550.0" AnchorPane.topAnchor="62.69921875">
                <font>
                   <Font size="140.0" />
                </font>
