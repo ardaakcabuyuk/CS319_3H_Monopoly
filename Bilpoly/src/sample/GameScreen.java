@@ -48,7 +48,7 @@ public class GameScreen {
 
     public void addImage(){
         //Image pawn = new Image("p2.jpg");
-        ImageView pawn = new ImageView(getClass().getResource("p2.jpg").toExternalForm());
+        ImageView pawn = new ImageView(getClass().getResource("Images/pawns/p3.jpg").toExternalForm());
         boardAnchorPane.getChildren().addAll(pawn);
     }
 }
