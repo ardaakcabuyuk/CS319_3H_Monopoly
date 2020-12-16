@@ -47,8 +47,26 @@ public class GameScreen {
     }
 
     public void addImage(){
-        //Image pawn = new Image("p2.jpg");
-        ImageView pawn = new ImageView(getClass().getResource("Images/pawns/p3.jpg").toExternalForm());
-        boardAnchorPane.getChildren().addAll(pawn);
+        //pawn1
+        ImageView pawn1 = new ImageView(getClass().getResource("Images/pawns/p1.jpg").toExternalForm());
+        pawn1.relocate(830, 800);
+        pawn1.setFitHeight(40);
+        pawn1.setFitWidth(40);
+        //pawn2
+        ImageView pawn2 = new ImageView(getClass().getResource("Images/pawns/p2.jpg").toExternalForm());
+        pawn2.relocate(830, 760);
+        pawn2.setFitHeight(40);
+        pawn2.setFitWidth(40);
+        //pawn3
+        ImageView pawn3 = new ImageView(getClass().getResource("Images/pawns/p3.jpg").toExternalForm());
+        pawn3.relocate(860, 800);
+        pawn3.setFitHeight(40);
+        pawn3.setFitWidth(40);
+        //pawn4
+        ImageView pawn4 = new ImageView(getClass().getResource("Images/pawns/p4.jpg").toExternalForm());
+        pawn4.relocate(860, 760);
+        pawn4.setFitHeight(40);
+        pawn4.setFitWidth(40);
+        boardAnchorPane.getChildren().addAll(pawn1, pawn2, pawn3, pawn4);
     }
 }
