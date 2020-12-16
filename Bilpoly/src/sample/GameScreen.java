@@ -43,10 +43,10 @@ public class GameScreen {
     public void mouseClicked(MouseEvent event) throws Exception {
         System.out.println("X: " + event.getX());
         System.out.println("Y: " + event.getY());
-        addImage();
+        initializePawns();
     }
 
-    public void addImage(){
+    public void initializePawns(){
         //pawn1
         ImageView pawn1 = new ImageView(getClass().getResource("Images/pawns/p1.jpg").toExternalForm());
         pawn1.relocate(830, 800);
