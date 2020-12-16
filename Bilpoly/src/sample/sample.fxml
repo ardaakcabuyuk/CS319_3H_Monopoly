@@ -23,7 +23,7 @@
          <children>
             <Text stroke="WHITE" strokeType="OUTSIDE" strokeWidth="5.0" text="Bilpoly" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="550.0" AnchorPane.topAnchor="62.69921875">
                <font>
-                  <Font size="140.0" />
+                  <Font name="Futura Medium" size="140.0" />
                </font>
                <fill>
                   <LinearGradient endX="1.0" endY="0.6834532374100719">
