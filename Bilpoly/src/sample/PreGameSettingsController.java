@@ -96,6 +96,7 @@ public class PreGameSettingsController {
     public void initialize() {
         timeSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             timeLabel.setText("%" + Integer.toString((int) newValue.intValue()));
+            AssetManager.setTimeLimit(newValue.intValue());
         });
     }
 }

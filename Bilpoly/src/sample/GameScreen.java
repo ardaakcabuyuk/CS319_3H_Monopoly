@@ -13,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -50,6 +51,9 @@ public class GameScreen {
 
         boardWidth = windowWidth * WIDTH_RESIZE;
         boardHeight = windowHeight * HEIGHT_RESIZE;
+
+        timeLabel.setText(String.valueOf(AssetManager.timeLimit));
+
         initializePawns();
     }
     @FXML
@@ -60,6 +64,8 @@ public class GameScreen {
     public ImageView boardImage;
     @FXML
     public Button rollDiceButton;
+    @FXML
+    public Label timeLabel;
 
     @FXML
     public void pauseButtonClicked(ActionEvent event) throws Exception {
