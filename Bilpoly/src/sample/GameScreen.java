@@ -108,6 +108,14 @@ public class GameScreen {
     }
 
     @FXML
+    public void mainMenuButtonClicked(ActionEvent event) throws Exception {
+        System.out.println("main menu Button clicked.");
+        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Stage window = (Stage)( ((Node) event.getSource()).getScene().getWindow());
+        window.getScene().setRoot(root);
+    }
+
+    @FXML
     public void mouseClicked(MouseEvent event) throws Exception {
         System.out.println("X: " + event.getX());
         System.out.println("Y: " + event.getY());

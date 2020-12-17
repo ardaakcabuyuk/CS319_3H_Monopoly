@@ -112,5 +112,6 @@
             <Font size="23.0" />
          </font>
       </Button>
+      <Button layoutX="1137.0" layoutY="14.0" mnemonicParsing="false" onAction="#mainMenuButtonClicked" style="-fx-background-radius: 30;" text="Main Menu" AnchorPane.rightAnchor="34.33333333333326" AnchorPane.topAnchor="14.0" />
    </children>
 </AnchorPane>
