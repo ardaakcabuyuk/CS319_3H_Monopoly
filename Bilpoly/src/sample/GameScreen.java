@@ -122,7 +122,9 @@ public class GameScreen {
         System.out.println("rollDiceClicked");
         pawn1.relocate(200, 200);
         System.out.println("x: " + pawn1.getX() + " Y: " + pawn1.getY());
+
         int[] dices = AssetManager.gameManager.rollDice();
+
         String dicePath = "Images/diceImages/" + dices[0] + "." + dices[1] + ".png";
         Image diceImg = new Image(getClass().getResource(dicePath).toExternalForm());
         ImageView diceImageView = new ImageView(diceImg);
@@ -141,5 +143,10 @@ public class GameScreen {
             }
         },0, 1000);
         System.out.println("Dice 1: " + dices[0] + "\nDice 2: " + dices[1]);
+    }
+
+    public void enableRollDiceButton(){
+        System.out.println("enableRollDiceButton");
+        rollDiceButton.setDisable(false);
     }
 }

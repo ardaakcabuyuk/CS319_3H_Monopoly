@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class PreGameSettingsController {
@@ -71,10 +72,16 @@ public class PreGameSettingsController {
     @FXML
     public void startButtonClicked(ActionEvent event) throws Exception {
         System.out.println("start Button clicked. ");
-        Parent root = FXMLLoader.load(getClass().getResource("game_screen.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("game_screen.fxml"));
+        Parent root = loader.load();
+
+
         Stage window = (Stage)( ((Node) event.getSource()).getScene().getWindow());
         window.getScene().setRoot(root);
+
         AssetManager.constructGameManager();
+        AssetManager.gameManager.gameScreenController = (GameScreen)loader.getController();
+
     }
 
     @FXML

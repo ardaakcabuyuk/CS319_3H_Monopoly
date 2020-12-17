@@ -9,6 +9,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Screen;
@@ -31,6 +32,7 @@ public class AssetManager extends Application {
 
     public static MediaPlayer mediaPlayer;
 
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
@@ -50,6 +52,7 @@ public class AssetManager extends Application {
           mediaPlayer = new MediaPlayer(media);
           mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
           //mediaPlayer.play();
+
     }
 
 
@@ -68,7 +71,6 @@ public class AssetManager extends Application {
         CardDeck cardDeck = getCardDeck(boardMode);
         System.out.println("GameManager is initialized.");
         gameManager = new GameManager(playerDeck, landableList, cardDeck, timeMode, timeLimit);
-        gameManager.playGame();
     }
 
     public static void setPlayerNumber(int playerNum){
@@ -102,4 +104,5 @@ public class AssetManager extends Application {
         CardDeck cardDeck = null;
         return cardDeck;
     }
+
 }

@@ -1,9 +1,16 @@
 package GameLogic;
 
+//import sample.Images.pawns.*;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import sample.AssetManager;
 import sample.GameScreen;
 
 import java.awt.*;
+import java.io.IOException;
 import java.util.*;
 
 public class GameManager {
@@ -29,6 +36,8 @@ public class GameManager {
     //private PauseMenu pauseMenu;
     //private GameScreen gameScreen;
 
+    public GameScreen gameScreenController;
+
 
     //constructor
     public GameManager(PlayerDeck playerDeck, Landable[] landableList, CardDeck cardDeck,
@@ -48,11 +57,14 @@ public class GameManager {
         this.timeLimit = timeLimit;
         this.isGameOver = false;
 
+
         // TODO fix initilization
         this.atalarsRoom = new GoToAtalarsRoom(0 ,0 ,null, null);
         //this.gameOver =  new GameOver();
         //this.pauseMenu =  new PauseMenu();
         //this.gameScreen = gameScreen;
+
+        playGame();
 
     }
 
@@ -66,13 +78,14 @@ public class GameManager {
         // built next player
         // built history
 
-        //while(!isGameOver){
-            /*if(!playerDeck.getCurrentPlayer().isTurn()){
-                playerDeck.nextPlayer();
-                // update playerDeck UI
-            }*/
-            playTurn(new Player("arda", new Pawn("Ferrari", PawnType.FERRARI), 300, Color.RED));
-        //}
+        if(!playerDeck.getCurrentPlayer().isTurn() && !isGameOver){
+            playerDeck.nextPlayer();
+            try {
+                playTurnPreDice();
+            } catch (Exception e){
+                System.out.println(e);
+            }
+        }
         // gameOver.update();
     }
 
@@ -87,23 +100,52 @@ public class GameManager {
     // history.update();
     // gameScreen.update()
 
-    public void playTurn(Player curPlayer) {
+    public void playTurnPreDice() throws IOException {
 
+        Player curPlayer = playerDeck.getCurrentPlayer();
         if (curPlayer.isInAtalarsRoom()) {
             atalarsRoom.tryToGetOut(curPlayer);
             return;
         }
+        //GameScreen.enableRollDiceButton();
 
-        //TODO CANIM ARKADAŞLARIM BURAYI YAPIN
-        /*while (true) {
-            if (diceRolled) {
-                int diceValue = dice.getTotalFaceValue();
-                //int pawnNewIndex = curPlayer.getPawn().movePawn(diceValue, landableList.length);
-                //executeLandable(landableList[pawnNewIndex], curPlayer);
-                diceRolled = false;
-                System.out.println("player " + curPlayer.getName() + " rolled the dice: " + diceValue);
-            }
-        }*/
+        // activate roll dice button
+
+        /*
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("game_screen.fxml"));
+        Parent root = loader.load();
+        GameScreen controller = loader.<GameScreen>getController();
+        controller.enableRollDiceButton();
+
+
+         */
+
+
+        gameScreenController.enableRollDiceButton();
+
+
+
+    }
+
+    public int[] rollDice() {
+        dice.rollDice();
+        int val1 = dice.getDie1FaceValue();
+        int val2 = dice.getTotalFaceValue() - val1;
+        int[] values = {val1, val2};
+        diceRolled = true;
+        playTurnPostDice();
+        return values;
+    }
+
+    public void playTurnPostDice(){
+        System.out.println("playTurnPostDice");
+        int diceValue = dice.getTotalFaceValue();
+        //int pawnNewIndex = curPlayer.getPawn().movePawn(diceValue, landableList.length);
+        executeLandable(
+                //landableList[pawnNewIndex]
+        );
+        diceRolled = false;
+        System.out.println("player " + playerDeck.getCurrentPlayer().getName() + " rolled the dice: " + diceValue);
     }
 
 
@@ -128,7 +170,10 @@ public class GameManager {
     //    }
     // }
 
-    public void executeLandable(Landable landable, Player curPlayer){
+    public void executeLandable(
+            //Landable landable
+    ){
+        /*
         switch (landable.type){
 
             case LAND:
@@ -172,7 +217,7 @@ public class GameManager {
 
             case GO_TO_ATALARS_ROOM:
 
-                atalarsRoom.goToAtalarsRoom(curPlayer);
+                atalarsRoom.goToAtalarsRoom(playerDeck.getCurrentPlayer());
 
                 break;
 
@@ -181,16 +226,11 @@ public class GameManager {
             default:
                 // error
         }
-    }
 
+         */
+
+        playGame();
+    }
 
     //GETTERS AND SETTERS
-    public int[] rollDice()  {
-        dice.rollDice();
-        int val1 = dice.getDie1FaceValue();
-        int val2 = dice.getTotalFaceValue() - val1;
-        int[] values = {val1, val2};
-        diceRolled = true;
-        return values;
-    }
 }
