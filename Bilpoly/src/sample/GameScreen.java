@@ -121,9 +121,10 @@ public class GameScreen {
         System.out.println("x: " + pawn1.getX() + " Y: " + pawn1.getY());
         int[] dices = AssetManager.gameManager.getDiceValues();
         String dicePath = "Images/diceImages/" + dices[0] + "." + dices[1] + ".png";
-        ImageView diceImage = new ImageView(getClass().getResource(dicePath).toExternalForm());
-        diceImage.relocate(boardWidth / 2 - diceImage.getFitWidth() / 2, boardHeight / 2 - diceImage.getFitHeight() / 2);
-        boardAnchorPane.getChildren().add(diceImage);
+        Image diceImg = new Image(getClass().getResource(dicePath).toExternalForm());
+        ImageView diceImageView = new ImageView(diceImg);
+        diceImageView.relocate(boardWidth / 2 - diceImg.getWidth() / 2, boardHeight / 2 - diceImg.getHeight() / 2);
+        boardAnchorPane.getChildren().add(diceImageView);
         new Timer().schedule(new TimerTask(){
 
             int second = 5;
@@ -131,7 +132,7 @@ public class GameScreen {
             public void run() {
                 System.out.println(second--);
                 if (second == 0) {
-                    diceImage.setImage(null);
+                    diceImageView.setImage(null);
                     cancel();
                 }
             }
