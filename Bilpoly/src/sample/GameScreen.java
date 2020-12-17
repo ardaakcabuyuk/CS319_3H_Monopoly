@@ -192,6 +192,9 @@ public class GameScreen {
         // get current pawn image view
         ImageView currentPawnImageView = getPawnImage(currentPawn);
         animatePawnImageMovement(currentPawnImageView, dices[0] + dices[1], currentPawn.getCurrentLandableIndex());
+
+        rollDiceButton.setDisable(true);
+        doneButton.setDisable(true);
     }
 
     @FXML
