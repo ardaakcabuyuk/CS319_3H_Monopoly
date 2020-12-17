@@ -3,7 +3,12 @@ package sample;
 import GameLogic.*;
 import com.sun.javafx.geom.Rectangle;
 import javafx.animation.AnimationTimer;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.application.Application;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,6 +28,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Popup;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -44,7 +50,16 @@ public class GameScreen {
     double windowHeight;
     protected double boardWidth;
     protected double boardHeight;
+    public boolean doneClicked;
+    public boolean rolledDice;
+    private Timeline timeline;
+
     //ObservableList<ImageView> pawnList = FXCollections.observableArrayList(pawn1, pawn2, pawn3, pawn4);
+
+    private IntegerProperty timeSeconds = new SimpleIntegerProperty(AssetManager.timeLimit);
+
+    @FXML
+    Button doneButton;
 
     @FXML
     public void initialize(){
@@ -56,8 +71,17 @@ public class GameScreen {
         boardHeight = windowHeight * HEIGHT_RESIZE;
         System.out.println("boardWidth: " + boardWidth + " boardHeight: " + boardHeight);
 
-        timeLabel.setText(String.valueOf(AssetManager.timeLimit));
+        timeLabel.textProperty().bind(timeSeconds.asString());
+        timeSeconds.set(AssetManager.timeLimit);
+        timeline = new Timeline();
+        timeline.getKeyFrames().add(
+                new KeyFrame(Duration.seconds(AssetManager.timeLimit+1),
+                        new KeyValue(timeSeconds, 0)));
+        timeline.playFromStart();
 
+        rolledDice = false;
+        doneClicked = false;
+        doneButton.setDisable(true);
         initializePawns();
     }
     @FXML
@@ -134,12 +158,14 @@ public class GameScreen {
 
     @FXML
     public void rollDiceClicked(MouseEvent event) throws Exception{
-        // set dice button disable
-        rollDiceButton.setDisable(true);
+
         System.out.println("rollDiceClicked");
 
         // show dice UI
         int[] dices = AssetManager.gameManager.rollDice();
+
+        rolledDice = true;
+
         String dicePath = "Images/diceImages/" + dices[0] + "." + dices[1] + ".png";
         Image diceImg = new Image(getClass().getResource(dicePath).toExternalForm());
         ImageView diceImageView = new ImageView(diceImg);
@@ -153,6 +179,7 @@ public class GameScreen {
                 System.out.println(second--);
                 if (second == 0) {
                     diceImageView.setImage(null);
+                    doneButton.setDisable(false);
                     cancel();
                 }
             }
@@ -167,6 +194,11 @@ public class GameScreen {
         animatePawnImageMovement(currentPawnImageView, dices[0] + dices[1], currentPawn.getCurrentLandableIndex());
     }
 
+    @FXML
+    public void doneButtonClicked(MouseEvent event) throws Exception{
+        doneClicked = true;
+        enableRollDiceButton();
+    }
     public void enableRollDiceButton(){
         System.out.println("enableRollDiceButton");
         rollDiceButton.setDisable(false);
@@ -238,6 +270,11 @@ public class GameScreen {
         },0, 10);
     }
 
+    public void disableRollDiceButton(){
+        System.out.println("disableRollDiceButton");
+        rollDiceButton.setDisable(true);
+    }
+
     public double getBoardWidth() {
         return boardWidth;
     }
@@ -245,4 +282,5 @@ public class GameScreen {
     public double getBoardHeight() {
         return boardHeight;
     }
+
 }
