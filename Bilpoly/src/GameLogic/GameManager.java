@@ -30,7 +30,7 @@ public class GameManager {
     private boolean timeMode;
     private int timeLimit;
     private boolean isGameOver;
-    private GoToAtalarsRoom atalarsRoom;
+    private AtalarsRoom atalarsRoom;
 
     //private GameOver gameOver;
     //private PauseMenu pauseMenu;
@@ -59,7 +59,7 @@ public class GameManager {
 
 
         // TODO fix initilization
-        this.atalarsRoom = new GoToAtalarsRoom(0 ,0 ,null, null);
+        this.atalarsRoom = new AtalarsRoom(0 ,0 ,null, null);
         //this.gameOver =  new GameOver();
         //this.pauseMenu =  new PauseMenu();
         //this.gameScreen = gameScreen;

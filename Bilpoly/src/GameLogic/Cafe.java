@@ -11,20 +11,22 @@ public class Cafe extends Buyable {
 
     //constructor
     public Cafe(String name, int cost, int rentWith1, int rentWith2,
-                int rentWith3, int rentWith4, int index, Location location, Location[] location_available) {
-        this.type = LandableType.CAFE;
+                int rentWith3, int rentWith4) {
+        //buyable attributes
         this.name = name;
         this.cost = cost;
+        owner = null;
+        isBought = false;
+        isMortgaged = false;
+
+        //cafe attributes
+        this.type = LandableType.CAFE;
         this.rentWith1 = rentWith1;
         this.rentWith2 = rentWith2;
         this.rentWith3 = rentWith3;
         this.rentWith4 = rentWith4;
-        owner = null;
-        isBought = false;
-        isMortgaged = false;
-        this.index = index;
-        this.location = new Location(location.getX(), location.getY());
-        this.location_available = Arrays.copyOf(location_available, location_available.length);
+        this.location = null;
+        this.location_available = null;
     }
     //methods
     //TODO will be implemented

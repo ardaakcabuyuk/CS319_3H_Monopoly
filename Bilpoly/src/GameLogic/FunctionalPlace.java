@@ -11,24 +11,24 @@ enum FunctionalPlaceType {
 }
 
 // FunctionalPlace Class
-public class FunctionalPlace extends Landable {
+public class FunctionalPlace extends Landable implements PlaceStrategy {
     //attributes
-    private FunctionalPlaceType functionalPlaceType;
+    private PlaceStrategy strategy;
 
     //constructor
-    public FunctionalPlace(FunctionalPlaceType functionalPlaceType, int index, Location location, Location[] location_available) {
+    public FunctionalPlace(PlaceStrategy strategy) {
         type = LandableType.FUNCTIONAL_PLACE;
-        this.functionalPlaceType = functionalPlaceType;
-        this.index = index;
-        this.location = new Location(location.getX(), location.getY());
-        this.location_available = Arrays.copyOf(location_available, location_available.length);
+        this.strategy = strategy;
+        this.location = null;
+        this.location_available = null;
     }
 
     //methods
 
     // This method executes the functional place.
     // TODO will be implemented.
-    public void executeFuctional(Player player){
+    @Override
+    public void executeFunctional(FunctionalPlace place, Player player){
 
     }
 

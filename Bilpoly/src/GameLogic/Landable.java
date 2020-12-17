@@ -4,11 +4,11 @@ import sample.AssetManager;
 
 enum LandableType {
     FUNCTIONAL_PLACE,
-    GO_TO_ATALARS_ROOM,
+    ATALARS_ROOM,
     CARD_PLACE,
     CAFE,
     LAND
-};
+}
 
 public abstract class Landable {
     //variables
@@ -16,6 +16,7 @@ public abstract class Landable {
     protected Location location;
     protected Location[] location_available;
     protected LandableType type;
+
     double boardWidth;
     double boardHeight;
 
@@ -38,18 +39,17 @@ public abstract class Landable {
     public LandableType getType() {
         return type;
     }
-    public void setLocation(){
+    public void setLocation() {
         if (AssetManager.gameManager != null) {
             boardHeight = AssetManager.gameManager.gameScreenController.getBoardHeight();
             boardWidth = AssetManager.gameManager.gameScreenController.getBoardWidth();
-        }
-        else{
+        } else {
             boardHeight = 0;
             boardWidth = 0;
         }
 
         location = new Location(0, 0);
-        switch (index){
+        switch (index) {
             case 0:
                 location.setX(boardWidth * 0.871905);
                 location.setY(boardHeight * 0.873108);

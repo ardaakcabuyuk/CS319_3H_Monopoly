@@ -2,11 +2,6 @@ package GameLogic;
 
 import java.util.ArrayList;
 
-enum CardType {
-    CHANCE,
-    RECTORS_WHISPER
-}
-
 public class Card {
 
     //constants

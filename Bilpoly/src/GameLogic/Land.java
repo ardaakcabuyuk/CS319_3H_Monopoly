@@ -6,13 +6,12 @@ import java.util.Arrays;
 
 public class Land extends Buyable {
     //constants
-    private final int MAX_SECONDARY = 4;
+    private final int MAX_SECONDARY = 3;
     private final int RENT;                 //help in CS
     private final int RENT_WITH_SET;
     private final int RENT_WITH_1_SECONDARY;
     private final int RENT_WITH_2_SECONDARY;
     private final int RENT_WITH_3_SECONDARY;
-    private final int RENT_WITH_4_SECONDARY;
     private final int RENT_WITH_PRIMARY;
     private final Color COLOR;
 
@@ -27,9 +26,17 @@ public class Land extends Buyable {
     private int mortgageRate;
 
 
-    public Land(Color color, int primaryCost, int secondaryCost, int rent,
+    public Land(Color color, String name, int cost, int secondaryCost, int primaryCost, int rent,
                 int rentWithSet, int rentWith1Secondary, int rentWith2Secondary,
-                int rentWith3Secondary, int rentWith4Secondary, int rentWithPrimary) {
+                int rentWith3Secondary, int rentWithPrimary) {
+        //buyable attributes
+        this.name = name;
+        this.cost = cost;
+        owner = null;
+        isBought = false;
+        isMortgaged = false;
+
+        //land attributes
         this.type = LandableType.LAND;
         COLOR = color;
         PRIMARY_COST = primaryCost;
@@ -39,14 +46,13 @@ public class Land extends Buyable {
         RENT_WITH_1_SECONDARY = rentWith1Secondary;
         RENT_WITH_2_SECONDARY = rentWith2Secondary;
         RENT_WITH_3_SECONDARY = rentWith3Secondary;
-        RENT_WITH_4_SECONDARY = rentWith4Secondary;
         RENT_WITH_PRIMARY = rentWithPrimary;
         secondaryNumber = 0;
         hasPrimary = false;
         currentRent = RENT;
         this.index = index;
-        this.location = new Location(location.getX(), location.getY());
-        this.location_available = Arrays.copyOf(location_available, location_available.length);
+        this.location = null;
+        this.location_available = null;
     }
 
     //methods
@@ -132,8 +138,6 @@ public class Land extends Buyable {
         else if (currentRent == RENT_WITH_2_SECONDARY)
             currentRent = RENT_WITH_3_SECONDARY;
         else if (currentRent == RENT_WITH_3_SECONDARY)
-            currentRent = RENT_WITH_4_SECONDARY;
-        else if (currentRent == RENT_WITH_4_SECONDARY)
             currentRent = RENT_WITH_PRIMARY;
     }
 
@@ -144,10 +148,8 @@ public class Land extends Buyable {
             currentRent = RENT_WITH_1_SECONDARY;
         else if (currentRent == RENT_WITH_3_SECONDARY)
             currentRent = RENT_WITH_2_SECONDARY;
-        else if (currentRent == RENT_WITH_4_SECONDARY)
-            currentRent = RENT_WITH_3_SECONDARY;
         else if (currentRent == RENT_WITH_PRIMARY)
-            currentRent = RENT_WITH_4_SECONDARY;
+            currentRent = RENT_WITH_3_SECONDARY;
     }
 
     public Color getLandSet() { return COLOR; }

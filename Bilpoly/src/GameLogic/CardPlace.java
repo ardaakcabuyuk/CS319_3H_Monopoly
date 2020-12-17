@@ -7,12 +7,11 @@ public class CardPlace extends Landable {
     private CardType cardType;
 
     //constructor
-    public CardPlace(CardType cardType, int index, Location location, Location[] location_available) {
+    public CardPlace(CardType cardType) {
         type = LandableType.CARD_PLACE;
         this.cardType = cardType;
-        this.index = index;
-        this.location = new Location(location.getX(), location.getY());
-        this.location_available = Arrays.copyOf(location_available, location_available.length);
+        this.location = null;
+        this.location_available = null;
     }
 
     //methods
