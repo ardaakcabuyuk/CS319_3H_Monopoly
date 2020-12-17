@@ -1,7 +1,9 @@
 package GameLogic;
 
+import javafx.scene.paint.Color;
 import sample.GameScreen;
 
+import java.awt.*;
 import java.util.*;
 
 public class GameManager {
@@ -16,6 +18,7 @@ public class GameManager {
     private PlayerDeck playerDeck;
     private CardDeck cardDeck;
     private Dice dice;
+    private boolean diceRolled;
     private HistoryManager historyManager;
     private boolean timeMode;
     private int timeLimit;
@@ -39,6 +42,7 @@ public class GameManager {
         this.playerDeck = playerDeck;
         this.cardDeck = cardDeck;
         this.dice = new Dice();
+        diceRolled = false;
         this.historyManager =  new HistoryManager();
         this.timeMode = timeMode;
         this.timeLimit = timeLimit;
@@ -62,13 +66,13 @@ public class GameManager {
         // built next player
         // built history
 
-        while(!isGameOver){
-            if(!playerDeck.getCurrentPlayer().isTurn()){
+        //while(!isGameOver){
+            /*if(!playerDeck.getCurrentPlayer().isTurn()){
                 playerDeck.nextPlayer();
                 // update playerDeck UI
-            }
-            playTurn(playerDeck.getCurrentPlayer());
-        }
+            }*/
+            playTurn(new Player("arda", new Pawn("Ferrari", PawnType.FERRARI), 300, Color.RED));
+        //}
         // gameOver.update();
     }
 
@@ -83,17 +87,23 @@ public class GameManager {
     // history.update();
     // gameScreen.update()
 
-    public void playTurn(Player curPlayer){
+    public void playTurn(Player curPlayer) {
 
-        if(curPlayer.isInAtalarsRoom()){
+        if (curPlayer.isInAtalarsRoom()) {
             atalarsRoom.tryToGetOut(curPlayer);
             return;
         }
 
-        dice.rollDice();
-        int diceValue = dice.getTotalFaceValue();
-        int pawnNewIndex = curPlayer.getPawn().movePawn(diceValue, landableList.length);
-        executeLandable(landableList[pawnNewIndex], curPlayer);
+        //TODO CANIM ARKADAŞLARIM BURAYI YAPIN
+        /*while (true) {
+            if (diceRolled) {
+                int diceValue = dice.getTotalFaceValue();
+                //int pawnNewIndex = curPlayer.getPawn().movePawn(diceValue, landableList.length);
+                //executeLandable(landableList[pawnNewIndex], curPlayer);
+                diceRolled = false;
+                System.out.println("player " + curPlayer.getName() + " rolled the dice: " + diceValue);
+            }
+        }*/
     }
 
 
@@ -175,12 +185,12 @@ public class GameManager {
 
 
     //GETTERS AND SETTERS
-    public int[] getDiceValues()  {
+    public int[] rollDice()  {
         dice.rollDice();
         int val1 = dice.getDie1FaceValue();
         int val2 = dice.getTotalFaceValue() - val1;
         int[] values = {val1, val2};
+        diceRolled = true;
         return values;
     }
-
 }

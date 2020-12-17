@@ -58,6 +58,8 @@ public class GameScreen {
     public AnchorPane boardAnchorPane;
     @FXML
     public ImageView boardImage;
+    @FXML
+    public Button rollDiceButton;
 
     @FXML
     public void pauseButtonClicked(ActionEvent event) throws Exception {
@@ -116,10 +118,11 @@ public class GameScreen {
 
     @FXML
     public void rollDiceClicked(MouseEvent event) throws Exception{
+        rollDiceButton.setDisable(true);
         System.out.println("rollDiceClicked");
         pawn1.relocate(200, 200);
         System.out.println("x: " + pawn1.getX() + " Y: " + pawn1.getY());
-        int[] dices = AssetManager.gameManager.getDiceValues();
+        int[] dices = AssetManager.gameManager.rollDice();
         String dicePath = "Images/diceImages/" + dices[0] + "." + dices[1] + ".png";
         Image diceImg = new Image(getClass().getResource(dicePath).toExternalForm());
         ImageView diceImageView = new ImageView(diceImg);

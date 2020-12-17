@@ -3,6 +3,7 @@ package GameLogic;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
+import javafx.scene.paint.Color;
 
 //Player Class
 public class Player {

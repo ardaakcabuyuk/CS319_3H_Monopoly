@@ -6,6 +6,7 @@ import GameLogic.Player;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.media.Media;
@@ -67,7 +68,7 @@ public class AssetManager extends Application {
         CardDeck cardDeck = getCardDeck(boardMode);
         System.out.println("GameManager is initialized.");
         gameManager = new GameManager(playerDeck, landableList, cardDeck, timeMode, timeLimit);
-        //gameManager.playGame();
+        gameManager.playGame();
     }
 
     public static void setPlayerNumber(int playerNum){

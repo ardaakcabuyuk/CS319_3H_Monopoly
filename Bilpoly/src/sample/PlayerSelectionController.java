@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.util.*;
 
@@ -164,7 +165,7 @@ public class PlayerSelectionController {
     public void okButtonClicked2(ActionEvent event) throws Exception {
         if(AssetManager.players[1] != null){
             AssetManager.players[1].setName(name2.getText());
-            AssetManager.players[1].setColor(Color.PINK);
+            AssetManager.players[1].setColor(Color.ORANGE);
         }
 
         //checking if it is set or not
