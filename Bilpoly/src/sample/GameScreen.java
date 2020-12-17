@@ -57,6 +57,9 @@ public class GameScreen {
     private IntegerProperty timeSeconds = new SimpleIntegerProperty(AssetManager.timeLimit);
 
     @FXML
+    Button doneButton;
+
+    @FXML
     public void initialize(){
         screenBounds = Screen.getPrimary().getBounds();
         windowWidth =  screenBounds.getMaxX();
@@ -75,6 +78,7 @@ public class GameScreen {
 
         rolledDice = false;
         doneClicked = false;
+        doneButton.setDisable(true);
         initializePawns();
     }
     @FXML
@@ -149,7 +153,7 @@ public class GameScreen {
 
     @FXML
     public void rollDiceClicked(MouseEvent event) throws Exception{
- 
+
         System.out.println("rollDiceClicked");
 
         // show dice UI
@@ -170,6 +174,7 @@ public class GameScreen {
                 System.out.println(second--);
                 if (second == 0) {
                     diceImageView.setImage(null);
+                    doneButton.setDisable(false);
                     cancel();
                 }
             }
@@ -185,6 +190,7 @@ public class GameScreen {
         System.out.println("x: " + currentPawnImageView.getX() + " Y: " + currentPawnImageView.getY());
 
         rollDiceButton.setDisable(true);
+        doneButton.setDisable(true);
     }
 
     @FXML
@@ -218,4 +224,5 @@ public class GameScreen {
         System.out.println("disableRollDiceButton");
         rollDiceButton.setDisable(true);
     }
+
 }

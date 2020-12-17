@@ -109,6 +109,6 @@
             <Font size="23.0" />
          </font>
       </Button>
-      <Button layoutX="72.0" layoutY="347.0" mnemonicParsing="false" text="Done" onMouseClicked="#doneButtonClicked"  />
+      <Button fx:id="doneButton" layoutX="72.0" layoutY="347.0" mnemonicParsing="false" text="Done" onMouseClicked="#doneButtonClicked"  />
    </children>
 </AnchorPane>
