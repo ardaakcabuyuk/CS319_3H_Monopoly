@@ -1,5 +1,7 @@
 package GameLogic;
 
+import sample.GameScreen;
+
 import java.util.*;
 
 public class GameManager {
@@ -47,6 +49,7 @@ public class GameManager {
         //this.gameOver =  new GameOver();
         //this.pauseMenu =  new PauseMenu();
         //this.gameScreen = gameScreen;
+
     }
 
     //methods

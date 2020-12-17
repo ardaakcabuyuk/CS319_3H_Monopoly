@@ -1,6 +1,9 @@
 package sample;
 
+import GameLogic.Location;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,17 +20,25 @@ import javafx.stage.Popup;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 public class GameScreen {
 
+    // variables
+    ImageView pawn1;
+    ImageView pawn2;
+    ImageView pawn3;
+    ImageView pawn4;
+    //ObservableList<ImageView> pawnList = FXCollections.observableArrayList(pawn1, pawn2, pawn3, pawn4);
+
+    @FXML
+    public void initialize(){
+        initializePawns();
+    }
     @FXML
     public static Popup popup = new Popup();
     @FXML
     public AnchorPane boardAnchorPane;
+    @FXML
     public ImageView boardImage;
 
     @FXML
@@ -44,45 +55,59 @@ public class GameScreen {
     public void mouseClicked(MouseEvent event) throws Exception {
         System.out.println("X: " + event.getX());
         System.out.println("Y: " + event.getY());
-        initializePawns();
     }
 
     public void initializePawns(){
 
-        double boardWidth = boardImage.getFitWidth();
-        double boardHeight = boardImage.getFitHeight();
-        //pawn1
-        ImageView pawn1 = new ImageView(getClass().getResource("Images/pawns/p1.jpg").toExternalForm());
-        pawn1.relocate(830, 800);
-        pawn1.setFitHeight(40);
-        pawn1.setFitWidth(40);
-        //pawn2
-        ImageView pawn2 = new ImageView(getClass().getResource("Images/pawns/p2.jpg").toExternalForm());
-        pawn2.relocate(830, 760);
-        pawn2.setFitHeight(40);
-        pawn2.setFitWidth(40);
-        //pawn3
-        ImageView pawn3 = new ImageView(getClass().getResource("Images/pawns/p3.jpg").toExternalForm());
-        pawn3.relocate(860, 800);
-        pawn3.setFitHeight(40);
-        pawn3.setFitWidth(40);
-        //pawn4
-        ImageView pawn4 = new ImageView(getClass().getResource("Images/pawns/p4.jpg").toExternalForm());
-        pawn4.relocate(860, 760);
-        pawn4.setFitHeight(40);
-        pawn4.setFitWidth(40);
-        boardAnchorPane.getChildren().addAll(pawn1, pawn2, pawn3, pawn4);
-        System.out.println(boardAnchorPane.getLayoutX());
-        System.out.println(boardAnchorPane.getLayoutY());
-        System.out.println(boardAnchorPane.widthProperty().doubleValue());
-        System.out.println(boardAnchorPane.heightProperty().doubleValue());
+        Location[] nizamiyeLocations = new Location[4];
+        nizamiyeLocations[0] = new Location(830, 800);
+        nizamiyeLocations[1] = new Location(830, 760);
+        nizamiyeLocations[2] = new Location(860, 800);
+        nizamiyeLocations[3] = new Location(860, 760);
+
+        final double WIDTH_RESIZE = 0.645;
+        final double HEIGHT_RESIZE = 0.955;
+        final double PAWN_SIZE = 40;
 
         Rectangle2D screenBounds = Screen.getPrimary().getBounds();
-        double width =  screenBounds.getMaxX();
-        double height = screenBounds.getMaxY();
-        System.out.println("width: " + width + " height: " + height);
+        double windowWidth =  screenBounds.getMaxX();
+        double windowHeight = screenBounds.getMaxY();
 
-        boardImage.setFitWidth(width * 0.645);
-        boardImage.setFitHeight(height * 0.955);
+        double boardWidth = windowWidth * WIDTH_RESIZE;
+        double boardHeight = windowHeight * HEIGHT_RESIZE;
+
+        boardImage.setFitWidth(boardWidth);
+        boardImage.setFitHeight(boardHeight);
+
+        //pawn1
+        pawn1 = new ImageView(getClass().getResource("Images/pawns/p1.jpg").toExternalForm());
+        pawn1.relocate(nizamiyeLocations[0].getX(), nizamiyeLocations[0].getY());
+        pawn1.setFitHeight(PAWN_SIZE);
+        pawn1.setFitWidth(PAWN_SIZE);
+        //pawn2
+        pawn2 = new ImageView(getClass().getResource("Images/pawns/p2.jpg").toExternalForm());
+        pawn2.relocate(nizamiyeLocations[1].getX(), nizamiyeLocations[1].getY());
+        pawn2.setFitHeight(PAWN_SIZE);
+        pawn2.setFitWidth(PAWN_SIZE);
+        //pawn3
+        pawn3 = new ImageView(getClass().getResource("Images/pawns/p3.jpg").toExternalForm());
+        pawn3.relocate(nizamiyeLocations[2].getX(), nizamiyeLocations[2].getY());
+        pawn3.setFitHeight(PAWN_SIZE);
+        pawn3.setFitWidth(PAWN_SIZE);
+        //pawn4
+        pawn4 = new ImageView(getClass().getResource("Images/pawns/p4.jpg").toExternalForm());
+        pawn4.relocate(nizamiyeLocations[3].getX() / 2, nizamiyeLocations[3].getY() / 2);
+        pawn4.setFitHeight(PAWN_SIZE);
+        pawn4.setFitWidth(PAWN_SIZE);
+
+        boardAnchorPane.getChildren().addAll(pawn1, pawn2, pawn3, pawn4);
+        System.out.println("x: " + pawn1.getX() + " Y: " + pawn1.getY());
+    }
+
+    @FXML
+    public void rollDiceClicked(MouseEvent event) throws Exception{
+        System.out.println("rollDiceClicked");
+        pawn1.relocate(200, 200);
+        System.out.println("x: " + pawn1.getX() + " Y: " + pawn1.getY());
     }
 }
