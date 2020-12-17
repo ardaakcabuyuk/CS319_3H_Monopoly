@@ -284,11 +284,11 @@ public class PlayerSelectionController {
 
     //enables next button if pawns are decided for each player
     //can be extended for the names
-    public void enableNextButton()
-    {
+    public void enableNextButton() {
         boolean full = true;
 
-        for ( int i = 0; i < AssetManager.getPlayerNumber(); i++ ) {
+        for (int i = 0; i < AssetManager.getPlayerNumber(); i++) {
+            System.out.println("AssetManager.players[i].getPawn(): " + AssetManager.players[i].getPawn() + " i: " + i);
             if ( AssetManager.players[i].getPawn() == null ) {
                 full = false;
             }

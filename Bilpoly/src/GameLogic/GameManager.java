@@ -198,4 +198,8 @@ public class GameManager {
     public Player getCurrentPlayer(){
         return playerDeck.getCurrentPlayer();
     }
+
+    public Landable[] getLandableList() {
+        return landableList;
+    }
 }

@@ -3,29 +3,27 @@ package GameLogic;
 public class Location {
 
     //variables
-    private int xLocation;
-    private int yLocation;
+    private double xLocation;
+    private double yLocation;
 
     //constructor
-    public Location(int xLocation, int yLocation) {
+    public Location(double xLocation, double yLocation) {
         this.xLocation = xLocation;
         this.yLocation = yLocation;
     }
 
     //methods
-    public int getX() {
-        return xLocation;
-    }
+    public double getX() { return xLocation; }
 
-    public int getY() {
+    public double getY() {
         return yLocation;
     }
 
-    public void setX(int xLoc) {
+    public void setX(double xLoc) {
         xLocation = xLoc;
     }
 
-    public void setY(int yLoc) {
+    public void setY(double yLoc) {
         yLocation = yLoc;
     }
 }

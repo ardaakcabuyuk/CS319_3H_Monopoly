@@ -2,12 +2,14 @@ package sample;
 
 import GameLogic.*;
 import com.sun.javafx.geom.Rectangle;
+import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Bounds;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -40,8 +42,8 @@ public class GameScreen {
     Rectangle2D screenBounds;
     double windowWidth;
     double windowHeight;
-    double boardWidth;
-    double boardHeight;
+    protected double boardWidth;
+    protected double boardHeight;
     //ObservableList<ImageView> pawnList = FXCollections.observableArrayList(pawn1, pawn2, pawn3, pawn4);
 
     @FXML
@@ -52,6 +54,7 @@ public class GameScreen {
 
         boardWidth = windowWidth * WIDTH_RESIZE;
         boardHeight = windowHeight * HEIGHT_RESIZE;
+        System.out.println("boardWidth: " + boardWidth + " boardHeight: " + boardHeight);
 
         timeLabel.setText(String.valueOf(AssetManager.timeLimit));
 
@@ -103,16 +106,19 @@ public class GameScreen {
         pawnFerrariImage.relocate(nizamiyeLocations[0].getX(), nizamiyeLocations[0].getY());
         pawnFerrariImage.setFitHeight(PAWN_SIZE);
         pawnFerrariImage.setFitWidth(PAWN_SIZE);
+
         //pawnTMDImage
         pawnTMDImage = new ImageView(getClass().getResource("Images/tmd.png").toExternalForm());
         pawnTMDImage.relocate(nizamiyeLocations[1].getX(), nizamiyeLocations[1].getY());
         pawnTMDImage.setFitHeight(PAWN_SIZE);
         pawnTMDImage.setFitWidth(PAWN_SIZE);
+
         //pawnTaxiImage
         pawnTaxiImage = new ImageView(getClass().getResource("Images/taxi.png").toExternalForm());
         pawnTaxiImage.relocate(nizamiyeLocations[2].getX(), nizamiyeLocations[2].getY());
         pawnTaxiImage.setFitHeight(PAWN_SIZE);
         pawnTaxiImage.setFitWidth(PAWN_SIZE);
+
         //pawnBMWImage
         pawnBMWImage = new ImageView(getClass().getResource("Images/bmw.png").toExternalForm());
         pawnBMWImage.relocate(nizamiyeLocations[3].getX(), nizamiyeLocations[3].getY());
@@ -120,7 +126,6 @@ public class GameScreen {
         pawnBMWImage.setFitWidth(PAWN_SIZE);
 
         boardAnchorPane.getChildren().addAll(pawnFerrariImage, pawnTMDImage, pawnTaxiImage, pawnBMWImage);
-        System.out.println("x: " + pawnFerrariImage.getX() + " Y: " + pawnFerrariImage.getY());
     }
 
     public void movePawns(){
@@ -157,12 +162,9 @@ public class GameScreen {
 
         //move pawn
         Pawn currentPawn = AssetManager.gameManager.getCurrentPlayer().getPawn();
-        ImageView currentPawnImageView = getPawnImage(currentPawn);
         // get current pawn image view
-        currentPawnImageView.relocate(200, 200);
-        System.out.println("x: " + currentPawnImageView.getX() + " Y: " + currentPawnImageView.getY());
-
-
+        ImageView currentPawnImageView = getPawnImage(currentPawn);
+        animatePawnImageMovement(currentPawnImageView, dices[0] + dices[1], currentPawn.getCurrentLandableIndex());
     }
 
     public void enableRollDiceButton(){
@@ -186,5 +188,61 @@ public class GameScreen {
         else{
             return null;
         }
+    }
+
+
+    public void animatePawnImageMovement(ImageView pawnImage, int step, int pawnLandableIndex){
+        //Landable curLandable = AssetManager.gameManager.getLandableList()[pawnLandableIndex];
+        //Landable nextLandable = AssetManager.gameManager.getLandableList()[(pawnLandableIndex + step) % 40];
+
+        //Location currentLocation = new Location(curLandable.getLocation().getX(), curLandable.getLocation().getY());
+        //Location toGoLocation = new Location(nextLandable.getLocation().getX(), nextLandable.getLocation().getY());
+
+        // to test
+        Location currentLocation = new Location(pawnImage.getLayoutX(), pawnImage.getLayoutY());
+        Location toGoLocation = new Location(currentLocation.getX() - 300, currentLocation.getY() - 450);
+
+        currentLocation.setX(boardWidth * 0.871905);
+        currentLocation.setY(boardHeight * 0.873108);
+
+        toGoLocation.setX(boardWidth * 0.791173);
+        toGoLocation.setY(boardHeight * 0.908032);
+
+        new Timer().schedule(new TimerTask(){
+
+            @Override
+            public void run() {
+                System.out.println("currentLocation.getX(): " + currentLocation.getX() + " currentLocation.gety(): " + currentLocation.getY());
+                System.out.println("toGoLocation.getX(): " + toGoLocation.getX() + " toGoLocation.gety(): " + toGoLocation.getY());
+                if (currentLocation.getX() > toGoLocation.getX()){
+                    currentLocation.setX((int)(currentLocation.getX() - 1));
+                    pawnImage.relocate(currentLocation.getX(), pawnImage.getLayoutY());
+                }
+                if (currentLocation.getX() < toGoLocation.getX()){
+                    currentLocation.setX((int)(currentLocation.getX() + 1));
+                    pawnImage.relocate(currentLocation.getX(), pawnImage.getLayoutY());
+                }
+                if (currentLocation.getY() > toGoLocation.getY()){
+                    currentLocation.setY((int)(currentLocation.getY() - 1));
+                    pawnImage.relocate(pawnImage.getLayoutX(), currentLocation.getY());
+                }
+                if (currentLocation.getY() < toGoLocation.getY()){
+                    currentLocation.setY((int)(currentLocation.getY() + 1));
+                    pawnImage.relocate(pawnImage.getLayoutX(), currentLocation.getY());
+                }
+
+                if (((currentLocation.getX() - toGoLocation.getX()) < 1) && ((currentLocation.getY() - toGoLocation.getY()) < 1)) {
+                    cancel();
+                }
+            }
+        },0, 10);
+    }
+
+    public double getBoardWidth() {
+        return boardWidth;
+    }
+
+    public double getBoardHeight() {
+        return boardHeight;
     }
 }
