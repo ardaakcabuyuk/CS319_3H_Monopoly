@@ -1,6 +1,7 @@
 package sample;
 
 import GameLogic.Location;
+import com.sun.javafx.geom.Rectangle;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,18 +21,35 @@ import javafx.stage.Popup;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class GameScreen {
+
+    final double WIDTH_RESIZE = 0.645;
+    final double HEIGHT_RESIZE = 0.955;
 
     // variables
     ImageView pawn1;
     ImageView pawn2;
     ImageView pawn3;
     ImageView pawn4;
+    Rectangle2D screenBounds;
+    double windowWidth;
+    double windowHeight;
+    double boardWidth;
+    double boardHeight;
     //ObservableList<ImageView> pawnList = FXCollections.observableArrayList(pawn1, pawn2, pawn3, pawn4);
 
     @FXML
     public void initialize(){
+        screenBounds = Screen.getPrimary().getBounds();
+        windowWidth =  screenBounds.getMaxX();
+        windowHeight = screenBounds.getMaxY();
+
+        boardWidth = windowWidth * WIDTH_RESIZE;
+        boardHeight = windowHeight * HEIGHT_RESIZE;
         initializePawns();
     }
     @FXML
@@ -65,16 +83,8 @@ public class GameScreen {
         nizamiyeLocations[2] = new Location(860, 800);
         nizamiyeLocations[3] = new Location(860, 760);
 
-        final double WIDTH_RESIZE = 0.645;
-        final double HEIGHT_RESIZE = 0.955;
+
         final double PAWN_SIZE = 40;
-
-        Rectangle2D screenBounds = Screen.getPrimary().getBounds();
-        double windowWidth =  screenBounds.getMaxX();
-        double windowHeight = screenBounds.getMaxY();
-
-        double boardWidth = windowWidth * WIDTH_RESIZE;
-        double boardHeight = windowHeight * HEIGHT_RESIZE;
 
         boardImage.setFitWidth(boardWidth);
         boardImage.setFitHeight(boardHeight);
@@ -109,5 +119,23 @@ public class GameScreen {
         System.out.println("rollDiceClicked");
         pawn1.relocate(200, 200);
         System.out.println("x: " + pawn1.getX() + " Y: " + pawn1.getY());
+        int[] dices = AssetManager.gameManager.getDiceValues();
+        String dicePath = "Images/diceImages/" + dices[0] + "." + dices[1] + ".png";
+        ImageView diceImage = new ImageView(getClass().getResource(dicePath).toExternalForm());
+        diceImage.relocate(boardWidth / 2 - diceImage.getFitWidth() / 2, boardHeight / 2 - diceImage.getFitHeight() / 2);
+        boardAnchorPane.getChildren().add(diceImage);
+        new Timer().schedule(new TimerTask(){
+
+            int second = 5;
+            @Override
+            public void run() {
+                System.out.println(second--);
+                if (second == 0) {
+                    diceImage.setImage(null);
+                    cancel();
+                }
+            }
+        },0, 1000);
+        System.out.println("Dice 1: " + dices[0] + "\nDice 2: " + dices[1]);
     }
 }

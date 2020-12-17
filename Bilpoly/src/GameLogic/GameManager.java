@@ -175,6 +175,12 @@ public class GameManager {
 
 
     //GETTERS AND SETTERS
-
+    public int[] getDiceValues()  {
+        dice.rollDice();
+        int val1 = dice.getDie1FaceValue();
+        int val2 = dice.getTotalFaceValue() - val1;
+        int[] values = {val1, val2};
+        return values;
+    }
 
 }

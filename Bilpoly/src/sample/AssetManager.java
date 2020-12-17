@@ -26,6 +26,7 @@ public class AssetManager extends Application {
     protected static boolean boardMode;
     protected static boolean timeMode;
     protected static int timeLimit = -1;
+    public static GameManager gameManager;
 
     public static MediaPlayer mediaPlayer;
 
@@ -65,7 +66,7 @@ public class AssetManager extends Application {
         Landable[] landableList = getLandableList(boardMode);
         CardDeck cardDeck = getCardDeck(boardMode);
         System.out.println("GameManager is initialized.");
-        GameManager gameManager = new GameManager(playerDeck, landableList, cardDeck, timeMode, timeLimit);
+        gameManager = new GameManager(playerDeck, landableList, cardDeck, timeMode, timeLimit);
         //gameManager.playGame();
     }
 
