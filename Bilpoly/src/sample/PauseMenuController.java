@@ -23,5 +23,15 @@ public class PauseMenuController {
         System.out.println("back Button clicked. ");
         GameScreen.popup.hide();
     }
+
+    @FXML
+    public void howToPlayButtonClicked(ActionEvent event) throws Exception {
+
+    }
+
+    @FXML
+    public void MainMenuButtonClicked(ActionEvent event) throws Exception {
+   
+    }
     
 }

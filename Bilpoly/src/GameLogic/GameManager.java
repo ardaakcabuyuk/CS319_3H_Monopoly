@@ -102,6 +102,7 @@ public class GameManager {
                 //executeLandable(landableList[pawnNewIndex], curPlayer);
                 diceRolled = false;
                 System.out.println("player " + curPlayer.getName() + " rolled the dice: " + diceValue);
+                break;
             }
         }*/
     }

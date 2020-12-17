@@ -2,9 +2,21 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PauseMenuController">
    <children>
-      <Button fx:id="backButton" layoutX="274.0" layoutY="175.0" mnemonicParsing="false" onAction="#backButtonClicked" text="Back" />
+      <Button fx:id="backButton" layoutX="29.0" layoutY="349.0" mnemonicParsing="false" onAction="#backButtonClicked" style="-fx-background-radius: 30;" text="Back" />
+      <Label layoutX="215.0" layoutY="68.0" text="Game Paused">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <VBox layoutX="250.0" layoutY="241.0" prefHeight="73.0" prefWidth="100.0" spacing="30.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#howToPlayButtonClicked" prefHeight="25.0" prefWidth="100.0" style="-fx-background-radius: 30;" text="How To Play" />
+            <Button mnemonicParsing="false" onAction="#MainMenuButtonClicked" prefHeight="25.0" prefWidth="101.0" style="-fx-background-radius: 30;" text="Main Menu" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
