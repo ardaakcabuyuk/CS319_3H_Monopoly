@@ -78,7 +78,7 @@ public class GameManager {
         // built next player
         // built history
 
-        if(!playerDeck.getCurrentPlayer().isTurn() && !isGameOver){
+        if(!playerDeck.getCurrentPlayer().isTurn() && !isGameOver ){
             playerDeck.nextPlayer();
             try {
                 playTurnPreDice();
@@ -105,16 +105,33 @@ public class GameManager {
 
         // activate roll dice button
         gameScreenController.enableRollDiceButton();
+
+
+        /*
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("game_screen.fxml"));
+        Parent root = loader.load();
+        GameScreen controller = loader.<GameScreen>getController();
+        controller.enableRollDiceButton();
+
+
+         */
+
+
+        //gameScreenController.enableRollDiceButton();
+
+
+
     }
 
-    public int[] rollDice() {
-        dice.rollDice();
-        int val1 = dice.getDie1FaceValue();
-        int val2 = dice.getTotalFaceValue() - val1;
-        int[] values = {val1, val2};
-        diceRolled = true;
-        playTurnPostDice();
-        return values;
+    public int[] rollDice( ) {
+            dice.rollDice();
+            int val1 = dice.getDie1FaceValue();
+            int val2 = dice.getTotalFaceValue() - val1;
+            int[] values = {val1, val2};
+            diceRolled = true;
+            playTurnPostDice();
+            return values;
+
     }
 
     public void playTurnPostDice(){
@@ -190,8 +207,12 @@ public class GameManager {
         }
 
          */
-
-        playGame();
+        if ( gameScreenController.doneClicked )
+        {
+            System.out.println("done clicked");
+            gameScreenController.enableRollDiceButton();
+            playGame();
+        }
     }
 
     //GETTERS AND SETTERS
