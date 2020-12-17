@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane fx:id="anchorGame" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GameScreen">
    <children>
-      <AnchorPane prefHeight="282.0" prefWidth="256.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0">
+      <AnchorPane layoutX="29.0" layoutY="30.0" prefHeight="349.0" prefWidth="256.0" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="30.0">
          <children>
             <ImageView fitHeight="228.0" fitWidth="255.0" pickOnBounds="true">
                <image>
                   <Image url="@Images/card_deck_red_turn.png" />
                </image>
             </ImageView>
-            <Button fx:id="rollDiceButton" layoutX="86.0" layoutY="294.0" mnemonicParsing="false" onMouseClicked="#rollDiceClicked" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 30;" text="Roll Dice" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+            <Button fx:id="rollDiceButton" layoutX="58.0" layoutY="245.0" mnemonicParsing="false" onMouseClicked="#rollDiceClicked" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 30;" text="Roll Dice" AnchorPane.bottomAnchor="62.333333333333314" AnchorPane.leftAnchor="58.0" AnchorPane.rightAnchor="58.0" AnchorPane.topAnchor="245.0">
                <font>
                   <Font size="19.0" />
                </font>
@@ -31,6 +29,11 @@
                   <Font size="15.0" />
                </font>
             </Label>
+            <Button fx:id="doneButton" layoutX="58.0" layoutY="301.0" mnemonicParsing="false" onMouseClicked="#doneButtonClicked" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 30;" text="Done" AnchorPane.bottomAnchor="6.333333333333314" AnchorPane.leftAnchor="58.0" AnchorPane.rightAnchor="58.0">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="72.0" layoutY="399.0" prefHeight="230.0" prefWidth="170.0" AnchorPane.leftAnchor="72.0">
@@ -109,6 +112,5 @@
             <Font size="23.0" />
          </font>
       </Button>
-      <Button fx:id="doneButton" layoutX="72.0" layoutY="347.0" mnemonicParsing="false" text="Done" onMouseClicked="#doneButtonClicked"  />
    </children>
 </AnchorPane>
