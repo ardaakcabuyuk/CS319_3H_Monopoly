@@ -1,6 +1,6 @@
 package sample;
 
-import GameLogic.Location;
+import GameLogic.*;
 import com.sun.javafx.geom.Rectangle;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -32,10 +32,11 @@ public class GameScreen {
     final double HEIGHT_RESIZE = 0.955;
 
     // variables
-    ImageView pawn1;
-    ImageView pawn2;
-    ImageView pawn3;
-    ImageView pawn4;
+    ImageView pawnFerrariImage;
+    ImageView pawnTMDImage;
+    ImageView pawnTaxiImage;
+    ImageView pawnBMWImage;
+
     Rectangle2D screenBounds;
     double windowWidth;
     double windowHeight;
@@ -86,51 +87,54 @@ public class GameScreen {
     public void initializePawns(){
 
         Location[] nizamiyeLocations = new Location[4];
-        nizamiyeLocations[0] = new Location(830, 800);
-        nizamiyeLocations[1] = new Location(830, 760);
-        nizamiyeLocations[2] = new Location(860, 800);
-        nizamiyeLocations[3] = new Location(860, 760);
+        nizamiyeLocations[0] = new Location(810, 800);
+        nizamiyeLocations[1] = new Location(810, 750);
+        nizamiyeLocations[2] = new Location(870, 800);
+        nizamiyeLocations[3] = new Location(870, 750);
 
 
-        final double PAWN_SIZE = 40;
+        final double PAWN_SIZE = 50;
 
         boardImage.setFitWidth(boardWidth);
         boardImage.setFitHeight(boardHeight);
 
-        //pawn1
-        pawn1 = new ImageView(getClass().getResource("Images/pawns/p1.jpg").toExternalForm());
-        pawn1.relocate(nizamiyeLocations[0].getX(), nizamiyeLocations[0].getY());
-        pawn1.setFitHeight(PAWN_SIZE);
-        pawn1.setFitWidth(PAWN_SIZE);
-        //pawn2
-        pawn2 = new ImageView(getClass().getResource("Images/pawns/p2.jpg").toExternalForm());
-        pawn2.relocate(nizamiyeLocations[1].getX(), nizamiyeLocations[1].getY());
-        pawn2.setFitHeight(PAWN_SIZE);
-        pawn2.setFitWidth(PAWN_SIZE);
-        //pawn3
-        pawn3 = new ImageView(getClass().getResource("Images/pawns/p3.jpg").toExternalForm());
-        pawn3.relocate(nizamiyeLocations[2].getX(), nizamiyeLocations[2].getY());
-        pawn3.setFitHeight(PAWN_SIZE);
-        pawn3.setFitWidth(PAWN_SIZE);
-        //pawn4
-        pawn4 = new ImageView(getClass().getResource("Images/pawns/p4.jpg").toExternalForm());
-        pawn4.relocate(nizamiyeLocations[3].getX() / 2, nizamiyeLocations[3].getY() / 2);
-        pawn4.setFitHeight(PAWN_SIZE);
-        pawn4.setFitWidth(PAWN_SIZE);
+        //pawnFerrariImage
+        pawnFerrariImage = new ImageView(getClass().getResource("Images/ferrari.png").toExternalForm());
+        pawnFerrariImage.relocate(nizamiyeLocations[0].getX(), nizamiyeLocations[0].getY());
+        pawnFerrariImage.setFitHeight(PAWN_SIZE);
+        pawnFerrariImage.setFitWidth(PAWN_SIZE);
+        //pawnTMDImage
+        pawnTMDImage = new ImageView(getClass().getResource("Images/tmd.png").toExternalForm());
+        pawnTMDImage.relocate(nizamiyeLocations[1].getX(), nizamiyeLocations[1].getY());
+        pawnTMDImage.setFitHeight(PAWN_SIZE);
+        pawnTMDImage.setFitWidth(PAWN_SIZE);
+        //pawnTaxiImage
+        pawnTaxiImage = new ImageView(getClass().getResource("Images/taxi.png").toExternalForm());
+        pawnTaxiImage.relocate(nizamiyeLocations[2].getX(), nizamiyeLocations[2].getY());
+        pawnTaxiImage.setFitHeight(PAWN_SIZE);
+        pawnTaxiImage.setFitWidth(PAWN_SIZE);
+        //pawnBMWImage
+        pawnBMWImage = new ImageView(getClass().getResource("Images/bmw.png").toExternalForm());
+        pawnBMWImage.relocate(nizamiyeLocations[3].getX(), nizamiyeLocations[3].getY());
+        pawnBMWImage.setFitHeight(PAWN_SIZE);
+        pawnBMWImage.setFitWidth(PAWN_SIZE);
 
-        boardAnchorPane.getChildren().addAll(pawn1, pawn2, pawn3, pawn4);
-        System.out.println("x: " + pawn1.getX() + " Y: " + pawn1.getY());
+        boardAnchorPane.getChildren().addAll(pawnFerrariImage, pawnTMDImage, pawnTaxiImage, pawnBMWImage);
+        System.out.println("x: " + pawnFerrariImage.getX() + " Y: " + pawnFerrariImage.getY());
+    }
+
+    public void movePawns(){
+
     }
 
     @FXML
     public void rollDiceClicked(MouseEvent event) throws Exception{
+        // set dice button disable
         rollDiceButton.setDisable(true);
         System.out.println("rollDiceClicked");
-        pawn1.relocate(200, 200);
-        System.out.println("x: " + pawn1.getX() + " Y: " + pawn1.getY());
 
+        // show dice UI
         int[] dices = AssetManager.gameManager.rollDice();
-
         String dicePath = "Images/diceImages/" + dices[0] + "." + dices[1] + ".png";
         Image diceImg = new Image(getClass().getResource(dicePath).toExternalForm());
         ImageView diceImageView = new ImageView(diceImg);
@@ -149,10 +153,38 @@ public class GameScreen {
             }
         },0, 1000);
         System.out.println("Dice 1: " + dices[0] + "\nDice 2: " + dices[1]);
+
+
+        //move pawn
+        Pawn currentPawn = AssetManager.gameManager.getCurrentPlayer().getPawn();
+        ImageView currentPawnImageView = getPawnImage(currentPawn);
+        // get current pawn image view
+        currentPawnImageView.relocate(200, 200);
+        System.out.println("x: " + currentPawnImageView.getX() + " Y: " + currentPawnImageView.getY());
+
+
     }
 
     public void enableRollDiceButton(){
         System.out.println("enableRollDiceButton");
         rollDiceButton.setDisable(false);
+    }
+
+    public ImageView getPawnImage(Pawn pawn){
+        if(pawn.getType() == PawnType.FERRARI){
+            return pawnFerrariImage;
+        }
+        else if(pawn.getType() == PawnType.TMD){
+            return pawnTMDImage;
+        }
+        else if(pawn.getType() == PawnType.TAXI){
+            return pawnTaxiImage;
+        }
+        else if(pawn.getType() == PawnType.BMW){
+            return pawnBMWImage;
+        }
+        else{
+            return null;
+        }
     }
 }

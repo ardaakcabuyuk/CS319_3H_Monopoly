@@ -92,11 +92,6 @@ public class GameManager {
 
     // This method handles the each turn for given player.
     // TODO will be implemented.
-
-    // wait for rollDice();
-    // rollDice();
-    // movePawn();
-    // executeLadable(Landlable land);
     // history.update();
     // gameScreen.update()
 
@@ -107,24 +102,9 @@ public class GameManager {
             atalarsRoom.tryToGetOut(curPlayer);
             return;
         }
-        //GameScreen.enableRollDiceButton();
 
         // activate roll dice button
-
-        /*
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("game_screen.fxml"));
-        Parent root = loader.load();
-        GameScreen controller = loader.<GameScreen>getController();
-        controller.enableRollDiceButton();
-
-
-         */
-
-
         gameScreenController.enableRollDiceButton();
-
-
-
     }
 
     public int[] rollDice() {
@@ -152,24 +132,6 @@ public class GameManager {
 
     // This method executes the given land.
     // TODO will be implemented.
-
-    // executeLadable(Landlable land){
-    //    if land.type == card{
-    //        cardn.executeCard()
-    //    }
-    //    else if land.type == funct
-    //    else if land.type == land
-    //        wait
-    //    else if land.type == cafe
-    //        wait
-    //        if(bought)
-    //            history.update();
-    //    else if land.type == atalar
-    //        history.update();
-    //    else{
-    //    }
-    // }
-
     public void executeLandable(
             //Landable landable
     ){
@@ -233,4 +195,7 @@ public class GameManager {
     }
 
     //GETTERS AND SETTERS
+    public Player getCurrentPlayer(){
+        return playerDeck.getCurrentPlayer();
+    }
 }

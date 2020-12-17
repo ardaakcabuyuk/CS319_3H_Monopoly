@@ -35,4 +35,7 @@ public class Pawn {
     public int getCurrentLandableIndex(){
         return currentLandableIndex;
     }
+    public PawnType getType(){
+        return type;
+    }
 }
