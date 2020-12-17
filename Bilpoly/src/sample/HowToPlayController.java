@@ -6,16 +6,27 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 public class HowToPlayController {
     Button backButton = new Button();
 
     @FXML
     public void backButtonClicked(ActionEvent event) throws Exception {
-        System.out.println("back Button clicked. ");
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        Stage window = (Stage)( ((Node) event.getSource()).getScene().getWindow());
-        window.getScene().setRoot(root);
+        if(!(PauseMenuController.inGame)) {
+            System.out.println("back Button clicked. ");
+            Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+            Stage window = (Stage) (((Node) event.getSource()).getScene().getWindow());
+            window.getScene().setRoot(root);
+        }
+        else
+        {
+            System.out.println("back Button clicked in pause menu ");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("pause_menu.fxml"));
+            GameScreen.popup.getContent().add((Parent)loader.load());
+            GameScreen.popup.show(GameScreen.popup.getOwnerWindow());
+        }
     }
 }

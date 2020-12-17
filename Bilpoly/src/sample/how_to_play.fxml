@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="anchorHowToPlay" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CreditsController">
+<AnchorPane fx:id="anchorHowToPlay" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.HowToPlayController">
    <children>
       <AnchorPane layoutX="44.0" layoutY="58.0" prefHeight="325.0" prefWidth="503.0" style="-fx-background-color: white; -fx-background-radius: 30;" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="44.0" AnchorPane.rightAnchor="53.0" AnchorPane.topAnchor="58.0">
          <children>

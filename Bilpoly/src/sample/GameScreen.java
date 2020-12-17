@@ -54,6 +54,8 @@ public class GameScreen {
     public boolean rolledDice;
     private Timeline timeline;
 
+
+
     //ObservableList<ImageView> pawnList = FXCollections.observableArrayList(pawn1, pawn2, pawn3, pawn4);
 
     private IntegerProperty timeSeconds = new SimpleIntegerProperty(AssetManager.timeLimit);
@@ -100,7 +102,7 @@ public class GameScreen {
         System.out.println("pause Button clicked.");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pause_menu.fxml"));
         popup.getContent().add((Parent)loader.load());
-        Parent root = FXMLLoader.load(getClass().getResource("game_screen.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("game_screen.fxml"));
         Stage window = (Stage)( ((Node) event.getSource()).getScene().getWindow());
         popup.show(window);
     }
