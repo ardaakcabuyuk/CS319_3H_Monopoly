@@ -112,40 +112,38 @@ public class GameScreen {
     }
 
     public void initializePawns(){
-
-        Location[] nizamiyeLocations = new Location[4];
-        nizamiyeLocations[0] = new Location(810, 800);
-        nizamiyeLocations[1] = new Location(810, 750);
-        nizamiyeLocations[2] = new Location(870, 800);
-        nizamiyeLocations[3] = new Location(870, 750);
-
-
         final double PAWN_SIZE = 50;
 
         boardImage.setFitWidth(boardWidth);
         boardImage.setFitHeight(boardHeight);
 
+        //Location nizamiyeLocation = AssetManager.gameManager.getLandableList()[0].getLocation();
+
+        // for test
+        Location nizamiyeLocation = new Location(boardWidth * 0.871905, boardHeight * 0.873108);
+
+
         //pawnFerrariImage
         pawnFerrariImage = new ImageView(getClass().getResource("Images/ferrari.png").toExternalForm());
-        pawnFerrariImage.relocate(nizamiyeLocations[0].getX(), nizamiyeLocations[0].getY());
+        pawnFerrariImage.relocate(nizamiyeLocation.getX(), nizamiyeLocation.getY());
         pawnFerrariImage.setFitHeight(PAWN_SIZE);
         pawnFerrariImage.setFitWidth(PAWN_SIZE);
 
         //pawnTMDImage
         pawnTMDImage = new ImageView(getClass().getResource("Images/tmd.png").toExternalForm());
-        pawnTMDImage.relocate(nizamiyeLocations[1].getX(), nizamiyeLocations[1].getY());
+        pawnTMDImage.relocate(nizamiyeLocation.getX(), nizamiyeLocation.getY());
         pawnTMDImage.setFitHeight(PAWN_SIZE);
         pawnTMDImage.setFitWidth(PAWN_SIZE);
 
         //pawnTaxiImage
         pawnTaxiImage = new ImageView(getClass().getResource("Images/taxi.png").toExternalForm());
-        pawnTaxiImage.relocate(nizamiyeLocations[2].getX(), nizamiyeLocations[2].getY());
+        pawnTaxiImage.relocate(nizamiyeLocation.getX(), nizamiyeLocation.getY());
         pawnTaxiImage.setFitHeight(PAWN_SIZE);
         pawnTaxiImage.setFitWidth(PAWN_SIZE);
 
         //pawnBMWImage
         pawnBMWImage = new ImageView(getClass().getResource("Images/bmw.png").toExternalForm());
-        pawnBMWImage.relocate(nizamiyeLocations[3].getX(), nizamiyeLocations[3].getY());
+        pawnBMWImage.relocate(nizamiyeLocation.getX(), nizamiyeLocation.getY());
         pawnBMWImage.setFitHeight(PAWN_SIZE);
         pawnBMWImage.setFitWidth(PAWN_SIZE);
 
@@ -236,9 +234,6 @@ public class GameScreen {
         // to test
         Location currentLocation = new Location(pawnImage.getLayoutX(), pawnImage.getLayoutY());
         Location toGoLocation = new Location(currentLocation.getX() - 300, currentLocation.getY() - 450);
-
-        currentLocation.setX(boardWidth * 0.871905);
-        currentLocation.setY(boardHeight * 0.873108);
 
         toGoLocation.setX(boardWidth * 0.791173);
         toGoLocation.setY(boardHeight * 0.908032);
