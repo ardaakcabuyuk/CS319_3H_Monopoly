@@ -193,13 +193,13 @@ public class GameManager {
         }
 
          */
-        if (gameScreenController.doneClicked)
-        {
-            System.out.println("done clicked");
+    //    if (gameScreenController.doneClicked)
+     //   {
+      //      System.out.println("done clicked");
             gameScreenController.enableRollDiceButton();
             System.out.println(" ++++++++ playGame called");
             playGame();
-        }
+        //}
     }
 
     //GETTERS AND SETTERS

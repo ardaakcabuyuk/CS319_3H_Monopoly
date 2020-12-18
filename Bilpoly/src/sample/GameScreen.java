@@ -30,6 +30,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -50,7 +51,7 @@ public class GameScreen {
     double windowHeight;
     protected double boardWidth;
     protected double boardHeight;
-    public boolean doneClicked;
+    //public boolean doneClicked;
     public boolean rolledDice;
     private Timeline timeline;
 
@@ -61,7 +62,7 @@ public class GameScreen {
     private IntegerProperty timeSeconds = new SimpleIntegerProperty(AssetManager.timeLimit);
 
     @FXML
-    Button doneButton;
+    AnchorPane BoardAnchorPane;
 
     @FXML
     public void initialize(){
@@ -82,8 +83,8 @@ public class GameScreen {
         timeline.playFromStart();
 
         rolledDice = false;
-        doneClicked = false;
-        doneButton.setDisable(true);
+       // doneClicked = false;
+       // doneButton.setDisable(true);
 
     }
     @FXML
@@ -206,7 +207,7 @@ public class GameScreen {
                 System.out.println(second--);
                 if (second == 0) {
                     diceImageView.setImage(null);
-                    doneButton.setDisable(false);
+                 //   doneButton.setDisable(false);
                     cancel();
                 }
             }
@@ -227,17 +228,26 @@ public class GameScreen {
 
         System.out.println("currentPawn.getCurrentLandableIndex(): " + currentPawn.getCurrentLandableIndex());
 
-        rollDiceButton.setDisable(true);
-        doneButton.setDisable(true);
+        //rollDiceButton.setDisable(true);
+        //doneButton.setDisable(true);
 
     }
-
+/*
     @FXML
     public void doneButtonClicked(MouseEvent event) throws Exception{
         doneClicked = true;
-        enableRollDiceButton();
+
         AssetManager.gameManager.playGame();
+    }*/
+
+    public void executePopup() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("land_popup.fxml"));
+        popup.getContent().add((Parent)loader.load());
+        Stage window = (Stage)  boardAnchorPane.getScene().getWindow();
+
+        popup.show(window);
     }
+
     public void enableRollDiceButton(){
         System.out.println("enableRollDiceButton");
         rollDiceButton.setDisable(false);
@@ -261,13 +271,14 @@ public class GameScreen {
         }
     }
 
-    public void movePawnImage(ImageView pawnImage, int index, Pawn curPawn){
+    public void movePawnImage(ImageView pawnImage, int index, Pawn curPawn) throws IOException {
         Landable curLandable = AssetManager.gameManager.getLandableList()[curPawn.getCurrentLandableIndex()];
         Landable nextLandable = AssetManager.gameManager.getLandableList()[(index) % 40];
         Location currentLocation = new Location(curLandable.getLocation().getX(), curLandable.getLocation().getY());
         Location toGoLocation = new Location(nextLandable.getLocation().getX(), nextLandable.getLocation().getY());
         pawnImage.relocate(toGoLocation.getX(), toGoLocation.getY());
         curPawn.movePawn(((index) % 40));
+        executePopup();
         AssetManager.gameManager.playTurnPostDice(nextLandable);
     }
 
