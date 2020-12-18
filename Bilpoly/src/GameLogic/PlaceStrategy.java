@@ -1,5 +1,5 @@
 package GameLogic;
 
 public interface PlaceStrategy {
-    void executeFunctional(Player player);
+    void executeFunctional(GameManager mgr, Player player);
 }

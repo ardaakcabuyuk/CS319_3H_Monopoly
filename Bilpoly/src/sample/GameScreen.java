@@ -144,6 +144,7 @@ public class GameScreen {
             if(AssetManager.gameManager.getPlayers().get(p).getPawn().getType() == PawnType.FERRARI && !ferrariInit){
                 //pawnFerrariImage
                 pawnFerrariImage = new ImageView(getClass().getResource("Images/ferrari.png").toExternalForm());
+                AssetManager.gameManager.getPlayers().get(p).getPawn().setImage(pawnFerrariImage);
                 pawnFerrariImage.relocate(nizamiyeLocation.getX(), nizamiyeLocation.getY());
                 pawnFerrariImage.setFitHeight(PAWN_SIZE);
                 pawnFerrariImage.setFitWidth(PAWN_SIZE);
@@ -153,6 +154,7 @@ public class GameScreen {
             else if(AssetManager.gameManager.getPlayers().get(p).getPawn().getType() == PawnType.TMD && !tmdInit){
                 //pawnTMDImage
                 pawnTMDImage = new ImageView(getClass().getResource("Images/tmd.png").toExternalForm());
+                AssetManager.gameManager.getPlayers().get(p).getPawn().setImage(pawnTMDImage);
                 pawnTMDImage.relocate(nizamiyeLocation.getX(), nizamiyeLocation.getY());
                 pawnTMDImage.setFitHeight(PAWN_SIZE);
                 pawnTMDImage.setFitWidth(PAWN_SIZE);
@@ -162,6 +164,7 @@ public class GameScreen {
             else if(AssetManager.gameManager.getPlayers().get(p).getPawn().getType() == PawnType.TAXI && !taxiInit){
                 //pawnTaxiImage
                 pawnTaxiImage = new ImageView(getClass().getResource("Images/taxi.png").toExternalForm());
+                AssetManager.gameManager.getPlayers().get(p).getPawn().setImage(pawnTaxiImage);
                 pawnTaxiImage.relocate(nizamiyeLocation.getX(), nizamiyeLocation.getY());
                 pawnTaxiImage.setFitHeight(PAWN_SIZE);
                 pawnTaxiImage.setFitWidth(PAWN_SIZE);
@@ -171,6 +174,7 @@ public class GameScreen {
             else if(AssetManager.gameManager.getPlayers().get(p).getPawn().getType() == PawnType.BMW && !bmwInit){
                 //pawnBMWImage
                 pawnBMWImage = new ImageView(getClass().getResource("Images/bmw.png").toExternalForm());
+                AssetManager.gameManager.getPlayers().get(p).getPawn().setImage(pawnBMWImage);
                 pawnBMWImage.relocate(nizamiyeLocation.getX(), nizamiyeLocation.getY());
                 pawnBMWImage.setFitHeight(PAWN_SIZE);
                 pawnBMWImage.setFitWidth(PAWN_SIZE);

@@ -38,8 +38,8 @@ public class Card {
     //methods
     // This method executes the card.
     // TODO will be implemented.
-    public boolean executeCard(){
-        cardStrategy.executeCard(this, interactedPlayer);
+    public boolean executeCard(GameManager mgr){
+        cardStrategy.executeCard(mgr,this);
         return true;
     }
 
@@ -80,5 +80,9 @@ public class Card {
 
     public int getMoveTo() {
         return moveTo;
+    }
+
+    public void setInteractedPlayer(Player interactedPlayer) {
+        this.interactedPlayer = interactedPlayer;
     }
 }

@@ -38,10 +38,10 @@ public class CardDeck {
 
     // This method executes the currentCard.
     // TODO will be implemented.
-    public boolean executeCard(){
-        currentCard.executeCard();
+    /*public boolean executeCard(Player p){
+        currentCard.executeCard(p);
         return true;
-    }
+    }*/
 
     public void shuffleAllCards(){
         Collections.shuffle(CHANCE_CARDS);

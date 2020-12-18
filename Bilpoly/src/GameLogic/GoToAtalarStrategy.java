@@ -2,7 +2,7 @@ package GameLogic;
 
 public class GoToAtalarStrategy implements PlaceStrategy {
     @Override
-    public void executeFunctional(Player player) {
-
+    public void executeFunctional(GameManager mgr, Player player) {
+        mgr.sendPlayerToAtalarsRoom(player);
     }
 }

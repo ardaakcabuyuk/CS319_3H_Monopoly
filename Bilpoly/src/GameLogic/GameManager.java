@@ -16,12 +16,12 @@ import java.util.*;
 public class GameManager {
 
     //constants
-    public int freeParkingMoney;
+
 
     //variables
     private Timer timer;
     private Player winner;
-
+    protected int freeParkingMoney;
     private Landable[] landableList;
     private PlayerDeck playerDeck;
     private CardDeck cardDeck;
@@ -166,8 +166,9 @@ public class GameManager {
 
             case CARD_PLACE:
 
-                cardDeck.drawCard(((CardPlace)currentLandable).getCardType());
-                cardDeck.executeCard();
+                card = cardDeck.drawCard(((CardPlace)currentLandable).getCardType());
+                card.setInteractedPlayer(currentPlayer);
+                card.executeCard(this);
 
                 break;
 
@@ -203,6 +204,10 @@ public class GameManager {
         //}
     }
 
+    public void sendPlayerToAtalarsRoom(Player p) {
+        atalarsRoom.goToAtalarsRoom(p);
+    }
+
     //GETTERS AND SETTERS
     public Player getCurrentPlayer(){
         return playerDeck.getCurrentPlayer();
@@ -220,5 +225,25 @@ public class GameManager {
 
     public ArrayList<Player> getPlayers(){
         return playerDeck.getPlayerList();
+    }
+
+    public void movePlayerTo(int index) {
+        Pawn playerPawn = playerDeck.getCurrentPlayer().getPawn();
+        try {
+            gameScreenController.movePawnImage(playerPawn.getImage(), index, playerPawn);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("CANNOT MOVE PAWN OF PLAYER WITH A CARD");
+        }
+    }
+
+    public void movePlayerWithStep(int step) {
+        Pawn playerPawn = playerDeck.getCurrentPlayer().getPawn();
+        try {
+            gameScreenController.movePawnImage(playerPawn.getImage(), (playerPawn.getCurrentLandableIndex() + step) % 40, playerPawn);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("CANNOT MOVE PAWN OF PLAYER WITH A CARD");
+        }
     }
 }

@@ -11,7 +11,7 @@ enum FunctionalPlaceType {
 }
 
 // FunctionalPlace Class
-public class FunctionalPlace extends Landable implements PlaceStrategy {
+public class FunctionalPlace extends Landable {
     //attributes
     private PlaceStrategy strategy;
 
@@ -27,9 +27,8 @@ public class FunctionalPlace extends Landable implements PlaceStrategy {
 
     // This method executes the functional place.
     // TODO will be implemented.
-    @Override
-    public void executeFunctional(Player player){
-        strategy.executeFunctional(player);
+    public void executeFunctional(GameManager mgr, Player player){
+        strategy.executeFunctional(mgr, player);
     }
 
     //GETTERS AND SETTERS

@@ -1,5 +1,5 @@
 package GameLogic;
 
 public interface CardStrategy {
-    boolean executeCard(Card card, Player player);
+    boolean executeCard(GameManager mgr, Card card);
 }
