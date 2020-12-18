@@ -259,7 +259,7 @@ public class AssetManager extends Application {
                         strategy = new GoToPayStrategy();
                         break;
                 }
-                if (tokens[1] == "chance") {
+                if (tokens[1].equals("chance")) {
                     chanceCards.add(new Card(tokens[0], num, new ChanceCardDecorator(strategy), Integer.parseInt(tokens[3]),
                             Integer.parseInt(tokens[4]), Integer.parseInt(tokens[5]),
                             1 == Integer.parseInt(tokens[6]), 1 == Integer.parseInt(tokens[7]),
@@ -275,32 +275,6 @@ public class AssetManager extends Application {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }
-
-        for (int i = 0; i < chanceCards.size(); i++) {
-            System.out.println("\n----Chance Card----");
-            System.out.println("Card Num: " + chanceCards.get(i).getCARDNUM());
-            System.out.println("Text: " + chanceCards.get(i).getText());
-            System.out.println("Strategy: " + chanceCards.get(i).getCardStrategy());
-            System.out.println("Pay amount: " + chanceCards.get(i).getToPay());
-            System.out.println("Earn amount: " + chanceCards.get(i).getToEarn());
-            System.out.println("Go steps: " + chanceCards.get(i).getToMove());
-            System.out.println("To player?: " + chanceCards.get(i).isToPlayer());
-            System.out.println("To bank?: " + chanceCards.get(i).isToBank());
-            System.out.println("Go To?: " + chanceCards.get(i).getMoveTo());
-        }
-
-        for (int i = 0; i < rectorsWCards.size(); i++) {
-            System.out.println("\n----Rector's Whisper Card----");
-            System.out.println("Card Num: " + rectorsWCards.get(i).getCARDNUM());
-            System.out.println("Text: " + rectorsWCards.get(i).getText());
-            System.out.println("Strategy: " + rectorsWCards.get(i).getCardStrategy());
-            System.out.println("Pay amount: " + rectorsWCards.get(i).getToPay());
-            System.out.println("Earn amount: " + rectorsWCards.get(i).getToEarn());
-            System.out.println("Go steps: " + rectorsWCards.get(i).getToMove());
-            System.out.println("To player?: " + rectorsWCards.get(i).isToPlayer());
-            System.out.println("To bank?: " + rectorsWCards.get(i).isToBank());
-            System.out.println("Go To?: " + rectorsWCards.get(i).getMoveTo());
         }
 
         return new CardDeck(chanceCards, rectorsWCards);
