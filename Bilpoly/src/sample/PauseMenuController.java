@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +10,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.layout.VBox;
 import javafx.stage.*;
 
@@ -17,6 +21,18 @@ public class PauseMenuController {
 
     @FXML
     Button backButton;
+
+    @FXML
+    Slider musicSlider;
+
+    @FXML
+    Slider effectsSlider;
+
+    @FXML
+    Label musicLabel;
+
+    @FXML
+    Label effectsLabel;
 
     public static boolean inGame = false;
 
@@ -36,9 +52,28 @@ public class PauseMenuController {
 
     }
 
-    @FXML
-    public void MainMenuButtonClicked(ActionEvent event) throws Exception {
-   
+
+    public void initialize() {
+
+        //music slider updates the volume
+        musicSlider.setValue(AssetManager.mediaPlayer.getVolume()*100);
+        musicLabel.setText("%" + Integer.toString((int)musicSlider.getValue()));
+        musicSlider.valueProperty().addListener(new InvalidationListener() {
+            @Override
+            public void invalidated(Observable observable) {
+                AssetManager.mediaPlayer.setVolume(musicSlider.getValue()/100);
+                musicLabel.setText("%" + Integer.toString((int)musicSlider.getValue()));
+            }
+        });
+
+        effectsSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+
+            effectsLabel.setText("%" + Integer.toString((int) newValue.intValue()));
+
+
+        });
+
     }
+
     
 }
