@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LandPopup">
+   <children>
+      <VBox layoutX="182.0" layoutY="25.0" prefHeight="369.0" prefWidth="208.0" spacing="30.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="182.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="25.0">
+         <children>
+            <Label contentDisplay="CENTER" prefHeight="28.0" prefWidth="215.0" text="Label Name" />
+            <ImageView fitHeight="138.0" fitWidth="253.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/ece.jpeg" />
+               </image>
+               <VBox.margin>
+                  <Insets left="35.0" />
+               </VBox.margin></ImageView>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label prefHeight="45.0" prefWidth="208.0" text="Label Rent" />
+                  <Label layoutX="10.0" layoutY="10.0" prefHeight="49.0" prefWidth="208.0" text="Label Starbucks Bilka" />
+                  <Label layoutX="10.0" layoutY="32.0" prefHeight="48.0" prefWidth="208.0" text="Label Build starbucks build bilka" />
+                  <Button mnemonicParsing="false" text="Buy">
+                     <VBox.margin>
+                        <Insets left="80.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
