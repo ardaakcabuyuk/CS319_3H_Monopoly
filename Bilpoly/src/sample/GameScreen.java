@@ -253,11 +253,17 @@ public class GameScreen {
         AssetManager.gameManager.playGame();
     }*/
 
-    public void executePopup() throws IOException {
+    public void executeLandPopup() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("land_popup.fxml"));
         popup.getContent().add((Parent)loader.load());
         Stage window = (Stage)  boardAnchorPane.getScene().getWindow();
+        popup.show(window);
+    }
 
+    public void executeCafePopup() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("cafe_popup.fxml"));
+        popup.getContent().add((Parent)loader.load());
+        Stage window = (Stage)  boardAnchorPane.getScene().getWindow();
         popup.show(window);
     }
 
@@ -305,7 +311,7 @@ public class GameScreen {
                 rentWithThreeSBPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_3_SECONDARY());
                 rentWithBilkaPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_PRIMARY());
 
-                executePopup();
+                executeLandPopup();
 
             }
             if ( nextLandable.getType() == LandableType.CAFE )
@@ -320,8 +326,7 @@ public class GameScreen {
                 rentWithThreeSBPopup = String.valueOf(( (Cafe) nextLandable).getRentWith3());
                 rentWithBilkaPopup = String.valueOf(( (Cafe) nextLandable).getRentWith4());
 
-                executePopup();
-
+                executeCafePopup();
             }
         }
 

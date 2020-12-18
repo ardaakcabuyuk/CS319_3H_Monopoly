@@ -1,6 +1,7 @@
 package sample;
 
 import GameLogic.GameManager;
+import GameLogic.LandableType;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -44,6 +45,11 @@ public class LandPopupController {
     public void closeButtonClicked(ActionEvent event) throws Exception {
         System.out.println("close Button clicked. ");
         GameScreen.popup.hide();
+    }
+
+    @FXML
+    public void buyButtonClicked(ActionEvent event) throws Exception {
+        System.out.println("buy Button clicked. ");
     }
 
     @FXML
