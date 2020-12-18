@@ -5,7 +5,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LandPopupController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LandPopupController">
    <children>
       <VBox layoutX="182.0" layoutY="25.0" prefHeight="369.0" prefWidth="208.0" spacing="30.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="182.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="25.0">
          <children>
@@ -31,5 +31,14 @@
             </VBox>
          </children>
       </VBox>
+      <Button layoutX="534.0" layoutY="12.0" mnemonicParsing="false" onAction="#closeButtonClicked" style="-fx-background-color: white;">
+         <graphic>
+            <ImageView fitHeight="42.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/close_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

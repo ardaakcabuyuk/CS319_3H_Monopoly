@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -20,5 +21,11 @@ public class LandPopupController {
 
     @FXML
     public Button buyButton;
+
+    @FXML
+    public void closeButtonClicked(ActionEvent event) throws Exception {
+        System.out.println("close Button clicked. ");
+        GameScreen.popup.hide();
+    }
 
 }
