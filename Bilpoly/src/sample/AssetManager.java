@@ -91,7 +91,7 @@ public class AssetManager extends Application {
         gameManager = new GameManager(playerDeck, landableList, cardDeck, timeMode, timeLimit);
         gameManager.gameScreenController = loader;
 
-        gameManager.setLanableListLocations();
+        gameManager.setLandableListLocations();
         gameManager.gameScreenController.initializePawns(landableList);
 
 

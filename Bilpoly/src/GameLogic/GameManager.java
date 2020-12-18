@@ -80,9 +80,10 @@ public class GameManager {
         // built next player
         // built history
 
-        if(!playerDeck.getCurrentPlayer().isTurn() && !isGameOver ){
+        if(!playerDeck.getCurrentPlayer().isTurn() && !isGameOver){
             playerDeck.nextPlayer();
             try {
+                System.out.println("---------------curPlayer: " + playerDeck.getCurrentPlayer().getName());
                 playTurnPreDice();
             } catch (Exception e){
                 System.out.println(e);
@@ -107,22 +108,6 @@ public class GameManager {
 
         // activate roll dice button
         gameScreenController.enableRollDiceButton();
-
-
-        /*
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("game_screen.fxml"));
-        Parent root = loader.load();
-        GameScreen controller = loader.<GameScreen>getController();
-        controller.enableRollDiceButton();
-
-
-         */
-
-
-        //gameScreenController.enableRollDiceButton();
-
-
-
     }
 
     public int[] rollDice() {
@@ -131,18 +116,16 @@ public class GameManager {
             int val2 = dice.getTotalFaceValue() - val1;
             int[] values = {val1, val2};
             diceRolled = true;
-            playTurnPostDice();
             return values;
 
     }
 
-    public void playTurnPostDice(){
+    public void playTurnPostDice(Landable nextLandable){
         System.out.println("playTurnPostDice");
+        System.out.println("nextLandable.getType(): " + nextLandable.getType());
         int diceValue = dice.getTotalFaceValue();
         //int pawnNewIndex = curPlayer.getPawn().movePawn(diceValue, landableList.length);
-        executeLandable(
-                //landableList[pawnNewIndex]
-        );
+        executeLandable(nextLandable);
         diceRolled = false;
         System.out.println("player " + playerDeck.getCurrentPlayer().getName() + " rolled the dice: " + diceValue);
     }
@@ -151,14 +134,15 @@ public class GameManager {
 
     // This method executes the given land.
     // TODO will be implemented.
-    public void executeLandable(
-            //Landable landable
-    ){
+    public void executeLandable(Landable currentLandable){
+
+        Player currentPlayer = playerDeck.getCurrentPlayer();
+
         /*
-        switch (landable.type){
+        switch (currentLandable.type){
 
             case LAND:
-                if(((Land)landable).isBought){
+                if(((Land)currentLandable).isBought){
                     // player has to pay rent
                 }
                 else{
@@ -169,7 +153,7 @@ public class GameManager {
 
 
             case CAFE:
-                if(((Cafe)landable).isBought){
+                if(((Cafe)currentLandable).isBought){
                     // player has to pay rent
                 }
                 else{
@@ -181,7 +165,7 @@ public class GameManager {
 
             case CARD_PLACE:
 
-                cardDeck.drawCard(((CardPlace)landable).getCardType());
+                cardDeck.drawCard(((CardPlace)currentLandable).getCardType());
                 cardDeck.executeCard();
 
                 break;
@@ -209,10 +193,11 @@ public class GameManager {
         }
 
          */
-        if ( gameScreenController.doneClicked )
+        if (gameScreenController.doneClicked)
         {
             System.out.println("done clicked");
             gameScreenController.enableRollDiceButton();
+            System.out.println(" ++++++++ playGame called");
             playGame();
         }
     }
@@ -226,7 +211,7 @@ public class GameManager {
         return landableList;
     }
 
-    public void setLanableListLocations(){
+    public void setLandableListLocations(){
         for(int i = 0; i < landableList.length; i++){
             landableList[i].setLocation();
         }

@@ -229,12 +229,14 @@ public class GameScreen {
 
         rollDiceButton.setDisable(true);
         doneButton.setDisable(true);
+
     }
 
     @FXML
     public void doneButtonClicked(MouseEvent event) throws Exception{
         doneClicked = true;
         enableRollDiceButton();
+        AssetManager.gameManager.playGame();
     }
     public void enableRollDiceButton(){
         System.out.println("enableRollDiceButton");
@@ -266,7 +268,7 @@ public class GameScreen {
         Location toGoLocation = new Location(nextLandable.getLocation().getX(), nextLandable.getLocation().getY());
         pawnImage.relocate(toGoLocation.getX(), toGoLocation.getY());
         curPawn.movePawn(((index) % 40));
-        System.out.println("nextLandable.getType(): " + nextLandable.getType());
+        AssetManager.gameManager.playTurnPostDice(nextLandable);
     }
 
 
