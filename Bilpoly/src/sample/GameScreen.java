@@ -54,7 +54,15 @@ public class GameScreen {
     //public boolean doneClicked;
     public boolean rolledDice;
     private Timeline timeline;
+
+    //properties for updating popup
     public String nameOfLand;
+    public String rentPopup;
+    public String rentColorSetPopup;
+    public String rentWithOneSBPopup;
+    public String rentWithTwoSBPopup;
+    public String rentWithThreeSBPopup;
+    public String rentWithBilkaPopup;
 
     LandPopupController landPopupController;
 
@@ -284,7 +292,52 @@ public class GameScreen {
         pawnImage.relocate(toGoLocation.getX(), toGoLocation.getY());
         curPawn.movePawn(((index) % 40));
 
-        nameOfLand = ( (Buyable ) nextLandable).getName();
+        if ( nextLandable.getType() != LandableType.FUNCTIONAL_PLACE )
+        {
+            if ( nextLandable.getType() == LandableType.LAND )
+            {
+                nameOfLand = ( ( Land ) nextLandable).getName();
+
+                rentColorSetPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_SET());
+                rentPopup = String.valueOf(( (Land) nextLandable).getRENT());
+                rentWithOneSBPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_1_SECONDARY());
+                rentWithTwoSBPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_2_SECONDARY());
+                rentWithThreeSBPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_3_SECONDARY());
+                rentWithBilkaPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_PRIMARY());
+
+                executePopup();
+
+            }
+            if ( nextLandable.getType() == LandableType.CAFE )
+            {
+                nameOfLand = ( ( Cafe ) nextLandable).getName();
+
+                rentColorSetPopup = "";
+                rentPopup = "";
+
+                rentWithOneSBPopup = String.valueOf(( (Cafe) nextLandable).getRentWith1());
+                rentWithTwoSBPopup = String.valueOf(( (Cafe) nextLandable).getRentWith2());
+                rentWithThreeSBPopup = String.valueOf(( (Cafe) nextLandable).getRentWith3());
+                rentWithBilkaPopup = String.valueOf(( (Cafe) nextLandable).getRentWith4());
+
+                executePopup();
+
+            }
+        }
+
+    /*    switch( nextLandable.getType() )
+        {
+            case FUNCTIONAL_PLACE:
+                break;
+
+            case LAND:
+
+
+        }*/
+
+
+
+
         /*
         FXMLLoader loader = new FXMLLoader(getClass().getResource("land_popup.fxml"));
         Parent root = loader.load();
@@ -294,7 +347,6 @@ public class GameScreen {
          */
         //landNameNew = ( (Buyable ) nextLandable).getName();
 
-        executePopup();
 
         AssetManager.gameManager.playTurnPostDice(nextLandable);
     }

@@ -5,6 +5,7 @@ import javafx.scene.paint.Color;
 import java.util.Arrays;
 
 public class Land extends Buyable {
+
     //constants
     private final int MAX_SECONDARY = 3;
     private final int RENT;                 //help in CS
@@ -153,13 +154,78 @@ public class Land extends Buyable {
     }
 
     public Color getLandSet() { return COLOR; }
+    
+    public int getMAX_SECONDARY() {
+        return MAX_SECONDARY;
+    }
 
-    public int getPrimaryCost() {
+    public int getRENT() {
+        return RENT;
+    }
+
+    public int getRENT_WITH_SET() {
+        return RENT_WITH_SET;
+    }
+
+    public int getRENT_WITH_1_SECONDARY() {
+        return RENT_WITH_1_SECONDARY;
+    }
+
+    public int getRENT_WITH_2_SECONDARY() {
+        return RENT_WITH_2_SECONDARY;
+    }
+
+    public int getRENT_WITH_3_SECONDARY() {
+        return RENT_WITH_3_SECONDARY;
+    }
+
+    public int getRENT_WITH_PRIMARY() {
+        return RENT_WITH_PRIMARY;
+    }
+
+    public Color getCOLOR() {
+        return COLOR;
+    }
+
+    public int getPRIMARY_COST() {
         return PRIMARY_COST;
     }
 
-    public int getSecondaryCost() {
+    public int getSECONDARY_COST() {
         return SECONDARY_COST;
     }
+
+    public int getSecondaryNumber() {
+        return secondaryNumber;
+    }
+
+    public void setSecondaryNumber(int secondaryNumber) {
+        this.secondaryNumber = secondaryNumber;
+    }
+
+    public boolean isHasPrimary() {
+        return hasPrimary;
+    }
+
+    public void setHasPrimary(boolean hasPrimary) {
+        this.hasPrimary = hasPrimary;
+    }
+
+    public int getCurrentRent() {
+        return currentRent;
+    }
+
+    public void setCurrentRent(int currentRent) {
+        this.currentRent = currentRent;
+    }
+
+    public int getMortgageRate() {
+        return mortgageRate;
+    }
+
+    public void setMortgageRate(int mortgageRate) {
+        this.mortgageRate = mortgageRate;
+    }
+
 
 }

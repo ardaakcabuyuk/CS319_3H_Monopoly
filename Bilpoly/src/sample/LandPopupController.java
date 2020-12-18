@@ -9,29 +9,33 @@ import javafx.scene.control.Label;
 public class LandPopupController {
 
 
-
-    String landNameNew = "";
-    String rentNew;
-    String rentWithColorSet;
-    String rentWithOneSB;
-    String rentWithTwoSB;
-    String rentWithThreeSB;
-    String rentWithBilka;
-
-    String buildStarbucks;
-    String buildBilka;
-
-    @FXML
-    public Label landName;
-
     @FXML
     public Label rent;
 
     @FXML
-    public Label rentWithProperty;
+    public Label rentWithColorSet;
 
     @FXML
-    public Label buildProperty;
+    public Label rentWithOneSB;
+
+    @FXML
+    public Label rentWithTwoSB;
+
+    @FXML
+    public Label rentWithThreeSB;
+
+    @FXML
+    public Label rentWithBilka;
+
+    @FXML
+    public Label buildStarbucks;
+
+    @FXML
+    public Label buildBilka;
+
+    @FXML
+    public Label landName;
+
 
     @FXML
     public Button buyButton;
@@ -46,78 +50,13 @@ public class LandPopupController {
     public void initialize()
     {
         landName.setText(AssetManager.gameManager.gameScreenController.nameOfLand);
-    }
+        rent.setText(AssetManager.gameManager.gameScreenController.rentPopup);
+        rentWithColorSet.setText(AssetManager.gameManager.gameScreenController.rentColorSetPopup);
+        rentWithOneSB.setText(AssetManager.gameManager.gameScreenController.rentWithOneSBPopup);
+        rentWithTwoSB.setText(AssetManager.gameManager.gameScreenController.rentWithTwoSBPopup);
+        rentWithThreeSB.setText(AssetManager.gameManager.gameScreenController.rentWithThreeSBPopup);
+        rentWithBilka.setText(AssetManager.gameManager.gameScreenController.rentWithBilkaPopup);
 
-    public String getLandNameNew() {
-        return landNameNew;
-    }
-
-    public void setLandNameNew(String landNameNew) {
-        this.landNameNew = landNameNew;
-    }
-
-    public String getRentNew() {
-        return rentNew;
-    }
-
-    public void setRentNew(String rentNew) {
-        this.rentNew = rentNew;
-    }
-
-    public String getRentWithColorSet() {
-        return rentWithColorSet;
-    }
-
-    public void setRentWithColorSet(String rentWithColorSet) {
-        this.rentWithColorSet = rentWithColorSet;
-    }
-
-    public String getRentWithOneSB() {
-        return rentWithOneSB;
-    }
-
-    public void setRentWithOneSB(String rentWithOneSB) {
-        this.rentWithOneSB = rentWithOneSB;
-    }
-
-    public String getRentWithTwoSB() {
-        return rentWithTwoSB;
-    }
-
-    public void setRentWithTwoSB(String rentWithTwoSB) {
-        this.rentWithTwoSB = rentWithTwoSB;
-    }
-
-    public String getRentWithThreeSB() {
-        return rentWithThreeSB;
-    }
-
-    public void setRentWithThreeSB(String rentWithThreeSB) {
-        this.rentWithThreeSB = rentWithThreeSB;
-    }
-
-    public String getRentWithBilka() {
-        return rentWithBilka;
-    }
-
-    public void setRentWithBilka(String rentWithBilka) {
-        this.rentWithBilka = rentWithBilka;
-    }
-
-    public String getBuildStarbucks() {
-        return buildStarbucks;
-    }
-
-    public void setBuildStarbucks(String buildStarbucks) {
-        this.buildStarbucks = buildStarbucks;
-    }
-
-    public String getBuildBilka() {
-        return buildBilka;
-    }
-
-    public void setBuildBilka(String buildBilka) {
-        this.buildBilka = buildBilka;
     }
 
 }

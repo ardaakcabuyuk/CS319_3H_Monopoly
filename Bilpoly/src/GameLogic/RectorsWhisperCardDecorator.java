@@ -6,7 +6,7 @@ public class RectorsWhisperCardDecorator implements CardStrategy {
         this.strategy = strategy;
     }
 
-    public boolean executeCard(Card card, Player player) {
+    public boolean executeCard(GameManager gm, Card card) {
         return false;
     }
 }

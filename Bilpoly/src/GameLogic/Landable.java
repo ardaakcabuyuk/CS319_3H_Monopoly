@@ -2,20 +2,29 @@ package GameLogic;
 
 import sample.AssetManager;
 
-enum LandableType {
-    FUNCTIONAL_PLACE,
-    ATALARS_ROOM,
-    CARD_PLACE,
-    CAFE,
-    LAND
-}
-
 public abstract class Landable {
     //variables
     protected int index;
     protected Location location;
     protected Location[] location_available;
     protected LandableType type;
+
+    public Location[] getLocation_available() {
+        return location_available;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getBoardWidth() {
+        return boardWidth;
+    }
+
+    public double getBoardHeight() {
+        return boardHeight;
+    }
+
     protected String name;
 
     double boardWidth;

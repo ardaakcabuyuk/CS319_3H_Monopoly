@@ -20,8 +20,13 @@
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
                   <Label prefHeight="45.0" prefWidth="208.0" text="Label Rent" />
-                  <Label layoutX="10.0" layoutY="10.0" prefHeight="49.0" prefWidth="208.0" text="Label Starbucks Bilka" />
-                  <Label layoutX="10.0" layoutY="32.0" prefHeight="48.0" prefWidth="208.0" text="Label Build starbucks build bilka" />
+                  <Label fx:id= "rent" layoutX="10.0" layoutY="10.0" prefHeight="49.0" prefWidth="208.0" text="Label Starbucks Bilka" />
+                  <Label fx:id= "rentWithBilka" layoutX="10.0" layoutY="32.0" prefHeight="48.0" prefWidth="208.0" text="Label Build starbucks build bilka" />
+                  <Label fx:id= "rentWithOneSB" layoutX="10.0" layoutY="32.0" prefHeight="48.0" prefWidth="208.0" text="Label Build starbucks build bilka" />
+                  <Label fx:id= "rentWithTwoSB" layoutX="10.0" layoutY="32.0" prefHeight="48.0" prefWidth="208.0" text="Label Build starbucks build bilka" />
+                  <Label fx:id= "rentWithThreeSB" layoutX="10.0" layoutY="32.0" prefHeight="48.0" prefWidth="208.0" text="Label Build starbucks build bilka" />
+                  <Label fx:id= "rentWithColorSet" layoutX="10.0" layoutY="32.0" prefHeight="48.0" prefWidth="208.0" text="Label Build starbucks build bilka" />
+
                   <Button mnemonicParsing="false" text="Buy">
                      <VBox.margin>
                         <Insets left="80.0" />
