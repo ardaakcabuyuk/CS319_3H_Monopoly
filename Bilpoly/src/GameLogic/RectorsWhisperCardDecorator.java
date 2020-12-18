@@ -6,7 +6,17 @@ public class RectorsWhisperCardDecorator implements CardStrategy {
         this.strategy = strategy;
     }
 
-    public boolean executeCard(GameManager gm, Card card) {
-        return false;
+    public boolean executeCard(GameManager mgr, Card card) {
+        Card copied = new Card(card);
+        if (card.getInteractedPlayer().getMoney() < 7.500) {
+            copied.setToEarn(2 * card.getToEarn());
+            copied.setToPay(3 * card.getToPay() / 4);
+        }
+        else {
+            copied.setToEarn(card.getToEarn() / 2);
+            copied.setToPay(5 * card.getToPay() / 4);
+        }
+        strategy.executeCard(mgr, copied);
+        return true;
     }
 }

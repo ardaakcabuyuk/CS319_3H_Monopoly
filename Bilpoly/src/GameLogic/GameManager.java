@@ -126,6 +126,9 @@ public class GameManager {
         System.out.println("nextLandable.getType(): " + nextLandable.getType());
         int diceValue = dice.getTotalFaceValue();
         //int pawnNewIndex = curPlayer.getPawn().movePawn(diceValue, landableList.length);
+        //if passes through nizamiye
+        if (getCurrentPlayer().getPawn().getCurrentLandableIndex() + diceValue >= 40)
+            executeLandable(landableList[0]);
         executeLandable(nextLandable);
         diceRolled = false;
         System.out.println("player " + playerDeck.getCurrentPlayer().getName() + " rolled the dice: " + diceValue);
@@ -206,6 +209,11 @@ public class GameManager {
 
     public void sendPlayerToAtalarsRoom(Player p) {
         atalarsRoom.goToAtalarsRoom(p);
+        try {
+            gameScreenController.movePawnImage(p.getPawn().getImage(), atalarsRoom.getIndex(), p.getPawn());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     //GETTERS AND SETTERS
@@ -241,6 +249,8 @@ public class GameManager {
         Pawn playerPawn = playerDeck.getCurrentPlayer().getPawn();
         try {
             gameScreenController.movePawnImage(playerPawn.getImage(), (playerPawn.getCurrentLandableIndex() + step) % 40, playerPawn);
+            if (playerPawn.getCurrentLandableIndex() + step >= 40)
+                executeLandable(landableList[0]);
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("CANNOT MOVE PAWN OF PLAYER WITH A CARD");

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class HistoryManager {
 
     //constants
-    private final String FIRST_MESSAGE = "Game is started !";
+    private final String FIRST_MESSAGE = "Game is started!";
     private final int MAX_SIZE = 3;
 
     //variables

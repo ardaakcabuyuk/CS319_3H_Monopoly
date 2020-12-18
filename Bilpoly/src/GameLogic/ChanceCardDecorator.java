@@ -6,7 +6,11 @@ public class ChanceCardDecorator implements CardStrategy {
         this.strategy = strategy;
     }
 
-    public boolean executeCard(GameManager gm, Card card) {
-        return false;
+    public boolean executeCard(GameManager mgr, Card card) {
+        Card copied = new Card(card);
+        copied.setToEarn((((int) Math.random() * 50) + 1) * card.getToEarn());
+        copied.setToPay((((int) Math.random() * 50) + 1) * card.getToPay());
+        strategy.executeCard(mgr, copied);
+        return true;
     }
 }

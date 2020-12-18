@@ -166,6 +166,14 @@ public class Player {
     // getter ownedCafes
     public ArrayList<Cafe> getOwnedCafes() { return ownedCafes; }
 
+    public int getMoney() {
+        return money;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
     // set name
     public void setName(String name1) { name = name1; }
     // set pawn
@@ -174,4 +182,6 @@ public class Player {
     public void setColor(Color color) { this.color = color; }
     // set initial money
     public void setInitMoney(int money) { this.money = money; }
+
+
 }

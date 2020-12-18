@@ -35,6 +35,18 @@ public class Card {
         this.moveTo = moveTo;
     }
 
+    public Card(Card c) {
+        this.TEXT = c.TEXT;
+        this.CARDNUM = c.CARDNUM;
+        this.cardStrategy = c.cardStrategy;
+        this.toPay = c.toPay;
+        this.toEarn = c.toEarn;
+        this.toMove = c.toMove;
+        this.toPlayer = c.toPlayer;
+        this.toBank = c.toBank;
+        this.moveTo = c.moveTo;
+    }
+
     //methods
     // This method executes the card.
     // TODO will be implemented.
@@ -84,5 +96,13 @@ public class Card {
 
     public void setInteractedPlayer(Player interactedPlayer) {
         this.interactedPlayer = interactedPlayer;
+    }
+
+    public void setToPay(int toPay) {
+        this.toPay = toPay;
+    }
+
+    public void setToEarn(int toEarn) {
+        this.toEarn = toEarn;
     }
 }
