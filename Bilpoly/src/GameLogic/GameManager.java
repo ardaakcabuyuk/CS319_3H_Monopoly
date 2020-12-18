@@ -16,11 +16,12 @@ import java.util.*;
 public class GameManager {
 
     //constants
+    public int freeParkingMoney;
 
     //variables
     private Timer timer;
     private Player winner;
-    private int freeParkingMoney;
+
     private Landable[] landableList;
     private PlayerDeck playerDeck;
     private CardDeck cardDeck;

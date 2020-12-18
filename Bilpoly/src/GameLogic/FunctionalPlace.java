@@ -28,8 +28,8 @@ public class FunctionalPlace extends Landable implements PlaceStrategy {
     // This method executes the functional place.
     // TODO will be implemented.
     @Override
-    public void executeFunctional(FunctionalPlace place, Player player){
-
+    public void executeFunctional(Player player){
+        strategy.executeFunctional(player);
     }
 
     //GETTERS AND SETTERS
