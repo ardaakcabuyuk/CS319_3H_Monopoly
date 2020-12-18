@@ -54,8 +54,9 @@ public class GameScreen {
     //public boolean doneClicked;
     public boolean rolledDice;
     private Timeline timeline;
+    public String nameOfLand;
 
-
+    LandPopupController landPopupController;
 
     //ObservableList<ImageView> pawnList = FXCollections.observableArrayList(pawn1, pawn2, pawn3, pawn4);
 
@@ -278,7 +279,19 @@ public class GameScreen {
         Location toGoLocation = new Location(nextLandable.getLocation().getX(), nextLandable.getLocation().getY());
         pawnImage.relocate(toGoLocation.getX(), toGoLocation.getY());
         curPawn.movePawn(((index) % 40));
+
+        nameOfLand = ( (Buyable ) nextLandable).getName();
+        /*
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("land_popup.fxml"));
+        Parent root = loader.load();
+
+        landPopupController = loader.getController();
+
+         */
+        //landNameNew = ( (Buyable ) nextLandable).getName();
+
         executePopup();
+
         AssetManager.gameManager.playTurnPostDice(nextLandable);
     }
 
@@ -338,6 +351,17 @@ public class GameScreen {
                 }
             }
         },0, 6);
+    }
+
+ */
+/*
+    public void constructLandPopup() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("land_popup.fxml"));
+        Parent root = loader.load();
+
+        landPopupController = loader.getController();
+
     }
 
  */

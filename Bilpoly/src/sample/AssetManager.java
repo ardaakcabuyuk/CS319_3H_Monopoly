@@ -41,7 +41,9 @@ public class AssetManager extends Application {
     protected static boolean boardMode;
     protected static boolean timeMode;
     protected static int timeLimit = -1;
+
     public static GameManager gameManager;
+    public static LandPopupController landPopupController;
 
     public static MediaPlayer mediaPlayer;
 

@@ -16,6 +16,7 @@ public abstract class Landable {
     protected Location location;
     protected Location[] location_available;
     protected LandableType type;
+    protected String name;
 
     double boardWidth;
     double boardHeight;
