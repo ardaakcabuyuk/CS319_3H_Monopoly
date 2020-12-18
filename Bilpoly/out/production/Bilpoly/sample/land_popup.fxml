@@ -7,9 +7,9 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LandPopupController">
    <children>
-      <VBox layoutX="182.0" layoutY="25.0" prefHeight="369.0" prefWidth="208.0" spacing="30.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="182.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="25.0">
+      <VBox layoutX="182.0" layoutY="12.0" prefHeight="369.0" prefWidth="208.0" spacing="30.0" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="182.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="12.0">
          <children>
-            <Label fx:id="landName" contentDisplay="CENTER" prefHeight="28.0" prefWidth="215.0" text="Label Name" />
+            <Label fx:id="landName" alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="215.0" text="Label Name" />
             <ImageView fitHeight="138.0" fitWidth="253.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/ece.jpeg" />
@@ -19,15 +19,16 @@
                </VBox.margin></ImageView>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label prefHeight="45.0" prefWidth="208.0" text="Label Rent" />
-                  <Label fx:id= "rent" layoutX="10.0" layoutY="10.0" prefHeight="49.0" prefWidth="208.0" text="Label Starbucks Bilka" />
-                  <Label fx:id= "rentWithBilka" layoutX="10.0" layoutY="32.0" prefHeight="48.0" prefWidth="208.0" text="Label Build starbucks build bilka" />
-                  <Label fx:id= "rentWithOneSB" layoutX="10.0" layoutY="32.0" prefHeight="48.0" prefWidth="208.0" text="Label Build starbucks build bilka" />
-                  <Label fx:id= "rentWithTwoSB" layoutX="10.0" layoutY="32.0" prefHeight="48.0" prefWidth="208.0" text="Label Build starbucks build bilka" />
-                  <Label fx:id= "rentWithThreeSB" layoutX="10.0" layoutY="32.0" prefHeight="48.0" prefWidth="208.0" text="Label Build starbucks build bilka" />
-                  <Label fx:id= "rentWithColorSet" layoutX="10.0" layoutY="32.0" prefHeight="48.0" prefWidth="208.0" text="Label Build starbucks build bilka" />
+                  <Label fx:id="rent" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="226.0" text="Rent" />
+                  <Label fx:id="rentWithColorSet" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="224.0" text="Rent with color set" />
+                  <Label fx:id="rentWithOneSB" alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="19.0" prefWidth="228.0" text="1 Starbucks" />
+                  <Label fx:id="rentWithTwoSB" alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="20.0" prefWidth="226.0" text="2 Starbucks" />
+                  <Label fx:id="rentWithThreeSB" alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="21.0" prefWidth="227.0" text="3 Starbucks" />
+                  <Label fx:id="rentWithBilka" alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="21.0" prefWidth="227.0" text="Bilka" />
+                  <Label  alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="20.0" prefWidth="224.0" text="Build Starbucks" />
+                  <Label  alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="25.0" prefWidth="227.0" text="Build Bilka" />
 
-                  <Button mnemonicParsing="false" text="Buy">
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="Buy">
                      <VBox.margin>
                         <Insets left="80.0" />
                      </VBox.margin>
