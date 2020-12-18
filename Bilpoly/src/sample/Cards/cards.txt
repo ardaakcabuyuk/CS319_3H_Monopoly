@@ -1,0 +1,18 @@
+You saved a cat. Animal Friends Society gave you 100 Bilcoin,chance,earn,-1,100,-1,0,0,-1
+You caught the coronavirus! Go to 55. Dormitory for quarantine!,chance,goTo,-1,-1,-1,0,0,14
+You did wrong parking. Pay 200 Bilcoin,chance,pay,200,-1,-1,0,1,-1
+There is no White Chocolate Mocha in Starbuckes and your friend is having a WCM crises. Go to Lokal 71 for WCM,chance,goTo,-1,-1,-1,0,0,25
+You spilled coffee onto your friend's MacBook Pro 2020. Pay 2000 Bilcoin to the previous player,chance,pay,2000,-1,-1,1,0,-1
+Your scholarship fee is 1200 Bilcoin and it is in your bank account right now!,chance,pay,-1,1200,-1,0,0,-1
+You broke the piano in MSSF Room 102. Pay 1500 Bilcoin,chance,pay,1500,-1,0,0,1,-1
+You found an unlocked HOP in the campus. Steal it and move 10 steps forward.,chance,goTo,-1,-1,10,0,0,-1
+There is a fire in B Building while you are in CS102 lab. Lab is canceled go to Federal.,chance,goTo,-1,-1,-1,0,0,15
+Mr. Atalar decided to make face to face finals. You caught the coronavirus because of that. You sued Mr. Atalar and earned 3000 Bilcoin.,rector,earn,-1,3000,-1,0,0,-1
+Mr. Atalar caught you smoke. Go to Atalar's Room and pay 300 Bilcoin. If you pass through Nizamiye don't take Nizamiye money.,rector,goToPay,300,-1,-1,0,1,10
+Mr. Atalar caught you cheating in CS319 exam through the mirror. Go to Atalar's Room and pay 500 Bilcoin. If you pass through Nizamiye don't take Nizamiye money.,rector,goToPay,500,-1,-1,0,1,10
+Today is Mr. Atalar's birthday and you are obligated to organize a surprise party. All expenses are covered by you. Pay 2000 Bilcoin.,rector,pay,2000,-1,-1,0,1,-1
+You Tweeted an inappropriate tweet about Mr. Atalar. He DMed you and told you that you have to pay him 2000 Bilcoin in order to avoid his room.,rector,pay,2000,-1,-1,0,1,-1
+You are caught eating Avocado. Mr. Atalar awarded you and selected you as Student of The Month. You earned 400 Bilcoin.,rector,earn,-1,400,-1,0,0,-1
+You are caught while trying to burn EE Building. Go to Atalar's Room and pay 1500 Bilcoin. If you pass through Nizamiye don't take Nizamiye money.,rector,goToPay,1500,-1,-1,0,1,10
+You have won the prize for your History Article about Atalar's Dictatorship through the years. You earned 600 Bilcoin.,rector,earn,-1,600,-1,0,0,-1
+You did a double major in CS and EE and Mr. Atalar adopted you. Go to Atalar's Room and never get out(You are out of game)!!!,rector,goToPay,999999999,-1,-1,0,0,10

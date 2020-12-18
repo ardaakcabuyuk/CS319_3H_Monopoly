@@ -39,6 +39,7 @@ public class CardDeck {
     // This method executes the currentCard.
     // TODO will be implemented.
     public boolean executeCard(){
+        currentCard.executeCard();
         return true;
     }
 

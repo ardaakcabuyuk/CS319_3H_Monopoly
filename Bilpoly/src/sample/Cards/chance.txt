@@ -1,9 +1,0 @@
-You saved a cat. Animal Friends Society gave you 100 Bilcoin as,chance,earn,-1,100,0,0,0 
-You caught the coronavirus! Go to 55. Dormitory for quarantine!,chance,goTo,-1,-1,1,0,0
-You did wrong parking. Pay 200 Bilcoin,chance,pay,200,-1,0,0,1
-There is no White Chocolate Mocha in Starbuckes and your friend is having a WCM crises. Go to Local 71 for WCM,chance,goTo,-1,-1,1,0,0
-You spilled coffee onto your friend's MacBook Pro 2020. Pay 2000 Bilcoin to the previous player,chance,pay,2000,-1,0,1,0
-Your scholarship fee is 1200 Bilcoin and it is in your bank account right now!,chance,pay,-1,1200,0,0,0
-You broke the piano in MSSF Room 102. Pay 1500 Bilcoin,chance,pay,1500,-1,0,0,1
-You found an unlocked HOP in the campus. Steal it and move 10 steps forward.,chance,goTo,-1,-1,1,0,0
-There is a fire in B Building while you are in CS102 lab. Lab is canceled go to Federal.,chance,goTo,-1,-1,1,0,0 

@@ -5,44 +5,80 @@ import java.util.ArrayList;
 public class Card {
 
     //constants
-    private String TEXT;
-    private int CARDNUM;
-    private CardType CARDTYPE;
-    private int PENALTY_NORMAL;
-    private int PENALTY_CS;
-    private ArrayList<String> choiceOptions;
+    private final String TEXT;
+    private final int CARDNUM;
+
 
     //variables
-    private int choice;
-
+    private CardStrategy cardStrategy;
+    private int toPay;
+    private int toEarn;
+    private int toMove;
+    private Player interactedPlayer;
+    private boolean toPlayer;
+    private boolean toBank;
+    private int moveTo;
 
 
     //constructor
-    public Card(String text, int cardNum, CardType cardType, int penaltyN, int penaltyCS, ArrayList<String> choiceOptions){
-        this.TEXT = text;
-        this.CARDNUM = cardNum;
-        this.CARDTYPE = cardType;
-        this.PENALTY_NORMAL = penaltyN;
-        this.PENALTY_CS = penaltyCS;
-        this.choiceOptions = choiceOptions;
-        this.choice = -1;
+
+
+    public Card(String TEXT, int CARDNUM, CardStrategy cardStrategy, int toPay, int toEarn, int toMove, boolean toPlayer, boolean toBank, int moveTo) {
+        this.TEXT = TEXT;
+        this.CARDNUM = CARDNUM;
+        this.cardStrategy = cardStrategy;
+        this.toPay = toPay;
+        this.toEarn = toEarn;
+        this.toMove = toMove;
+        this.toPlayer = toPlayer;
+        this.toBank = toBank;
+        this.moveTo = moveTo;
     }
 
     //methods
     // This method executes the card.
     // TODO will be implemented.
     public boolean executeCard(){
+        cardStrategy.executeCard(this, interactedPlayer);
         return true;
     }
 
     //GETTERS AND SETTERS
     public String getText() { return TEXT; }
 
-    public CardType getCardType() { return CARDTYPE; }
+    public int getCARDNUM() {
+        return CARDNUM;
+    }
 
-    public int getPenaltyNormal() { return PENALTY_NORMAL; }
+    public CardStrategy getCardStrategy() {
+        return cardStrategy;
+    }
 
-    public int getPenaltyCS() { return PENALTY_CS; }
+    public int getToPay() {
+        return toPay;
+    }
 
-    public ArrayList<String> getChoiceOptions() { return choiceOptions; }
+    public int getToEarn() {
+        return toEarn;
+    }
+
+    public int getToMove() {
+        return toMove;
+    }
+
+    public Player getInteractedPlayer() {
+        return interactedPlayer;
+    }
+
+    public boolean isToPlayer() {
+        return toPlayer;
+    }
+
+    public boolean isToBank() {
+        return toBank;
+    }
+
+    public int getMoveTo() {
+        return moveTo;
+    }
 }
