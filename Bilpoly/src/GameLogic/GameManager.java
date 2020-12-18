@@ -64,6 +64,10 @@ public class GameManager {
         //this.pauseMenu =  new PauseMenu();
         //this.gameScreen = gameScreen;
 
+        for(int i = 0; i < landableList.length; i++){
+            landableList[i].setLocation();
+        }
+
         playGame();
 
     }
