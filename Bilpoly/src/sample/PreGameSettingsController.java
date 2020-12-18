@@ -79,8 +79,7 @@ public class PreGameSettingsController {
         Stage window = (Stage)( ((Node) event.getSource()).getScene().getWindow());
         window.getScene().setRoot(root);
 
-        AssetManager.constructGameManager();
-        AssetManager.gameManager.gameScreenController = (GameScreen)loader.getController();
+        AssetManager.constructGameManager((GameScreen)loader.getController());
 
     }
 

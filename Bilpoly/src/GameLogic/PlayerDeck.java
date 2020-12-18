@@ -15,7 +15,7 @@ public class PlayerDeck {
     //constructor
     public PlayerDeck(ArrayList<Player> playerList){
         this.playerList = playerList;
-        this.currentPlayer = playerList.get(0);
+        this.currentPlayer = playerList.get(playerList.size() - 1);
         this.noOfPlayers = playerList.size();
     }
 
@@ -57,4 +57,7 @@ public class PlayerDeck {
     // getter currentPlayer
     public Player getCurrentPlayer() { return currentPlayer; }
 
+    public ArrayList<Player> getPlayerList() {
+        return playerList;
+    }
 }

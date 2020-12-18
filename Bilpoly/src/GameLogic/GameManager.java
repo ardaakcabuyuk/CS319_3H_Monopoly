@@ -43,7 +43,9 @@ public class GameManager {
     public GameManager(PlayerDeck playerDeck, Landable[] landableList, CardDeck cardDeck,
                        boolean timeMode, int timeLimit
                        //GameOver gameOver, PauseMenu pauseMenu, GameScreen gameScreen,
-                        ){
+                        ) {
+
+        System.out.println("GameManager is initialized.");
         this.timer = new Timer();
         this.winner = null;
         this.freeParkingMoney = 0;
@@ -64,11 +66,7 @@ public class GameManager {
         //this.pauseMenu =  new PauseMenu();
         //this.gameScreen = gameScreen;
 
-        for(int i = 0; i < landableList.length; i++){
-            landableList[i].setLocation();
-        }
-
-        playGame();
+        System.out.println("GameManager is initialized.");
 
     }
 
@@ -127,7 +125,7 @@ public class GameManager {
 
     }
 
-    public int[] rollDice( ) {
+    public int[] rollDice() {
             dice.rollDice();
             int val1 = dice.getDie1FaceValue();
             int val2 = dice.getTotalFaceValue() - val1;
@@ -226,5 +224,15 @@ public class GameManager {
 
     public Landable[] getLandableList() {
         return landableList;
+    }
+
+    public void setLanableListLocations(){
+        for(int i = 0; i < landableList.length; i++){
+            landableList[i].setLocation();
+        }
+    }
+
+    public ArrayList<Player> getPlayers(){
+        return playerDeck.getPlayerList();
     }
 }

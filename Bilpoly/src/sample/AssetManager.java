@@ -72,7 +72,7 @@ public class AssetManager extends Application {
         launch(args);
     }
 
-    public static void constructGameManager(){
+    public static void constructGameManager(GameScreen loader){
         System.out.println("constructGameManager() is called.");
         ArrayList<Player> playerList = new ArrayList<Player>();
         for(int i = 0; i < players.length; i++){
@@ -80,12 +80,23 @@ public class AssetManager extends Application {
         }
         PlayerDeck playerDeck = new PlayerDeck(playerList);
         Landable[] landableList = getLandableList(boardMode);
+/*
         for (int i = 0; i < landableList.length; i++) {
             System.out.println(landableList[i].getType());
         }
+
+ */
         CardDeck cardDeck = getCardDeck(boardMode);
-        System.out.println("GameManager is initialized.");
+
         gameManager = new GameManager(playerDeck, landableList, cardDeck, timeMode, timeLimit);
+        gameManager.gameScreenController = loader;
+
+        gameManager.setLanableListLocations();
+        gameManager.gameScreenController.initializePawns(landableList);
+
+
+        // at the end
+        gameManager.playGame();
     }
 
     public static void setPlayerNumber(int playerNum){
@@ -112,6 +123,8 @@ public class AssetManager extends Application {
     public static Player[] getPlayers(){
         return  players;
     }
+
+
     private static Landable[] getLandableList(boolean boardMode) {
         //Buildings Mode
         Landable[] landableList = new Landable[40];

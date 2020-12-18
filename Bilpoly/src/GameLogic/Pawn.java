@@ -20,8 +20,8 @@ public class Pawn {
     //methods
     // This method moves the pawn in board order.
     //TODO will be implemented.
-    public int movePawn(int move, int landableListLength) {
-        currentLandableIndex = landableListLength % currentLandableIndex + move;
+    public int movePawn(int index) {
+        currentLandableIndex = index;
         return currentLandableIndex;
     }
 
