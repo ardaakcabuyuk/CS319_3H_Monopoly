@@ -10,7 +10,7 @@
 
 <AnchorPane fx:id="anchorGame" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GameScreen">
    <children>
-      <VBox layoutX="29.0" layoutY="30.0" prefHeight="700.0" prefWidth="256.0" spacing="20.0" AnchorPane.bottomAnchor="60.0" AnchorPane.topAnchor="30.0">
+      <VBox layoutX="29.0" layoutY="30.0">
          <children>
             <AnchorPane prefHeight="349.0" prefWidth="256.0">
                <children>
@@ -36,12 +36,12 @@
                   </Label>
                   <!--Button fx:id="doneButton" layoutX="58.0" layoutY="301.0" mnemonicParsing="false" onMouseClicked="#doneButtonClicked" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 30;" text="Done" AnchorPane.bottomAnchor="6.333333333333314" AnchorPane.leftAnchor="58.0" AnchorPane.rightAnchor="58.0">
                      <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Button!-->
+                              <Font size="19.0" />
+                           </font>
+                        </Button!-->
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="230.0" prefWidth="225.0">
+            <AnchorPane prefHeight="230.0" prefWidth="170.0">
                <children>
                   <ImageView fitHeight="230.0" fitWidth="170.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <image>
