@@ -275,6 +275,10 @@ public class GameScreen {
             public void run() {
                 Platform.runLater(new Runnable() {
                     public void run() {
+                        if ( timeMinutes == AssetManager.timeLimit )
+                        {
+                            timeMinutes--;
+                        }
                         timeSeconds--;
 
                         timeLabel.setText( timeMinutes + ":" + timeSeconds);
