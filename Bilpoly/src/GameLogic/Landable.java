@@ -61,7 +61,7 @@ public abstract class Landable {
         }
         
         double widthNormalized = boardWidth / 925;
-        double heightNormalized = boardWidth / 925;
+        double heightNormalized = boardHeight / 925;
         //System.out.println("widthNormalized: " + widthNormalized + " boardWidth: " + boardWidth);
 
         location = new Location(0, 0);
