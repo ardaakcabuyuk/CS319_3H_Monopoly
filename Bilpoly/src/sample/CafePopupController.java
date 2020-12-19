@@ -38,6 +38,7 @@ public class CafePopupController {
         System.out.println("close Button clicked. ");
         GameScreen.cafePopup.hide();
         AssetManager.gameManager.playTurnPostDice((Cafe)AssetManager.gameManager.gameScreenController.currentLandable);
+        AssetManager.gameManager.gameScreenController.enableRollDiceButton();
     }
 
     @FXML
@@ -45,6 +46,7 @@ public class CafePopupController {
         System.out.println("buy Button clicked. ");
         AssetManager.gameManager.executeBuyable(AssetManager.gameManager.gameScreenController.currentLandable, buyButton);
         GameScreen.cafePopup.hide();
+        AssetManager.gameManager.gameScreenController.enableRollDiceButton();
     }
 
     @FXML

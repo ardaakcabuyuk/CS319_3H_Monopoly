@@ -43,21 +43,22 @@
                   <Image url="@Images/next_player.png" />
                </image>
             </ImageView>
-            <Label layoutX="32.0" layoutY="26.0" prefHeight="23.0" prefWidth="108.0" text="NEXT TURN" textFill="WHITE" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="26.0">
+            <Label fx:id="nextTurnLabel" layoutX="32.0" layoutY="26.0" prefHeight="23.0" prefWidth="108.0" text="NEXT TURN" textFill="WHITE" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="26.0">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <Label layoutX="31.0" layoutY="137.0" prefHeight="23.0" prefWidth="106.0" text="nextTurnName" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="32.0">
+            <Label fx:id="nextTurnNameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="137.0" prefHeight="23.0" prefWidth="106.0" text="nextTurnName" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="32.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="37.0" layoutY="176.0" prefHeight="28.0" prefWidth="98.0" text="nextTurnMoney" textFill="WHITE" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="28.0">
+            <Label fx:id="nextTurnMoneyLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="176.0" prefHeight="28.0" prefWidth="98.0" text="nextTurnMoney" textFill="WHITE" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="28.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
+            <ImageView fx:id="nextPlayerPawnImage" fitHeight="82.0" fitWidth="86.0" layoutX="44.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="44.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="58.0" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="39.0" layoutY="700.0" prefHeight="70.0" prefWidth="239.0" AnchorPane.leftAnchor="39.0">
@@ -81,17 +82,17 @@
                   <Image url="@Images/history.png" />
                </image>
             </ImageView>
-            <Label layoutX="16.0" layoutY="37.0" prefHeight="0.0" prefWidth="92.0" text="history1" textFill="WHITE" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="10.0">
+            <Label fx:id="history1Label" layoutX="16.0" layoutY="37.0" prefHeight="26.0" prefWidth="226.0" text="history1" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="10.0">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="16.0" layoutY="29.0" prefHeight="27.0" prefWidth="92.0" text="history2" textFill="WHITE" AnchorPane.leftAnchor="16.0">
+            <Label fx:id="history2Label" layoutX="16.0" layoutY="29.0" prefHeight="27.0" prefWidth="226.0" text="history2" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="16.0">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="16.0" layoutY="51.0" prefHeight="27.0" prefWidth="92.0" text="history3" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="16.0">
+            <Label fx:id="history3Label" layoutX="16.0" layoutY="51.0" prefHeight="27.0" prefWidth="226.0" text="history3" textFill="WHITE" wrapText="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="16.0">
                <font>
                   <Font size="20.0" />
                </font>

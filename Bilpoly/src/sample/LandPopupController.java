@@ -53,12 +53,14 @@ public class LandPopupController {
         System.out.println("close Button clicked. ");
         GameScreen.landPopup.hide();
         AssetManager.gameManager.playTurnPostDice((Land)AssetManager.gameManager.gameScreenController.currentLandable);
+        AssetManager.gameManager.gameScreenController.enableRollDiceButton();
     }
 
     @FXML
     public void buyButtonClicked(ActionEvent event) throws Exception {
         AssetManager.gameManager.executeBuyable(AssetManager.gameManager.gameScreenController.currentLandable, buyButton);
         GameScreen.landPopup.hide();
+        AssetManager.gameManager.gameScreenController.enableRollDiceButton();
     }
 
     @FXML

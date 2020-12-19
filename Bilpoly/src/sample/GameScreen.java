@@ -72,6 +72,19 @@ public class GameScreen {
 
 
     @FXML
+    private ImageView nextPlayerPawnImage;
+
+    @FXML
+    private Label history1Label;
+    @FXML
+    private Label history2Label;
+    @FXML
+    private Label history3Label;
+    @FXML
+    private Label nextTurnNameLabel;
+    @FXML
+    private Label nextTurnMoneyLabel;
+    @FXML
     private Label curPlayerName;
 
     @FXML
@@ -104,6 +117,10 @@ public class GameScreen {
        // doneClicked = false;
        // doneButton.setDisable(true);
 
+        this.history1Label.setText("Game Started !!!");
+        this.history2Label.setText("");
+        this.history3Label.setText("");
+
     }
     @FXML
     public static Popup landPopup = new Popup();
@@ -130,6 +147,7 @@ public class GameScreen {
         pausePopup.getContent().add((Parent)loader.load());
         //Parent root = FXMLLoader.load(getClass().getResource("game_screen.fxml"));
         Stage window = (Stage)( ((Node) event.getSource()).getScene().getWindow());
+        rollDiceButton.setDisable(true);
         pausePopup.show(window);
     }
 
@@ -297,6 +315,7 @@ public class GameScreen {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("land_popup.fxml"));
         landPopup.getContent().add((Parent)loader.load());
         Stage window = (Stage) boardAnchorPane.getScene().getWindow();
+        rollDiceButton.setDisable(true);
         landPopup.show(window);
     }
 
@@ -304,6 +323,7 @@ public class GameScreen {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("cafe_popup.fxml"));
         cafePopup.getContent().add((Parent)loader.load());
         Stage window = (Stage)  boardAnchorPane.getScene().getWindow();
+        rollDiceButton.setDisable(true);
         cafePopup.show(window);
     }
 
@@ -312,6 +332,7 @@ public class GameScreen {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("card_popup.fxml"));
         cardPopup.getContent().add((Parent)loader.load());
         Stage window = (Stage)  boardAnchorPane.getScene().getWindow();
+        rollDiceButton.setDisable(true);
         cardPopup.show(window);
     }
 
@@ -489,6 +510,19 @@ public class GameScreen {
         windowHeight = screenBounds.getMaxY();
         boardHeight = windowHeight * HEIGHT_RESIZE;
         return boardHeight;
+    }
+
+
+    public void setNextTurn(String nextTurnNameLabel, String nextTurnMoneyLabel, Pawn nextPlayerPawn){
+        this.nextTurnNameLabel.setText(nextTurnNameLabel);
+        this.nextTurnMoneyLabel.setText(nextTurnMoneyLabel);
+        this.nextPlayerPawnImage.setImage(getPawnImage(nextPlayerPawn).getImage());
+    }
+
+    public void addHistory(String newHist){
+        this.history3Label.setText(history2Label.getText());
+        this.history2Label.setText(history1Label.getText());
+        this.history1Label.setText(newHist);
     }
 
 }
