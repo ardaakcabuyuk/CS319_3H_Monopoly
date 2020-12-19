@@ -68,8 +68,8 @@ public class LandPopupController {
         rentWithThreeSB.setText("Rent with 3 Starbucks: " + "$" +AssetManager.gameManager.gameScreenController.rentWithThreeSBPopup);
         rentWithBilka.setText("Rent with Bilka: " + "$" +AssetManager.gameManager.gameScreenController.rentWithBilkaPopup);
 
-        //Image image = new Image(AssetManager.gameManager.gameScreenController.imageNamePopup);
-        //landImage.setImage(image);
+        Image image = new Image(AssetManager.gameManager.gameScreenController.imageNamePopup);
+        landImage.setImage(image);
 
     }
 

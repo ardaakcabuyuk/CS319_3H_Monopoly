@@ -10,7 +10,7 @@
         <VBox layoutX="182.0" layoutY="12.0" prefHeight="369.0" prefWidth="208.0" spacing="30.0" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="182.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="12.0">
             <children>
                 <Label fx:id="cafeName" alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="215.0" text="Label Name" />
-                <ImageView fitHeight="138.0" fitWidth="253.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="landImage" fitHeight="138.0" fitWidth="253.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@Images/irem.jpeg" />
                     </image>

@@ -320,6 +320,8 @@ public class GameScreen {
             {
                 nameOfLand = ( ( Land ) nextLandable).getName();
 
+                System.out.println("*************NAMEOFLAND: " + nameOfLand);
+
                 rentColorSetPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_SET());
                 rentPopup = String.valueOf(( (Land) nextLandable).getRENT());
                 rentWithOneSBPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_1_SECONDARY());
@@ -327,7 +329,7 @@ public class GameScreen {
                 rentWithThreeSBPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_3_SECONDARY());
                 rentWithBilkaPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_PRIMARY());
 
-                imageNamePopup = "Images/buildings_all_png/" + nameOfLand + ".png";
+                imageNamePopup = "sample/Images/buildings_all_png/" + nameOfLand + ".png";
 
                 executeLandPopup();
 
@@ -344,7 +346,8 @@ public class GameScreen {
                 rentWithThreeSBPopup = String.valueOf(( (Cafe) nextLandable).getRentWith3());
                 rentWithBilkaPopup = String.valueOf(( (Cafe) nextLandable).getRentWith4());
 
-                imageNamePopup = "Images/buildings_all_png/" + nameOfLand + ".png";
+                imageNamePopup = "sample/Images/cafes_png/" + nameOfLand + ".png";
+
 
                 executeCafePopup();
             }
