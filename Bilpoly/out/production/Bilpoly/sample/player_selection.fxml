@@ -104,7 +104,7 @@
                         <TextField fx:id="name4" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <ComboBox fx:id="combo4" onAction="#select4" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <Label layoutX="48.0" layoutY="77.0" text="Name" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#okButtonClicked3" style="-fx-background-radius: 30;" text="Ok" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#okButtonClicked4" style="-fx-background-radius: 30;" text="Ok" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
                      </children>
                   </GridPane>
                </children>
