@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPreGame" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="697.0" prefWidth="898.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PreGameSettingsController">
+<AnchorPane fx:id="anchorPreGame" maxHeight="-Infinity" maxWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PreGameSettingsController">
    <children>
       <AnchorPane layoutX="65.0" layoutY="58.0" style="-fx-background-color: white; -fx-background-radius: 30;" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="65.0" AnchorPane.rightAnchor="89.0" AnchorPane.topAnchor="58.0">
          <children>
@@ -22,85 +22,90 @@
             </Label>
             <Button layoutX="14.0" layoutY="245.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="75.0" prefWidth="300.0" style="-fx-background-radius: 30;" text="Back" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" />
             <Button layoutX="24.0" layoutY="245.0" mnemonicParsing="false" onAction="#startButtonClicked" prefHeight="75.0" prefWidth="300.0" style="-fx-background-radius: 30;" text="Start" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0" />
-            <HBox layoutX="60.0" layoutY="150.0" spacing="200.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
+            <VBox AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="200.0">
                <children>
-                  <VBox spacing="30">
+                  <HBox spacing="200.0">
                      <children>
-                        <Label alignment="TOP_CENTER" prefHeight="24.0" prefWidth="300.0" text="INITIAL MONEY">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                        <Button fx:id="money1Button" mnemonicParsing="false" onAction="#money1ButtonClicked" prefHeight="66.0" prefWidth="303.0" style="-fx-background-radius: 30;" text="\$50,000">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="money2Button" layoutX="10.0" layoutY="34.0" mnemonicParsing="false" onAction="#money2ButtonClicked" prefHeight="66.0" prefWidth="303.0" style="-fx-background-radius: 30;" text="\$100,000">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="money3Button" layoutX="10.0" layoutY="100.0" mnemonicParsing="false" onAction="#money3ButtonClicked" prefHeight="66.0" prefWidth="303.0" style="-fx-background-radius: 30;" text="\$150,000">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </VBox>
-                  <VBox fillWidth="false" spacing="20">
-                     <children>
-                        <GridPane hgap="50.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" />
-                            <ColumnConstraints hgrow="SOMETIMES" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints maxHeight="70.0" minHeight="51.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="64.0" minHeight="31.0" prefHeight="45.0" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
+                        <VBox spacing="30">
                            <children>
-                              <Label prefHeight="53.0" prefWidth="568.0" text="                                    Board Mode" GridPane.columnSpan="2">
+                              <Label alignment="TOP_CENTER" prefHeight="24.0" prefWidth="300.0" text="INITIAL MONEY">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="buildingsButton" mnemonicParsing="false" onAction="#buildingsButtonClicked" prefHeight="150.0" prefWidth="250.0" style="-fx-background-radius: 30;" text="Buildings " GridPane.rowIndex="1" />
-                              <Button fx:id="coursesButton" mnemonicParsing="false" onAction="#coursesButtonClicked" prefHeight="150.0" prefWidth="250.0" style="-fx-background-radius: 30;" text="Courses " GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                           </children>
-                        </GridPane>
-                        <GridPane hgap="50.0" layoutX="10.0" layoutY="10.0" prefHeight="91.0" prefWidth="568.0">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" />
-                              <ColumnConstraints hgrow="SOMETIMES" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints maxHeight="70.0" minHeight="51.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="64.0" minHeight="31.0" prefHeight="45.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <Label prefHeight="53.0" prefWidth="568.0" text="                                    Time Mode" GridPane.columnSpan="2">
+                              <Button fx:id="money1Button" mnemonicParsing="false" onAction="#money1ButtonClicked" prefHeight="66.0" prefWidth="303.0" style="-fx-background-radius: 30;" text="\$50,000">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
-                              </Label>
-                              <Button fx:id="normalButton" mnemonicParsing="false" onAction="#normalButtonClicked" prefHeight="52.0" prefWidth="249.0" style="-fx-background-radius: 30;" text="Normal" GridPane.rowIndex="1" />
-                              <Button fx:id="timedButton" mnemonicParsing="false" onAction="#timedButtonClicked" prefHeight="150.0" prefWidth="250.0" style="-fx-background-radius: 30;" text="Timed" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              </Button>
+                              <Button fx:id="money2Button" layoutX="10.0" layoutY="34.0" mnemonicParsing="false" onAction="#money2ButtonClicked" prefHeight="66.0" prefWidth="303.0" style="-fx-background-radius: 30;" text="\$100,000">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="money3Button" layoutX="10.0" layoutY="100.0" mnemonicParsing="false" onAction="#money3ButtonClicked" prefHeight="66.0" prefWidth="303.0" style="-fx-background-radius: 30;" text="\$150,000">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
                            </children>
-                        </GridPane>
-                        <VBox prefHeight="55.0" prefWidth="563.0">
+                        </VBox>
+                        <VBox fillWidth="false" spacing="20">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="350.0" text="                                                                                    TIME" />
-                              <Slider fx:id="timeSlider" prefHeight="16.0" prefWidth="448.0" />
-                              <Label fx:id="timeLabel" prefHeight="17.0" prefWidth="333.0" text="\%0" />
+                              <GridPane hgap="50.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" />
+                                  <ColumnConstraints hgrow="SOMETIMES" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="70.0" minHeight="51.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="64.0" minHeight="31.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label prefHeight="53.0" prefWidth="568.0" text="                                    Board Mode" GridPane.columnSpan="2">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="buildingsButton" mnemonicParsing="false" onAction="#buildingsButtonClicked" prefHeight="150.0" prefWidth="250.0" style="-fx-background-radius: 30;" text="Buildings " GridPane.rowIndex="1" />
+                                    <Button fx:id="coursesButton" mnemonicParsing="false" onAction="#coursesButtonClicked" prefHeight="150.0" prefWidth="250.0" style="-fx-background-radius: 30;" text="Courses " GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                 </children>
+                              </GridPane>
+                              <GridPane hgap="50.0" layoutX="10.0" layoutY="10.0" prefHeight="91.0" prefWidth="568.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints maxHeight="70.0" minHeight="51.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="64.0" minHeight="31.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Label prefHeight="53.0" prefWidth="568.0" text="                                    Time Mode" GridPane.columnSpan="2">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="normalButton" mnemonicParsing="false" onAction="#normalButtonClicked" prefHeight="52.0" prefWidth="249.0" style="-fx-background-radius: 30;" text="Normal" GridPane.rowIndex="1" />
+                                    <Button fx:id="timedButton" mnemonicParsing="false" onAction="#timedButtonClicked" prefHeight="150.0" prefWidth="250.0" style="-fx-background-radius: 30;" text="Timed" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                 </children>
+                              </GridPane>
+                              <VBox prefHeight="55.0" prefWidth="563.0">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="350.0" text="                                                                                    TIME" />
+                                    <Slider fx:id="timeSlider" prefHeight="16.0" prefWidth="448.0" />
+                                    <Label fx:id="timeLabel" prefHeight="17.0" prefWidth="333.0" text="\%0" />
+                                 </children>
+                              </VBox>
                            </children>
                         </VBox>
                      </children>
-                  </VBox>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" />
                </children>
-            </HBox>
+            </VBox>
          </children>
       </AnchorPane>
    </children>
