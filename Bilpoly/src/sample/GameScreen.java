@@ -211,10 +211,6 @@ public class GameScreen {
         }
     }
 
-    public void movePawns(){
-
-    }
-
     @FXML
     public void rollDiceClicked(MouseEvent event) throws Exception{
 

@@ -9,14 +9,12 @@ public class PlayerDeck {
 
     //variables
     private Player currentPlayer;
-    private int noOfPlayers;
     private ArrayList<Player> playerList;
 
     //constructor
     public PlayerDeck(ArrayList<Player> playerList){
         this.playerList = playerList;
         this.currentPlayer = playerList.get(playerList.size() - 1);
-        this.noOfPlayers = playerList.size();
     }
 
     //methods
@@ -44,7 +42,6 @@ public class PlayerDeck {
         int index = playerList.indexOf(player);
         if (index > 0){
             playerList.remove(player);
-            noOfPlayers = playerList.size();
             return true;
         }
         else{

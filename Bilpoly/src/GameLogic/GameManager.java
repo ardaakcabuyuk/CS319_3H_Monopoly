@@ -81,10 +81,9 @@ public class GameManager {
         // built next player
         // built history
 
-        gameScreenController.changePlayerLabels(playerDeck.getCurrentPlayer());
-
         if(!playerDeck.getCurrentPlayer().isTurn() && !isGameOver){
             playerDeck.nextPlayer();
+            gameScreenController.changePlayerLabels(playerDeck.getCurrentPlayer());
             try {
                 //System.out.println("---------------curPlayer: " + playerDeck.getCurrentPlayer().getName());
                 playTurnPreDice();
