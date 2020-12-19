@@ -7,6 +7,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
@@ -37,6 +38,7 @@ import java.util.TimerTask;
 
 public class GameScreen {
 
+    final int MAX_SECOND_VALUE = 60;
     final double WIDTH_RESIZE = 0.645;
     final double HEIGHT_RESIZE = 0.955;
 
@@ -69,8 +71,8 @@ public class GameScreen {
 
     //ObservableList<ImageView> pawnList = FXCollections.observableArrayList(pawn1, pawn2, pawn3, pawn4);
 
-    private IntegerProperty timeSeconds = new SimpleIntegerProperty(AssetManager.timeLimit);
-
+    private int timeSeconds =MAX_SECOND_VALUE;
+    private int timeMinutes = AssetManager.timeLimit;
     @FXML
     AnchorPane BoardAnchorPane;
 
@@ -84,13 +86,8 @@ public class GameScreen {
         boardHeight = windowHeight * HEIGHT_RESIZE;
         System.out.println("boardWidth: " + boardWidth + " boardHeight: " + boardHeight);
 
-        timeLabel.textProperty().bind(timeSeconds.asString());
-        timeSeconds.set(AssetManager.timeLimit);
-        timeline = new Timeline();
-        timeline.getKeyFrames().add(
-                new KeyFrame(Duration.seconds(AssetManager.timeLimit+1),
-                        new KeyValue(timeSeconds, 0)));
-        timeline.playFromStart();
+        timeLabel.setText(AssetManager.timeLimit + ":00");
+        startTimer();
 
         rolledDice = false;
        // doneClicked = false;
@@ -246,13 +243,31 @@ public class GameScreen {
         //doneButton.setDisable(true);
 
     }
-/*
-    @FXML
-    public void doneButtonClicked(MouseEvent event) throws Exception{
-        doneClicked = true;
+    public void startTimer()
+    {
+        Timer timer = new Timer();
 
-        AssetManager.gameManager.playGame();
-    }*/
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Platform.runLater(new Runnable() {
+                    public void run() {
+                        timeSeconds--;
+
+                        timeLabel.setText( timeMinutes + ":" + timeSeconds);
+                        if ( timeSeconds == 0)
+                        {
+                            timeMinutes--;
+                            timeSeconds = MAX_SECOND_VALUE;
+                        }
+                        if (timeMinutes < 0)
+                            timer.cancel();
+
+                    }
+                });
+            }
+        }, 1000, 1000);
+    }
 
     public void executeLandPopup() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("land_popup.fxml"));
