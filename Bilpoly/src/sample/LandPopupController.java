@@ -71,6 +71,12 @@ public class LandPopupController {
         Image image = new Image(AssetManager.gameManager.gameScreenController.imageNamePopup);
         landImage.setImage(image);
 
-    }
+        buyButton.setText("Pay Rent");
 
+        for(int i = 0; i < AssetManager.gameManager.getCurrentPlayer().getOwnedLands().size(); i++) {
+            if (AssetManager.gameManager.getCurrentPlayer().getOwnedLands().get(i).getName() == AssetManager.gameManager.gameScreenController.nameOfLand) {
+                buyButton.setText("Pay Rent");
+            }
+        }
+    }
 }

@@ -98,7 +98,6 @@ public class GameManager {
 
 
     // This method handles the each turn for given player.
-    // TODO will be implemented.
     // history.update();
     // gameScreen.update()
 
@@ -152,7 +151,7 @@ public class GameManager {
                 Land currentLand = ((Land) currentLandable);
                 if(currentLand.isBought()){ //if land is bought
                     if (!currentLand.getOwner().isEqual(currentPlayer)) { //if current player does not own the land
-                        currentPlayer.changeMoney(currentLand.getCurrentRent()); //pay rent
+                        currentPlayer.changeMoney(-currentLand.getCurrentRent()); //pay rent
                     }
                 }
                 else{
@@ -200,7 +199,6 @@ public class GameManager {
      //   {
       //      System.out.println("done clicked");
             gameScreenController.enableRollDiceButton();
-            System.out.println(" ++++++++ playGame called");
             playGame();
         //}
     }

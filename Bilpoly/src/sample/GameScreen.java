@@ -257,11 +257,8 @@ public class GameScreen {
         movePawnImage(currentPawnImageView, ((currentPawn.getCurrentLandableIndex() + totalDiceValue) % 40), currentPawn);
 
         //animatePawnImageMovement(currentPawnImageView, ((currentPawn.getCurrentLandableIndex() + totalDiceValue) % 40), currentPawn);
-
         System.out.println("dice: " + totalDiceValue + " currentPawn.getCurrentLandableIndex(): " + currentPawn.getCurrentLandableIndex());
-
         System.out.println("currentPawn.getCurrentLandableIndex(): " + currentPawn.getCurrentLandableIndex());
-
         //rollDiceButton.setDisable(true);
         //doneButton.setDisable(true);
 
@@ -295,7 +292,7 @@ public class GameScreen {
     public void executeLandPopup() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("land_popup.fxml"));
         popup.getContent().add((Parent)loader.load());
-        Stage window = (Stage)  boardAnchorPane.getScene().getWindow();
+        Stage window = (Stage) boardAnchorPane.getScene().getWindow();
         popup.show(window);
     }
 
@@ -305,6 +302,7 @@ public class GameScreen {
         Stage window = (Stage)  boardAnchorPane.getScene().getWindow();
         popup.show(window);
     }
+
 
     public void executeCardPopup() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("card_popup.fxml"));
@@ -337,14 +335,14 @@ public class GameScreen {
     }
 
     public void movePawnImage(ImageView pawnImage, int index, Pawn curPawn) throws IOException {
-        Landable curLandable = AssetManager.gameManager.getLandableList()[curPawn.getCurrentLandableIndex()];
+        //Landable curLandable = AssetManager.gameManager.getLandableList()[curPawn.getCurrentLandableIndex()];
         Landable nextLandable = AssetManager.gameManager.getLandableList()[(index) % 40];
-        Location currentLocation = new Location(curLandable.getLocation().getX(), curLandable.getLocation().getY());
+        //Location currentLocation = new Location(curLandable.getLocation().getX(), curLandable.getLocation().getY());
         Location toGoLocation = new Location(nextLandable.getLocation().getX(), nextLandable.getLocation().getY());
         pawnImage.relocate(toGoLocation.getX(), toGoLocation.getY());
         curPawn.movePawn(((index) % 40));
 
-        //If landed landable is not functional place popups will show
+        //If landed landable is not functional place, popups will show
         if ( nextLandable.getType() != LandableType.FUNCTIONAL_PLACE )
         {
             //for land popup
