@@ -10,7 +10,7 @@
       <VBox layoutX="182.0" layoutY="12.0" prefHeight="369.0" prefWidth="208.0" spacing="30.0" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="182.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="12.0">
          <children>
             <Label fx:id="landName" alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="215.0" text="Label Name" />
-            <ImageView fitHeight="138.0" fitWidth="253.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="landImage" fx:id="landImage" fitHeight="138.0" fitWidth="253.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/ece.jpeg" />
                </image>
@@ -25,8 +25,8 @@
                   <Label fx:id="rentWithTwoSB" alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="20.0" prefWidth="226.0" text="2 Starbucks" />
                   <Label fx:id="rentWithThreeSB" alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="21.0" prefWidth="227.0" text="3 Starbucks" />
                   <Label fx:id="rentWithBilka" alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="21.0" prefWidth="227.0" text="Bilka" />
-                  <Label  alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="20.0" prefWidth="224.0" text="Build Starbucks" />
-                  <Label  alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="25.0" prefWidth="227.0" text="Build Bilka" />
+                  <Label alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="20.0" prefWidth="224.0" text="Build Starbucks" />
+                  <Label alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="25.0" prefWidth="227.0" text="Build Bilka" />
 
                   <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="Buy">
                      <VBox.margin>

@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class LandPopupController {
 
@@ -35,6 +37,9 @@ public class LandPopupController {
     public Label buildBilka;
 
     @FXML
+    public ImageView landImage;
+
+    @FXML
     public Label landName;
 
 
@@ -62,6 +67,9 @@ public class LandPopupController {
         rentWithTwoSB.setText("Rent with 2 Starbucks: " + "$" +AssetManager.gameManager.gameScreenController.rentWithTwoSBPopup);
         rentWithThreeSB.setText("Rent with 3 Starbucks: " + "$" +AssetManager.gameManager.gameScreenController.rentWithThreeSBPopup);
         rentWithBilka.setText("Rent with Bilka: " + "$" +AssetManager.gameManager.gameScreenController.rentWithBilkaPopup);
+
+        //Image image = new Image(AssetManager.gameManager.gameScreenController.imageNamePopup);
+        //landImage.setImage(image);
 
     }
 

@@ -63,6 +63,7 @@ public class GameScreen {
     public String rentWithTwoSBPopup;
     public String rentWithThreeSBPopup;
     public String rentWithBilkaPopup;
+    public String imageNamePopup;
 
     LandPopupController landPopupController;
 
@@ -311,6 +312,8 @@ public class GameScreen {
                 rentWithThreeSBPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_3_SECONDARY());
                 rentWithBilkaPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_PRIMARY());
 
+                imageNamePopup = "Images/buildings_all_png/" + nameOfLand + ".png";
+
                 executeLandPopup();
 
             }
@@ -325,6 +328,8 @@ public class GameScreen {
                 rentWithTwoSBPopup = String.valueOf(( (Cafe) nextLandable).getRentWith2());
                 rentWithThreeSBPopup = String.valueOf(( (Cafe) nextLandable).getRentWith3());
                 rentWithBilkaPopup = String.valueOf(( (Cafe) nextLandable).getRentWith4());
+
+                imageNamePopup = "Images/buildings_all_png/" + nameOfLand + ".png";
 
                 executeCafePopup();
             }
