@@ -146,7 +146,7 @@ public class GameScreen {
     public void changePlayerLabels(Player current)
     {
 
-        //cardDeckImage.setImage(new Image("card_deck_"+AssetManager.gameManager.getCurrentPlayer().getColor().toString().toLowerCase()+"_turn.png"));
+        cardDeckImage.setImage(new Image("card_deck_"+AssetManager.gameManager.getCurrentPlayer().getColorName()+"_turn.png"));
         curPlayerMoney.setText(current.getMoney() + "₿");
         curPlayerName.setText(current.getName());
     }
@@ -343,8 +343,10 @@ public class GameScreen {
         pawnImage.relocate(toGoLocation.getX(), toGoLocation.getY());
         curPawn.movePawn(((index) % 40));
 
+        //If landed landable is not functional place popups will show
         if ( nextLandable.getType() != LandableType.FUNCTIONAL_PLACE )
         {
+            //for land popup
             if ( nextLandable.getType() == LandableType.LAND )
             {
                 nameOfLand = ( ( Land ) nextLandable).getName();
@@ -361,6 +363,7 @@ public class GameScreen {
                 executeLandPopup();
 
             }
+            //for cafe popup
             if ( nextLandable.getType() == LandableType.CAFE )
             {
                 nameOfLand = ( ( Cafe ) nextLandable).getName();
@@ -378,6 +381,7 @@ public class GameScreen {
 
                 executeCafePopup();
             }
+            //for card popups
             if ( nextLandable.getType() == LandableType.CARD_PLACE ) {
 
                 cardStrategy = ((CardPlace) nextLandable).getCardType().name();
@@ -388,29 +392,6 @@ public class GameScreen {
                 executeCardPopup();
             }
         }
-
-    /*    switch( nextLandable.getType() )
-        {
-            case FUNCTIONAL_PLACE:
-                break;
-
-            case LAND:
-
-
-        }*/
-
-
-
-
-        /*
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("land_popup.fxml"));
-        Parent root = loader.load();
-
-        landPopupController = loader.getController();
-
-         */
-        //landNameNew = ( (Buyable ) nextLandable).getName();
-
 
         AssetManager.gameManager.playTurnPostDice(nextLandable);
     }

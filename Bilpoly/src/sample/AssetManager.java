@@ -80,8 +80,14 @@ public class AssetManager extends Application {
         ArrayList<Player> playerList = new ArrayList<Player>();
         for(int i = 0; i < players.length; i++){
             playerList.add(players[i]);
+            System.out.println("player name: " + players[i].getName() + "color: " + players[i].getColorName());
         }
         PlayerDeck playerDeck = new PlayerDeck(playerList);
+
+        for(int i = 0;i<playerList.size();i++)
+        {
+            System.out.println("player name: " + playerList.get(i).getName()+ "color: " + playerList.get(i).getColorName());
+        }
         Landable[] landableList = getLandableList(boardMode);
 /*
         for (int i = 0; i < landableList.length; i++) {
