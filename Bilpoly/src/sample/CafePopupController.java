@@ -36,7 +36,7 @@ public class CafePopupController {
     @FXML
     public void closeButtonClicked(ActionEvent event) throws Exception {
         System.out.println("close Button clicked. ");
-        GameScreen.popup.hide();
+        GameScreen.cafePopup.hide();
         AssetManager.gameManager.playTurnPostDice((Cafe)AssetManager.gameManager.gameScreenController.currentLandable);
     }
 
@@ -44,7 +44,7 @@ public class CafePopupController {
     public void buyButtonClicked(ActionEvent event) throws Exception {
         System.out.println("buy Button clicked. ");
         AssetManager.gameManager.executeBuyable(AssetManager.gameManager.gameScreenController.currentLandable, buyButton);
-        GameScreen.popup.hide();
+        GameScreen.cafePopup.hide();
     }
 
     @FXML

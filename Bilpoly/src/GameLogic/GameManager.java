@@ -15,6 +15,11 @@ import java.util.*;
 public class GameManager {
 
     //constants
+    private final int TUITION_FEE = 0;
+    private final int DORM_FEE = 0;
+    private final int BOOK_FEE = 0;
+    private final int FOOD_FEE = 0;
+    private final int NIZAMIYE_FEE = 0;
 
 
     //variables
@@ -81,10 +86,9 @@ public class GameManager {
         // built next player
         // built history
 
-        gameScreenController.changePlayerLabels(playerDeck.getCurrentPlayer());
-
         if(!playerDeck.getCurrentPlayer().isTurn() && !isGameOver){
             playerDeck.nextPlayer();
+            gameScreenController.changePlayerLabels(playerDeck.getCurrentPlayer());
             try {
                 //System.out.println("---------------curPlayer: " + playerDeck.getCurrentPlayer().getName());
                 playTurnPreDice();
@@ -145,6 +149,36 @@ public class GameManager {
         switch (currentLandable.type){
             case FUNCTIONAL_PLACE:
                 // i have no idea what to do here -ömer
+                int landableIndex = currentLandable.index;
+                switch (landableIndex){
+                    case 0:             // nizamiye (if he lands on it)
+                        AssetManager.gameManager.getCurrentPlayer().changeMoney(NIZAMIYE_FEE);
+                        break;
+                    case 4:             // tuition fee
+                        AssetManager.gameManager.getCurrentPlayer().changeMoney(-TUITION_FEE);
+                        freeParkingMoney += TUITION_FEE;
+                        break;
+                    case 10:            // atalar's offce
+                        break;
+                    case 12:            // dorm fee
+                        AssetManager.gameManager.getCurrentPlayer().changeMoney(-DORM_FEE);
+                        freeParkingMoney += DORM_FEE;
+                        break;
+                    case 20:            // free parking
+                        AssetManager.gameManager.getCurrentPlayer().changeMoney(freeParkingMoney);
+                        freeParkingMoney = 0;
+                        break;
+                    case 28:            // book fee
+                        AssetManager.gameManager.getCurrentPlayer().changeMoney(-BOOK_FEE);
+                        freeParkingMoney += BOOK_FEE;
+                        break;
+                    case 30:            // go to atalar's office
+                        break;
+                    case 38:            // food fee
+                        AssetManager.gameManager.getCurrentPlayer().changeMoney(-FOOD_FEE);
+                        freeParkingMoney += FOOD_FEE;
+                        break;
+                }
                 break;
             default:
                 // error
@@ -268,8 +302,8 @@ public class GameManager {
         Pawn playerPawn = playerDeck.getCurrentPlayer().getPawn();
         try {
             gameScreenController.movePawnImage(playerPawn.getImage(), (playerPawn.getCurrentLandableIndex() + step) % 40, playerPawn);
-            if (playerPawn.getCurrentLandableIndex() + step >= 40)
-                executeLandable(landableList[0]);
+            if (playerPawn.getCurrentLandableIndex() + step > 40)
+                AssetManager.gameManager.getCurrentPlayer().changeMoney(NIZAMIYE_FEE);
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("CANNOT MOVE PAWN OF PLAYER WITH A CARD");

@@ -25,8 +25,8 @@ public class HowToPlayController {
         {
             System.out.println("back Button clicked in pause menu ");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("pause_menu.fxml"));
-            GameScreen.popup.getContent().add((Parent)loader.load());
-            GameScreen.popup.show(GameScreen.popup.getOwnerWindow());
+            GameScreen.pausePopup.getContent().add((Parent)loader.load());
+            GameScreen.pausePopup.show(GameScreen.pausePopup.getOwnerWindow());
         }
     }
 }

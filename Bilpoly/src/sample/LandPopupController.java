@@ -51,14 +51,14 @@ public class LandPopupController {
     @FXML
     public void closeButtonClicked(ActionEvent event) throws Exception {
         System.out.println("close Button clicked. ");
-        GameScreen.popup.hide();
+        GameScreen.landPopup.hide();
         AssetManager.gameManager.playTurnPostDice((Land)AssetManager.gameManager.gameScreenController.currentLandable);
     }
 
     @FXML
     public void buyButtonClicked(ActionEvent event) throws Exception {
         AssetManager.gameManager.executeBuyable(AssetManager.gameManager.gameScreenController.currentLandable, buyButton);
-        GameScreen.popup.hide();
+        GameScreen.landPopup.hide();
     }
 
     @FXML
