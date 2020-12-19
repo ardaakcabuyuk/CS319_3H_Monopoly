@@ -66,6 +66,8 @@ public class GameScreen {
     public String rentWithThreeSBPopup;
     public String rentWithBilkaPopup;
     public String imageNamePopup;
+    public String cardStrategy;
+    public String cardText;
 
     LandPopupController landPopupController;
 
@@ -283,6 +285,13 @@ public class GameScreen {
         popup.show(window);
     }
 
+    public void executeCardPopup() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("card_popup.fxml"));
+        popup.getContent().add((Parent)loader.load());
+        Stage window = (Stage)  boardAnchorPane.getScene().getWindow();
+        popup.show(window);
+    }
+
     public void enableRollDiceButton(){
         System.out.println("enableRollDiceButton");
         rollDiceButton.setDisable(false);
@@ -320,8 +329,6 @@ public class GameScreen {
             {
                 nameOfLand = ( ( Land ) nextLandable).getName();
 
-                System.out.println("*************NAMEOFLAND: " + nameOfLand);
-
                 rentColorSetPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_SET());
                 rentPopup = String.valueOf(( (Land) nextLandable).getRENT());
                 rentWithOneSBPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_1_SECONDARY());
@@ -350,6 +357,15 @@ public class GameScreen {
 
 
                 executeCafePopup();
+            }
+            if ( nextLandable.getType() == LandableType.CARD_PLACE ) {
+
+                cardStrategy = ((CardPlace) nextLandable).getCardType().name();
+                System.out.println("Card Type:" + cardStrategy);
+
+                //cardText =
+
+                executeCardPopup();
             }
         }
 
