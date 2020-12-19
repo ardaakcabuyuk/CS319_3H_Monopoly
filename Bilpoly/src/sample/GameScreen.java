@@ -108,6 +108,7 @@ public class GameScreen {
 
         boardWidth = windowWidth * WIDTH_RESIZE;
         boardHeight = windowHeight * HEIGHT_RESIZE;
+
         System.out.println("boardWidth: " + boardWidth + " boardHeight: " + boardHeight);
 
         timeLabel.setText(AssetManager.timeLimit + ":00");
@@ -508,7 +509,6 @@ public class GameScreen {
     }
 
     public double getBoardWidth() {
-
         screenBounds = Screen.getPrimary().getBounds();
         windowWidth =  screenBounds.getMaxX();
         boardWidth = windowWidth * WIDTH_RESIZE;
