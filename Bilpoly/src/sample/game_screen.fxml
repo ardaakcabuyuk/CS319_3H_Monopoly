@@ -102,7 +102,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <Pane AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="118.0">
+      <Pane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="118.0">
          <children>
             <ImageView fx:id="boardImage" fitHeight="860.0" fitWidth="930.0" pickOnBounds="true">
                <image>
