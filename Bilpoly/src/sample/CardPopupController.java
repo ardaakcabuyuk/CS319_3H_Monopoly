@@ -1,5 +1,6 @@
 package sample;
 
+import GameLogic.CardPlace;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -43,5 +44,6 @@ public class CardPopupController {
     public void okayButtonClicked(ActionEvent event) throws Exception {
         System.out.println("okay Button clicked. ");
         GameScreen.popup.hide();
+        AssetManager.gameManager.executeBuyable((CardPlace)AssetManager.gameManager.gameScreenController.currentLandable, null);
     }
 }

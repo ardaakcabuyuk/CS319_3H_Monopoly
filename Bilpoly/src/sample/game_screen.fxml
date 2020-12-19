@@ -69,7 +69,7 @@
             </ImageView>
             <Label fx:id="timeLabel" layoutX="45.0" layoutY="-3.0" prefHeight="78.0" prefWidth="157.0" text="timer" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="0.0">
                <font>
-                  <Font size="63.0" />
+                  <Font size="40.0" />
                </font>
             </Label>
          </children>

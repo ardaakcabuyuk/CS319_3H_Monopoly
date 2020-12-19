@@ -1,7 +1,6 @@
 package sample;
 
-import GameLogic.GameManager;
-import GameLogic.LandableType;
+import GameLogic.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -38,11 +37,14 @@ public class CafePopupController {
     public void closeButtonClicked(ActionEvent event) throws Exception {
         System.out.println("close Button clicked. ");
         GameScreen.popup.hide();
+        AssetManager.gameManager.playTurnPostDice((Cafe)AssetManager.gameManager.gameScreenController.currentLandable);
     }
 
     @FXML
     public void buyButtonClicked(ActionEvent event) throws Exception {
         System.out.println("buy Button clicked. ");
+        AssetManager.gameManager.executeBuyable(AssetManager.gameManager.gameScreenController.currentLandable, buyButton);
+        GameScreen.popup.hide();
     }
 
     @FXML
@@ -56,6 +58,13 @@ public class CafePopupController {
 
         Image image = new Image(AssetManager.gameManager.gameScreenController.imageNamePopup);
         landImage.setImage(image);
+
+        Cafe curCafe = (Cafe)AssetManager.gameManager.gameScreenController.currentLandable;
+        Player curPlayer = AssetManager.gameManager.getCurrentPlayer();
+
+        if (curCafe.isBought() && !curPlayer.getOwnedCafes().contains(curCafe)) {
+            buyButton.setText("Pay Rent");
+        }
 
     }
 

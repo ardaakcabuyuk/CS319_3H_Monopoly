@@ -1,7 +1,9 @@
 package sample;
 
 import GameLogic.GameManager;
+import GameLogic.Land;
 import GameLogic.LandableType;
+import GameLogic.Player;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -50,11 +52,13 @@ public class LandPopupController {
     public void closeButtonClicked(ActionEvent event) throws Exception {
         System.out.println("close Button clicked. ");
         GameScreen.popup.hide();
+        AssetManager.gameManager.playTurnPostDice((Land)AssetManager.gameManager.gameScreenController.currentLandable);
     }
 
     @FXML
     public void buyButtonClicked(ActionEvent event) throws Exception {
-        System.out.println("buy Button clicked. ");
+        AssetManager.gameManager.executeBuyable(AssetManager.gameManager.gameScreenController.currentLandable, buyButton);
+        GameScreen.popup.hide();
     }
 
     @FXML
@@ -71,12 +75,11 @@ public class LandPopupController {
         Image image = new Image(AssetManager.gameManager.gameScreenController.imageNamePopup);
         landImage.setImage(image);
 
-        buyButton.setText("Pay Rent");
+        Land curLand = (Land)AssetManager.gameManager.gameScreenController.currentLandable;
+        Player curPlayer = AssetManager.gameManager.getCurrentPlayer();
 
-        for(int i = 0; i < AssetManager.gameManager.getCurrentPlayer().getOwnedLands().size(); i++) {
-            if (AssetManager.gameManager.getCurrentPlayer().getOwnedLands().get(i).getName() == AssetManager.gameManager.gameScreenController.nameOfLand) {
+        if (curLand.isBought() && !curPlayer.getOwnedLands().contains(curLand)) {
                 buyButton.setText("Pay Rent");
-            }
         }
     }
 }

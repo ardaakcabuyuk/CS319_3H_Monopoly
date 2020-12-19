@@ -30,7 +30,7 @@
                </children>
             </VBox>
       
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="Buy" fx:id="buyButton">
+            <Button onAction="#buyButtonClicked" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="Buy" fx:id="buyButton">
                <VBox.margin>
                   <Insets left="74.0" />
                </VBox.margin>

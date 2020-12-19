@@ -4,12 +4,11 @@ package GameLogic;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import sample.AssetManager;
 import sample.GameScreen;
-
-import java.awt.*;
 import java.io.IOException;
 import java.util.*;
 
@@ -87,7 +86,7 @@ public class GameManager {
         if(!playerDeck.getCurrentPlayer().isTurn() && !isGameOver){
             playerDeck.nextPlayer();
             try {
-                System.out.println("---------------curPlayer: " + playerDeck.getCurrentPlayer().getName());
+                //System.out.println("---------------curPlayer: " + playerDeck.getCurrentPlayer().getName());
                 playTurnPreDice();
             } catch (Exception e){
                 System.out.println(e);
@@ -141,55 +140,12 @@ public class GameManager {
     // This method executes the given land.
     // TODO will be implemented.
     public void executeLandable(Landable currentLandable){
-
         Player currentPlayer = playerDeck.getCurrentPlayer();
 
-
         switch (currentLandable.type){
-
-            case LAND:
-                Land currentLand = ((Land) currentLandable);
-                if(currentLand.isBought()){ //if land is bought
-                    if (!currentLand.getOwner().isEqual(currentPlayer)) { //if current player does not own the land
-                        currentPlayer.changeMoney(-currentLand.getCurrentRent()); //pay rent
-                    }
-                }
-                else{
-
-                }
-
-                break;
-
-
-            case CAFE:
-                if(((Cafe)currentLandable).isBought){
-                    // player has to pay rent
-                }
-                else{
-                    // ask player if he wants to buy
-                }
-
-                break;
-
-
-            case CARD_PLACE:
-
-                //card = cardDeck.drawCard(((CardPlace)currentLandable).getCardType());
-                //card.setInteractedPlayer(currentPlayer);
-                //card.executeCard(this);
-
-                break;
-
-
-
             case FUNCTIONAL_PLACE:
-
                 // i have no idea what to do here -ömer
-
                 break;
-
-
-
             default:
                 // error
         }
@@ -201,6 +157,73 @@ public class GameManager {
             gameScreenController.enableRollDiceButton();
             playGame();
         //}
+    }
+
+    public void executeBuyable(Landable currentLandable, Button button){
+
+        System.out.println("---executeBuyable()");
+
+        Player currentPlayer = playerDeck.getCurrentPlayer();
+        switch (currentLandable.type){
+            case LAND:
+                Land currentLand = ((Land) currentLandable);
+                if(currentLand.isBought() && button.getText() == "Pay Rent"){ //if land is bought
+                    AssetManager.gameManager.getCurrentPlayer().changeMoney(-currentLand.getCurrentRent());
+                }
+                else if(currentLand.isBought()){
+                    // his land
+                }
+                else{
+                    // buy
+                    AssetManager.gameManager.getCurrentPlayer().changeMoney(-currentLand.getCost());
+                    currentLand.isBought = true;
+                    currentLand.owner = AssetManager.gameManager.getCurrentPlayer();
+                    currentPlayer.getOwnedLands().add(currentLand);
+                }
+
+                break;
+
+
+            case CAFE:
+                Cafe currentCafe = ((Cafe) currentLandable);
+                if(currentCafe.isBought() && button.getText() == "Pay Rent"){ //if land is bought
+                    int cafeNum = currentCafe.owner.getOwnedCafes().size();
+                    if(cafeNum == 1)
+                        AssetManager.gameManager.getCurrentPlayer().changeMoney(-currentCafe.getRentWith1());
+                    else if (cafeNum == 2)
+                        AssetManager.gameManager.getCurrentPlayer().changeMoney(-currentCafe.getRentWith2());
+                    else if (cafeNum == 3)
+                        AssetManager.gameManager.getCurrentPlayer().changeMoney(-currentCafe.getRentWith3());
+                    else if (cafeNum == 4)
+                        AssetManager.gameManager.getCurrentPlayer().changeMoney(-currentCafe.getRentWith4());
+                }
+                else if(currentCafe.isBought()){
+                    // his land
+                }
+                else{
+                    // buy
+                    AssetManager.gameManager.getCurrentPlayer().changeMoney(-currentCafe.getCost());
+                    currentCafe.isBought = true;
+                    currentCafe.owner = AssetManager.gameManager.getCurrentPlayer();
+                    currentPlayer.getOwnedCafes().add(currentCafe);
+                }
+
+                break;
+
+
+            case CARD_PLACE:
+
+                System.out.println("Execute Card Place");
+
+                break;
+
+            default:
+                // error
+        }
+
+        gameScreenController.enableRollDiceButton();
+        playGame();
+
     }
 
     public void sendPlayerToAtalarsRoom(Player p) {

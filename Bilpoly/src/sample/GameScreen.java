@@ -58,6 +58,7 @@ public class GameScreen {
     private Timeline timeline;
 
     //properties for updating popup
+    public Landable currentLandable;
     public String nameOfLand;
     public String rentPopup;
     public String rentColorSetPopup;
@@ -79,10 +80,7 @@ public class GameScreen {
     @FXML
     private ImageView cardDeckImage;
 
-
     LandPopupController landPopupController;
-
-    //ObservableList<ImageView> pawnList = FXCollections.observableArrayList(pawn1, pawn2, pawn3, pawn4);
 
     private int timeSeconds =MAX_SECOND_VALUE;
     private int timeMinutes = AssetManager.timeLimit;
@@ -341,6 +339,7 @@ public class GameScreen {
     public void movePawnImage(ImageView pawnImage, int index, Pawn curPawn) throws IOException {
         //Landable curLandable = AssetManager.gameManager.getLandableList()[curPawn.getCurrentLandableIndex()];
         Landable nextLandable = AssetManager.gameManager.getLandableList()[(index) % 40];
+        currentLandable = nextLandable;
         //Location currentLocation = new Location(curLandable.getLocation().getX(), curLandable.getLocation().getY());
         Location toGoLocation = new Location(nextLandable.getLocation().getX(), nextLandable.getLocation().getY());
         pawnImage.relocate(toGoLocation.getX(), toGoLocation.getY());
@@ -352,7 +351,7 @@ public class GameScreen {
             //for land popup
             if ( nextLandable.getType() == LandableType.LAND )
             {
-                nameOfLand = ( ( Land ) nextLandable).getName();
+                nameOfLand = ( (Land) nextLandable).getName();
 
                 rentColorSetPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_SET());
                 rentPopup = String.valueOf(( (Land) nextLandable).getRENT());
@@ -381,7 +380,6 @@ public class GameScreen {
 
                 imageNamePopup = "sample/Images/cafes_png/" + nameOfLand + ".png";
 
-
                 executeCafePopup();
             }
             //for card popups
@@ -395,8 +393,9 @@ public class GameScreen {
                 executeCardPopup();
             }
         }
-
-        AssetManager.gameManager.playTurnPostDice(nextLandable);
+        else{
+            AssetManager.gameManager.playTurnPostDice(nextLandable);
+        }
     }
 
 
