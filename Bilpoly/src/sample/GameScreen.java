@@ -42,6 +42,9 @@ public class GameScreen {
     final double WIDTH_RESIZE = 0.645;
     final double HEIGHT_RESIZE = 0.955;
 
+    final double DECK_WIDTH_RESIZE = 0.177;
+    final double DECK_HEIGHT_RESIZE = 0.262;
+
     // variables
     ImageView pawnFerrariImage;
     ImageView pawnTMDImage;
@@ -51,8 +54,12 @@ public class GameScreen {
     Rectangle2D screenBounds;
     double windowWidth;
     double windowHeight;
+
     protected double boardWidth;
     protected double boardHeight;
+
+    protected double deckWidth;
+    protected double deckHeight;
     //public boolean doneClicked;
     public boolean rolledDice;
     private Timeline timeline;
@@ -108,6 +115,9 @@ public class GameScreen {
 
         boardWidth = windowWidth * WIDTH_RESIZE;
         boardHeight = windowHeight * HEIGHT_RESIZE;
+
+        deckWidth = windowWidth * DECK_WIDTH_RESIZE;
+        deckHeight = windowHeight * DECK_HEIGHT_RESIZE;
 
         System.out.println("boardWidth: " + boardWidth + " boardHeight: " + boardHeight);
 
@@ -191,6 +201,8 @@ public class GameScreen {
         boardImage.setFitWidth(boardWidth);
         boardImage.setFitHeight(boardHeight);
 
+        cardDeckImage.setFitWidth(deckWidth);
+        cardDeckImage.setFitHeight(deckHeight);
         Location nizamiyeLocation = landableList[0].getLocation();
 
         //System.out.println("landableList[0].getIndex(): " + landableList[0].getIndex());
