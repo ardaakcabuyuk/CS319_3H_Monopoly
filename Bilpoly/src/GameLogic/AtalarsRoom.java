@@ -7,12 +7,9 @@ public class AtalarsRoom extends Landable {
     public final int FEE; //TODO to be determined
 
     //constructor
-    public AtalarsRoom(int fee, int index, Location location, Location[] location_available) {
+    public AtalarsRoom(int fee) {
         FEE = fee;
         type = LandableType.ATALARS_ROOM;
-        this.index = index;
-        this.location = null;
-        //this.location_available = Arrays.copyOf(location_available, location_available.length);
     }
 
     //methods

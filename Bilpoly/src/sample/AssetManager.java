@@ -196,7 +196,7 @@ public class AssetManager extends Application {
             functionalPlaceList[6] = new FunctionalPlace(new FeeStrategy(4400)); //FOOD FEE
 
             //initialize Atalar's Room
-            AtalarsRoom atalarsRoom = new AtalarsRoom(0 ,0 ,null, null);
+            AtalarsRoom atalarsRoom = new AtalarsRoom(2000);
 
             //placing the landables according to their positions on the board
             //first, functionalPlaceList

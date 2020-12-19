@@ -63,7 +63,7 @@ public class GameManager {
 
 
         // TODO fix initilization
-        this.atalarsRoom = new AtalarsRoom(0 ,0 ,null, null);
+        this.atalarsRoom = (AtalarsRoom) landableList[10];
         //this.gameOver =  new GameOver();
         //this.pauseMenu =  new PauseMenu();
         //this.gameScreen = gameScreen;
@@ -145,15 +145,18 @@ public class GameManager {
 
         Player currentPlayer = playerDeck.getCurrentPlayer();
 
-        /*
+
         switch (currentLandable.type){
 
             case LAND:
-                if(((Land)currentLandable).isBought){
-                    // player has to pay rent
+                Land currentLand = ((Land) currentLandable);
+                if(currentLand.isBought()){ //if land is bought
+                    if (!currentLand.getOwner().isEqual(currentPlayer)) { //if current player does not own the land
+                        currentPlayer.changeMoney(currentLand.getCurrentRent()); //pay rent
+                    }
                 }
                 else{
-                    // ask player if he wants to buy
+
                 }
 
                 break;
@@ -172,9 +175,9 @@ public class GameManager {
 
             case CARD_PLACE:
 
-                card = cardDeck.drawCard(((CardPlace)currentLandable).getCardType());
-                card.setInteractedPlayer(currentPlayer);
-                card.executeCard(this);
+                //card = cardDeck.drawCard(((CardPlace)currentLandable).getCardType());
+                //card.setInteractedPlayer(currentPlayer);
+                //card.executeCard(this);
 
                 break;
 
@@ -188,19 +191,11 @@ public class GameManager {
 
 
 
-            case GO_TO_ATALARS_ROOM:
-
-                atalarsRoom.goToAtalarsRoom(playerDeck.getCurrentPlayer());
-
-                break;
-
-
-
             default:
                 // error
         }
 
-         */
+
     //    if (gameScreenController.doneClicked)
      //   {
       //      System.out.println("done clicked");
@@ -263,4 +258,5 @@ public class GameManager {
     public CardDeck getCardDeck() {
         return cardDeck;
     }
+
 }

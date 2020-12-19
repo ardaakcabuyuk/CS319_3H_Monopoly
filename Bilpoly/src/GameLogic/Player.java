@@ -24,7 +24,7 @@ public class Player {
 
 
     //constructor
-    public Player(String name, Pawn pawn, int initMoney,String colorName){
+    public Player(String name, Pawn pawn, int initMoney, String colorName){
         this.name = name;
         this.pawn = pawn;
         this.money = initMoney;
@@ -62,6 +62,7 @@ public class Player {
         this.score = 0;
         this.isTurn = false;
         this.color = null;
+        this.colorName = "init";
         this.isBankrupt = false;
         this.isInAtalarsRoom = false;
         this.atalarsRoomFreeCardNum = 0;
@@ -170,6 +171,12 @@ public class Player {
     // setter atalarsRoomFreeCardNum
     public void setAtalarsRoomFreeCardNum(int atalarsRoomFreeCardNum) { this.atalarsRoomFreeCardNum = atalarsRoomFreeCardNum; }
 
+    public boolean isEqual(Player p) {
+        if (color.equals(p.color))
+            return true;
+        return false;
+    }
+
     // getter name
     public String getName() { return name; }
 
@@ -198,22 +205,25 @@ public class Player {
     // set pawn
     public void setPawn(Pawn pawn1) { pawn = pawn1; }
     // set color
-    public void setColor(String colorName) { if(colorName == "blue")
-    {
-        color = Color.BLUE;
+    public void setColor(String colorName) {
+        this.colorName = colorName;
+        if(colorName == "blue")
+        {
+            color = Color.BLUE;
+        }
+        else if(colorName == "purple")
+        {
+            color = Color.PURPLE;
+        }
+        else if(colorName == "green")
+        {
+            color = Color.GREEN;
+        }
+        else if(colorName == "red")
+        {
+            color = Color.RED;
+        }
     }
-    else if(colorName == "purple")
-    {
-        color = Color.PURPLE;
-    }
-    else if(colorName == "green")
-    {
-        color = Color.GREEN;
-    }
-    else if(colorName == "red")
-    {
-        color = Color.RED;
-    }}
 
     public void setInitMoney(int money) { this.money = money; }
 
