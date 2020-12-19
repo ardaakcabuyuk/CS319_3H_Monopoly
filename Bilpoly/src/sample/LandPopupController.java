@@ -61,12 +61,12 @@ public class LandPopupController {
     public void initialize()
     {
         landName.setText(AssetManager.gameManager.gameScreenController.nameOfLand);
-        rent.setText("Rent: " + "$" + AssetManager.gameManager.gameScreenController.rentPopup);
-        rentWithColorSet.setText("Rent with Color Set: " + "$" +AssetManager.gameManager.gameScreenController.rentColorSetPopup);
-        rentWithOneSB.setText("Rent with 1 Starbucks: " + "$" +AssetManager.gameManager.gameScreenController.rentWithOneSBPopup);
-        rentWithTwoSB.setText("Rent with 2 Starbucks: " + "$" +AssetManager.gameManager.gameScreenController.rentWithTwoSBPopup);
-        rentWithThreeSB.setText("Rent with 3 Starbucks: " + "$" +AssetManager.gameManager.gameScreenController.rentWithThreeSBPopup);
-        rentWithBilka.setText("Rent with Bilka: " + "$" +AssetManager.gameManager.gameScreenController.rentWithBilkaPopup);
+        rent.setText("Rent: " + "₿" + AssetManager.gameManager.gameScreenController.rentPopup);
+        rentWithColorSet.setText("Rent with Color Set: " + "₿" +AssetManager.gameManager.gameScreenController.rentColorSetPopup);
+        rentWithOneSB.setText("Rent with 1 Starbucks: " + "₿" +AssetManager.gameManager.gameScreenController.rentWithOneSBPopup);
+        rentWithTwoSB.setText("Rent with 2 Starbucks: " + "₿" +AssetManager.gameManager.gameScreenController.rentWithTwoSBPopup);
+        rentWithThreeSB.setText("Rent with 3 Starbucks: " + "₿" +AssetManager.gameManager.gameScreenController.rentWithThreeSBPopup);
+        rentWithBilka.setText("Rent with Bilka: " + "₿" +AssetManager.gameManager.gameScreenController.rentWithBilkaPopup);
 
         Image image = new Image(AssetManager.gameManager.gameScreenController.imageNamePopup);
         landImage.setImage(image);

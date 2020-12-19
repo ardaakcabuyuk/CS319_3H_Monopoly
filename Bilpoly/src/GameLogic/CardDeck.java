@@ -10,6 +10,7 @@ public class CardDeck {
     private ArrayList<Card> CHANCE_CARDS;
     private ArrayList<Card> RECTORSW_CARDS;
 
+
     //variables
     private Card currentCard;
 
@@ -17,7 +18,8 @@ public class CardDeck {
     public CardDeck(ArrayList<Card> chance_cards, ArrayList<Card> rectorsw_cards){
         CHANCE_CARDS = chance_cards;
         RECTORSW_CARDS = rectorsw_cards;
-        this.currentCard = null;
+        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        this.currentCard = rectorsw_cards.get(2);
         shuffleAllCards();
     }
 
@@ -46,5 +48,9 @@ public class CardDeck {
     public void shuffleAllCards(){
         Collections.shuffle(CHANCE_CARDS);
         Collections.shuffle(RECTORSW_CARDS);
+    }
+
+    public Card getCurrentCard() {
+        return currentCard;
     }
 }

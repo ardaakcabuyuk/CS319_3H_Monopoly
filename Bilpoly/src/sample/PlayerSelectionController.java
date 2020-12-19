@@ -150,7 +150,7 @@ public class PlayerSelectionController {
 
         if(AssetManager.players[0] != null){
             AssetManager.players[0].setName(name1.getText());
-            AssetManager.players[0].setColor(Color.BLUE);
+            AssetManager.players[0].setColor(Color.RED);
         }
 
         String nameOne = name1.getText();
@@ -165,7 +165,7 @@ public class PlayerSelectionController {
     public void okButtonClicked2(ActionEvent event) throws Exception {
         if(AssetManager.players[1] != null){
             AssetManager.players[1].setName(name2.getText());
-            AssetManager.players[1].setColor(Color.ORANGE);
+            AssetManager.players[1].setColor(Color.PURPLE);
         }
 
         //checking if it is set or not
@@ -184,7 +184,8 @@ public class PlayerSelectionController {
 
         if(AssetManager.players[2] != null){
             AssetManager.players[2].setName(name3.getText());
-            AssetManager.players[2].setColor(Color.PINK);
+            AssetManager.players[2].setColor(Color.BLUE);
+            System.out.println("colorrrrr:" + AssetManager.players[2].getColor().toString());
         }
 
         String nameThree = name3.getText();

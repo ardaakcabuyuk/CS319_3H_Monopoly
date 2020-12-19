@@ -74,8 +74,6 @@ public class PreGameSettingsController {
         System.out.println("start Button clicked. ");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("game_screen.fxml"));
         Parent root = loader.load();
-
-
         Stage window = (Stage)( ((Node) event.getSource()).getScene().getWindow());
         window.getScene().setRoot(root);
 

@@ -69,6 +69,17 @@ public class GameScreen {
     public String cardStrategy;
     public String cardText;
 
+
+    @FXML
+    private Label curPlayerName;
+
+    @FXML
+    private Label curPlayerMoney;
+
+    @FXML
+    private ImageView cardDeckImage;
+
+
     LandPopupController landPopupController;
 
     //ObservableList<ImageView> pawnList = FXCollections.observableArrayList(pawn1, pawn2, pawn3, pawn4);
@@ -107,6 +118,7 @@ public class GameScreen {
     @FXML
     public Label timeLabel;
 
+
     @FXML
     public void pauseButtonClicked(ActionEvent event) throws Exception {
         System.out.println("pause Button clicked.");
@@ -129,6 +141,14 @@ public class GameScreen {
     public void mouseClicked(MouseEvent event) throws Exception {
         System.out.println("X: " + event.getX());
         System.out.println("Y: " + event.getY());
+    }
+
+    public void changePlayerLabels(Player current)
+    {
+
+        //cardDeckImage.setImage(new Image("card_deck_"+AssetManager.gameManager.getCurrentPlayer().getColor().toString().toLowerCase()+"_turn.png"));
+        curPlayerMoney.setText(current.getMoney() + "₿");
+        curPlayerName.setText(current.getName());
     }
 
     public void initializePawns(Landable[] landableList){
@@ -363,7 +383,7 @@ public class GameScreen {
                 cardStrategy = ((CardPlace) nextLandable).getCardType().name();
                 System.out.println("Card Type:" + cardStrategy);
 
-                //cardText =
+                cardText = String.valueOf(AssetManager.gameManager.getCardDeck().getCurrentCard().getText());
 
                 executeCardPopup();
             }

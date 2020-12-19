@@ -5,7 +5,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CafePopupController">
+<AnchorPane style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CafePopupController">
     <children>
         <VBox layoutX="182.0" layoutY="12.0" prefHeight="369.0" prefWidth="208.0" spacing="30.0" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="182.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="12.0">
             <children>
@@ -23,13 +23,13 @@
                         <Label fx:id="rentWith2" alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="20.0" prefWidth="226.0" text="2 Cafe" />
                         <Label fx:id="rentWith3" alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="21.0" prefWidth="227.0" text="3 Cafe" />
                         <Label fx:id="rentWith4" alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="21.0" prefWidth="227.0" text="4 Cafe" />
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="Buy">
-                            <VBox.margin>
-                                <Insets left="80.0" />
-                            </VBox.margin>
-                        </Button>
                     </children>
                 </VBox>
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="Buy">
+               <VBox.margin>
+                  <Insets left="74.0" />
+               </VBox.margin>
+                  </Button>
             </children>
         </VBox>
         <Button layoutX="534.0" layoutY="12.0" mnemonicParsing="false" onAction="#closeButtonClicked" style="-fx-background-color: white;">

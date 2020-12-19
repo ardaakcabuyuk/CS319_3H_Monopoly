@@ -52,6 +52,7 @@ public class GameManager {
         this.freeParkingMoney = 0;
         this.landableList = landableList;
         this.playerDeck = playerDeck;
+        this.playerDeck.nextPlayer();
         this.cardDeck = cardDeck;
         this.dice = new Dice();
         diceRolled = false;
@@ -80,6 +81,8 @@ public class GameManager {
         // you have playerDeck => built player cards
         // built next player
         // built history
+
+        gameScreenController.changePlayerLabels(playerDeck.getCurrentPlayer());
 
         if(!playerDeck.getCurrentPlayer().isTurn() && !isGameOver){
             playerDeck.nextPlayer();
@@ -255,5 +258,9 @@ public class GameManager {
             e.printStackTrace();
             System.out.println("CANNOT MOVE PAWN OF PLAYER WITH A CARD");
         }
+    }
+
+    public CardDeck getCardDeck() {
+        return cardDeck;
     }
 }

@@ -9,7 +9,7 @@
    <children>
       <AnchorPane layoutX="29.0" layoutY="30.0" prefHeight="349.0" prefWidth="256.0" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="30.0">
          <children>
-            <ImageView fitHeight="228.0" fitWidth="255.0" pickOnBounds="true">
+            <ImageView fx:id="cardDeckImage" fitHeight="228.0" fitWidth="255.0" pickOnBounds="true">
                <image>
                   <Image url="@Images/card_deck_red_turn.png" />
                </image>
@@ -19,12 +19,12 @@
                   <Font size="19.0" />
                </font>
             </Button>
-            <Label layoutX="10.0" layoutY="187.0" prefHeight="18.0" prefWidth="112.0" text="playerNameLabel" textFill="WHITE" AnchorPane.leftAnchor="10.0">
+            <Label fx:id="curPlayerName" layoutX="10.0" layoutY="187.0" prefHeight="18.0" prefWidth="112.0" text="playerNameLabel" textFill="WHITE" AnchorPane.leftAnchor="10.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="165.0" layoutY="142.0" prefHeight="24.0" prefWidth="76.0" text="moneyLabel" textAlignment="RIGHT" AnchorPane.rightAnchor="10.0">
+            <Label fx:id="curPlayerMoney" layoutX="165.0" layoutY="142.0" prefHeight="24.0" prefWidth="76.0" text="moneyLabel" textAlignment="RIGHT" AnchorPane.rightAnchor="10.0">
                <font>
                   <Font size="15.0" />
                </font>
