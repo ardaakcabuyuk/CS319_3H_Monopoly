@@ -362,7 +362,7 @@ public class GameScreen {
 
             }
             //for cafe popup
-            if ( nextLandable.getType() == LandableType.CAFE )
+            else if ( nextLandable.getType() == LandableType.CAFE )
             {
                 nameOfLand = ( ( Cafe ) nextLandable).getName();
 
@@ -379,7 +379,7 @@ public class GameScreen {
                 executeCafePopup();
             }
             //for card popups
-            if ( nextLandable.getType() == LandableType.CARD_PLACE ) {
+            else if ( nextLandable.getType() == LandableType.CARD_PLACE ) {
 
                 cardStrategy = ((CardPlace) nextLandable).getCardType().name();
                 System.out.println("Card Type:" + cardStrategy);
