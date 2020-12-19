@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<<<<<<< Updated upstream
+=======
+<?import javafx.geometry.Insets?>
+>>>>>>> Stashed changes
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -10,11 +14,19 @@
 
 <AnchorPane fx:id="anchorGame" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GameScreen">
    <children>
+<<<<<<< Updated upstream
       <VBox layoutX="29.0" layoutY="30.0" spacing="10.0" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="30.0">
          <children>
             <AnchorPane prefHeight="213.0" prefWidth="255.0">
                <children>
                   <ImageView fx:id="cardDeckImage" fitHeight="228.0" fitWidth="255.0" pickOnBounds="true" AnchorPane.topAnchor="0.0">
+=======
+      <VBox layoutX="29.0" layoutY="30.0" prefHeight="733.0" prefWidth="255.0" spacing="15.0">
+         <children>
+            <AnchorPane prefHeight="162.0" prefWidth="239.0">
+               <children>
+                  <ImageView fx:id="cardDeckImage" fitHeight="228.0" fitWidth="255.0" pickOnBounds="true">
+>>>>>>> Stashed changes
                      <image>
                         <Image url="@Images/card_deck_red_turn.png" />
                      </image>
@@ -40,25 +52,46 @@
                <font>
                   <Font size="19.0" />
                </font>
+               <VBox.margin>
+                  <Insets left="55.0" />
+               </VBox.margin>
             </Button>
+<<<<<<< Updated upstream
             <AnchorPane prefHeight="230.0" prefWidth="170.0">
                <children>
                   <ImageView fitHeight="230.0" fitWidth="170.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+=======
+            <AnchorPane prefHeight="230.0" prefWidth="189.0">
+               <children>
+                  <ImageView fitHeight="230.0" fitWidth="170.0" layoutX="43.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+>>>>>>> Stashed changes
                      <image>
                         <Image url="@Images/next_player.png" />
                      </image>
                   </ImageView>
+<<<<<<< Updated upstream
                   <Label fx:id="nextTurnLabel" layoutX="32.0" layoutY="26.0" prefHeight="23.0" prefWidth="108.0" text="NEXT TURN" textFill="WHITE" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="26.0">
+=======
+                  <Label fx:id="nextTurnLabel" layoutX="70.0" layoutY="26.0" prefHeight="23.0" prefWidth="108.0" text="NEXT TURN" textFill="WHITE" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="26.0">
+>>>>>>> Stashed changes
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Label>
+<<<<<<< Updated upstream
                   <Label fx:id="nextTurnNameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="137.0" prefHeight="23.0" prefWidth="106.0" text="nextTurnName" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="32.0">
+=======
+                  <Label fx:id="nextTurnNameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="147.0" prefHeight="23.0" prefWidth="106.0" text="nextTurnName" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="75.0">
+>>>>>>> Stashed changes
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
+<<<<<<< Updated upstream
                   <Label fx:id="nextTurnMoneyLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="176.0" prefHeight="28.0" prefWidth="98.0" text="nextTurnMoney" textFill="WHITE" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="28.0">
+=======
+                  <Label fx:id="nextTurnMoneyLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="30.0" layoutY="170.0" prefHeight="28.0" prefWidth="98.0" text="nextTurnMoney" textFill="WHITE" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+>>>>>>> Stashed changes
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -73,7 +106,11 @@
                         <Image url="@Images/timer.png" />
                      </image>
                   </ImageView>
+<<<<<<< Updated upstream
                   <Label fx:id="timeLabel" layoutX="45.0" layoutY="-3.0" prefHeight="78.0" prefWidth="157.0" text="timer" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="0.0">
+=======
+                  <Label fx:id="timeLabel" layoutX="54.0" prefHeight="78.0" prefWidth="157.0" text="timer" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="54.0" AnchorPane.rightAnchor="36.0" AnchorPane.topAnchor="0.0">
+>>>>>>> Stashed changes
                      <font>
                         <Font size="40.0" />
                      </font>
@@ -115,11 +152,15 @@
             <AnchorPane layoutX="410.0" layoutY="366.0" prefHeight="150.0" prefWidth="150.0" AnchorPane.bottomAnchor="355.0" AnchorPane.leftAnchor="390.0" AnchorPane.rightAnchor="390.0" AnchorPane.topAnchor="355.0" />
          </children>
       </AnchorPane>
-      <Button layoutX="1335.0" layoutY="31.0" mnemonicParsing="false" onAction="#pauseButtonClicked" prefHeight="73.0" prefWidth="86.0" style="-fx-background-radius: 30;" text="Pause" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
-         <font>
-            <Font size="23.0" />
-         </font>
-      </Button>
-      <Button layoutX="1137.0" layoutY="14.0" mnemonicParsing="false" onAction="#mainMenuButtonClicked" style="-fx-background-radius: 30;" text="Main Menu" AnchorPane.rightAnchor="34.33333333333326" AnchorPane.topAnchor="14.0" />
+      <VBox layoutX="1129.6666259765625" layoutY="14.0" spacing="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#mainMenuButtonClicked" prefHeight="37.0" prefWidth="108.0" style="-fx-background-radius: 30;" text="Main Menu" />
+            <Button mnemonicParsing="false" onAction="#pauseButtonClicked" prefHeight="43.0" prefWidth="106.0" style="-fx-background-radius: 30;" text="Pause">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
