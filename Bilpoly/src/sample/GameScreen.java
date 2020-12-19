@@ -106,7 +106,13 @@ public class GameScreen {
 
     }
     @FXML
-    public static Popup popup = new Popup();
+    public static Popup landPopup = new Popup();
+    @FXML
+    public static Popup cafePopup = new Popup();
+    @FXML
+    public static Popup cardPopup = new Popup();
+    @FXML
+    public static Popup pausePopup = new Popup();
     @FXML
     public AnchorPane boardAnchorPane;
     @FXML
@@ -121,10 +127,10 @@ public class GameScreen {
     public void pauseButtonClicked(ActionEvent event) throws Exception {
         System.out.println("pause Button clicked.");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pause_menu.fxml"));
-        popup.getContent().add((Parent)loader.load());
+        pausePopup.getContent().add((Parent)loader.load());
         //Parent root = FXMLLoader.load(getClass().getResource("game_screen.fxml"));
         Stage window = (Stage)( ((Node) event.getSource()).getScene().getWindow());
-        popup.show(window);
+        pausePopup.show(window);
     }
 
     @FXML
@@ -289,24 +295,24 @@ public class GameScreen {
 
     public void executeLandPopup() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("land_popup.fxml"));
-        popup.getContent().add((Parent)loader.load());
+        landPopup.getContent().add((Parent)loader.load());
         Stage window = (Stage) boardAnchorPane.getScene().getWindow();
-        popup.show(window);
+        landPopup.show(window);
     }
 
     public void executeCafePopup() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("cafe_popup.fxml"));
-        popup.getContent().add((Parent)loader.load());
+        cafePopup.getContent().add((Parent)loader.load());
         Stage window = (Stage)  boardAnchorPane.getScene().getWindow();
-        popup.show(window);
+        cafePopup.show(window);
     }
 
 
     public void executeCardPopup() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("card_popup.fxml"));
-        popup.getContent().add((Parent)loader.load());
+        cardPopup.getContent().add((Parent)loader.load());
         Stage window = (Stage)  boardAnchorPane.getScene().getWindow();
-        popup.show(window);
+        cardPopup.show(window);
     }
 
     public void enableRollDiceButton(){

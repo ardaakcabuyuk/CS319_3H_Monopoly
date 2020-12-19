@@ -43,7 +43,7 @@ public class CardPopupController {
     @FXML
     public void okayButtonClicked(ActionEvent event) throws Exception {
         System.out.println("okay Button clicked. ");
-        GameScreen.popup.hide();
+        GameScreen.cardPopup.hide();
         AssetManager.gameManager.executeBuyable((CardPlace)AssetManager.gameManager.gameScreenController.currentLandable, null);
     }
 }

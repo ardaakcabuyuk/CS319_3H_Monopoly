@@ -39,7 +39,7 @@ public class PauseMenuController {
     @FXML
     public void backButtonClicked(ActionEvent event) throws Exception {
         System.out.println("back Button clicked. ");
-        GameScreen.popup.hide();
+        GameScreen.pausePopup.hide();
     }
 
     @FXML
@@ -47,8 +47,8 @@ public class PauseMenuController {
         System.out.println("how to play Button clicked. ");
         inGame = true;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("how_to_play.fxml"));
-        GameScreen.popup.getContent().add((Parent)loader.load());
-        GameScreen.popup.show(GameScreen.popup.getOwnerWindow());
+        GameScreen.pausePopup.getContent().add((Parent)loader.load());
+        GameScreen.pausePopup.show(GameScreen.pausePopup.getOwnerWindow());
 
     }
 
