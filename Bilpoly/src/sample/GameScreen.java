@@ -143,9 +143,9 @@ public class GameScreen {
 
     public void changePlayerLabels(Player current)
     {
-        //System.out.println("Images/card_deck_"+AssetManager.gameManager.getCurrentPlayer().getColorName()+"_turn.png");
-        //Image img = new Image("/Images/card_deck_"+AssetManager.gameManager.getCurrentPlayer().getColorName()+"_turn.png");
-        //cardDeckImage.setImage(img);
+        System.out.println("sample/Images/card_deck_"+AssetManager.gameManager.getCurrentPlayer().getColorName()+"_turn.png");
+        Image img = new Image("sample/Images/card_deck_"+AssetManager.gameManager.getCurrentPlayer().getColorName()+"_turn.png");
+        cardDeckImage.setImage(img);
         curPlayerMoney.setText(current.getMoney() + "₿");
         curPlayerName.setText(current.getName());
     }
