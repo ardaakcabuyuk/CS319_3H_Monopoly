@@ -170,7 +170,17 @@ public class GameScreen {
         System.out.println("sample/Images/card_deck_"+AssetManager.gameManager.getCurrentPlayer().getColorName()+"_turn.png");
         Image img = new Image("sample/Images/card_deck_"+AssetManager.gameManager.getCurrentPlayer().getColorName()+"_turn.png");
         cardDeckImage.setImage(img);
-        curPlayerMoney.setText(current.getMoney() + "₿");
+        String moneyBuffer = String.valueOf(current.getMoney());
+        if(moneyBuffer.length() >= 4) {
+            int index = moneyBuffer.length() - 4;
+            moneyBuffer = moneyBuffer.substring(0, index + 1)
+                    + " "
+                    + moneyBuffer.substring(index + 1);
+            curPlayerMoney.setText(moneyBuffer + "₿");
+        }
+        else{
+            curPlayerMoney.setText(current.getMoney() + "₿");
+        }
         curPlayerName.setText(current.getName());
     }
 
@@ -515,8 +525,21 @@ public class GameScreen {
 
     public void setNextTurn(String nextTurnNameLabel, String nextTurnMoneyLabel, Pawn nextPlayerPawn){
         this.nextTurnNameLabel.setText(nextTurnNameLabel);
-        this.nextTurnMoneyLabel.setText(nextTurnMoneyLabel);
+
         this.nextPlayerPawnImage.setImage(getPawnImage(nextPlayerPawn).getImage());
+
+        String moneyBuffer = nextTurnMoneyLabel;
+        if(moneyBuffer.length() >= 4) {
+
+            int index = moneyBuffer.length() - 4;
+            moneyBuffer = moneyBuffer.substring(0, index + 1)
+                    + " "
+                    + moneyBuffer.substring(index + 1);
+            this.nextTurnMoneyLabel.setText(moneyBuffer + "₿");
+        }
+        else{
+            this.nextTurnMoneyLabel.setText(nextTurnMoneyLabel + "₿");
+        }
     }
 
     public void addHistory(String newHist){
