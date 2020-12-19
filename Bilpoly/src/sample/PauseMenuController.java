@@ -40,6 +40,7 @@ public class PauseMenuController {
     public void backButtonClicked(ActionEvent event) throws Exception {
         System.out.println("back Button clicked. ");
         GameScreen.pausePopup.hide();
+        AssetManager.gameManager.gameScreenController.enableRollDiceButton();
     }
 
     @FXML

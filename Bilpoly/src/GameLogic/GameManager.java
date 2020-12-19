@@ -56,7 +56,6 @@ public class GameManager {
         this.freeParkingMoney = 0;
         this.landableList = landableList;
         this.playerDeck = playerDeck;
-        this.playerDeck.nextPlayer();
         this.cardDeck = cardDeck;
         this.dice = new Dice();
         diceRolled = false;
@@ -89,6 +88,7 @@ public class GameManager {
         if(!playerDeck.getCurrentPlayer().isTurn() && !isGameOver){
             playerDeck.nextPlayer();
             gameScreenController.changePlayerLabels(playerDeck.getCurrentPlayer());
+            gameScreenController.setNextTurn(playerDeck.getNextPlayer().getName(), String.valueOf(playerDeck.getNextPlayer().getMoney()), playerDeck.getNextPlayer().getPawn());
             try {
                 //System.out.println("---------------curPlayer: " + playerDeck.getCurrentPlayer().getName());
                 playTurnPreDice();
@@ -153,29 +153,35 @@ public class GameManager {
                 switch (landableIndex){
                     case 0:             // nizamiye (if he lands on it)
                         AssetManager.gameManager.getCurrentPlayer().changeMoney(NIZAMIYE_FEE);
+                        gameScreenController.addHistory(AssetManager.gameManager.getCurrentPlayer().getName() + " has passed through Nizamiye.");
                         break;
                     case 4:             // tuition fee
                         AssetManager.gameManager.getCurrentPlayer().changeMoney(-TUITION_FEE);
+                        gameScreenController.addHistory(AssetManager.gameManager.getCurrentPlayer().getName() + " paid tuition fee.");
                         freeParkingMoney += TUITION_FEE;
                         break;
                     case 10:            // atalar's offce
                         break;
                     case 12:            // dorm fee
                         AssetManager.gameManager.getCurrentPlayer().changeMoney(-DORM_FEE);
+                        gameScreenController.addHistory(AssetManager.gameManager.getCurrentPlayer().getName() + " paid dorm fee.");
                         freeParkingMoney += DORM_FEE;
                         break;
                     case 20:            // free parking
                         AssetManager.gameManager.getCurrentPlayer().changeMoney(freeParkingMoney);
+                        gameScreenController.addHistory(AssetManager.gameManager.getCurrentPlayer().getName() + " got free parking money..");
                         freeParkingMoney = 0;
                         break;
                     case 28:            // book fee
                         AssetManager.gameManager.getCurrentPlayer().changeMoney(-BOOK_FEE);
+                        gameScreenController.addHistory(AssetManager.gameManager.getCurrentPlayer().getName() + " paid book fee.");
                         freeParkingMoney += BOOK_FEE;
                         break;
                     case 30:            // go to atalar's office
                         break;
                     case 38:            // food fee
                         AssetManager.gameManager.getCurrentPlayer().changeMoney(-FOOD_FEE);
+                        gameScreenController.addHistory(AssetManager.gameManager.getCurrentPlayer().getName() + " paid food fee.");
                         freeParkingMoney += FOOD_FEE;
                         break;
                 }
@@ -184,18 +190,15 @@ public class GameManager {
                 // error
         }
 
+        gameScreenController.enableRollDiceButton();
+        playGame();
 
-    //    if (gameScreenController.doneClicked)
-     //   {
-      //      System.out.println("done clicked");
-            gameScreenController.enableRollDiceButton();
-            playGame();
-        //}
     }
 
     public void executeBuyable(Landable currentLandable, Button button){
 
         System.out.println("---executeBuyable()");
+        String curPlayerName = AssetManager.gameManager.getCurrentPlayer().getName();
 
         Player currentPlayer = playerDeck.getCurrentPlayer();
         switch (currentLandable.type){
@@ -203,6 +206,7 @@ public class GameManager {
                 Land currentLand = ((Land) currentLandable);
                 if(currentLand.isBought() && button.getText() == "Pay Rent"){ //if land is bought
                     AssetManager.gameManager.getCurrentPlayer().changeMoney(-currentLand.getCurrentRent());
+                    gameScreenController.addHistory( curPlayerName + " paid rent " + currentLand.owner.getName());
                 }
                 else if(currentLand.isBought()){
                     // his land
@@ -213,6 +217,7 @@ public class GameManager {
                     currentLand.isBought = true;
                     currentLand.owner = AssetManager.gameManager.getCurrentPlayer();
                     currentPlayer.getOwnedLands().add(currentLand);
+                    gameScreenController.addHistory( curPlayerName + " bought " + currentLand.getName() + ".");
                 }
 
                 break;
@@ -230,6 +235,7 @@ public class GameManager {
                         AssetManager.gameManager.getCurrentPlayer().changeMoney(-currentCafe.getRentWith3());
                     else if (cafeNum == 4)
                         AssetManager.gameManager.getCurrentPlayer().changeMoney(-currentCafe.getRentWith4());
+                    gameScreenController.addHistory( curPlayerName + " paid rent to " + currentCafe.owner.getName());
                 }
                 else if(currentCafe.isBought()){
                     // his land
@@ -240,6 +246,7 @@ public class GameManager {
                     currentCafe.isBought = true;
                     currentCafe.owner = AssetManager.gameManager.getCurrentPlayer();
                     currentPlayer.getOwnedCafes().add(currentCafe);
+                    gameScreenController.addHistory( curPlayerName + " bought " + currentCafe.getName() + ".");
                 }
 
                 break;
@@ -248,6 +255,7 @@ public class GameManager {
             case CARD_PLACE:
 
                 System.out.println("Execute Card Place");
+                gameScreenController.addHistory( curPlayerName + " drew card.");
 
                 break;
 

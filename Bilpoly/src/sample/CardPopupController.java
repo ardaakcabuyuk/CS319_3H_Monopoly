@@ -45,5 +45,6 @@ public class CardPopupController {
         System.out.println("okay Button clicked. ");
         GameScreen.cardPopup.hide();
         AssetManager.gameManager.executeBuyable((CardPlace)AssetManager.gameManager.gameScreenController.currentLandable, null);
+        AssetManager.gameManager.gameScreenController.enableRollDiceButton();
     }
 }

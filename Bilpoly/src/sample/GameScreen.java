@@ -72,6 +72,19 @@ public class GameScreen {
 
 
     @FXML
+    private ImageView nextPlayerPawnImage;
+
+    @FXML
+    private Label history1Label;
+    @FXML
+    private Label history2Label;
+    @FXML
+    private Label history3Label;
+    @FXML
+    private Label nextTurnNameLabel;
+    @FXML
+    private Label nextTurnMoneyLabel;
+    @FXML
     private Label curPlayerName;
 
     @FXML
@@ -95,6 +108,7 @@ public class GameScreen {
 
         boardWidth = windowWidth * WIDTH_RESIZE;
         boardHeight = windowHeight * HEIGHT_RESIZE;
+
         System.out.println("boardWidth: " + boardWidth + " boardHeight: " + boardHeight);
 
         timeLabel.setText(AssetManager.timeLimit + ":00");
@@ -103,6 +117,10 @@ public class GameScreen {
         rolledDice = false;
        // doneClicked = false;
        // doneButton.setDisable(true);
+
+        this.history1Label.setText("Game Started !!!");
+        this.history2Label.setText("");
+        this.history3Label.setText("");
 
     }
     @FXML
@@ -130,6 +148,7 @@ public class GameScreen {
         pausePopup.getContent().add((Parent)loader.load());
         //Parent root = FXMLLoader.load(getClass().getResource("game_screen.fxml"));
         Stage window = (Stage)( ((Node) event.getSource()).getScene().getWindow());
+        rollDiceButton.setDisable(true);
         pausePopup.show(window);
     }
 
@@ -152,7 +171,17 @@ public class GameScreen {
         System.out.println("sample/Images/card_deck_"+AssetManager.gameManager.getCurrentPlayer().getColorName()+"_turn.png");
         Image img = new Image("sample/Images/card_deck_"+AssetManager.gameManager.getCurrentPlayer().getColorName()+"_turn.png");
         cardDeckImage.setImage(img);
-        curPlayerMoney.setText(current.getMoney() + "₿");
+        String moneyBuffer = String.valueOf(current.getMoney());
+        if(moneyBuffer.length() >= 4) {
+            int index = moneyBuffer.length() - 4;
+            moneyBuffer = moneyBuffer.substring(0, index + 1)
+                    + " "
+                    + moneyBuffer.substring(index + 1);
+            curPlayerMoney.setText(moneyBuffer + "₿");
+        }
+        else{
+            curPlayerMoney.setText(current.getMoney() + "₿");
+        }
         curPlayerName.setText(current.getName());
     }
 
@@ -297,6 +326,7 @@ public class GameScreen {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("land_popup.fxml"));
         landPopup.getContent().add((Parent)loader.load());
         Stage window = (Stage) boardAnchorPane.getScene().getWindow();
+        rollDiceButton.setDisable(true);
         landPopup.show(window);
     }
 
@@ -304,6 +334,7 @@ public class GameScreen {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("cafe_popup.fxml"));
         cafePopup.getContent().add((Parent)loader.load());
         Stage window = (Stage)  boardAnchorPane.getScene().getWindow();
+        rollDiceButton.setDisable(true);
         cafePopup.show(window);
     }
 
@@ -312,6 +343,7 @@ public class GameScreen {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("card_popup.fxml"));
         cardPopup.getContent().add((Parent)loader.load());
         Stage window = (Stage)  boardAnchorPane.getScene().getWindow();
+        rollDiceButton.setDisable(true);
         cardPopup.show(window);
     }
 
@@ -477,7 +509,6 @@ public class GameScreen {
     }
 
     public double getBoardWidth() {
-
         screenBounds = Screen.getPrimary().getBounds();
         windowWidth =  screenBounds.getMaxX();
         boardWidth = windowWidth * WIDTH_RESIZE;
@@ -489,6 +520,32 @@ public class GameScreen {
         windowHeight = screenBounds.getMaxY();
         boardHeight = windowHeight * HEIGHT_RESIZE;
         return boardHeight;
+    }
+
+
+    public void setNextTurn(String nextTurnNameLabel, String nextTurnMoneyLabel, Pawn nextPlayerPawn){
+        this.nextTurnNameLabel.setText(nextTurnNameLabel);
+
+        this.nextPlayerPawnImage.setImage(getPawnImage(nextPlayerPawn).getImage());
+
+        String moneyBuffer = nextTurnMoneyLabel;
+        if(moneyBuffer.length() >= 4) {
+
+            int index = moneyBuffer.length() - 4;
+            moneyBuffer = moneyBuffer.substring(0, index + 1)
+                    + " "
+                    + moneyBuffer.substring(index + 1);
+            this.nextTurnMoneyLabel.setText(moneyBuffer + "₿");
+        }
+        else{
+            this.nextTurnMoneyLabel.setText(nextTurnMoneyLabel + "₿");
+        }
+    }
+
+    public void addHistory(String newHist){
+        this.history3Label.setText(history2Label.getText());
+        this.history2Label.setText(history1Label.getText());
+        this.history1Label.setText(newHist);
     }
 
 }

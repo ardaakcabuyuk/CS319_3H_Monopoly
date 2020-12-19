@@ -14,14 +14,10 @@ public class PlayerDeck {
     //constructor
     public PlayerDeck(ArrayList<Player> playerList){
         this.playerList = playerList;
-        this.currentPlayer = playerList.get(playerList.size() - 1);
+        Collections.rotate(playerList, 1);
+        this.currentPlayer = playerList.get(0);
     }
 
-    //methods
-    // This method updates the player deck and its UI
-    public void updatePlayerDeck(){
-
-    }
 
     // This method shows a player using UI
     public void showAPlayer(Player player){
@@ -31,7 +27,7 @@ public class PlayerDeck {
     // This method changes the turn.
     public void nextPlayer(){
         // rotates the list
-        Collections.rotate(playerList, 1);
+        Collections.rotate(playerList, -1);
         // update current player
         this.currentPlayer = playerList.get(0);
         // update player deck UI
@@ -53,6 +49,7 @@ public class PlayerDeck {
 
     // getter currentPlayer
     public Player getCurrentPlayer() { return currentPlayer; }
+    public Player getNextPlayer() { return playerList.get(1); }
 
     public ArrayList<Player> getPlayerList() {
         return playerList;
