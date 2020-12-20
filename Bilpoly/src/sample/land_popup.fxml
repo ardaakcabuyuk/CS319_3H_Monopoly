@@ -44,19 +44,19 @@
             </VBox>
             <HBox spacing="30.0">
                <children>
-                  <Button fx:id="p1S1Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buyButtonClicked" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="1 SB" />
-                  <Button fx:id="p1S2Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buyButtonClicked" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="2 SB" />
+                  <Button fx:id="p1S1Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#p1s1ButtonClicked" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="1 SB" />
+                  <Button fx:id="p1S2Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#p1s2ButtonClicked" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="2 SB" />
                </children>
             </HBox>
-            <Button fx:id="buyButton1231" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buyButtonClicked" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="Buy" visible="false">
+            <Button fx:id="buyButton1231" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="Buy" visible="false">
                <VBox.margin>
                   <Insets left="55.0" />
                </VBox.margin>
             </Button>
             <HBox layoutX="10.0" layoutY="391.0" spacing="30.0">
                <children>
-                  <Button fx:id="p1S3Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buyButtonClicked" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="3 SB" />
-                  <Button fx:id="p1BilkaButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buyButtonClicked" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="Bilka" />
+                  <Button fx:id="p1S3Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#p1s3ButtonClicked" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="3 SB" />
+                  <Button fx:id="p1BilkaButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#p1BilkaButtonClicked" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="Bilka" />
                </children>
             </HBox>
          </children>
@@ -86,8 +86,8 @@
             </VBox>
             <HBox spacing="30.0">
                <children>
-                  <Button fx:id="p2s1Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buyButtonClicked" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="1 SB" />
-                  <Button fx:id="p2s2Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buyButtonClicked" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="2 SB" />
+                  <Button fx:id="p2s1Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#p2s1ButtonClicked" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="1 SB" />
+                  <Button fx:id="p2s2Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#p2s2ButtonClicked" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="2 SB" />
                </children>
             </HBox>
             <Button fx:id="buyButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buyButtonClicked" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="Buy">
@@ -97,8 +97,8 @@
             </Button>
             <HBox layoutX="10.0" layoutY="391.0" spacing="30.0">
                <children>
-                  <Button fx:id="p2s3Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buyButtonClicked" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="3 SB" />
-                  <Button fx:id="p2BilkaButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buyButtonClicked" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="Bilka" />
+                  <Button fx:id="p2s3Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#p2s3ButtonClicked" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="3 SB" />
+                  <Button fx:id="p2BilkaButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#p2BilkaButtonClicked" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="Bilka" />
                </children>
             </HBox>
          </children>
@@ -128,8 +128,8 @@
             </VBox>
             <HBox spacing="30.0">
                <children>
-                  <Button fx:id="p3s1Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buyButtonClicked" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="1 SB" />
-                  <Button fx:id="p3s2Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buyButtonClicked" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="2 SB" />
+                  <Button fx:id="p3s1Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#p3s1ButtonClicked" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="1 SB" />
+                  <Button fx:id="p3s2Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#p3s2ButtonClicked" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="2 SB" />
                </children>
                <VBox.margin>
                   <Insets left="20.0" />
@@ -142,8 +142,8 @@
             </Button>
             <HBox layoutX="10.0" layoutY="391.0" spacing="30.0">
                <children>
-                  <Button fx:id="p3s3Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buyButtonClicked" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="3 SB" />
-                  <Button fx:id="p3BilkaButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buyButtonClicked" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="Bilka" />
+                  <Button fx:id="p3s3Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#p3s3ButtonClicked" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="3 SB" />
+                  <Button fx:id="p3BilkaButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#p3BilkaButtonClicked" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="Bilka" />
                </children>
                <VBox.margin>
                   <Insets left="20.0" />
