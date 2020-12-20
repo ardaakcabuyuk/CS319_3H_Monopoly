@@ -10,39 +10,103 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 
 public class LandPopupController {
 
+    @FXML
+    public Label rent1;
 
     @FXML
-    public Label rent;
+    public Label rentWithColorSet1;
 
     @FXML
-    public Label rentWithColorSet;
+    public Label rentWithOneSB1;
 
     @FXML
-    public Label rentWithOneSB;
+    public Label rentWithTwoSB1;
 
     @FXML
-    public Label rentWithTwoSB;
+    public Label rentWithThreeSB1;
 
     @FXML
-    public Label rentWithThreeSB;
+    public Label rentWithBilka1;
 
     @FXML
-    public Label rentWithBilka;
+    public Label buildStarbucks1;
 
     @FXML
-    public Label buildStarbucks;
+    public Label buildBilka1;
 
     @FXML
-    public Label buildBilka;
+    public ImageView landImage1;
 
     @FXML
-    public ImageView landImage;
+    public Label landName1;
+
+
 
     @FXML
-    public Label landName;
+    public Label rent11;
+
+    @FXML
+    public Label rentWithColorSet11;
+
+    @FXML
+    public Label rentWithOneSB11;
+
+    @FXML
+    public Label rentWithTwoSB11;
+
+    @FXML
+    public Label rentWithThreeSB11;
+
+    @FXML
+    public Label rentWithBilka11;
+
+    @FXML
+    public Label buildStarbucks11;
+
+    @FXML
+    public Label buildBilka11;
+
+    @FXML
+    public ImageView landImage11;
+
+    @FXML
+    public Label landName11;
+
+//third panel
+@FXML
+public Label rent111;
+
+    @FXML
+    public Label rentWithColorSet111;
+
+    @FXML
+    public Label rentWithOneSB111;
+
+    @FXML
+    public Label rentWithTwoSB111;
+
+    @FXML
+    public Label rentWithThreeSB111;
+
+    @FXML
+    public Label rentWithBilka111;
+
+    @FXML
+    public Label buildStarbucks111;
+
+    @FXML
+    public Label buildBilka111;
+
+    @FXML
+    public ImageView landImage111;
+
+    @FXML
+    public Label landName111;
+
 
 
     @FXML
@@ -50,6 +114,52 @@ public class LandPopupController {
 
     @FXML
     public Button closeButton;
+
+    @FXML
+    public VBox p1;
+
+    @FXML
+    public VBox p2;
+
+    @FXML
+    public VBox p3;
+
+    @FXML
+    public Button p1s1Button;
+
+    @FXML
+    public Button p1s2Button;
+
+    @FXML
+    public Button p1s3Button;
+
+
+    @FXML
+    public Button p2s1Button;
+
+    @FXML
+    public Button p2s2Button;
+
+    @FXML
+    public Button p2s3Button;
+
+    @FXML
+    public Button p3s1Button;
+
+    @FXML
+    public Button p3s2Button;
+
+    @FXML
+    public Button p3s3Button;
+
+    @FXML
+    public Button p1BilkaButton;
+
+    @FXML
+    public Button p2BilkaButton;
+
+    @FXML
+    public Button p3BilkaButton;
 
     @FXML
     public void closeButtonClicked(ActionEvent event) throws Exception {
@@ -69,46 +179,97 @@ public class LandPopupController {
     @FXML
     public void initialize()
     {
-        landName.setText(AssetManager.gameManager.gameScreenController.nameOfLand);
-        rent.setText("Rent: "  + AssetManager.gameManager.gameScreenController.rentPopup+ "B");
-        rentWithColorSet.setText("Rent with Color Set: "  +AssetManager.gameManager.gameScreenController.rentColorSetPopup+ "B");
-        rentWithOneSB.setText("Rent with 1 Starbucks: "  +AssetManager.gameManager.gameScreenController.rentWithOneSBPopup+ "B");
-        rentWithTwoSB.setText("Rent with 2 Starbucks: "  +AssetManager.gameManager.gameScreenController.rentWithTwoSBPopup+ "B");
-        rentWithThreeSB.setText("Rent with 3 Starbucks: "  +AssetManager.gameManager.gameScreenController.rentWithThreeSBPopup+ "B");
-        rentWithBilka.setText("Rent with Bilka: "  +AssetManager.gameManager.gameScreenController.rentWithBilkaPopup+ "B");
-        buildStarbucks.setText("Build Starbucks: " + AssetManager.gameManager.gameScreenController.buildStarbucksPopup + "B");
-        buildBilka.setText("Build Bilka: " + AssetManager.gameManager.gameScreenController.buildBilkaPopup + "B");
+        landName11.setText(AssetManager.gameManager.gameScreenController.nameOfLand);
+        rent11.setText("Rent: "  + AssetManager.gameManager.gameScreenController.rentPopup+ "B");
+        rentWithColorSet11.setText("Rent with Color Set: "  +AssetManager.gameManager.gameScreenController.rentColorSetPopup+ "B");
+        rentWithOneSB11.setText("Rent with 1 Starbucks: "  +AssetManager.gameManager.gameScreenController.rentWithOneSBPopup+ "B");
+        rentWithTwoSB11.setText("Rent with 2 Starbucks: "  +AssetManager.gameManager.gameScreenController.rentWithTwoSBPopup+ "B");
+        rentWithThreeSB11.setText("Rent with 3 Starbucks: "  +AssetManager.gameManager.gameScreenController.rentWithThreeSBPopup+ "B");
+        rentWithBilka11.setText("Rent with Bilka: "  +AssetManager.gameManager.gameScreenController.rentWithBilkaPopup+ "B");
+        buildStarbucks11.setText("Build Starbucks: " + AssetManager.gameManager.gameScreenController.buildStarbucksPopup + "B");
+        buildBilka11.setText("Build Bilka: " + AssetManager.gameManager.gameScreenController.buildBilkaPopup + "B");
 
         Image image = new Image(AssetManager.gameManager.gameScreenController.imageNamePopup);
-        landImage.setImage(image);
+        landImage11.setImage(image);
 
         Land curLand = (Land)AssetManager.gameManager.gameScreenController.currentLandable;
         Player curPlayer = AssetManager.gameManager.getCurrentPlayer();
 
-        if (curLand.isBought() && !curPlayer.getOwnedLands().contains(curLand)) {
+        p2s1Button.setVisible(false);
+        p2s2Button.setVisible(false);
+        p2s3Button.setVisible(false);
+        p2BilkaButton.setVisible(false);
+
+    /*    if (curLand.isBought() && !curPlayer.getOwnedLands().contains(curLand)) {
             buyButton.setText("Pay Rent");
             closeButton.setDisable(true);
+
+
         }
-        else if (curLand.isBought() && curPlayer.isBoughtSet(curLand.getCOLOR())) {
-            rent.setText("You own this COLOR SET.");
-            rentWithColorSet.setText("");
-            rentWithOneSB.setText("");
-            rentWithTwoSB.setText("");
-            rentWithThreeSB.setText("");
-            rentWithBilka.setText("");
-            buildStarbucks.setText("");
-            buildBilka.setText("");
-            buyButton.setText("Cool");
+
+     */
+
+
+        //else
+            if ( true)
+                //curLand.isBought() && curPlayer.isBoughtSet(curLand.getCOLOR())) {
+            {
+            Land[] lands = new Land[2];
+            
+            int j = 0;
+            
+            for ( int i = 0; i < AssetManager.gameManager.getLandableList().length; i++)
+            {
+                if ( ( ( AssetManager.gameManager.getLandableList())[i] ).getType() == LandableType.LAND ) {
+                    if (((Land) ((AssetManager.gameManager.getLandableList())[i])).getCOLOR() == curLand.getCOLOR() && ((Land) ((AssetManager.gameManager.getLandableList())[i])).getName() != curLand.getName()) {
+                        lands[j] = ((Land) ((AssetManager.gameManager.getLandableList())[i]));
+                        j++;
+                    }
+                }
+            }
+
+            //initialize panes
+            p1.setVisible(true);
+
+            landName1.setText(lands[0].getName());
+            rent1.setText( String.valueOf(lands[0].getRENT()) );
+            rentWithColorSet1.setText(String.valueOf(lands[0].getRENT_WITH_SET()) );
+            rentWithOneSB1.setText(String.valueOf(lands[0].getRENT_WITH_1_SECONDARY()) );
+            rentWithTwoSB1.setText("Rent with 2 Starbucks: "  +String.valueOf(lands[0].getRENT_WITH_2_SECONDARY())  + "B");
+            rentWithThreeSB1.setText("Rent with 3 Starbucks: "  +lands[0].getRENT_WITH_3_SECONDARY()+ "B");
+            rentWithBilka1.setText("Rent with Bilka: "  +lands[0].getRENT_WITH_PRIMARY() + "B");
+            buildStarbucks1.setText("Build Starbucks: " + lands[0].getSECONDARY_COST() + "B");
+            buildBilka1.setText("Build Bilka: " + lands[0].getPRIMARY_COST() + "B");
+
+
+            if ( j > 1 )
+            {
+                p3.setVisible(true);
+
+                landName111.setText(lands[1].getName());
+                rent111.setText( String.valueOf(lands[1].getRENT()) );
+                rentWithColorSet111.setText(String.valueOf(lands[1].getRENT_WITH_SET()) );
+                rentWithOneSB111.setText(String.valueOf(lands[1].getRENT_WITH_1_SECONDARY()) );
+                rentWithTwoSB111.setText("Rent with 2 Starbucks: "  +String.valueOf(lands[1].getRENT_WITH_2_SECONDARY())  + "B");
+                rentWithThreeSB111.setText("Rent with 3 Starbucks: "  +lands[1].getRENT_WITH_3_SECONDARY()+ "B");
+                rentWithBilka111.setText("Rent with Bilka: "  +lands[1].getRENT_WITH_PRIMARY() + "B");
+                buildStarbucks111.setText("Build Starbucks: " + lands[1].getSECONDARY_COST() + "B");
+                buildBilka111.setText("Build Bilka: " + lands[1].getPRIMARY_COST() + "B");
+                
+            }
+            
+
+
         }
         else if (curLand.isBought() && curPlayer.getOwnedLands().contains(curLand)) {
-            rent.setText("You own this place.");
-            rentWithColorSet.setText("");
-            rentWithOneSB.setText("");
-            rentWithTwoSB.setText("");
-            rentWithThreeSB.setText("");
-            rentWithBilka.setText("");
-            buildStarbucks.setText("");
-            buildBilka.setText("");
+            rent11.setText("You own this place.");
+            rentWithColorSet11.setText("");
+            rentWithOneSB11.setText("");
+            rentWithTwoSB11.setText("");
+            rentWithThreeSB11.setText("");
+            rentWithBilka11.setText("");
+            buildStarbucks11.setText("");
+            buildBilka11.setText("");
             buyButton.setText("Cool");
         }
     }
