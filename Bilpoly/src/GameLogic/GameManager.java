@@ -145,6 +145,9 @@ public class GameManager {
     // TODO will be implemented.
     public void executeLandable(Landable currentLandable) {
         Player currentPlayer = playerDeck.getCurrentPlayer();
+        boolean doNotGo = false;
+        if(playerDeck.getCurrentPlayer().isTurn())
+            doNotGo = true;
 
         if (currentLandable.type == LandableType.FUNCTIONAL_PLACE) {
 
@@ -175,7 +178,11 @@ public class GameManager {
                 CardPlace cPlace = ((CardPlace) currentLandable);
                 Card currentCard = gameScreenController.getPickedCard();
                 currentCard.setInteractedPlayer(currentPlayer);
+
+                System.out.println("before executeCard");
+                System.out.println("currentCard.getInteractedPlayer(): " + currentCard.getInteractedPlayer().getName());
                 currentCard.executeCard(this);
+                System.out.println("after executeCard");
                 System.out.println("-----Card Info-----");
                 System.out.println("Text: " + currentCard.getText());
                 System.out.println("NO: " + currentCard.getCARDNUM());
@@ -193,13 +200,20 @@ public class GameManager {
                 //card.executeCard(this);
         }
 
-        System.out.println("executeLandable()");
+        System.out.println("executeLandable(), doNotGo: " + doNotGo);
         gameScreenController.enableRollDiceButton();
-        playGame();
+        if(!doNotGo)
+            playGame();
+        else
+            playerDeck.getCurrentPlayer().setTurn(false);
 
     }
 
     public void executeBuyable(Landable currentLandable, Button button){
+
+        boolean doNotGo = false;
+        if(playerDeck.getCurrentPlayer().isTurn())
+            doNotGo = true;
 
         System.out.println("---executeBuyable()");
         String curPlayerName = getCurrentPlayer().getName();
@@ -243,7 +257,6 @@ public class GameManager {
                         System.out.println(getCurrentPlayer().getOwnedCafes().get(i).getName());
                     }
                 }
-
                 break;
 
             default:
@@ -251,7 +264,10 @@ public class GameManager {
         }
         System.out.println("executeBuyable()");
         gameScreenController.enableRollDiceButton();
-        playGame();
+        if(!doNotGo)
+            playGame();
+        else
+            playerDeck.getCurrentPlayer().setTurn(false);
     }
 
     public void sendPlayerToAtalarsRoom(Player p) {
@@ -284,6 +300,7 @@ public class GameManager {
 
     public void movePlayerTo(int index) {
         Pawn playerPawn = playerDeck.getCurrentPlayer().getPawn();
+        playerDeck.getCurrentPlayer().setTurn(true);
         try {
             gameScreenController.movePawnImage(playerPawn.getImage(), index, playerPawn);
         } catch (IOException e) {
@@ -294,6 +311,7 @@ public class GameManager {
 
     public void movePlayerWithStep(int step) {
         Pawn playerPawn = playerDeck.getCurrentPlayer().getPawn();
+        playerDeck.getCurrentPlayer().setTurn(true);
         try {
             gameScreenController.movePawnImage(playerPawn.getImage(), (playerPawn.getCurrentLandableIndex() + step) % 40, playerPawn);
             if (playerPawn.getCurrentLandableIndex() + step > 40)
