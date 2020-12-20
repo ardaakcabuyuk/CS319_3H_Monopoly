@@ -108,15 +108,14 @@
             <AnchorPane layoutX="410.0" layoutY="366.0" prefHeight="150.0" prefWidth="150.0" AnchorPane.bottomAnchor="355.0" AnchorPane.leftAnchor="390.0" AnchorPane.rightAnchor="390.0" AnchorPane.topAnchor="355.0" />
          </children>
       </AnchorPane>
-      <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" AnchorPane.bottomAnchor="690.0" AnchorPane.leftAnchor="1148.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+      <VBox prefHeight="547.0" prefWidth="118.0" spacing="350.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="30.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#mainMenuButtonClicked" style="-fx-background-radius: 30;" text="Main Menu" />
-            <Button mnemonicParsing="false" onAction="#pauseButtonClicked" prefHeight="73.0" prefWidth="86.0" style="-fx-background-radius: 30;" text="Pause">
+            <Button mnemonicParsing="false" onAction="#pauseButtonClicked" prefHeight="71.0" prefWidth="112.0" style="-fx-background-radius: 30;" text="Pause">
                <font>
                   <Font size="23.0" />
                </font>
             </Button>
-            <Pane fx:id="dicePane" prefHeight="93.0" prefWidth="134.0" style="-fx-background-color: aquamarine;" />
+            <Pane fx:id="dicePane" prefHeight="55.0" prefWidth="118.0" style="-fx-background-color: seashell;" />
          </children>
       </VBox>
    </children>
