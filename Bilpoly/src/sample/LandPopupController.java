@@ -203,7 +203,7 @@ public class LandPopupController {
 
         }
         else if (curLand.isBought() && curPlayer.isBoughtSet(curLand.getCOLOR()))
-            {
+        {
                 Land[] lands = new Land[2];
 
                 int j = 0;
@@ -261,9 +261,8 @@ public class LandPopupController {
                 }
 
 
-            }
-            else if (curLand.isBought() && curPlayer.getOwnedLands().contains(curLand))
-            {
+        }
+        else if (curLand.isBought() && curPlayer.getOwnedLands().contains(curLand)) {
                 rent11.setText("You own this place.");
                 rentWithColorSet11.setText("");
                 rentWithOneSB11.setText("");
@@ -273,7 +272,80 @@ public class LandPopupController {
                 buildStarbucks11.setText("");
                 buildBilka11.setText("");
                 buyButton.setText("Cool");
-            }
+        }
+    }
+
+
+        @FXML
+        public void p1s1ButtonClicked ( ActionEvent event) throws Exception
+        {
+
         }
 
+    @FXML
+    public void p1s2ButtonClicked ( ActionEvent event) throws Exception
+    {
+
+    }
+    @FXML
+    public void p1s3ButtonClicked ( ActionEvent event) throws Exception
+    {
+
+    }
+
+    @FXML
+    public void p1BilkaButtonClicked ( ActionEvent event) throws Exception
+    {
+
+    }
+
+    @FXML
+    public void p2s1ButtonClicked ( ActionEvent event) throws Exception
+    {
+
+    }
+
+    @FXML
+    public void p2s2ButtonClicked ( ActionEvent event) throws Exception
+    {
+
+    }
+
+    @FXML
+    public void p2s3ButtonClicked ( ActionEvent event) throws Exception
+    {
+
+    }
+
+
+    @FXML
+    public void p2BilkaButtonClicked ( ActionEvent event) throws Exception
+    {
+
+    }
+
+    @FXML
+    public void p3s1ButtonClicked ( ActionEvent event) throws Exception
+    {
+
+    }
+
+    @FXML
+    public void p3s2ButtonClicked ( ActionEvent event) throws Exception
+    {
+
+    }
+
+    @FXML
+    public void p3s3ButtonClicked ( ActionEvent event) throws Exception
+    {
+
+    }
+
+
+    @FXML
+    public void p3BilkaButtonClicked ( ActionEvent event) throws Exception
+    {
+
+    }
 }
