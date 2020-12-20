@@ -7,7 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import sample.AssetManager;
 import sample.GameScreen;
 import java.io.IOException;
 import java.util.*;
@@ -151,28 +150,28 @@ public class GameManager {
                 FunctionalPlace fPlace = ((FunctionalPlace) currentLandable);
                 fPlace.executeFunctional(this, currentPlayer);
                 if (fPlace.getFunctionalPlaceType() == FunctionalPlaceType.NIZAMIYE)
-                    gameScreenController.addHistory(AssetManager.gameManager.getCurrentPlayer().getName() + " has passed through Nizamiye.");
+                    gameScreenController.addHistory(getCurrentPlayer().getName() + " has passed through Nizamiye.");
                 else if (fPlace.getFunctionalPlaceType() == FunctionalPlaceType.FEE) {
                     if (((FeeStrategy) fPlace.getStrategy()).getFeeType() == FeeType.TUITION_FEE) {
-                        gameScreenController.addHistory(AssetManager.gameManager.getCurrentPlayer().getName() + " paid tuition fee.");
+                        gameScreenController.addHistory(getCurrentPlayer().getName() + " paid tuition fee.");
                     }
                     else if (((FeeStrategy) fPlace.getStrategy()).getFeeType() == FeeType.DORM_FEE) {
-                        gameScreenController.addHistory(AssetManager.gameManager.getCurrentPlayer().getName() + " paid dorm fee.");
+                        gameScreenController.addHistory(getCurrentPlayer().getName() + " paid dorm fee.");
                     }
                     else if (((FeeStrategy) fPlace.getStrategy()).getFeeType() == FeeType.BOOK_FEE) {
-                        gameScreenController.addHistory(AssetManager.gameManager.getCurrentPlayer().getName() + " paid book fee.");
+                        gameScreenController.addHistory(getCurrentPlayer().getName() + " paid book fee.");
                     }
                     else if (((FeeStrategy) fPlace.getStrategy()).getFeeType() == FeeType.FOOD_FEE) {
-                        gameScreenController.addHistory(AssetManager.gameManager.getCurrentPlayer().getName() + " paid food fee.");
+                        gameScreenController.addHistory(getCurrentPlayer().getName() + " paid food fee.");
                     }
                     freeParkingMoney += ((FeeStrategy) fPlace.getStrategy()).getFee();
                 }
                 else if (fPlace.getFunctionalPlaceType() == FunctionalPlaceType.FREE_PARKING) {
-                    gameScreenController.addHistory(AssetManager.gameManager.getCurrentPlayer().getName() + " got free parking money.");
+                    gameScreenController.addHistory(getCurrentPlayer().getName() + " got free parking money.");
                     freeParkingMoney = 0;
                 }
                 else if (fPlace.getFunctionalPlaceType() == FunctionalPlaceType.GO_TO_ATALARS_ROOM) {
-                    gameScreenController.addHistory(AssetManager.gameManager.getCurrentPlayer().getName() + " went to Atalar's Room!");
+                    gameScreenController.addHistory(getCurrentPlayer().getName() + " went to Atalar's Room!");
                 }
                 break;
             case CARD_PLACE:
@@ -191,6 +190,11 @@ public class GameManager {
                 System.out.println("TO MOVE: " + currentCard.getToMove());
                 System.out.println("TO PLAYER?: " + currentCard.isToPlayer());
                 System.out.println("TO BANK?: " + currentCard.isToBank());
+
+                //card = cardDeck.drawCard(((CardPlace)currentLandable).getCardType());
+                //card.setInteractedPlayer(currentPlayer);
+                //card.executeCard(this);
+
                 break;
 
         }
@@ -204,43 +208,43 @@ public class GameManager {
     public void executeBuyable(Landable currentLandable, Button button){
 
         System.out.println("---executeBuyable()");
-        String curPlayerName = AssetManager.gameManager.getCurrentPlayer().getName();
+        String curPlayerName = getCurrentPlayer().getName();
 
         Player currentPlayer = playerDeck.getCurrentPlayer();
         switch (currentLandable.type){
             case LAND:
                 Land currentLand = ((Land) currentLandable);
                 if(currentLand.isBought() && button.getText() == "Pay Rent"){ //if land is bought
-                    AssetManager.gameManager.getCurrentPlayer().changeMoney(-currentLand.getCurrentRent());
+                    getCurrentPlayer().changeMoney(-currentLand.getCurrentRent());
                     gameScreenController.addHistory( curPlayerName + " paid rent " + currentLand.owner.getName());
+                    currentLand.getOwner().changeMoney(currentLand.getCurrentRent());
                 }
                 else if(currentLand.isBought()){
                     // his land
                 }
                 else{
                     // buy
-                    AssetManager.gameManager.getCurrentPlayer().changeMoney(-currentLand.getCost());
+                    getCurrentPlayer().changeMoney(-currentLand.getCost());
                     currentLand.isBought = true;
-                    currentLand.owner = AssetManager.gameManager.getCurrentPlayer();
+                    currentLand.owner = getCurrentPlayer();
                     currentPlayer.getOwnedLands().add(currentLand);
                     gameScreenController.addHistory( curPlayerName + " bought " + currentLand.getName() + ".");
                 }
 
                 break;
 
-
             case CAFE:
                 Cafe currentCafe = ((Cafe) currentLandable);
                 if(currentCafe.isBought() && button.getText() == "Pay Rent"){ //if land is bought
                     int cafeNum = currentCafe.owner.getOwnedCafes().size();
                     if(cafeNum == 1)
-                        AssetManager.gameManager.getCurrentPlayer().changeMoney(-currentCafe.getRentWith1());
+                        getCurrentPlayer().changeMoney(-currentCafe.getRentWith1());
                     else if (cafeNum == 2)
-                        AssetManager.gameManager.getCurrentPlayer().changeMoney(-currentCafe.getRentWith2());
+                        getCurrentPlayer().changeMoney(-currentCafe.getRentWith2());
                     else if (cafeNum == 3)
-                        AssetManager.gameManager.getCurrentPlayer().changeMoney(-currentCafe.getRentWith3());
+                        getCurrentPlayer().changeMoney(-currentCafe.getRentWith3());
                     else if (cafeNum == 4)
-                        AssetManager.gameManager.getCurrentPlayer().changeMoney(-currentCafe.getRentWith4());
+                        getCurrentPlayer().changeMoney(-currentCafe.getRentWith4());
                     gameScreenController.addHistory( curPlayerName + " paid rent to " + currentCafe.owner.getName());
                 }
                 else if(currentCafe.isBought()){
@@ -248,9 +252,9 @@ public class GameManager {
                 }
                 else{
                     // buy
-                    AssetManager.gameManager.getCurrentPlayer().changeMoney(-currentCafe.getCost());
+                    getCurrentPlayer().changeMoney(-currentCafe.getCost());
                     currentCafe.isBought = true;
-                    currentCafe.owner = AssetManager.gameManager.getCurrentPlayer();
+                    currentCafe.owner = getCurrentPlayer();
                     currentPlayer.getOwnedCafes().add(currentCafe);
                     gameScreenController.addHistory( curPlayerName + " bought " + currentCafe.getName() + ".");
                 }
@@ -260,10 +264,8 @@ public class GameManager {
             default:
                 // error
         }
-
         gameScreenController.enableRollDiceButton();
         playGame();
-
     }
 
     public void sendPlayerToAtalarsRoom(Player p) {
@@ -309,15 +311,15 @@ public class GameManager {
         try {
             gameScreenController.movePawnImage(playerPawn.getImage(), (playerPawn.getCurrentLandableIndex() + step) % 40, playerPawn);
             if (playerPawn.getCurrentLandableIndex() + step > 40)
-                AssetManager.gameManager.getCurrentPlayer().changeMoney(NIZAMIYE_FEE);
+                getCurrentPlayer().changeMoney(NIZAMIYE_FEE);
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("CANNOT MOVE PAWN OF PLAYER WITH A CARD");
         }
     }
 
+
     public CardDeck getCardDeck() {
         return cardDeck;
     }
-
 }
