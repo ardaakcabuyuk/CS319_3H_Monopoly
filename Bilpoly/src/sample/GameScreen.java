@@ -279,7 +279,7 @@ public class GameScreen {
         Image diceImg = new Image(getClass().getResource(dicePath).toExternalForm());
         ImageView diceImageView = new ImageView(diceImg);
         dicePane.getChildren().add(diceImageView);
-        //diceImageView.relocate(boardWidth / 2 - diceImg.getWidth() / 2, boardHeight / 2 - diceImg.getHeight() / 2);
+        diceImageView.relocate(dicePane.getWidth() / 2 - diceImg.getWidth() / 2, dicePane.getHeight() / 2 - diceImg.getHeight() / 2);
         //boardAnchorPane.getChildren().add(diceImageView);
         new Timer().schedule(new TimerTask(){
 
@@ -380,6 +380,7 @@ public class GameScreen {
         Stage window = (Stage) boardAnchorPane.getScene().getWindow();
         rollDiceButton.setDisable(true);
         gameOverPopup.show(window);
+
 
     }
 
