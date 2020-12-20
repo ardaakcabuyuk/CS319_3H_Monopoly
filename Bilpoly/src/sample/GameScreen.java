@@ -401,7 +401,7 @@ public class GameScreen {
         if (nextLandable.getIndex() - curLandable.getIndex() < 0){
             AssetManager.gameManager.getCurrentPlayer().changeMoney(2000);
         }
-        
+
         currentLandable = nextLandable;
         //Location currentLocation = new Location(curLandable.getLocation().getX(), curLandable.getLocation().getY());
         Location toGoLocation = new Location(nextLandable.getLocation().getX(), nextLandable.getLocation().getY());

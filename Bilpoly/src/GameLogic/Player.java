@@ -18,7 +18,7 @@ public class Player {
     private boolean isTurn;
     private boolean isBankrupt;
     private boolean isInAtalarsRoom;
-    private int atalarsRoomFreeCardNum;
+    private int atlarRoomCount;
     private ArrayList<Land> ownedLands;
     private ArrayList<Cafe> ownedCafes;
     private HashMap<Color,Integer> sets;
@@ -33,7 +33,7 @@ public class Player {
         this.isTurn = false;
         this.isBankrupt = false;
         this.isInAtalarsRoom = false;
-        this.atalarsRoomFreeCardNum = 0;
+        this.atlarRoomCount = 0;
         this.ownedLands = new ArrayList<>();
         this.ownedCafes = new ArrayList<>();
 
@@ -76,7 +76,7 @@ public class Player {
         this.colorName = "init";
         this.isBankrupt = false;
         this.isInAtalarsRoom = false;
-        this.atalarsRoomFreeCardNum = 0;
+        this.atlarRoomCount = 0;
         this.ownedLands =  new ArrayList<Land>();
         this.ownedCafes = new ArrayList<Cafe>();
         this.sets = new HashMap<Color, Integer>();
@@ -245,9 +245,9 @@ public class Player {
     public void setInAtalarsRoom(boolean inAtalarsRoom) { isInAtalarsRoom = inAtalarsRoom; }
 
     // getter atalarsRoomFreeCardNum
-    public int getAtalarsRoomFreeCardNum() { return atalarsRoomFreeCardNum; }
+    public int getAtlarRoomCount() { return atlarRoomCount; }
     // setter atalarsRoomFreeCardNum
-    public void setAtalarsRoomFreeCardNum(int atalarsRoomFreeCardNum) { this.atalarsRoomFreeCardNum = atalarsRoomFreeCardNum; }
+    public void setAtlarRoomCount(int atalarsRoomFreeCardNum) { this.atlarRoomCount = atalarsRoomFreeCardNum; }
 
     public boolean isEqual(Player p) {
         if (color.equals(p.color))
