@@ -20,25 +20,25 @@ public class PreGameSettingsController {
 
     @FXML
     public void money3ButtonClicked(ActionEvent event) throws Exception {
-        System.out.println("$150k Button clicked. ");
+        System.out.println("50k Button clicked. ");
         for(int i = 0; i < AssetManager.players.length; i++){
-            AssetManager.players[i].setInitMoney(15000);
+            AssetManager.players[i].setInitMoney(50000);
         }
     }
 
     @FXML
     public void money2ButtonClicked(ActionEvent event) throws Exception {
-        System.out.println("$100k Button clicked. ");
+        System.out.println("20k Button clicked. ");
         for(int i = 0; i < AssetManager.players.length; i++){
-            AssetManager.players[i].setInitMoney(10000);
+            AssetManager.players[i].setInitMoney(20000);
         }
     }
 
     @FXML
     public void money1ButtonClicked(ActionEvent event) throws Exception {
-        System.out.println("$50k Button clicked. ");
+        System.out.println("15k Button clicked. ");
         for(int i = 0; i < AssetManager.players.length; i++){
-            AssetManager.players[i].setInitMoney(5000);
+            AssetManager.players[i].setInitMoney(15000);
         }
     }
 
