@@ -303,6 +303,7 @@ public class GameScreen {
         ImageView currentPawnImageView = getPawnImage(currentPawn);
 
         movePawnImage(currentPawnImageView, ((currentPawn.getCurrentLandableIndex() + totalDiceValue) % 40), currentPawn);
+        //animatePawnImageMovement(currentPawnImageView, ((currentPawn.getCurrentLandableIndex() + totalDiceValue) % 40), currentPawn);
 
         //animatePawnImageMovement(currentPawnImageView, ((currentPawn.getCurrentLandableIndex() + totalDiceValue) % 40), currentPawn);
         System.out.println("dice: " + totalDiceValue + " currentPawn.getCurrentLandableIndex(): " + currentPawn.getCurrentLandableIndex());
@@ -476,16 +477,16 @@ public class GameScreen {
 
 
 /*
-    public void animatePawnImageMovement(ImageView pawnImage, int index, Pawn curPawn){
-        Landable curLandable = null;
-        Landable nextLandable = null;
-        Location currentLocation = null;
-        Location toGoLocation = null;
+    public void animatePawnImageMovement(ImageView pawnImage, int index, Pawn curPawn) throws IOException{
+        final int STEP_SIZE = 2;
 
-        curLandable = AssetManager.gameManager.getLandableList()[curPawn.getCurrentLandableIndex()];
-        nextLandable = AssetManager.gameManager.getLandableList()[(curPawn.getCurrentLandableIndex() + 1) % 40];
-        currentLocation = new Location(curLandable.getLocation().getX(), curLandable.getLocation().getY());
-        toGoLocation = new Location(nextLandable.getLocation().getX(), nextLandable.getLocation().getY());
+        Landable nextLandable = AssetManager.gameManager.getLandableList()[(index) % 40];
+        currentLandable = nextLandable;
+        Location toGoLocation = new Location(nextLandable.getLocation().getX(), nextLandable.getLocation().getY());
+        // pawnImage.relocate(toGoLocation.getX(), toGoLocation.getY());
+        curPawn.movePawn(((index) % 40));
+
+        Location currentLocation = new Location(pawnImage.getLayoutX(), pawnImage.getLayoutY());
 
         new Timer().schedule(new TimerTask(){
 
@@ -493,44 +494,111 @@ public class GameScreen {
             public void run() {
                 //System.out.println("toGoLocation.getX(): " + toGoLocation.getX() + " toGoLocation.gety(): " + toGoLocation.getY());
 
-                if (currentLocation.getX() > toGoLocation.getX() + 1){
-                    currentLocation.setX((int)(currentLocation.getX() - 1));
+                if (currentLocation.getX() > toGoLocation.getX() + STEP_SIZE) {
+                    currentLocation.setX((int) (currentLocation.getX() - STEP_SIZE));
                     pawnImage.relocate(currentLocation.getX(), pawnImage.getLayoutY());
                 }
-                if (currentLocation.getX() < toGoLocation.getX() - 1){
-                    currentLocation.setX((int)(currentLocation.getX() + 1));
+                else if (currentLocation.getX() < toGoLocation.getX() - STEP_SIZE){
+                    currentLocation.setX((int) (currentLocation.getX() + STEP_SIZE));
                     pawnImage.relocate(currentLocation.getX(), pawnImage.getLayoutY());
                 }
-                if (currentLocation.getY() > toGoLocation.getY() - 1){
-                    currentLocation.setY((int)(currentLocation.getY() - 1));
+                else{
+                    if (currentLocation.getY() > toGoLocation.getY() - STEP_SIZE) {
+                        currentLocation.setY((int) (currentLocation.getY() - STEP_SIZE));
+                        pawnImage.relocate(pawnImage.getLayoutX(), currentLocation.getY());
+                    }
+                    else if (currentLocation.getY() < toGoLocation.getY() + STEP_SIZE) {
+                            currentLocation.setY((int) (currentLocation.getY() + STEP_SIZE));
+                            pawnImage.relocate(pawnImage.getLayoutX(), currentLocation.getY());
+                    }
+                }
+                //System.out.println("currentLocation.getX(): " + currentLocation.getX() + " currentLocation.gety(): " + currentLocation.getY());
+
+                if (currentLocation.getY() > toGoLocation.getY() - STEP_SIZE) {
+                    currentLocation.setY((int) (currentLocation.getY() - STEP_SIZE));
                     pawnImage.relocate(pawnImage.getLayoutX(), currentLocation.getY());
                 }
-                if (currentLocation.getY() < toGoLocation.getY() + 1){
-                    currentLocation.setY((int)(currentLocation.getY() + 1));
+                else if (currentLocation.getY() < toGoLocation.getY() + STEP_SIZE) {
+                    currentLocation.setY((int) (currentLocation.getY() + STEP_SIZE));
                     pawnImage.relocate(pawnImage.getLayoutX(), currentLocation.getY());
                 }
-                System.out.println("currentLocation.getX(): " + currentLocation.getX() + " currentLocation.gety(): " + currentLocation.getY());
+                else{
+                    if (currentLocation.getX() > toGoLocation.getX() + STEP_SIZE) {
+                        currentLocation.setX((int) (currentLocation.getX() - STEP_SIZE));
+                        pawnImage.relocate(currentLocation.getX(), pawnImage.getLayoutY());
+                    }
+                    else if (currentLocation.getX() < toGoLocation.getX() - STEP_SIZE) {
+                        currentLocation.setX((int) (currentLocation.getX() + STEP_SIZE));
+                        pawnImage.relocate(currentLocation.getX(), pawnImage.getLayoutY());
+                    }
+                }
 
 
-                if (((currentLocation.getX() - toGoLocation.getX()) < 1) && ((currentLocation.getY() - toGoLocation.getY()) < 1)) {
+                if (((currentLocation.getX() - toGoLocation.getX()) < STEP_SIZE + 0.1) && ((currentLocation.getY() - toGoLocation.getY()) < STEP_SIZE + 0.1)) {
                     if(curPawn.getCurrentLandableIndex() == index){
                         System.out.println("cancel() !!!");
                         cancel();
                     }
-                    else{
-                        nextLandable = AssetManager.gameManager.getLandableList()[(curPawn.getCurrentLandableIndex() + 1) % 40];
-                        System.out.println("nextLandable.getIndex(): " + nextLandable.getIndex());
-                        toGoLocation.setX(nextLandable.getLocation().getX());
-                        toGoLocation.setX(nextLandable.getLocation().getY());
-                        //currentLocation.setX(pawnImage.getLayoutX());
-                        //currentLocation.setY(pawnImage.getLayoutY());
-                        curPawn.movePawn(1);
-                    }
-
                 }
             }
         },0, 6);
+
+        //If landed landable is not functional place, popups will show
+        if ( nextLandable.getType() != LandableType.FUNCTIONAL_PLACE )
+        {
+            //for land popup
+            if ( nextLandable.getType() == LandableType.LAND )
+            {
+                nameOfLand = ( (Land) nextLandable).getName();
+
+                rentColorSetPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_SET());
+                rentPopup = String.valueOf(( (Land) nextLandable).getRENT());
+                rentWithOneSBPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_1_SECONDARY());
+                rentWithTwoSBPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_2_SECONDARY());
+                rentWithThreeSBPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_3_SECONDARY());
+                rentWithBilkaPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_PRIMARY());
+                buildStarbucksPopup = String.valueOf(((Land) nextLandable).getSECONDARY_COST());
+                buildBilkaPopup = String.valueOf(((Land) nextLandable).getPRIMARY_COST());
+
+                imageNamePopup = "sample/Images/buildings_all_png/" + nameOfLand + ".png";
+
+                executeLandPopup();
+
+            }
+            //for cafe popup
+            else if ( nextLandable.getType() == LandableType.CAFE )
+            {
+                nameOfLand = ( ( Cafe ) nextLandable).getName();
+
+                rentColorSetPopup = "";
+                rentPopup = "";
+
+                rentWithOneSBPopup = String.valueOf(( (Cafe) nextLandable).getRentWith1());
+                rentWithTwoSBPopup = String.valueOf(( (Cafe) nextLandable).getRentWith2());
+                rentWithThreeSBPopup = String.valueOf(( (Cafe) nextLandable).getRentWith3());
+                rentWithBilkaPopup = String.valueOf(( (Cafe) nextLandable).getRentWith4());
+
+                imageNamePopup = "sample/Images/cafes_png/" + nameOfLand + ".png";
+
+                executeCafePopup();
+            }
+            //for card popups
+            else if ( nextLandable.getType() == LandableType.CARD_PLACE ) {
+
+                cardStrategy = ((CardPlace) nextLandable).getCardType().name();
+                System.out.println("Card Type:" + cardStrategy);
+
+                pickedCard = AssetManager.gameManager.getCardDeck().drawCard(((CardPlace) nextLandable).getCardType());
+                cardText = String.valueOf(AssetManager.gameManager.getCardDeck().getCurrentCard().getText());
+
+                executeCardPopup();
+            }
+        }
+        else{
+            AssetManager.gameManager.playTurnPostDice(nextLandable);
+        }
     }
+
 
  */
 /*
