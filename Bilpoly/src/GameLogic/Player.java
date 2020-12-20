@@ -95,6 +95,7 @@ public class Player {
     // This method will be called to update player's money.
     public boolean changeMoney(int amount){
         if(amount < 0 && this.money + amount < 0){
+            isBankrupt = true;
             return false;
         }
         else {
