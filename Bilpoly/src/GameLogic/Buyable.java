@@ -1,10 +1,15 @@
 package GameLogic;
 
 public abstract class Buyable extends Landable {
+
+    //constants
+    protected final double mortgageRate = 1.1;
+
     //attributes
     protected String name;
     protected int cost;
     protected Player owner;
+
 
 
     protected boolean isBought;
@@ -25,15 +30,28 @@ public abstract class Buyable extends Landable {
             owner = null;
         }
     }
-    public Player getOwner() { return owner; }
-    public void mortgage() {
+
+    public boolean mortgage() {
         if (isBought && !isMortgaged) {
             isMortgaged = true;
+            return true;
         }
+        return false;
     }
+
+    public boolean unMortgage() {
+        if (isMortgaged) {
+            isMortgaged = false;
+            return true;
+        }
+        return false;
+    }
+
     public int getCost() {
         return cost;
     }
+
+    public Player getOwner() { return owner; }
 
     public boolean isBought() {
         return isBought;
@@ -51,10 +69,6 @@ public abstract class Buyable extends Landable {
         this.cost = cost;
     }
 
-    public void setOwner(Player owner) {
-        this.owner = owner;
-    }
-
     public void setBought(boolean bought) {
         isBought = bought;
     }
@@ -63,8 +77,8 @@ public abstract class Buyable extends Landable {
         return isMortgaged;
     }
 
-    public void setMortgaged(boolean mortgaged) {
-        isMortgaged = mortgaged;
+    public double getMortgageRate() {
+        return mortgageRate;
     }
 
 }

@@ -182,10 +182,10 @@ public class GameScreen {
             moneyBuffer = moneyBuffer.substring(0, index + 1)
                     + " "
                     + moneyBuffer.substring(index + 1);
-            curPlayerMoney.setText(moneyBuffer + "₿");
+            curPlayerMoney.setText(moneyBuffer + "B");
         }
         else{
-            curPlayerMoney.setText(current.getMoney() + "₿");
+            curPlayerMoney.setText(current.getMoney() + "B");
         }
         curPlayerName.setText(current.getName());
     }
@@ -628,10 +628,10 @@ public class GameScreen {
             moneyBuffer = moneyBuffer.substring(0, index + 1)
                     + " "
                     + moneyBuffer.substring(index + 1);
-            this.nextTurnMoneyLabel.setText(moneyBuffer + "₿");
+            this.nextTurnMoneyLabel.setText(moneyBuffer + "B");
         }
         else{
-            this.nextTurnMoneyLabel.setText(nextTurnMoneyLabel + "₿");
+            this.nextTurnMoneyLabel.setText(nextTurnMoneyLabel + "B");
         }
     }
 

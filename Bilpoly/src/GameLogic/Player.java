@@ -156,6 +156,51 @@ public class Player {
         return false;
     }
 
+    public boolean mortgageLand(Land land) {
+        if (ownedLands.contains(land)) {
+            if (land.getSecondaryNumber() == 0 && !land.hasPrimary()) {
+                land.mortgage();
+                changeMoney(land.getCost() / 2);
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
+
+    public boolean unMortgageLand(Land land) {
+        if (ownedLands.contains(land)) {
+            if (land.isMortgaged()) {
+                land.unMortgage();
+                changeMoney(((int) (-land.getCost() / 2 * land.getMortgageRate())));
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
+
+    public boolean mortgageCafe(Cafe cafe) {
+        if (ownedCafes.contains(cafe)) {
+            cafe.mortgage();
+            changeMoney(cafe.getCost() / 2);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean unMortgageCafe(Cafe cafe) {
+        if (ownedCafes.contains(cafe)) {
+            if (cafe.isMortgaged()) {
+                cafe.unMortgage();
+                changeMoney(((int) (-cafe.getCost() / 2 * cafe.getMortgageRate())));
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
+
     // This method sells a land for player.
     // TODO land has to change and this method has to be implemented.
     public boolean sellLand(Land land) {

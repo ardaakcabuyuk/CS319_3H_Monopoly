@@ -167,7 +167,7 @@ public class GameManager {
     }
 
     public void executeBuyable(Landable currentLandable, Button button){
-
+        System.out.println(button.getText());
         boolean doNotGo = false;
         if(playerDeck.getCurrentPlayer().isTurn())
             doNotGo = true;
@@ -179,7 +179,7 @@ public class GameManager {
         switch (currentLandable.type){
             case LAND:
                 Land currentLand = ((Land) currentLandable);
-                if(currentLand.isBought() && button.getText() == "Pay Rent"){ //if land is bought
+                if(currentLand.isBought() && button.getText().equals("Pay Rent") && !currentLand.isMortgaged()){ //if land is bought
                     if (getCurrentPlayer().getMoney() >= currentLand.getCurrentRent()) {
                         getCurrentPlayer().payRentLand(currentLand, currentLand.getOwner());
                         gameScreenController.addHistory(curPlayerName + " paid rent to " + currentLand.owner.getName() + " for " + currentLandable.getName());
@@ -192,7 +192,7 @@ public class GameManager {
                 else if(currentLand.isBought() && currentPlayer.getOwnedLands().contains(currentLand)){
                     break;
                 }
-                else{
+                else if (button.getText().equals("Buy")){
                     // buy
                     if (getCurrentPlayer().getMoney() >= currentLand.getCost()) {
                         getCurrentPlayer().buyLand(currentLand);
@@ -208,7 +208,7 @@ public class GameManager {
 
             case CAFE:
                 Cafe currentCafe = ((Cafe) currentLandable);
-                if(currentCafe.isBought() && button.getText() == "Pay Rent"){ //if land is bought
+                if(currentCafe.isBought() && button.getText().equals("Pay Rent") && !currentCafe.isMortgaged()){ //if land is bought
                     if (getCurrentPlayer().payRentCafe(currentCafe, currentCafe.getOwner())) {
                         gameScreenController.addHistory(curPlayerName + " paid rent to " + currentCafe.owner.getName());
                     }
@@ -220,7 +220,7 @@ public class GameManager {
                 else if(currentCafe.isBought() && currentPlayer.getOwnedLands().contains(currentCafe)){
                     // his land
                 }
-                else{
+                else if (button.getText().equals("Buy")){
                     // buy
                     if (getCurrentPlayer().getMoney() >= currentCafe.getCost()) {
                         getCurrentPlayer().buyCafe(currentCafe);

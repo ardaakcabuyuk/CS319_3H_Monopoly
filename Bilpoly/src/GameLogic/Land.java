@@ -24,7 +24,6 @@ public class Land extends Buyable {
     private int secondaryNumber;
     private boolean hasPrimary;
     private int currentRent;
-    private int mortgageRate;
 
 
     public Land(Color color, String name, int cost, int secondaryCost, int primaryCost, int rent,
@@ -164,7 +163,7 @@ public class Land extends Buyable {
         this.secondaryNumber = secondaryNumber;
     }
 
-    public boolean isHasPrimary() {
+    public boolean hasPrimary() {
         return hasPrimary;
     }
 
@@ -179,14 +178,5 @@ public class Land extends Buyable {
     public void setCurrentRent(int currentRent) {
         this.currentRent = currentRent;
     }
-
-    public int getMortgageRate() {
-        return mortgageRate;
-    }
-
-    public void setMortgageRate(int mortgageRate) {
-        this.mortgageRate = mortgageRate;
-    }
-
 
 }
