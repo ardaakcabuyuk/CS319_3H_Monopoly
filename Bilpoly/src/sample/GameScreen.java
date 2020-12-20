@@ -381,6 +381,7 @@ public class GameScreen {
         rollDiceButton.setDisable(true);
         gameOverPopup.show(window);
 
+
     }
 
     public void enableRollDiceButton(){
