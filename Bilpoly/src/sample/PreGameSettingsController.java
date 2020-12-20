@@ -22,7 +22,7 @@ public class PreGameSettingsController {
     public void money3ButtonClicked(ActionEvent event) throws Exception {
         System.out.println("$150k Button clicked. ");
         for(int i = 0; i < AssetManager.players.length; i++){
-            AssetManager.players[i].setInitMoney(150000);
+            AssetManager.players[i].setInitMoney(15000);
         }
     }
 
@@ -30,7 +30,7 @@ public class PreGameSettingsController {
     public void money2ButtonClicked(ActionEvent event) throws Exception {
         System.out.println("$100k Button clicked. ");
         for(int i = 0; i < AssetManager.players.length; i++){
-            AssetManager.players[i].setInitMoney(100000);
+            AssetManager.players[i].setInitMoney(10000);
         }
     }
 
@@ -38,7 +38,7 @@ public class PreGameSettingsController {
     public void money1ButtonClicked(ActionEvent event) throws Exception {
         System.out.println("$50k Button clicked. ");
         for(int i = 0; i < AssetManager.players.length; i++){
-            AssetManager.players[i].setInitMoney(50000);
+            AssetManager.players[i].setInitMoney(5000);
         }
     }
 

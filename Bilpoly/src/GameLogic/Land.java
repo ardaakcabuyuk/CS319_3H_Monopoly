@@ -51,9 +51,6 @@ public class Land extends Buyable {
         secondaryNumber = 0;
         hasPrimary = false;
         currentRent = RENT;
-        this.index = index;
-        this.location = null;
-        this.location_available = null;
     }
 
     public boolean addSecondary() {

@@ -34,8 +34,8 @@ public class Player {
         this.isBankrupt = false;
         this.isInAtalarsRoom = false;
         this.atalarsRoomFreeCardNum = 0;
-        this.ownedLands =  new ArrayList<Land>();
-        this.ownedCafes = new ArrayList<Cafe>();
+        this.ownedLands = new ArrayList<>();
+        this.ownedCafes = new ArrayList<>();
 
         if(colorName == "blue")
         {
@@ -158,22 +158,24 @@ public class Player {
 
     // This method sells a land for player.
     // TODO land has to change and this method has to be implemented.
-    public boolean sellLand(Land land){
-        //check if the land owned by this player
+    public boolean sellLand(Land land) {
+        if (!ownedLands.contains(land))
+            return false;
         land.sell();
-        //delete land from the ownedLands
-        //changeMoney();
+        ownedLands.remove(land);
+        changeMoney(land.getCost());
         return true;
     }
 
     // This method sells a cafe for player.
     // TODO cafe has to change and this method has to be implemented.
-    public boolean sellCafe(Cafe cafe){
-        //check if the cafe owned by this player
-        cafe.sell();
-        //delete cafe from the ownedCafes
-        //changeMoney();
-        return true;
+    public boolean sellCafe(Cafe cafe) {
+       if (!ownedCafes.contains(cafe))
+           return false;
+       cafe.sell();
+       ownedCafes.remove(cafe);
+       changeMoney(cafe.getCost());
+       return true;
     }
 
     // This method will be called to update player's score.
@@ -208,29 +210,36 @@ public class Player {
         return false;
     }
 
-    public void payRentLand(Land land, Player p) {
-        changeMoney(-land.getCurrentRent());
-        p.changeMoney(land.getCurrentRent());
+    public boolean payRentLand(Land land, Player p) {
+        if (changeMoney(-land.getCurrentRent())) {
+            p.changeMoney(land.getCurrentRent());
+            return true;
+        }
+        return false;
     }
 
-    public void payRentCafe(Cafe cafe, Player p) {
+    public boolean payRentCafe(Cafe cafe, Player p) {
         int cafeNum = cafe.getOwner().getOwnedCafes().size();
+        int curRent;
         if(cafeNum == 1) {
-            changeMoney(-cafe.getRentWith1());
-            p.changeMoney(cafe.getRentWith1());
+            curRent = cafe.getRentWith1();
         }
         else if (cafeNum == 2) {
-            changeMoney(cafe.getRentWith2());
-            p.changeMoney(cafe.getRentWith2());
+            curRent = cafe.getRentWith2();
         }
         else if (cafeNum == 3) {
-            changeMoney(cafe.getRentWith3());
-            p.changeMoney(cafe.getRentWith3());
+            curRent = cafe.getRentWith3();
         }
-        else if (cafeNum == 4) {
-            changeMoney(cafe.getRentWith4());
-            p.changeMoney(cafe.getRentWith4());
+        else {
+            curRent = cafe.getRentWith4();
         }
+
+        if (changeMoney(-curRent)) {
+            p.changeMoney(curRent);
+            return true;
+        }
+        return false;
+
     }
 
     public boolean isBoughtSet(Color color) {

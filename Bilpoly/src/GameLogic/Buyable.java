@@ -14,12 +14,14 @@ public abstract class Buyable extends Landable {
     public void buy(Player player) {
         if (!isBought) {
             isBought = true;
+            isMortgaged = false;
             owner = player;
         }
     }
     public void sell() {
         if (isBought) {
             isBought = false;
+            isMortgaged = false;
             owner = null;
         }
     }

@@ -99,7 +99,7 @@ public class GameManager {
         System.out.println("nextLandable.getType(): " + nextLandable.getType());
         int diceValue = dice.getTotalFaceValue();
         //if passes through nizamiye
-        if (nextLandable.getIndex() - diceValue <= 0)
+        if (nextLandable.getIndex() - diceValue < 0)
             executeLandable(landableList[0]);
         executeLandable(nextLandable);
         diceRolled = false;
@@ -180,18 +180,27 @@ public class GameManager {
             case LAND:
                 Land currentLand = ((Land) currentLandable);
                 if(currentLand.isBought() && button.getText() == "Pay Rent"){ //if land is bought
-                    getCurrentPlayer().payRentLand(currentLand, currentLand.getOwner());
-                    gameScreenController.addHistory( curPlayerName + " paid rent to " + currentLand.owner.getName() + " for " + currentLandable.getName());
+                    if (getCurrentPlayer().getMoney() >= currentLand.getCurrentRent()) {
+                        getCurrentPlayer().payRentLand(currentLand, currentLand.getOwner());
+                        gameScreenController.addHistory(curPlayerName + " paid rent to " + currentLand.owner.getName() + " for " + currentLandable.getName());
+                    }
+                    else {
+                        //warning
+                        System.out.println("NOT ENOUGH MONEY " + getCurrentPlayer().howMuchPlayerIsShort(currentLand.getCurrentRent()));
+                    }
                 }
                 else if(currentLand.isBought() && currentPlayer.getOwnedLands().contains(currentLand)){
                     break;
                 }
                 else{
                     // buy
-                    getCurrentPlayer().buyLand(currentLand);
-                    gameScreenController.addHistory( curPlayerName + " bought " + currentLand.getName() + ".");
-                    for (int i = 0; i < getCurrentPlayer().getOwnedLands().size(); i++) {
-                        System.out.println(getCurrentPlayer().getOwnedLands().get(i).getName());
+                    if (getCurrentPlayer().getMoney() >= currentLand.getCost()) {
+                        getCurrentPlayer().buyLand(currentLand);
+                        gameScreenController.addHistory( curPlayerName + " bought " + currentLand.getName() + ".");
+                    }
+                    else {
+                        System.out.println("NOT ENOUGH MONEY " + getCurrentPlayer().howMuchPlayerIsShort(currentLand.getCost()));
+                        //warning
                     }
                 }
 
@@ -200,18 +209,26 @@ public class GameManager {
             case CAFE:
                 Cafe currentCafe = ((Cafe) currentLandable);
                 if(currentCafe.isBought() && button.getText() == "Pay Rent"){ //if land is bought
-                    getCurrentPlayer().payRentCafe(currentCafe, currentCafe.getOwner());
-                    gameScreenController.addHistory( curPlayerName + " paid rent to " + currentCafe.owner.getName());
+                    if (getCurrentPlayer().payRentCafe(currentCafe, currentCafe.getOwner())) {
+                        gameScreenController.addHistory(curPlayerName + " paid rent to " + currentCafe.owner.getName());
+                    }
+                    else {
+                        //warning
+                        System.out.println("NOT ENOUGH MONEY " + getCurrentPlayer().howMuchPlayerIsShort(currentCafe.getCost()));
+                    }
                 }
                 else if(currentCafe.isBought() && currentPlayer.getOwnedLands().contains(currentCafe)){
                     // his land
                 }
                 else{
                     // buy
-                    getCurrentPlayer().buyCafe(currentCafe);
-                    gameScreenController.addHistory( curPlayerName + " bought " + currentCafe.getName() + ".");
-                    for (int i = 0; i < getCurrentPlayer().getOwnedCafes().size(); i++) {
-                        System.out.println(getCurrentPlayer().getOwnedCafes().get(i).getName());
+                    if (getCurrentPlayer().getMoney() >= currentCafe.getCost()) {
+                        getCurrentPlayer().buyCafe(currentCafe);
+                        gameScreenController.addHistory(curPlayerName + " bought " + currentCafe.getName() + ".");
+                    }
+                    else {
+                        //warning
+                        System.out.println("NOT ENOUGH MONEY " + getCurrentPlayer().howMuchPlayerIsShort(currentCafe.getCost()));
                     }
                 }
                 break;

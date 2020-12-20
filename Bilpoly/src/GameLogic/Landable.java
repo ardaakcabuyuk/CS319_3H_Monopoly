@@ -6,7 +6,6 @@ public abstract class Landable {
     //variables
     protected int index;
     protected Location location;
-    protected Location[] location_available;
     protected LandableType type;
 
     public String getName() {

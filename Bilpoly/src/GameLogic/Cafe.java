@@ -25,7 +25,6 @@ public class Cafe extends Buyable {
         this.rentWith3 = rentWith3;
         this.rentWith4 = rentWith4;
         this.location = null;
-        this.location_available = null;
     }
 
     public String getName(){
