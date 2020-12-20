@@ -39,3 +39,5 @@ Project Reports
 [Design Report](https://github.com/ardaakcabuyuk/CS319_3H_Monopoly/blob/master/Reports/Design%20Report%20Iter%202.pdf)
 
 
+**Final Report:** 
+[Final Report](https://github.com/ardaakcabuyuk/CS319_3H_Monopoly/blob/master/Reports/Final%20Report.pdf)
