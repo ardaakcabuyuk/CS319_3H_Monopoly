@@ -215,19 +215,15 @@ public class GameManager {
             case LAND:
                 Land currentLand = ((Land) currentLandable);
                 if(currentLand.isBought() && button.getText() == "Pay Rent"){ //if land is bought
-                    getCurrentPlayer().changeMoney(-currentLand.getCurrentRent());
-                    gameScreenController.addHistory( curPlayerName + " paid rent " + currentLand.owner.getName());
-                    currentLand.getOwner().changeMoney(currentLand.getCurrentRent());
+                    getCurrentPlayer().payRentLand(currentLand, currentLand.getOwner());
+                    gameScreenController.addHistory( curPlayerName + " paid rent to " + currentLand.owner.getName() + " for " + currentLandable.getName());
                 }
                 else if(currentLand.isBought() && currentPlayer.getOwnedLands().contains(currentLand)){
                     break;
                 }
                 else{
                     // buy
-                    getCurrentPlayer().changeMoney(-currentLand.getCost());
-                    currentLand.isBought = true;
-                    currentLand.owner = getCurrentPlayer();
-                    currentPlayer.getOwnedLands().add(currentLand);
+                    getCurrentPlayer().buyLand(currentLand);
                     gameScreenController.addHistory( curPlayerName + " bought " + currentLand.getName() + ".");
                     for (int i = 0; i < getCurrentPlayer().getOwnedLands().size(); i++) {
                         System.out.println(getCurrentPlayer().getOwnedLands().get(i).getName());
@@ -239,15 +235,7 @@ public class GameManager {
             case CAFE:
                 Cafe currentCafe = ((Cafe) currentLandable);
                 if(currentCafe.isBought() && button.getText() == "Pay Rent"){ //if land is bought
-                    int cafeNum = currentCafe.owner.getOwnedCafes().size();
-                    if(cafeNum == 1)
-                        getCurrentPlayer().changeMoney(-currentCafe.getRentWith1());
-                    else if (cafeNum == 2)
-                        getCurrentPlayer().changeMoney(-currentCafe.getRentWith2());
-                    else if (cafeNum == 3)
-                        getCurrentPlayer().changeMoney(-currentCafe.getRentWith3());
-                    else if (cafeNum == 4)
-                        getCurrentPlayer().changeMoney(-currentCafe.getRentWith4());
+                    getCurrentPlayer().payRentCafe(currentCafe, currentCafe.getOwner());
                     gameScreenController.addHistory( curPlayerName + " paid rent to " + currentCafe.owner.getName());
                 }
                 else if(currentCafe.isBought() && currentPlayer.getOwnedLands().contains(currentCafe)){
@@ -255,10 +243,7 @@ public class GameManager {
                 }
                 else{
                     // buy
-                    getCurrentPlayer().changeMoney(-currentCafe.getCost());
-                    currentCafe.isBought = true;
-                    currentCafe.owner = getCurrentPlayer();
-                    currentPlayer.getOwnedCafes().add(currentCafe);
+                    getCurrentPlayer().buyCafe(currentCafe);
                     gameScreenController.addHistory( curPlayerName + " bought " + currentCafe.getName() + ".");
                     for (int i = 0; i < getCurrentPlayer().getOwnedCafes().size(); i++) {
                         System.out.println(getCurrentPlayer().getOwnedCafes().get(i).getName());

@@ -3,6 +3,8 @@ package GameLogic;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+
 import javafx.scene.paint.Color;
 
 //Player Class
@@ -21,6 +23,7 @@ public class Player {
     private int atalarsRoomFreeCardNum;
     private ArrayList<Land> ownedLands;
     private ArrayList<Cafe> ownedCafes;
+    private HashMap<Color,Integer> sets;
 
 
     //constructor
@@ -53,8 +56,18 @@ public class Player {
             color = Color.RED;
         }
 
+        sets = new HashMap<Color, Integer>();
+        sets.put(Color.BROWN, 0);
+        sets.put(Color.LIGHTSKYBLUE, 0);
+        sets.put(Color.HOTPINK, 0);
+        sets.put(Color.ORANGE, 0);
+        sets.put(Color.RED, 0);
+        sets.put(Color.YELLOW, 0);
+        sets.put(Color.LIMEGREEN, 0);
+        sets.put(Color.DARKBLUE, 0);
 
     }
+
     public Player(){
         this.name = "";
         this.pawn = null;
@@ -68,6 +81,15 @@ public class Player {
         this.atalarsRoomFreeCardNum = 0;
         this.ownedLands =  new ArrayList<Land>();
         this.ownedCafes = new ArrayList<Cafe>();
+        this.sets = new HashMap<Color, Integer>();
+        sets.put(Color.BROWN, 0);
+        sets.put(Color.LIGHTSKYBLUE, 0);
+        sets.put(Color.HOTPINK, 0);
+        sets.put(Color.ORANGE, 0);
+        sets.put(Color.RED, 0);
+        sets.put(Color.YELLOW, 0);
+        sets.put(Color.LIMEGREEN, 0);
+        sets.put(Color.DARKBLUE, 0);
     }
 
     //methods
@@ -101,6 +123,17 @@ public class Player {
                 land.buy(this);
                 changeMoney(-land.getCost());
                 ownedLands.add(land);
+                sets.put(land.getCOLOR(), sets.get(land.getCOLOR()) + 1);
+                for (Color key : sets.keySet()) {
+                    System.out.println("Color: " + key.toString() + "Quantity:" + sets.get(key).toString());
+                }
+                if (isBoughtSet(land.getCOLOR())) {
+                    for (int i = 0; i < ownedLands.size(); i++) {
+                        if (ownedLands.get(i).getCOLOR() == land.getCOLOR()) {
+                            ownedLands.get(i).increaseRent();
+                        }
+                    }
+                }
                 return true;
             }
             //TODO Warning insufficient funds
@@ -177,6 +210,43 @@ public class Player {
         return false;
     }
 
+    public void payRentLand(Land land, Player p) {
+        changeMoney(-land.getCurrentRent());
+        p.changeMoney(land.getCurrentRent());
+    }
+
+    public void payRentCafe(Cafe cafe, Player p) {
+        int cafeNum = cafe.getOwner().getOwnedCafes().size();
+        if(cafeNum == 1) {
+            changeMoney(-cafe.getRentWith1());
+            p.changeMoney(cafe.getRentWith1());
+        }
+        else if (cafeNum == 2) {
+            changeMoney(cafe.getRentWith2());
+            p.changeMoney(cafe.getRentWith2());
+        }
+        else if (cafeNum == 3) {
+            changeMoney(cafe.getRentWith3());
+            p.changeMoney(cafe.getRentWith3());
+        }
+        else if (cafeNum == 4) {
+            changeMoney(cafe.getRentWith4());
+            p.changeMoney(cafe.getRentWith4());
+        }
+    }
+
+    public boolean isBoughtSet(Color color) {
+        if (color.equals(Color.BROWN) || color.equals(Color.DARKBLUE)) {
+            if (sets.get(color) == 2)
+                return true;
+        }
+        else {
+            if (sets.get(color) == 3)
+                return true;
+        }
+        return false;
+    }
+
     // getter name
     public String getName() { return name; }
 
@@ -228,7 +298,6 @@ public class Player {
     public void setInitMoney(int money) { this.money = money; }
 
     public String getColorName() { return colorName; }
-
 
 
 }

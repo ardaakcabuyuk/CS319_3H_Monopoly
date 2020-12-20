@@ -89,6 +89,17 @@ public class LandPopupController {
             buyButton.setText("Pay Rent");
             closeButton.setDisable(true);
         }
+        else if (curLand.isBought() && curPlayer.isBoughtSet(curLand.getCOLOR())) {
+            rent.setText("You own this COLOR SET.");
+            rentWithColorSet.setText("");
+            rentWithOneSB.setText("");
+            rentWithTwoSB.setText("");
+            rentWithThreeSB.setText("");
+            rentWithBilka.setText("");
+            buildStarbucks.setText("");
+            buildBilka.setText("");
+            buyButton.setText("Cool");
+        }
         else if (curLand.isBought() && curPlayer.getOwnedLands().contains(curLand)) {
             rent.setText("You own this place.");
             rentWithColorSet.setText("");

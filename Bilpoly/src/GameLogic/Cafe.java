@@ -80,7 +80,6 @@ public class Cafe extends Buyable {
     @Override
     public void buy(String playerName) {
         super.buy();
-
     }
 
     @Override

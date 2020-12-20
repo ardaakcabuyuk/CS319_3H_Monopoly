@@ -68,10 +68,6 @@ public class Land extends Buyable {
     }
 
     /*
-    @Override
-    public void buy(String playerName) {
-        super.buy(playerName);
-    }
 
     @Override
     public void sell() {
@@ -133,6 +129,8 @@ public class Land extends Buyable {
 
     public void increaseRent() {
         if (currentRent == RENT)
+            currentRent = RENT_WITH_SET;
+        else if (currentRent == RENT_WITH_SET)
             currentRent = RENT_WITH_1_SECONDARY;
         else if (currentRent == RENT_WITH_1_SECONDARY)
             currentRent = RENT_WITH_2_SECONDARY;
@@ -143,8 +141,10 @@ public class Land extends Buyable {
     }
 
     public void decreaseRent() {
-        if (currentRent == RENT_WITH_1_SECONDARY)
+        if (currentRent == RENT_WITH_SET )
             currentRent = RENT;
+        else if (currentRent == RENT_WITH_1_SECONDARY)
+            currentRent = RENT_WITH_SET;
         else if (currentRent == RENT_WITH_2_SECONDARY)
             currentRent = RENT_WITH_1_SECONDARY;
         else if (currentRent == RENT_WITH_3_SECONDARY)
