@@ -78,6 +78,7 @@ public class GameManager {
     // This method handles the game turn system.
     // TODO will be implemented.
     public void playGame(){
+        System.out.println("playGame()");
         // if timer => start timer;
         // you have landable[] => built the board;
         // you have playerDeck => built player cards
@@ -89,7 +90,7 @@ public class GameManager {
             gameScreenController.changePlayerLabels(playerDeck.getCurrentPlayer());
             gameScreenController.setNextTurn(playerDeck.getNextPlayer().getName(), String.valueOf(playerDeck.getNextPlayer().getMoney()), playerDeck.getNextPlayer().getPawn());
             try {
-                //System.out.println("---------------curPlayer: " + playerDeck.getCurrentPlayer().getName());
+                System.out.println("---------------curPlayer: " + playerDeck.getCurrentPlayer().getName());
                 playTurnPreDice();
             } catch (Exception e){
                 System.out.println(e);
@@ -104,6 +105,7 @@ public class GameManager {
     // gameScreen.update()
 
     public void playTurnPreDice() throws IOException {
+        System.out.println("playTurnPreDice()");
 
         Player curPlayer = playerDeck.getCurrentPlayer();
         if (curPlayer.isInAtalarsRoom()) {
@@ -126,14 +128,13 @@ public class GameManager {
     }
 
     public void playTurnPostDice(Landable nextLandable){
-        System.out.println("playTurnPostDice");
+        System.out.println("playTurnPostDice()");
         System.out.println("nextLandable.getType(): " + nextLandable.getType());
         int diceValue = dice.getTotalFaceValue();
         //int pawnNewIndex = curPlayer.getPawn().movePawn(diceValue, landableList.length);
-        //if passes through nizamiye
-        if (getCurrentPlayer().getPawn().getCurrentLandableIndex() + diceValue >= 40)
-            executeLandable(landableList[0]);
+
         executeLandable(nextLandable);
+
         diceRolled = false;
         System.out.println("player " + playerDeck.getCurrentPlayer().getName() + " rolled the dice: " + diceValue);
     }
@@ -142,39 +143,35 @@ public class GameManager {
 
     // This method executes the given land.
     // TODO will be implemented.
-    public void executeLandable(Landable currentLandable){
+    public void executeLandable(Landable currentLandable) {
         Player currentPlayer = playerDeck.getCurrentPlayer();
 
-        switch (currentLandable.type) {
-            case FUNCTIONAL_PLACE:
-                FunctionalPlace fPlace = ((FunctionalPlace) currentLandable);
-                fPlace.executeFunctional(this, currentPlayer);
-                if (fPlace.getFunctionalPlaceType() == FunctionalPlaceType.NIZAMIYE)
-                    gameScreenController.addHistory(getCurrentPlayer().getName() + " has passed through Nizamiye.");
-                else if (fPlace.getFunctionalPlaceType() == FunctionalPlaceType.FEE) {
-                    if (((FeeStrategy) fPlace.getStrategy()).getFeeType() == FeeType.TUITION_FEE) {
-                        gameScreenController.addHistory(getCurrentPlayer().getName() + " paid tuition fee.");
-                    }
-                    else if (((FeeStrategy) fPlace.getStrategy()).getFeeType() == FeeType.DORM_FEE) {
-                        gameScreenController.addHistory(getCurrentPlayer().getName() + " paid dorm fee.");
-                    }
-                    else if (((FeeStrategy) fPlace.getStrategy()).getFeeType() == FeeType.BOOK_FEE) {
-                        gameScreenController.addHistory(getCurrentPlayer().getName() + " paid book fee.");
-                    }
-                    else if (((FeeStrategy) fPlace.getStrategy()).getFeeType() == FeeType.FOOD_FEE) {
-                        gameScreenController.addHistory(getCurrentPlayer().getName() + " paid food fee.");
-                    }
-                    freeParkingMoney += ((FeeStrategy) fPlace.getStrategy()).getFee();
+        if (currentLandable.type == LandableType.FUNCTIONAL_PLACE) {
+
+            FunctionalPlace fPlace = ((FunctionalPlace) currentLandable);
+            fPlace.executeFunctional(this, currentPlayer);
+            if (fPlace.getFunctionalPlaceType() == FunctionalPlaceType.NIZAMIYE)
+                gameScreenController.addHistory(getCurrentPlayer().getName() + " has passed through Nizamiye.");
+            else if (fPlace.getFunctionalPlaceType() == FunctionalPlaceType.FEE) {
+                if (((FeeStrategy) fPlace.getStrategy()).getFeeType() == FeeType.TUITION_FEE) {
+                    gameScreenController.addHistory(getCurrentPlayer().getName() + " paid tuition fee.");
+                } else if (((FeeStrategy) fPlace.getStrategy()).getFeeType() == FeeType.DORM_FEE) {
+                    gameScreenController.addHistory(getCurrentPlayer().getName() + " paid dorm fee.");
+                } else if (((FeeStrategy) fPlace.getStrategy()).getFeeType() == FeeType.BOOK_FEE) {
+                    gameScreenController.addHistory(getCurrentPlayer().getName() + " paid book fee.");
+                } else if (((FeeStrategy) fPlace.getStrategy()).getFeeType() == FeeType.FOOD_FEE) {
+                    gameScreenController.addHistory(getCurrentPlayer().getName() + " paid food fee.");
                 }
-                else if (fPlace.getFunctionalPlaceType() == FunctionalPlaceType.FREE_PARKING) {
-                    gameScreenController.addHistory(getCurrentPlayer().getName() + " got free parking money.");
-                    freeParkingMoney = 0;
-                }
-                else if (fPlace.getFunctionalPlaceType() == FunctionalPlaceType.GO_TO_ATALARS_ROOM) {
-                    gameScreenController.addHistory(getCurrentPlayer().getName() + " went to Atalar's Room!");
-                }
-                break;
-            case CARD_PLACE:
+                freeParkingMoney += ((FeeStrategy) fPlace.getStrategy()).getFee();
+            } else if (fPlace.getFunctionalPlaceType() == FunctionalPlaceType.FREE_PARKING) {
+                gameScreenController.addHistory(getCurrentPlayer().getName() + " got free parking money.");
+                freeParkingMoney = 0;
+            } else if (fPlace.getFunctionalPlaceType() == FunctionalPlaceType.GO_TO_ATALARS_ROOM) {
+                gameScreenController.addHistory(getCurrentPlayer().getName() + " went to Atalar's Room!");
+            }
+
+        }
+        else if (currentLandable.type == LandableType.CARD_PLACE) {
                 CardPlace cPlace = ((CardPlace) currentLandable);
                 Card currentCard = gameScreenController.getPickedCard();
                 currentCard.setInteractedPlayer(currentPlayer);
@@ -194,12 +191,9 @@ public class GameManager {
                 //card = cardDeck.drawCard(((CardPlace)currentLandable).getCardType());
                 //card.setInteractedPlayer(currentPlayer);
                 //card.executeCard(this);
-
-                break;
-
         }
 
-        System.out.println("PLAY GAME CALLED");
+        System.out.println("executeLandable()");
         gameScreenController.enableRollDiceButton();
         playGame();
 
@@ -255,6 +249,7 @@ public class GameManager {
             default:
                 // error
         }
+        System.out.println("executeBuyable()");
         gameScreenController.enableRollDiceButton();
         playGame();
     }

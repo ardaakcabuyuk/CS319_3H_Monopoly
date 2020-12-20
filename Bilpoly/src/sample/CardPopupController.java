@@ -44,7 +44,7 @@ public class CardPopupController {
     public void okayButtonClicked(ActionEvent event) throws Exception {
         System.out.println("okay Button clicked. ");
         GameScreen.cardPopup.hide();
-        AssetManager.gameManager.executeLandable(AssetManager.gameManager.gameScreenController.currentLandable);
+        AssetManager.gameManager.playTurnPostDice(AssetManager.gameManager.gameScreenController.currentLandable);
         AssetManager.gameManager.gameScreenController.enableRollDiceButton();
     }
 }

@@ -117,7 +117,7 @@ public class GameScreen {
         boardWidth = windowWidth * WIDTH_RESIZE;
         boardHeight = windowHeight * HEIGHT_RESIZE;
 
-        System.out.println("boardWidth: " + boardWidth + " boardHeight: " + boardHeight);
+        //System.out.println("boardWidth: " + boardWidth + " boardHeight: " + boardHeight);
 
         if ( AssetManager.timeMode) {
             timeLabel.setText(AssetManager.timeLimit + ":00");
@@ -161,7 +161,7 @@ public class GameScreen {
 
     @FXML
     public void pauseButtonClicked(ActionEvent event) throws Exception {
-        System.out.println("pause Button clicked.");
+        //System.out.println("pause Button clicked.");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pause_menu.fxml"));
         pausePopup.getContent().add((Parent)loader.load());
         //Parent root = FXMLLoader.load(getClass().getResource("game_screen.fxml"));
@@ -172,7 +172,7 @@ public class GameScreen {
 
     @FXML
     public void mainMenuButtonClicked(ActionEvent event) throws Exception {
-        System.out.println("main menu Button clicked.");
+        //System.out.println("main menu Button clicked.");
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         Stage window = (Stage)( ((Node) event.getSource()).getScene().getWindow());
         window.getScene().setRoot(root);
@@ -186,7 +186,7 @@ public class GameScreen {
 
     public void changePlayerLabels(Player current)
     {
-        System.out.println("sample/Images/card_deck_"+AssetManager.gameManager.getCurrentPlayer().getColorName()+"_turn.png");
+        //System.out.println("sample/Images/card_deck_"+AssetManager.gameManager.getCurrentPlayer().getColorName()+"_turn.png");
         Image img = new Image("sample/Images/card_deck_"+AssetManager.gameManager.getCurrentPlayer().getColorName()+"_turn.png");
         cardDeckImage.setImage(img);
         String moneyBuffer = String.valueOf(current.getMoney());
@@ -267,7 +267,7 @@ public class GameScreen {
     @FXML
     public void rollDiceClicked(MouseEvent event) throws Exception{
 
-        System.out.println("rollDiceClicked");
+        System.out.println("+++ rollDiceClicked");
 
         // show dice UI
         int[] dices = AssetManager.gameManager.rollDice();
@@ -294,7 +294,7 @@ public class GameScreen {
                 }
             }
         },0, 1000);
-        System.out.println("Dice 1: " + dices[0] + "\nDice 2: " + dices[1]);
+        //System.out.println("Dice 1: " + dices[0] + "\nDice 2: " + dices[1]);
 
 
         //move pawn
@@ -306,8 +306,8 @@ public class GameScreen {
         //animatePawnImageMovement(currentPawnImageView, ((currentPawn.getCurrentLandableIndex() + totalDiceValue) % 40), currentPawn);
 
         //animatePawnImageMovement(currentPawnImageView, ((currentPawn.getCurrentLandableIndex() + totalDiceValue) % 40), currentPawn);
-        System.out.println("dice: " + totalDiceValue + " currentPawn.getCurrentLandableIndex(): " + currentPawn.getCurrentLandableIndex());
-        System.out.println("currentPawn.getCurrentLandableIndex(): " + currentPawn.getCurrentLandableIndex());
+        //System.out.println("dice: " + totalDiceValue + " currentPawn.getCurrentLandableIndex(): " + currentPawn.getCurrentLandableIndex());
+        //System.out.println("currentPawn.getCurrentLandableIndex(): " + currentPawn.getCurrentLandableIndex());
         //rollDiceButton.setDisable(true);
         //doneButton.setDisable(true);
 
@@ -384,7 +384,7 @@ public class GameScreen {
     }
 
     public void enableRollDiceButton(){
-        System.out.println("enableRollDiceButton");
+        //System.out.println("enableRollDiceButton");
         rollDiceButton.setDisable(false);
     }
 
@@ -416,60 +416,55 @@ public class GameScreen {
         curPawn.movePawn(((index) % 40));
 
         //If landed landable is not functional place, popups will show
-        if ( nextLandable.getType() != LandableType.FUNCTIONAL_PLACE )
-        {
-            //for land popup
-            if ( nextLandable.getType() == LandableType.LAND )
-            {
-                nameOfLand = ( (Land) nextLandable).getName();
-
-                rentColorSetPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_SET());
-                rentPopup = String.valueOf(( (Land) nextLandable).getRENT());
-                rentWithOneSBPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_1_SECONDARY());
-                rentWithTwoSBPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_2_SECONDARY());
-                rentWithThreeSBPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_3_SECONDARY());
-                rentWithBilkaPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_PRIMARY());
-                buildStarbucksPopup = String.valueOf(((Land) nextLandable).getSECONDARY_COST());
-                buildBilkaPopup = String.valueOf(((Land) nextLandable).getPRIMARY_COST());
-
-                imageNamePopup = "sample/Images/buildings_all_png/" + nameOfLand + ".png";
-
-                executeLandPopup();
-
-            }
-            //for cafe popup
-            else if ( nextLandable.getType() == LandableType.CAFE )
-            {
-                nameOfLand = ( ( Cafe ) nextLandable).getName();
-
-                rentColorSetPopup = "";
-                rentPopup = "";
-
-                rentWithOneSBPopup = String.valueOf(( (Cafe) nextLandable).getRentWith1());
-                rentWithTwoSBPopup = String.valueOf(( (Cafe) nextLandable).getRentWith2());
-                rentWithThreeSBPopup = String.valueOf(( (Cafe) nextLandable).getRentWith3());
-                rentWithBilkaPopup = String.valueOf(( (Cafe) nextLandable).getRentWith4());
-
-                imageNamePopup = "sample/Images/cafes_png/" + nameOfLand + ".png";
-
-                executeCafePopup();
-            }
-            //for card popups
-            else if ( nextLandable.getType() == LandableType.CARD_PLACE ) {
-
-                cardStrategy = ((CardPlace) nextLandable).getCardType().name();
-                System.out.println("Card Type:" + cardStrategy);
-
-                pickedCard = AssetManager.gameManager.getCardDeck().drawCard(((CardPlace) nextLandable).getCardType());
-                cardText = String.valueOf(AssetManager.gameManager.getCardDeck().getCurrentCard().getText());
-
-                executeCardPopup();
-            }
-        }
-        else{
+        if ( nextLandable.getType() == LandableType.FUNCTIONAL_PLACE || nextLandable.getType() == LandableType.ATALARS_ROOM ) {
             AssetManager.gameManager.playTurnPostDice(nextLandable);
         }
+            //for land popup
+        else if ( nextLandable.getType() == LandableType.LAND ){
+            nameOfLand = ( (Land) nextLandable).getName();
+
+            rentColorSetPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_SET());
+            rentPopup = String.valueOf(( (Land) nextLandable).getRENT());
+            rentWithOneSBPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_1_SECONDARY());
+            rentWithTwoSBPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_2_SECONDARY());
+            rentWithThreeSBPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_3_SECONDARY());
+            rentWithBilkaPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_PRIMARY());
+            buildStarbucksPopup = String.valueOf(((Land) nextLandable).getSECONDARY_COST());
+            buildBilkaPopup = String.valueOf(((Land) nextLandable).getPRIMARY_COST());
+
+            imageNamePopup = "sample/Images/buildings_all_png/" + nameOfLand + ".png";
+
+            executeLandPopup();
+
+        }
+        //for cafe popup
+        else if ( nextLandable.getType() == LandableType.CAFE )
+        {
+            nameOfLand = ( ( Cafe ) nextLandable).getName();
+            rentColorSetPopup = "";
+            rentPopup = "";
+
+            rentWithOneSBPopup = String.valueOf(( (Cafe) nextLandable).getRentWith1());
+            rentWithTwoSBPopup = String.valueOf(( (Cafe) nextLandable).getRentWith2());
+            rentWithThreeSBPopup = String.valueOf(( (Cafe) nextLandable).getRentWith3());
+            rentWithBilkaPopup = String.valueOf(( (Cafe) nextLandable).getRentWith4());
+
+            imageNamePopup = "sample/Images/cafes_png/" + nameOfLand + ".png";
+            executeCafePopup();
+        }
+        //for card popups
+        else if ( nextLandable.getType() == LandableType.CARD_PLACE ) {
+
+            cardStrategy = ((CardPlace) nextLandable).getCardType().name();
+            System.out.println("Card Type:" + cardStrategy);
+
+            pickedCard = AssetManager.gameManager.getCardDeck().drawCard(((CardPlace) nextLandable).getCardType());
+            cardText = String.valueOf(AssetManager.gameManager.getCardDeck().getCurrentCard().getText());
+
+            executeCardPopup();
+        }
     }
+
 
     public Card getPickedCard() {
         return pickedCard;
@@ -614,7 +609,7 @@ public class GameScreen {
  */
 
     public void disableRollDiceButton(){
-        System.out.println("disableRollDiceButton");
+        //System.out.println("disableRollDiceButton");
         rollDiceButton.setDisable(true);
     }
 
