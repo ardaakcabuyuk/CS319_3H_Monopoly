@@ -32,13 +32,13 @@
             </ImageView>
          </children>
       </VBox>
-      <Button layoutX="506.0" layoutY="29.0" mnemonicParsing="false" onAction="#backButtonClicked" style="-fx-background-radius: 30;" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="29.0">
+      <!--Button layoutX="506.0" layoutY="29.0" mnemonicParsing="false" onAction="#backButtonClicked" style="-fx-background-radius: 30;" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="29.0">
          <graphic>
             <ImageView fitHeight="34.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/close_icon.png" />
                </image></ImageView>
          </graphic>
-      </Button>
+      </Button!-->
    </children>
 </AnchorPane>

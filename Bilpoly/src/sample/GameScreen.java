@@ -103,7 +103,7 @@ public class GameScreen {
     AnchorPane BoardAnchorPane;
 
     @FXML
-    public void initialize(){
+    public void initialize() throws IOException {
         screenBounds = Screen.getPrimary().getBounds();
         windowWidth =  screenBounds.getMaxX();
         windowHeight = screenBounds.getMaxY();
@@ -139,6 +139,10 @@ public class GameScreen {
     public static Popup cardPopup = new Popup();
     @FXML
     public static Popup pausePopup = new Popup();
+
+    @FXML
+    public static Popup gameOverPopup = new Popup();
+
     @FXML
     public AnchorPane boardAnchorPane;
     @FXML
@@ -300,7 +304,7 @@ public class GameScreen {
         //doneButton.setDisable(true);
 
     }
-    public void startTimer()
+    public void startTimer() throws IOException
     {
         Timer timer = new Timer();
 
@@ -309,21 +313,27 @@ public class GameScreen {
             public void run() {
                 Platform.runLater(new Runnable() {
                     public void run() {
-                        if ( timeMinutes == AssetManager.timeLimit )
-                        {
+                        if (timeMinutes == AssetManager.timeLimit) {
                             timeMinutes--;
                         }
                         timeSeconds--;
 
-                        timeLabel.setText( timeMinutes + ":" + timeSeconds);
-                        if ( timeSeconds == 0)
-                        {
+                        timeLabel.setText(timeMinutes + ":" + timeSeconds);
+                        if (timeSeconds == 0) {
                             timeMinutes--;
                             timeSeconds = MAX_SECOND_VALUE;
                         }
-                        if (timeMinutes < 0)
+                        if (timeMinutes < 0) {
                             timer.cancel();
 
+                            //if time is over game over popup shows
+                            //başka bir yere de eklenebilir bu aslında...
+                            try {
+                                executeGameOverPopup();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
                     }
                 });
             }
@@ -353,6 +363,16 @@ public class GameScreen {
         Stage window = (Stage)  boardAnchorPane.getScene().getWindow();
         rollDiceButton.setDisable(true);
         cardPopup.show(window);
+    }
+
+    public void executeGameOverPopup() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("game_over.fxml"));
+        gameOverPopup.getContent().add((Parent)loader.load());
+        Stage window = (Stage) boardAnchorPane.getScene().getWindow();
+        rollDiceButton.setDisable(true);
+        gameOverPopup.show(window);
+
     }
 
     public void enableRollDiceButton(){

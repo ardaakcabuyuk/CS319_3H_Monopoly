@@ -64,9 +64,14 @@ public class PreGameSettingsController {
     public void timedButtonClicked(ActionEvent event) throws Exception {
         System.out.println("Timed mode selected. ");
         AssetManager.timeMode = true;
+
+        timeSlider.setDisable(false);
+
         timeSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
-            AssetManager.timeLimit = (int) newValue.intValue();
+            timeLabel.setText( Integer.toString((int) newValue.intValue()) + "min ");
+            AssetManager.setTimeLimit(newValue.intValue());
         });
+
     }
 
     @FXML
@@ -91,9 +96,14 @@ public class PreGameSettingsController {
 
     //initialize timeLabel text according to the sliders value
     public void initialize() {
-        timeSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+
+      /*  timeSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             timeLabel.setText("%" + Integer.toString((int) newValue.intValue()));
             AssetManager.setTimeLimit(newValue.intValue());
         });
+
+       */
+
+        timeSlider.setDisable(true);
     }
 }
