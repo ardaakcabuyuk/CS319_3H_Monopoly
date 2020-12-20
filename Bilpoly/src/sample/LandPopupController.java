@@ -236,6 +236,10 @@ public class LandPopupController {
                 buildStarbucks1.setText("Build Starbucks: " + lands[0].getSECONDARY_COST() + "B");
                 buildBilka1.setText("Build Bilka: " + lands[0].getPRIMARY_COST() + "B");
 
+                String imageName1 = "sample/Images/buildings_all_png/" + lands[0].getName()+ ".png";
+                Image image1 = new Image(imageName1);
+                landImage1.setImage(image1);
+
 
                 if (j > 1) {
                     p3.setVisible(true);
@@ -249,6 +253,10 @@ public class LandPopupController {
                     rentWithBilka111.setText("Rent with Bilka: " + lands[1].getRENT_WITH_PRIMARY() + "B");
                     buildStarbucks111.setText("Build Starbucks: " + lands[1].getSECONDARY_COST() + "B");
                     buildBilka111.setText("Build Bilka: " + lands[1].getPRIMARY_COST() + "B");
+
+                    String imageName3 = "sample/Images/buildings_all_png/" + lands[1].getName()+ ".png";
+                    Image image3 = new Image(imageName3);
+                    landImage111.setImage(image3);
 
                 }
 
@@ -267,5 +275,5 @@ public class LandPopupController {
                 buyButton.setText("Cool");
             }
         }
-    
+
 }
