@@ -67,6 +67,13 @@ public class CafePopupController {
         if (curCafe.isBought() && !curPlayer.getOwnedCafes().contains(curCafe)) {
             buyButton.setText("Pay Rent");
         }
+        else if (curCafe.isBought() && curPlayer.getOwnedCafes().contains(curCafe)) {
+            rentWith1.setText("You own this cafe.");
+            rentWith2.setText("");
+            rentWith3.setText("");
+            rentWith4.setText("");
+            buyButton.setText("Cool");
+        }
 
     }
 

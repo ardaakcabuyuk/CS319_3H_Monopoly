@@ -220,7 +220,7 @@ public class GameManager {
                     currentLand.getOwner().changeMoney(currentLand.getCurrentRent());
                 }
                 else if(currentLand.isBought() && currentPlayer.getOwnedLands().contains(currentLand)){
-                    // his land
+                    break;
                 }
                 else{
                     // buy
@@ -229,6 +229,9 @@ public class GameManager {
                     currentLand.owner = getCurrentPlayer();
                     currentPlayer.getOwnedLands().add(currentLand);
                     gameScreenController.addHistory( curPlayerName + " bought " + currentLand.getName() + ".");
+                    for (int i = 0; i < getCurrentPlayer().getOwnedLands().size(); i++) {
+                        System.out.println(getCurrentPlayer().getOwnedLands().get(i).getName());
+                    }
                 }
 
                 break;
@@ -247,7 +250,7 @@ public class GameManager {
                         getCurrentPlayer().changeMoney(-currentCafe.getRentWith4());
                     gameScreenController.addHistory( curPlayerName + " paid rent to " + currentCafe.owner.getName());
                 }
-                else if(currentCafe.isBought()){
+                else if(currentCafe.isBought() && currentPlayer.getOwnedLands().contains(currentCafe)){
                     // his land
                 }
                 else{
@@ -257,6 +260,9 @@ public class GameManager {
                     currentCafe.owner = getCurrentPlayer();
                     currentPlayer.getOwnedCafes().add(currentCafe);
                     gameScreenController.addHistory( curPlayerName + " bought " + currentCafe.getName() + ".");
+                    for (int i = 0; i < getCurrentPlayer().getOwnedCafes().size(); i++) {
+                        System.out.println(getCurrentPlayer().getOwnedCafes().get(i).getName());
+                    }
                 }
 
                 break;

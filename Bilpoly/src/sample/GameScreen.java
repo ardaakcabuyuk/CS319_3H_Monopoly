@@ -67,6 +67,8 @@ public class GameScreen {
     public String rentWithTwoSBPopup;
     public String rentWithThreeSBPopup;
     public String rentWithBilkaPopup;
+    public String buildStarbucksPopup;
+    public String buildBilkaPopup;
     public String imageNamePopup;
     public String cardStrategy;
     public String cardText;
@@ -426,6 +428,8 @@ public class GameScreen {
                 rentWithTwoSBPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_2_SECONDARY());
                 rentWithThreeSBPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_3_SECONDARY());
                 rentWithBilkaPopup = String.valueOf(( (Land) nextLandable).getRENT_WITH_PRIMARY());
+                buildStarbucksPopup = String.valueOf(((Land) nextLandable).getSECONDARY_COST());
+                buildBilkaPopup = String.valueOf(((Land) nextLandable).getPRIMARY_COST());
 
                 imageNamePopup = "sample/Images/buildings_all_png/" + nameOfLand + ".png";
 

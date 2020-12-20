@@ -25,8 +25,8 @@
                   <Label fx:id="rentWithTwoSB" alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="20.0" prefWidth="226.0" text="2 Starbucks" />
                   <Label fx:id="rentWithThreeSB" alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="21.0" prefWidth="227.0" text="3 Starbucks" />
                   <Label fx:id="rentWithBilka" alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="21.0" prefWidth="227.0" text="Bilka" />
-                  <Label alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="20.0" prefWidth="224.0" text="Build Starbucks" />
-                  <Label alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="25.0" prefWidth="227.0" text="Build Bilka" />
+                  <Label fx:id="buildStarbucks" alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="20.0" prefWidth="224.0" text="Build Starbucks" />
+                  <Label fx:id="buildBilka" alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="25.0" prefWidth="227.0" text="Build Bilka" />
                </children>
             </VBox>
       

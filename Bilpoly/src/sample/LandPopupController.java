@@ -76,6 +76,8 @@ public class LandPopupController {
         rentWithTwoSB.setText("Rent with 2 Starbucks: "  +AssetManager.gameManager.gameScreenController.rentWithTwoSBPopup+ "B");
         rentWithThreeSB.setText("Rent with 3 Starbucks: "  +AssetManager.gameManager.gameScreenController.rentWithThreeSBPopup+ "B");
         rentWithBilka.setText("Rent with Bilka: "  +AssetManager.gameManager.gameScreenController.rentWithBilkaPopup+ "B");
+        buildStarbucks.setText("Build Starbucks: " + AssetManager.gameManager.gameScreenController.buildStarbucksPopup + "B");
+        buildBilka.setText("Build Bilka: " + AssetManager.gameManager.gameScreenController.buildBilkaPopup + "B");
 
         Image image = new Image(AssetManager.gameManager.gameScreenController.imageNamePopup);
         landImage.setImage(image);
@@ -84,8 +86,19 @@ public class LandPopupController {
         Player curPlayer = AssetManager.gameManager.getCurrentPlayer();
 
         if (curLand.isBought() && !curPlayer.getOwnedLands().contains(curLand)) {
-                buyButton.setText("Pay Rent");
-                closeButton.setDisable(true);
+            buyButton.setText("Pay Rent");
+            closeButton.setDisable(true);
+        }
+        else if (curLand.isBought() && curPlayer.getOwnedLands().contains(curLand)) {
+            rent.setText("You own this place.");
+            rentWithColorSet.setText("");
+            rentWithOneSB.setText("");
+            rentWithTwoSB.setText("");
+            rentWithThreeSB.setText("");
+            rentWithBilka.setText("");
+            buildStarbucks.setText("");
+            buildBilka.setText("");
+            buyButton.setText("Cool");
         }
     }
 }
