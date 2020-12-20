@@ -52,7 +52,16 @@ public class PlayerSelectionController {
     private GridPane player3;
     @FXML
     private GridPane player4;
+    @FXML
+    private Button ok1Button;
+    @FXML
+    private Button ok2Button;
+    @FXML
+    private Button ok3Button;
+    @FXML
+    private Button ok4Button;
 
+    
 
     @FXML
     public void select1(ActionEvent event) throws Exception {
@@ -141,6 +150,12 @@ public class PlayerSelectionController {
         player3.setDisable(true);
         player4.setDisable(true);
 
+        //ok button
+        ok1Button.setDisable(true);
+        ok2Button.setDisable(true);
+        ok3Button.setDisable(true);
+        ok4Button.setDisable(true);
+
     }
 
 
@@ -156,6 +171,7 @@ public class PlayerSelectionController {
         String nameOne = name1.getText();
         System.out.println("name1 : "+ nameOne);
         System.out.println("name1: "+ AssetManager.players[0].getName() );
+
 
         enableNextButton();
 
