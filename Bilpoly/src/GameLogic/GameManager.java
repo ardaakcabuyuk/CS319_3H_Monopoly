@@ -219,7 +219,7 @@ public class GameManager {
                     gameScreenController.addHistory( curPlayerName + " paid rent " + currentLand.owner.getName());
                     currentLand.getOwner().changeMoney(currentLand.getCurrentRent());
                 }
-                else if(currentLand.isBought()){
+                else if(currentLand.isBought() && currentPlayer.getOwnedLands().contains(currentLand)){
                     // his land
                 }
                 else{

@@ -30,14 +30,14 @@
                </children>
             </VBox>
       
-            <Button onAction="#buyButtonClicked" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="Buy" fx:id="buyButton">
+            <Button fx:id="buyButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buyButtonClicked" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color: aquamarine;" text="Buy">
                <VBox.margin>
                   <Insets left="74.0" />
                </VBox.margin>
             </Button>
          </children>
       </VBox>
-      <Button layoutX="534.0" layoutY="12.0" mnemonicParsing="false" onAction="#closeButtonClicked" style="-fx-background-color: white;">
+      <Button fx:id="closeButton" layoutX="534.0" layoutY="12.0" mnemonicParsing="false" onAction="#closeButtonClicked" style="-fx-background-color: white;">
          <graphic>
             <ImageView fitHeight="42.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
                <image>
