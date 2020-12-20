@@ -99,7 +99,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="boardAnchorPane" layoutX="318.0" layoutY="31.0" onMouseClicked="#mouseClicked" AnchorPane.topAnchor="30.0">
+      <AnchorPane fx:id="boardAnchorPane" layoutX="318.0" layoutY="30.0" onMouseClicked="#mouseClicked" AnchorPane.topAnchor="30.0">
          <children>
             <ImageView fx:id="boardImage" fitHeight="860.0" fitWidth="930.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
@@ -108,11 +108,16 @@
             <AnchorPane layoutX="410.0" layoutY="366.0" prefHeight="150.0" prefWidth="150.0" AnchorPane.bottomAnchor="355.0" AnchorPane.leftAnchor="390.0" AnchorPane.rightAnchor="390.0" AnchorPane.topAnchor="355.0" />
          </children>
       </AnchorPane>
-      <Button layoutX="1335.0" layoutY="31.0" mnemonicParsing="false" onAction="#pauseButtonClicked" prefHeight="73.0" prefWidth="86.0" style="-fx-background-radius: 30;" text="Pause" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
-         <font>
-            <Font size="23.0" />
-         </font>
-      </Button>
-      <Button layoutX="1137.0" layoutY="14.0" mnemonicParsing="false" onAction="#mainMenuButtonClicked" style="-fx-background-radius: 30;" text="Main Menu" AnchorPane.rightAnchor="34.33333333333326" AnchorPane.topAnchor="14.0" />
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" AnchorPane.bottomAnchor="690.0" AnchorPane.leftAnchor="1148.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#mainMenuButtonClicked" style="-fx-background-radius: 30;" text="Main Menu" />
+            <Button mnemonicParsing="false" onAction="#pauseButtonClicked" prefHeight="73.0" prefWidth="86.0" style="-fx-background-radius: 30;" text="Pause">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Button>
+            <Pane fx:id="dicePane" prefHeight="93.0" prefWidth="134.0" style="-fx-background-color: aquamarine;" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

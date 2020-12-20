@@ -26,6 +26,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Popup;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -88,6 +89,9 @@ public class GameScreen {
     private Label nextTurnMoneyLabel;
     @FXML
     private Label curPlayerName;
+
+    @FXML
+    private Pane dicePane;
 
     @FXML
     private Label curPlayerMoney;
@@ -272,8 +276,9 @@ public class GameScreen {
         String dicePath = "Images/diceImages/" + dices[0] + "." + dices[1] + ".png";
         Image diceImg = new Image(getClass().getResource(dicePath).toExternalForm());
         ImageView diceImageView = new ImageView(diceImg);
-        diceImageView.relocate(boardWidth / 2 - diceImg.getWidth() / 2, boardHeight / 2 - diceImg.getHeight() / 2);
-        boardAnchorPane.getChildren().add(diceImageView);
+        dicePane.getChildren().add(diceImageView);
+        //diceImageView.relocate(boardWidth / 2 - diceImg.getWidth() / 2, boardHeight / 2 - diceImg.getHeight() / 2);
+        //boardAnchorPane.getChildren().add(diceImageView);
         new Timer().schedule(new TimerTask(){
 
             int second = 5;

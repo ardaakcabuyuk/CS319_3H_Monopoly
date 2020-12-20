@@ -53,10 +53,10 @@ public class CafePopupController {
     public void initialize()
     {
         cafeName.setText(AssetManager.gameManager.gameScreenController.nameOfLand);
-        rentWith1.setText("Rent with 1 Cafe: " + "B" +AssetManager.gameManager.gameScreenController.rentWithOneSBPopup);
-        rentWith2.setText("Rent with 2 Cafe: " + "B" +AssetManager.gameManager.gameScreenController.rentWithTwoSBPopup);
-        rentWith3.setText("Rent with 3 Cafe: " + "B" +AssetManager.gameManager.gameScreenController.rentWithThreeSBPopup);
-        rentWith4.setText("Rent with 4 Cafe: " + "B" +AssetManager.gameManager.gameScreenController.rentWithBilkaPopup);
+        rentWith1.setText("Rent with 1 Cafe: "  +AssetManager.gameManager.gameScreenController.rentWithOneSBPopup+ "B");
+        rentWith2.setText("Rent with 2 Cafe: "  +AssetManager.gameManager.gameScreenController.rentWithTwoSBPopup+ "B");
+        rentWith3.setText("Rent with 3 Cafe: "  +AssetManager.gameManager.gameScreenController.rentWithThreeSBPopup+ "B");
+        rentWith4.setText("Rent with 4 Cafe: "  +AssetManager.gameManager.gameScreenController.rentWithBilkaPopup+ "B");
 
         Image image = new Image(AssetManager.gameManager.gameScreenController.imageNamePopup);
         landImage.setImage(image);
