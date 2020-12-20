@@ -188,12 +188,12 @@ public class AssetManager extends Application {
 
             //initialize functionalPlaceList
             functionalPlaceList[0] = new FunctionalPlace(new NizamiyeStrategy()); //NİZAMİYE
-            functionalPlaceList[1] = new FunctionalPlace(new FeeStrategy(550)); //TUITION FEE
-            functionalPlaceList[2] = new FunctionalPlace(new FeeStrategy(1100)); //DORM FEE
+            functionalPlaceList[1] = new FunctionalPlace(new FeeStrategy(550, "tuition")); //TUITION FEE
+            functionalPlaceList[2] = new FunctionalPlace(new FeeStrategy(1100, "dorm")); //DORM FEE
             functionalPlaceList[3] = new FunctionalPlace(new FreeParkingStrategy()); //FREE PARKING
-            functionalPlaceList[4] = new FunctionalPlace(new FeeStrategy(2200)); //BOOK FEE
+            functionalPlaceList[4] = new FunctionalPlace(new FeeStrategy(2200, "book")); //BOOK FEE
             functionalPlaceList[5] = new FunctionalPlace(new GoToAtalarStrategy()); //GO TO ATALAR
-            functionalPlaceList[6] = new FunctionalPlace(new FeeStrategy(4400)); //FOOD FEE
+            functionalPlaceList[6] = new FunctionalPlace(new FeeStrategy(4400, "food")); //FOOD FEE
 
             //initialize Atalar's Room
             AtalarsRoom atalarsRoom = new AtalarsRoom(2000);

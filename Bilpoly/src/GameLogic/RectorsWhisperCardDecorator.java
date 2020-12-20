@@ -16,6 +16,8 @@ public class RectorsWhisperCardDecorator implements CardStrategy {
             copied.setToEarn(card.getToEarn() / 2);
             copied.setToPay(5 * card.getToPay() / 4);
         }
+        System.out.println("YENİ EARN: " + copied.getToEarn());
+        System.out.println("YENİ PAY: " + copied.getToPay());
         strategy.executeCard(mgr, copied);
         return true;
     }

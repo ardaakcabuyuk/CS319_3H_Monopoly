@@ -39,6 +39,7 @@ public class Card {
         this.TEXT = c.TEXT;
         this.CARDNUM = c.CARDNUM;
         this.cardStrategy = c.cardStrategy;
+        this.interactedPlayer = c.interactedPlayer;
         this.toPay = c.toPay;
         this.toEarn = c.toEarn;
         this.toMove = c.toMove;

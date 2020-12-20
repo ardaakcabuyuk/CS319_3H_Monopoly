@@ -146,50 +146,56 @@ public class GameManager {
     public void executeLandable(Landable currentLandable){
         Player currentPlayer = playerDeck.getCurrentPlayer();
 
-        switch (currentLandable.type){
+        switch (currentLandable.type) {
             case FUNCTIONAL_PLACE:
-                // i have no idea what to do here -ömer
-                int landableIndex = currentLandable.index;
-                switch (landableIndex){
-                    case 0:             // nizamiye (if he lands on it)
-                        AssetManager.gameManager.getCurrentPlayer().changeMoney(NIZAMIYE_FEE);
-                        gameScreenController.addHistory(AssetManager.gameManager.getCurrentPlayer().getName() + " has passed through Nizamiye.");
-                        break;
-                    case 4:             // tuition fee
-                        AssetManager.gameManager.getCurrentPlayer().changeMoney(-TUITION_FEE);
+                FunctionalPlace fPlace = ((FunctionalPlace) currentLandable);
+                fPlace.executeFunctional(this, currentPlayer);
+                if (fPlace.getFunctionalPlaceType() == FunctionalPlaceType.NIZAMIYE)
+                    gameScreenController.addHistory(AssetManager.gameManager.getCurrentPlayer().getName() + " has passed through Nizamiye.");
+                else if (fPlace.getFunctionalPlaceType() == FunctionalPlaceType.FEE) {
+                    if (((FeeStrategy) fPlace.getStrategy()).getFeeType() == FeeType.TUITION_FEE) {
                         gameScreenController.addHistory(AssetManager.gameManager.getCurrentPlayer().getName() + " paid tuition fee.");
-                        freeParkingMoney += TUITION_FEE;
-                        break;
-                    case 10:            // atalar's offce
-                        break;
-                    case 12:            // dorm fee
-                        AssetManager.gameManager.getCurrentPlayer().changeMoney(-DORM_FEE);
+                    }
+                    else if (((FeeStrategy) fPlace.getStrategy()).getFeeType() == FeeType.DORM_FEE) {
                         gameScreenController.addHistory(AssetManager.gameManager.getCurrentPlayer().getName() + " paid dorm fee.");
-                        freeParkingMoney += DORM_FEE;
-                        break;
-                    case 20:            // free parking
-                        AssetManager.gameManager.getCurrentPlayer().changeMoney(freeParkingMoney);
-                        gameScreenController.addHistory(AssetManager.gameManager.getCurrentPlayer().getName() + " got free parking money..");
-                        freeParkingMoney = 0;
-                        break;
-                    case 28:            // book fee
-                        AssetManager.gameManager.getCurrentPlayer().changeMoney(-BOOK_FEE);
+                    }
+                    else if (((FeeStrategy) fPlace.getStrategy()).getFeeType() == FeeType.BOOK_FEE) {
                         gameScreenController.addHistory(AssetManager.gameManager.getCurrentPlayer().getName() + " paid book fee.");
-                        freeParkingMoney += BOOK_FEE;
-                        break;
-                    case 30:            // go to atalar's office
-                        break;
-                    case 38:            // food fee
-                        AssetManager.gameManager.getCurrentPlayer().changeMoney(-FOOD_FEE);
+                    }
+                    else if (((FeeStrategy) fPlace.getStrategy()).getFeeType() == FeeType.FOOD_FEE) {
                         gameScreenController.addHistory(AssetManager.gameManager.getCurrentPlayer().getName() + " paid food fee.");
-                        freeParkingMoney += FOOD_FEE;
-                        break;
+                    }
+                    freeParkingMoney += ((FeeStrategy) fPlace.getStrategy()).getFee();
+                }
+                else if (fPlace.getFunctionalPlaceType() == FunctionalPlaceType.FREE_PARKING) {
+                    gameScreenController.addHistory(AssetManager.gameManager.getCurrentPlayer().getName() + " got free parking money.");
+                    freeParkingMoney = 0;
+                }
+                else if (fPlace.getFunctionalPlaceType() == FunctionalPlaceType.GO_TO_ATALARS_ROOM) {
+                    gameScreenController.addHistory(AssetManager.gameManager.getCurrentPlayer().getName() + " went to Atalar's Room!");
                 }
                 break;
-            default:
-                // error
+            case CARD_PLACE:
+                CardPlace cPlace = ((CardPlace) currentLandable);
+                Card currentCard = gameScreenController.getPickedCard();
+                currentCard.setInteractedPlayer(currentPlayer);
+                currentCard.executeCard(this);
+                System.out.println("-----Card Info-----");
+                System.out.println("Text: " + currentCard.getText());
+                System.out.println("NO: " + currentCard.getCARDNUM());
+                System.out.println("STRATEGY: " + currentCard.getCardStrategy());
+                System.out.println("PLAYER NAME: " + currentCard.getInteractedPlayer().getName());
+                System.out.println("MOVE TO: " + currentCard.getMoveTo());
+                System.out.println("TO EARN: " + currentCard.getToEarn());
+                System.out.println("TO PAY: " + currentCard.getToPay());
+                System.out.println("TO MOVE: " + currentCard.getToMove());
+                System.out.println("TO PLAYER?: " + currentCard.isToPlayer());
+                System.out.println("TO BANK?: " + currentCard.isToBank());
+                break;
+
         }
 
+        System.out.println("PLAY GAME CALLED");
         gameScreenController.enableRollDiceButton();
         playGame();
 
@@ -248,14 +254,6 @@ public class GameManager {
                     currentPlayer.getOwnedCafes().add(currentCafe);
                     gameScreenController.addHistory( curPlayerName + " bought " + currentCafe.getName() + ".");
                 }
-
-                break;
-
-
-            case CARD_PLACE:
-
-                System.out.println("Execute Card Place");
-                gameScreenController.addHistory( curPlayerName + " drew card.");
 
                 break;
 

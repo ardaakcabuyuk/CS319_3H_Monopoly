@@ -70,6 +70,8 @@ public class GameScreen {
     public String cardStrategy;
     public String cardText;
 
+    private Card pickedCard;
+
 
     @FXML
     private ImageView nextPlayerPawnImage;
@@ -422,6 +424,7 @@ public class GameScreen {
                 cardStrategy = ((CardPlace) nextLandable).getCardType().name();
                 System.out.println("Card Type:" + cardStrategy);
 
+                pickedCard = AssetManager.gameManager.getCardDeck().drawCard(((CardPlace) nextLandable).getCardType());
                 cardText = String.valueOf(AssetManager.gameManager.getCardDeck().getCurrentCard().getText());
 
                 executeCardPopup();
@@ -430,6 +433,10 @@ public class GameScreen {
         else{
             AssetManager.gameManager.playTurnPostDice(nextLandable);
         }
+    }
+
+    public Card getPickedCard() {
+        return pickedCard;
     }
 
 

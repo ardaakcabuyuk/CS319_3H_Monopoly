@@ -10,8 +10,6 @@ public class CardPlace extends Landable {
     public CardPlace(CardType cardType) {
         type = LandableType.CARD_PLACE;
         this.cardType = cardType;
-        this.location = null;
-        this.location_available = null;
     }
 
     //methods

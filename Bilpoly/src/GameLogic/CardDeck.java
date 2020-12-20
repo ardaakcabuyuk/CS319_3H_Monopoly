@@ -19,7 +19,7 @@ public class CardDeck {
         CHANCE_CARDS = chance_cards;
         RECTORSW_CARDS = rectorsw_cards;
         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        this.currentCard = rectorsw_cards.get(2);
+        this.currentCard = null;
         shuffleAllCards();
     }
 
