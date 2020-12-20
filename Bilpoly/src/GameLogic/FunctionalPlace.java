@@ -1,7 +1,5 @@
 package GameLogic;
 
-import java.util.Arrays;
-
 // enum for functional place type
 enum FunctionalPlaceType {
     NIZAMIYE,
@@ -10,7 +8,6 @@ enum FunctionalPlaceType {
     FEE
 }
 
-// FunctionalPlace Class
 public class FunctionalPlace extends Landable {
     //attributes
     private PlaceStrategy strategy;
@@ -33,7 +30,6 @@ public class FunctionalPlace extends Landable {
     //methods
 
     // This method executes the functional place.
-    // TODO will be implemented.
     public void executeFunctional(GameManager mgr, Player player){
         strategy.executeFunctional(mgr, player);
     }
@@ -45,6 +41,4 @@ public class FunctionalPlace extends Landable {
     public PlaceStrategy getStrategy() {
         return strategy;
     }
-
-    //GETTERS AND SETTERS
 }

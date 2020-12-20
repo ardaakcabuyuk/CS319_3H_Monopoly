@@ -1,12 +1,6 @@
 package GameLogic;
 
-//import sample.Images.pawns.*;
-
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import sample.GameScreen;
 import java.io.IOException;
 import java.util.*;
@@ -30,24 +24,17 @@ public class GameManager {
     private CardDeck cardDeck;
     private Dice dice;
     private boolean diceRolled;
-    private HistoryManager historyManager;
     private boolean timeMode;
     private int timeLimit;
     private boolean isGameOver;
     private AtalarsRoom atalarsRoom;
-
-    //private GameOver gameOver;
-    //private PauseMenu pauseMenu;
-    //private GameScreen gameScreen;
 
     public GameScreen gameScreenController;
 
 
     //constructor
     public GameManager(PlayerDeck playerDeck, Landable[] landableList, CardDeck cardDeck,
-                       boolean timeMode, int timeLimit
-                       //GameOver gameOver, PauseMenu pauseMenu, GameScreen gameScreen,
-                        ) {
+                       boolean timeMode, int timeLimit) {
 
         System.out.println("GameManager is initialized.");
         this.timer = new Timer();
@@ -58,17 +45,11 @@ public class GameManager {
         this.cardDeck = cardDeck;
         this.dice = new Dice();
         diceRolled = false;
-        this.historyManager =  new HistoryManager();
         this.timeMode = timeMode;
         this.timeLimit = timeLimit;
         this.isGameOver = false;
 
-
-        // TODO fix initilization
         this.atalarsRoom = (AtalarsRoom) landableList[10];
-        //this.gameOver =  new GameOver();
-        //this.pauseMenu =  new PauseMenu();
-        //this.gameScreen = gameScreen;
 
         System.out.println("GameManager is initialized.");
 
@@ -78,12 +59,6 @@ public class GameManager {
     // This method handles the game turn system.
     // TODO will be implemented.
     public void playGame(){
-        // if timer => start timer;
-        // you have landable[] => built the board;
-        // you have playerDeck => built player cards
-        // built next player
-        // built history
-
         if(!playerDeck.getCurrentPlayer().isTurn() && !isGameOver){
             playerDeck.nextPlayer();
             gameScreenController.changePlayerLabels(playerDeck.getCurrentPlayer());
@@ -95,15 +70,9 @@ public class GameManager {
                 System.out.println(e);
             }
         }
-        // gameOver.update();
     }
 
-
-    // This method handles the each turn for given player.
-    // history.update();
-    // gameScreen.update()
-
-    public void playTurnPreDice() throws IOException {
+    public void playTurnPreDice() {
 
         Player curPlayer = playerDeck.getCurrentPlayer();
         if (curPlayer.isInAtalarsRoom()) {
@@ -129,9 +98,8 @@ public class GameManager {
         System.out.println("playTurnPostDice");
         System.out.println("nextLandable.getType(): " + nextLandable.getType());
         int diceValue = dice.getTotalFaceValue();
-        //int pawnNewIndex = curPlayer.getPawn().movePawn(diceValue, landableList.length);
         //if passes through nizamiye
-        if (getCurrentPlayer().getPawn().getCurrentLandableIndex() + diceValue >= 40)
+        if (nextLandable.getIndex() - diceValue <= 0)
             executeLandable(landableList[0]);
         executeLandable(nextLandable);
         diceRolled = false;
@@ -179,22 +147,6 @@ public class GameManager {
                 Card currentCard = gameScreenController.getPickedCard();
                 currentCard.setInteractedPlayer(currentPlayer);
                 currentCard.executeCard(this);
-                System.out.println("-----Card Info-----");
-                System.out.println("Text: " + currentCard.getText());
-                System.out.println("NO: " + currentCard.getCARDNUM());
-                System.out.println("STRATEGY: " + currentCard.getCardStrategy());
-                System.out.println("PLAYER NAME: " + currentCard.getInteractedPlayer().getName());
-                System.out.println("MOVE TO: " + currentCard.getMoveTo());
-                System.out.println("TO EARN: " + currentCard.getToEarn());
-                System.out.println("TO PAY: " + currentCard.getToPay());
-                System.out.println("TO MOVE: " + currentCard.getToMove());
-                System.out.println("TO PLAYER?: " + currentCard.isToPlayer());
-                System.out.println("TO BANK?: " + currentCard.isToBank());
-
-                //card = cardDeck.drawCard(((CardPlace)currentLandable).getCardType());
-                //card.setInteractedPlayer(currentPlayer);
-                //card.executeCard(this);
-
                 break;
 
         }
@@ -308,7 +260,6 @@ public class GameManager {
             System.out.println("CANNOT MOVE PAWN OF PLAYER WITH A CARD");
         }
     }
-
 
     public CardDeck getCardDeck() {
         return cardDeck;

@@ -6,25 +6,20 @@ import GameLogic.Player;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.io.*;
-import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import java.util.Scanner;
-import java.util.function.IntFunction;
 
 public class AssetManager extends Application {
 
@@ -89,12 +84,6 @@ public class AssetManager extends Application {
             System.out.println("player name: " + playerList.get(i).getName()+ " color: " + playerList.get(i).getColorName());
         }
         Landable[] landableList = getLandableList(boardMode);
-/*
-        for (int i = 0; i < landableList.length; i++) {
-            System.out.println(landableList[i].getType());
-        }
-
- */
         CardDeck cardDeck = getCardDeck(boardMode);
 
         gameManager = new GameManager(playerDeck, landableList, cardDeck, timeMode, timeLimit);

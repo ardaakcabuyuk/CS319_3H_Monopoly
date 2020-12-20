@@ -1,25 +1,15 @@
 package sample;
 
 import GameLogic.*;
-import com.sun.javafx.geom.Rectangle;
-import javafx.animation.AnimationTimer;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
+
 import javafx.animation.Timeline;
-import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Bounds;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -30,7 +20,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Popup;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import java.io.IOException;
 import java.util.Timer;
@@ -129,8 +118,6 @@ public class GameScreen {
         }
 
         rolledDice = false;
-       // doneClicked = false;
-       // doneButton.setDisable(true);
 
         this.history1Label.setText("Game Started !!!");
         this.history2Label.setText("");
@@ -179,7 +166,7 @@ public class GameScreen {
     }
 
     @FXML
-    public void mouseClicked(MouseEvent event) throws Exception {
+    public void mouseClicked(MouseEvent event) {
         System.out.println("X: " + event.getX());
         System.out.println("Y: " + event.getY());
     }

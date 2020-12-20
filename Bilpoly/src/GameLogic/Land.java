@@ -56,41 +56,6 @@ public class Land extends Buyable {
         this.location_available = null;
     }
 
-    //methods
-    //TODO will be implemented
-    public void showCard() {
-
-    }
-
-    //TODO will be implemented
-    public void closeCard() {
-
-    }
-
-    /*
-
-    @Override
-    public void sell() {
-        super.sell();
-    }
-
-    //TODO should be improved
-    @Override
-    public void mortgage() {
-        super.mortgage();
-    }
-
-    @Override
-    public boolean isBought() { return super.isBought(); }
-
-    @Override
-    public int getCost() { return super.getCost(); }
-
-    @Override
-    public String getOwner() { return super.getOwner(); }
-*/
-
-
     public boolean addSecondary() {
         if (secondaryNumber < MAX_SECONDARY) {
             secondaryNumber++;
@@ -153,7 +118,6 @@ public class Land extends Buyable {
             currentRent = RENT_WITH_3_SECONDARY;
     }
 
-    public Color getLandSet() { return COLOR; }
     
     public int getMAX_SECONDARY() {
         return MAX_SECONDARY;

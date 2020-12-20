@@ -18,7 +18,6 @@ public class CardDeck {
     public CardDeck(ArrayList<Card> chance_cards, ArrayList<Card> rectorsw_cards){
         CHANCE_CARDS = chance_cards;
         RECTORSW_CARDS = rectorsw_cards;
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         this.currentCard = null;
         shuffleAllCards();
     }
@@ -37,13 +36,6 @@ public class CardDeck {
         }
         return currentCard;
     }
-
-    // This method executes the currentCard.
-    // TODO will be implemented.
-    /*public boolean executeCard(Player p){
-        currentCard.executeCard(p);
-        return true;
-    }*/
 
     public void shuffleAllCards(){
         Collections.shuffle(CHANCE_CARDS);

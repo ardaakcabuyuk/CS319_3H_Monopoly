@@ -1,7 +1,5 @@
 package GameLogic;
 
-import java.util.Arrays;
-
 public class AtalarsRoom extends Landable {
     //constants
     public final int FEE; //TODO to be determined

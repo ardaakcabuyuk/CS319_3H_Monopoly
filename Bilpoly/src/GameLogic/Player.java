@@ -1,8 +1,6 @@
 package GameLogic;
 
-import java.awt.*;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 
 import javafx.scene.paint.Color;
