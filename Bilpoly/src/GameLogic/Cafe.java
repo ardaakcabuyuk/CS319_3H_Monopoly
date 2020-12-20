@@ -1,7 +1,5 @@
 package GameLogic;
 
-import java.util.Arrays;
-
 public class Cafe extends Buyable {
 
     //attributes
@@ -29,20 +27,11 @@ public class Cafe extends Buyable {
         this.location = null;
         this.location_available = null;
     }
-    //methods
-    //TODO will be implemented
-    public void showCard() {
-
-    }
-
-    //TODO will be implemented
-    public void closeCard() {
-
-    }
 
     public String getName(){
         return name;
     }
+
     public int getRentWith1() {
         return rentWith1;
     }
@@ -74,35 +63,5 @@ public class Cafe extends Buyable {
     public void setRentWith4(int rentWith4) {
         this.rentWith4 = rentWith4;
     }
-
-
-    /*
-    @Override
-    public void buy(String playerName) {
-        super.buy();
-    }
-
-    @Override
-    public void sell() {
-        super.sell();
-    }
-
-
-    //TODO should be improved
-    @Override
-    public void mortgage() {
-        super.mortgage();
-    }
-
-    @Override
-    public boolean isBought() { return super.isBought(); }
-
-    @Override
-    public int getCost() { return super.getCost(); }
-
-    @Override
-    public String getOwner() { return super.getOwner(); }
-
-     */
 
 }

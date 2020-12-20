@@ -9,20 +9,8 @@ public abstract class Landable {
     protected Location[] location_available;
     protected LandableType type;
 
-    public Location[] getLocation_available() {
-        return location_available;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public double getBoardWidth() {
-        return boardWidth;
-    }
-
-    public double getBoardHeight() {
-        return boardHeight;
     }
 
     protected String name;
@@ -30,7 +18,7 @@ public abstract class Landable {
     double boardWidth;
     double boardHeight;
 
-    public Landable(){
+    public Landable() {
 
     }
 
@@ -51,7 +39,6 @@ public abstract class Landable {
     
     
     public void setLocation() {
-        //System.out.println("AssetManager.gameManager: " + AssetManager.gameManager);
         if (AssetManager.gameManager != null) {
             boardHeight = AssetManager.gameManager.gameScreenController.getBoardHeight();
             boardWidth = AssetManager.gameManager.gameScreenController.getBoardWidth();
@@ -62,7 +49,6 @@ public abstract class Landable {
         
         double widthNormalized = boardWidth / 927;
         double heightNormalized = boardHeight / 859;
-        //System.out.println("widthNormalized: " + widthNormalized + " boardWidth: " + boardWidth);
 
         location = new Location(0, 0);
         switch (index) {

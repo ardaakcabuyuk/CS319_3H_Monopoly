@@ -1,7 +1,5 @@
 package GameLogic;
 
-import java.util.Arrays;
-
 public class CardPlace extends Landable {
     //attributes
     private CardType cardType;
@@ -13,11 +11,6 @@ public class CardPlace extends Landable {
     }
 
     //methods
-    //TODO will be implemented
-    public void showCard() {}
-
-    //TODO will be implemented
-    public void closeCard() {}
 
     // GETTERS SETTERS
     public CardType getCardType(){

@@ -1,7 +1,5 @@
 package GameLogic;
 
-import java.util.ArrayList;
-
 public class Card {
 
     //constants

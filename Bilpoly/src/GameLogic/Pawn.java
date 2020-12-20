@@ -25,11 +25,6 @@ public class Pawn {
         return currentLandableIndex;
     }
 
-    // This method moves the pawn randomly.
-    //TODO will be implemented.
-    public void goTo(Landable land) {
-    }
-
     // GETTERS AND SETTERS
 
     public int getCurrentLandableIndex(){
