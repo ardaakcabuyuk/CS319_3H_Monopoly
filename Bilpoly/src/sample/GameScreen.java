@@ -395,8 +395,13 @@ public class GameScreen {
     }
 
     public void movePawnImage(ImageView pawnImage, int index, Pawn curPawn) throws IOException {
-        //Landable curLandable = AssetManager.gameManager.getLandableList()[curPawn.getCurrentLandableIndex()];
+        Landable curLandable = AssetManager.gameManager.getLandableList()[curPawn.getCurrentLandableIndex()];
         Landable nextLandable = AssetManager.gameManager.getLandableList()[(index) % 40];
+
+        if (nextLandable.getIndex() - curLandable.getIndex() < 0){
+            AssetManager.gameManager.getCurrentPlayer().changeMoney(2000);
+        }
+        
         currentLandable = nextLandable;
         //Location currentLocation = new Location(curLandable.getLocation().getX(), curLandable.getLocation().getY());
         Location toGoLocation = new Location(nextLandable.getLocation().getX(), nextLandable.getLocation().getY());
