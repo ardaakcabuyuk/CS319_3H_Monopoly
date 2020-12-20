@@ -39,7 +39,7 @@ public class AssetManager extends Application {
     protected static Player[] players = null;
     protected static int initialMoney;
     protected static boolean boardMode;
-    protected static boolean timeMode;
+    protected static boolean timeMode = false;
     protected static int timeLimit = -1;
 
     public static GameManager gameManager;

@@ -113,8 +113,14 @@ public class GameScreen {
 
         System.out.println("boardWidth: " + boardWidth + " boardHeight: " + boardHeight);
 
-        timeLabel.setText(AssetManager.timeLimit + ":00");
-        startTimer();
+        if ( AssetManager.timeMode) {
+            timeLabel.setText(AssetManager.timeLimit + ":00");
+            startTimer();
+        }
+        else
+        {
+            timeLabel.setText("");
+        }
 
         rolledDice = false;
        // doneClicked = false;

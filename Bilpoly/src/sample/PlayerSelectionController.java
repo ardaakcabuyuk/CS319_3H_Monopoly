@@ -61,7 +61,32 @@ public class PlayerSelectionController {
     @FXML
     private Button ok4Button;
 
-    
+    int[] selected = {0, 0 , 0, 0};
+
+    @FXML
+    public void inputCheck1(ActionEvent event) throws Exception{
+        if ( !(name1.getText().trim().isEmpty() )){
+            combo1.setDisable(false);
+        }
+    }
+    @FXML
+    public void inputCheck2(ActionEvent event) throws Exception{
+        if ( !(name2.getText().trim().isEmpty() )){
+            combo2.setDisable(false);
+        }
+    }
+    @FXML
+    public void inputCheck3(ActionEvent event) throws Exception{
+        if ( !(name3.getText().trim().isEmpty() )){
+            combo3.setDisable(false);
+        }
+    }
+    @FXML
+    public void inputCheck4(ActionEvent event) throws Exception{
+        if ( !(name4.getText().trim().isEmpty() )){
+            combo4.setDisable(false);
+        }
+    }
 
     @FXML
     public void select1(ActionEvent event) throws Exception {
@@ -78,6 +103,9 @@ public class PlayerSelectionController {
             pType = PawnType.BMW;
         if(AssetManager.players[0] != null && pType != null){
             AssetManager.players[0].setPawn(new Pawn(pawnName, pType));
+            ok1Button.setDisable(false);
+
+            enableNextButton();
         }
     }
 
@@ -96,6 +124,10 @@ public class PlayerSelectionController {
             pType = PawnType.BMW;
         if(AssetManager.players[1] != null && pType != null){
             AssetManager.players[1].setPawn(new Pawn(pawnName, pType));
+
+            ok2Button.setDisable(false);
+            selected[1] = 2;
+            enableNextButton();
         }
     }
 
@@ -114,6 +146,10 @@ public class PlayerSelectionController {
             pType = PawnType.BMW;
         if(AssetManager.players[2] != null && pType != null){
             AssetManager.players[2].setPawn(new Pawn(pawnName, pType));
+            ok3Button.setDisable(false);
+            selected[2] = 1;
+            enableNextButton();
+
         }
     }
 
@@ -132,6 +168,10 @@ public class PlayerSelectionController {
             pType = PawnType.BMW;
         if(AssetManager.players[3] != null && pType != null){
             AssetManager.players[3].setPawn(new Pawn(pawnName, pType));
+            ok4Button.setDisable(false);
+            selected[3] = 1;
+            enableNextButton();
+
         }
     }
 
@@ -156,6 +196,11 @@ public class PlayerSelectionController {
         ok3Button.setDisable(true);
         ok4Button.setDisable(true);
 
+        //combo
+        combo1.setDisable(true);
+        combo2.setDisable(true);
+        combo3.setDisable(true);
+        combo4.setDisable(true);
     }
 
 
@@ -171,7 +216,7 @@ public class PlayerSelectionController {
         String nameOne = name1.getText();
         System.out.println("name1 : "+ nameOne);
         System.out.println("name1: "+ AssetManager.players[0].getName() );
-
+        selected[0] = 1;
 
         enableNextButton();
 
@@ -189,6 +234,8 @@ public class PlayerSelectionController {
         System.out.println("name2: "+ nameTwo);
 
         System.out.println("name2 checking again: "+ AssetManager.players[1].getName() );
+
+        selected[1] = 1;
 
         enableNextButton();
 
@@ -210,6 +257,7 @@ public class PlayerSelectionController {
         //checking if it is set or not
         System.out.println("name3 checking again:  "+ AssetManager.players[2].getName() );
 
+        selected[2] = 1;
         //deciding if the next button should be activated after clicking ok
         enableNextButton();
 
@@ -225,6 +273,7 @@ public class PlayerSelectionController {
         String nameFour = name4.getText();
         System.out.println("name4: "+ nameFour);
 
+        selected[3] = 1;
         //checking if it is set or not
         System.out.println("second check name4: "+ AssetManager.players[3].getName() );
         enableNextButton();
@@ -305,6 +354,22 @@ public class PlayerSelectionController {
     public void enableNextButton() {
         boolean full = true;
 
+        int check = 0;
+
+        for ( int i = 0; i < selected.length; i++ )
+        {
+            if ( selected[i] == 1)
+            {
+                check++;
+            }
+        }
+
+        if ( check == AssetManager.getPlayerNumber() )
+        {
+            nextButton.setDisable(false);
+        }
+        
+        /*
         for (int i = 0; i < AssetManager.getPlayerNumber(); i++) {
             System.out.println("AssetManager.players[i].getPawn(): " + AssetManager.players[i].getPawn() + " i: " + i);
             if ( AssetManager.players[i].getPawn() == null ) {
@@ -316,6 +381,8 @@ public class PlayerSelectionController {
         if ( full ) {
             nextButton.setDisable(false);
         }
+
+         */
     }
 }
 
