@@ -60,19 +60,19 @@ public class GameManager {
     // TODO will be implemented.
     public void playGame(){
         if(!playerDeck.getCurrentPlayer().isTurn() && !isGameOver){
-            do {
-                if(playerDeck.getCurrentPlayer().isInAtalarsRoom()){
-                    playerDeck.getCurrentPlayer().setAtlarRoomCount(getCurrentPlayer().getAtlarRoomCount() + 1);
-                    if(playerDeck.getCurrentPlayer().getAtlarRoomCount() == 3){
-                        playerDeck.getCurrentPlayer().setAtlarRoomCount(0);
-                        playerDeck.getCurrentPlayer().setInAtalarsRoom(false);
-                        atalarsRoom.payAtalarsRoomFee(getCurrentPlayer());
-                    }
+
+            if(playerDeck.getCurrentPlayer().isInAtalarsRoom()){
+                playerDeck.getCurrentPlayer().setAtlarRoomCount(getCurrentPlayer().getAtlarRoomCount() + 1);
+                if(playerDeck.getCurrentPlayer().getAtlarRoomCount() == 3){
+                    playerDeck.getCurrentPlayer().setAtlarRoomCount(0);
+                    playerDeck.getCurrentPlayer().setInAtalarsRoom(false);
+                    atalarsRoom.payAtalarsRoomFee(getCurrentPlayer());
                 }
-                playerDeck.nextPlayer();
-                gameScreenController.changePlayerLabels(playerDeck.getCurrentPlayer());
-                gameScreenController.setNextTurn(playerDeck.getNextPlayer().getName(), String.valueOf(playerDeck.getNextPlayer().getMoney()), playerDeck.getNextPlayer().getPawn());
-            } while(playerDeck.getCurrentPlayer().isInAtalarsRoom());
+            }
+            playerDeck.nextPlayer();
+            gameScreenController.changePlayerLabels(playerDeck.getCurrentPlayer());
+            gameScreenController.setNextTurn(playerDeck.getNextPlayer().getName(), String.valueOf(playerDeck.getNextPlayer().getMoney()), playerDeck.getNextPlayer().getPawn());
+
             try {
                 //System.out.println("---------------curPlayer: " + playerDeck.getCurrentPlayer().getName());
                 playTurnPreDice();

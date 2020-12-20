@@ -283,6 +283,19 @@ public class GameScreen {
         },0, 1000);
         //System.out.println("Dice 1: " + dices[0] + "\nDice 2: " + dices[1]);
 
+        if(AssetManager.gameManager.getCurrentPlayer().isInAtalarsRoom()){
+            if(dices[0] != dices[1]){
+                AssetManager.gameManager.playGame();
+                return;
+
+            }
+            else{
+                AssetManager.gameManager.getCurrentPlayer().setInAtalarsRoom(false);
+            }
+        }
+
+
+
 
         //move pawn
         Pawn currentPawn = AssetManager.gameManager.getCurrentPlayer().getPawn();

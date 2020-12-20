@@ -84,7 +84,7 @@
             </ImageView>
             <Label fx:id="history1Label" layoutX="16.0" layoutY="37.0" prefHeight="26.0" prefWidth="226.0" text="history1" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="10.0">
                <font>
-                  <Font size="20.0" />
+                  <Font size="14.0" />
                </font>
             </Label>
             <Label fx:id="history2Label" layoutX="16.0" layoutY="29.0" prefHeight="27.0" prefWidth="226.0" text="history2" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="16.0">
