@@ -20,17 +20,17 @@
                   <Font size="23.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="24.0" prefWidth="276.0" text="Player Name">
+            <Label fx:id="playerName" alignment="CENTER" contentDisplay="CENTER" prefHeight="24.0" prefWidth="276.0" text="Player Name">
                <font>
                   <Font size="26.0" />
                </font>
             </Label>
-            <ImageView fitHeight="150.0" fitWidth="179.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="playerPawn" fitHeight="150.0" fitWidth="179.0" pickOnBounds="true" preserveRatio="true">
                <VBox.margin>
                   <Insets left="33.0" />
                </VBox.margin>
             </ImageView>
-            <Button mnemonicParsing="false" onAction="#backButtonClicked" style="-fx-background-radius: 30;">
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#backButtonClicked" style="-fx-background-radius: 30;">
                <graphic>
                   <ImageView fitHeight="34.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -38,6 +38,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <VBox.margin>
+                  <Insets left="85.0" />
+               </VBox.margin>
             </Button>
          </children>
       </VBox>

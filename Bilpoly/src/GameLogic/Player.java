@@ -96,6 +96,7 @@ public class Player {
     public boolean changeMoney(int amount){
         if(amount < 0 && this.money + amount < 0){
             isBankrupt = true;
+            money = 0;
             return false;
         }
         else {
@@ -352,7 +353,8 @@ public class Player {
 
     public String getColorName() { return colorName; }
 
-
-
+    public void addScore(int score) {
+        this.score += score;
+    }
 
 }

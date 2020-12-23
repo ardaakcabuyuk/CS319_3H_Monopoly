@@ -380,6 +380,27 @@ public class GameScreen {
         gameOverPopup.getContent().add((Parent)loader.load());
         Stage window = (Stage) boardAnchorPane.getScene().getWindow();
         rollDiceButton.setDisable(true);
+
+        GameOverController gameOverController = (GameOverController)loader.getController();
+
+        Player p = AssetManager.gameManager.getCurrentPlayer();
+        for(int i = 0; i < AssetManager.gameManager.getPlayers().size(); i++){
+            Player pp = AssetManager.gameManager.getPlayers().get(i);
+            pp.addScore(pp.getMoney());
+            for(int j = 0; j < pp.getOwnedLands().size(); j++){
+                pp.addScore(pp.getOwnedLands().get(j).getCost());
+            }
+            for(int k = 0; k < pp.getOwnedCafes().size(); k++){
+                pp.addScore(pp.getOwnedCafes().get(k).getCost());
+            }
+            if(pp.getScore() > p.getScore()){
+                p = pp;
+            }
+        }
+        gameOverController.playerName.setText(p.getName());
+        gameOverController.playerPawn.setImage(getPawnImage(p.getPawn()).getImage());
+
+
         gameOverPopup.show(window);
 
 
