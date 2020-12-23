@@ -163,6 +163,9 @@ public class GameManager {
                 System.out.println("before executeCard");
                 System.out.println("currentCard.getInteractedPlayer(): " + currentCard.getInteractedPlayer().getName());
                 currentCard.executeCard(this);
+                if (currentCard.getMoveTo() == 10) {
+                    gameScreenController.addHistory(getCurrentPlayer().getName() + " went to Atalar's Room!");
+                }
                 break;
 
         }
