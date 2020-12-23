@@ -1,24 +1,24 @@
 /*classic background*/
 #anchorOptions{
-    -fx-background-image: url("/sample/Images/rsz_center.jpg");
+    -fx-background-image: url("/ApplicationControl/Images/rsz_center.jpg");
 }
 
 #anchorCredits{
-    -fx-background-image: url("/sample/Images/rsz_center.jpg");
+    -fx-background-image: url("/ApplicationControl/Images/rsz_center.jpg");
 }
 
 #anchorHowToPlay{
-    -fx-background-image: url("/sample/Images/rsz_center.jpg");
+    -fx-background-image: url("/ApplicationControl/Images/rsz_center.jpg");
 }
 
 #anchorPlayerSelection{
-    -fx-background-image: url("/sample/Images/rsz_center.jpg");
+    -fx-background-image: url("/ApplicationControl/Images/rsz_center.jpg");
 }
 
 #anchorPreGame{
-    -fx-background-image: url("/sample/Images/rsz_center.jpg");
+    -fx-background-image: url("/ApplicationControl/Images/rsz_center.jpg");
 }
 
 #anchorGame{
-    -fx-background-image: url("/sample/Images/center_game.png");
+    -fx-background-image: url("/ApplicationControl/Images/center_game.png");
 }

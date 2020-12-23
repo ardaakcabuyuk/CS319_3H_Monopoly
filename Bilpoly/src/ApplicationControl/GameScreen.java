@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -657,6 +658,32 @@ public class GameScreen {
         this.history3Label.setText(history2Label.getText());
         this.history2Label.setText(history1Label.getText());
         this.history1Label.setText(newHist);
+    }
+
+    @FXML
+    private TextField fakeInputTextField;
+
+    @FXML
+    public void fakeButtonClicked(ActionEvent event) throws Exception{
+        String fakeInputString = fakeInputTextField.getText();
+        System.out.println("fakeInputString: " + fakeInputString);
+
+        try {
+            int fakeInputInt = Integer.parseInt(fakeInputString);
+            System.out.println("fakeInputInt: " + fakeInputInt);
+
+
+
+            //move pawn
+            Pawn currentPawn = AssetManager.gameManager.getCurrentPlayer().getPawn();
+            // get current pawn image view
+            ImageView currentPawnImageView = getPawnImage(currentPawn);
+
+            movePawnImage(currentPawnImageView, ((fakeInputInt) % 40), currentPawn);
+        }
+        catch (NumberFormatException nfe) {
+            System.out.println("NumberFormatException: " + nfe.getMessage());
+        }
     }
 
 }
