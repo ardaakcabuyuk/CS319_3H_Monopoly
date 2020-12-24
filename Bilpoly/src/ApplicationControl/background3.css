@@ -22,3 +22,7 @@
 #anchorGame{
     -fx-background-image: url("/ApplicationControl/Images/center_game.png");
 }
+
+#anchorPaneMainMenu{
+    -fx-background-image: url("/ApplicationControl/Images/rsz_center.jpg");
+}

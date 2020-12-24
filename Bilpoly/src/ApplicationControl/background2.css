@@ -22,3 +22,6 @@
 #anchorGame{
     -fx-background-image: url("/ApplicationControl/Images/odeon_game_scene.png");
 }
+#anchorPaneMainMenu{
+    -fx-background-image: url("/ApplicationControl/Images/odeon.v2.jpg");
+}
