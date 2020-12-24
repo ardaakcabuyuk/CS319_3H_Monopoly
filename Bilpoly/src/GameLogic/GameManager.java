@@ -67,7 +67,9 @@ public class GameManager {
                 }
             }
 
+            playerDeck.getCurrentPlayer().setTurn(false);
             playerDeck.nextPlayer();
+
             System.out.println("-------playerDeck.nextPlayer(): " + playerDeck.getCurrentPlayer());
             gameScreenController.changePlayerLabels(playerDeck.getCurrentPlayer());
             gameScreenController.setNextTurn(playerDeck.getNextPlayer().getName(), String.valueOf(playerDeck.getNextPlayer().getMoney()), playerDeck.getNextPlayer().getPawn());
