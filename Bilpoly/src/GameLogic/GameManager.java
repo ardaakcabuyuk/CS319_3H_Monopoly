@@ -1,7 +1,7 @@
 package GameLogic;
 
 import javafx.scene.control.Button;
-import ApplicationControl.GameScreen;
+import UserInterface.GameScreen;
 import java.io.IOException;
 import java.util.*;
 

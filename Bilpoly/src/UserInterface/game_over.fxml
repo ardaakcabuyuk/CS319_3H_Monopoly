@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserInterface.GameOverController">
+   <children>
+      <VBox layoutX="179.0" layoutY="29.0" prefHeight="283.0" prefWidth="242.0" spacing="30.0" AnchorPane.bottomAnchor="15.666666666666686" AnchorPane.leftAnchor="179.0" AnchorPane.rightAnchor="179.0" AnchorPane.topAnchor="29.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="249.0" text="GAME OVER!!!">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="250.0" text="AND THE WINNER IS...">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="playerName" alignment="CENTER" contentDisplay="CENTER" prefHeight="24.0" prefWidth="276.0" text="Player Name">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="playerPawn" fitHeight="150.0" fitWidth="179.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets left="33.0" />
+               </VBox.margin>
+            </ImageView>
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#backButtonClicked" style="-fx-background-radius: 30;">
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/close_icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets left="85.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

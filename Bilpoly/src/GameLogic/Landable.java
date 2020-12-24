@@ -1,6 +1,6 @@
 package GameLogic;
 
-import ApplicationControl.AssetManager;
+import ApplicationControlUnit.AssetManager;
 
 public abstract class Landable {
     //variables
