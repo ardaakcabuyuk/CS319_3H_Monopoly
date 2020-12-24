@@ -272,7 +272,7 @@ public class GameScreen {
         //boardAnchorPane.getChildren().add(diceImageView);
         new Timer().schedule(new TimerTask(){
 
-            int second = 5;
+            int second = 2;
             @Override
             public void run() {
                 System.out.println(second--);

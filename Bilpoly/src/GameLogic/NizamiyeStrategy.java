@@ -1,9 +1,9 @@
 package GameLogic;
 
 public class NizamiyeStrategy implements PlaceStrategy {
-    final int MIZAMIYE_MONEY = 2000;
+    final int NIZAMIYE_MONEY = 2000;
     @Override
     public void executeFunctional(GameManager mgr, Player player) {
-        player.changeMoney(MIZAMIYE_MONEY);
+        player.changeMoney(NIZAMIYE_MONEY);
     }
 }

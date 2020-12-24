@@ -8,10 +8,6 @@ import java.util.*;
 public class GameManager {
 
     //constants
-    private final int TUITION_FEE = 0;
-    private final int DORM_FEE = 0;
-    private final int BOOK_FEE = 0;
-    private final int FOOD_FEE = 0;
     private final int NIZAMIYE_FEE = 0;
 
 
@@ -59,7 +55,8 @@ public class GameManager {
     // This method handles the game turn system.
     // TODO will be implemented.
     public void playGame(){
-        if(!playerDeck.getCurrentPlayer().isTurn() && !isGameOver){
+
+        System.out.println("PLAY GAME CALLED");
 
             if(playerDeck.getCurrentPlayer().isInAtalarsRoom()){
                 playerDeck.getCurrentPlayer().setAtlarRoomCount(getCurrentPlayer().getAtlarRoomCount() + 1);
@@ -69,7 +66,9 @@ public class GameManager {
                     atalarsRoom.payAtalarsRoomFee(getCurrentPlayer());
                 }
             }
+
             playerDeck.nextPlayer();
+            System.out.println("-------playerDeck.nextPlayer(): " + playerDeck.getCurrentPlayer());
             gameScreenController.changePlayerLabels(playerDeck.getCurrentPlayer());
             gameScreenController.setNextTurn(playerDeck.getNextPlayer().getName(), String.valueOf(playerDeck.getNextPlayer().getMoney()), playerDeck.getNextPlayer().getPawn());
 
@@ -79,7 +78,7 @@ public class GameManager {
             } catch (Exception e){
                 System.out.println(e);
             }
-        }
+
     }
 
     public void playTurnPreDice() {
@@ -109,8 +108,6 @@ public class GameManager {
         System.out.println("nextLandable.getType(): " + nextLandable.getType());
         int diceValue = dice.getTotalFaceValue();
         //if passes through nizamiye
-        if (nextLandable.getIndex() - diceValue < 0)
-            executeLandable(landableList[0]);
         executeLandable(nextLandable);
         diceRolled = false;
         System.out.println("player " + playerDeck.getCurrentPlayer().getName() + " rolled the dice: " + diceValue);
@@ -121,10 +118,14 @@ public class GameManager {
     // This method executes the given land.
     // TODO will be implemented.
     public void executeLandable(Landable currentLandable){
+        System.out.println("---executeLandable() called");
         Player currentPlayer = playerDeck.getCurrentPlayer();
         boolean doNotGo = false;
-        if(playerDeck.getCurrentPlayer().isTurn())
+        System.out.println("playerDeck.getCurrentPlayer().isTurn(): " + playerDeck.getCurrentPlayer().isTurn() + " playerDeck.getCurrentPlayer().isInAtalarsRoom(): " + playerDeck.getCurrentPlayer().isInAtalarsRoom());
+        if(playerDeck.getCurrentPlayer().isTurn() || playerDeck.getCurrentPlayer().isInAtalarsRoom()) {
+            System.out.println("---iffffff");
             doNotGo = true;
+        }
 
         switch (currentLandable.type) {
             case FUNCTIONAL_PLACE:
@@ -170,7 +171,7 @@ public class GameManager {
 
         }
 
-        System.out.println("PLAY GAME CALLED");
+
         gameScreenController.enableRollDiceButton();
         if(!doNotGo)
             playGame();
@@ -182,10 +183,12 @@ public class GameManager {
     public void executeBuyable(Landable currentLandable, Button button){
         System.out.println(button.getText());
         boolean doNotGo = false;
-        if(playerDeck.getCurrentPlayer().isTurn())
+        System.out.println("---executeBuyable() called");
+        if(playerDeck.getCurrentPlayer().isTurn() || playerDeck.getCurrentPlayer().isInAtalarsRoom()) {
+            System.out.println("---iffffff");
             doNotGo = true;
+        }
 
-        System.out.println("---executeBuyable()");
         String curPlayerName = getCurrentPlayer().getName();
 
         Player currentPlayer = playerDeck.getCurrentPlayer();
@@ -252,8 +255,10 @@ public class GameManager {
         gameScreenController.enableRollDiceButton();
         if(!doNotGo)
             playGame();
-        else
+        else {
+            System.out.println("IS TURN WORKED__________________________");
             playerDeck.getCurrentPlayer().setTurn(false);
+        }
     }
 
     public void sendPlayerToAtalarsRoom(Player p) {
@@ -285,8 +290,13 @@ public class GameManager {
     }
 
     public void movePlayerTo(int index) {
+        System.out.println("movePlayerTo()");
         Pawn playerPawn = playerDeck.getCurrentPlayer().getPawn();
         playerDeck.getCurrentPlayer().setTurn(true);
+        playerDeck.getNextPlayer().setTurn(true);
+        if(index == 10){
+            ((FunctionalPlace)landableList[30]).executeFunctional(this, getCurrentPlayer());
+        }
         try {
             gameScreenController.movePawnImage(playerPawn.getImage(), index, playerPawn);
         } catch (IOException e) {
@@ -296,12 +306,14 @@ public class GameManager {
     }
 
     public void movePlayerWithStep(int step) {
+        System.out.println("movePlayerWithStep()");
         Pawn playerPawn = playerDeck.getCurrentPlayer().getPawn();
         playerDeck.getCurrentPlayer().setTurn(true);
+        playerDeck.getNextPlayer().setTurn(true);
         try {
             gameScreenController.movePawnImage(playerPawn.getImage(), (playerPawn.getCurrentLandableIndex() + step) % 40, playerPawn);
-            if (playerPawn.getCurrentLandableIndex() + step > 40)
-                getCurrentPlayer().changeMoney(NIZAMIYE_FEE);
+            //if (playerPawn.getCurrentLandableIndex() + step > 40)
+                //((FunctionalPlace)landableList[0]).executeFunctional(this, getCurrentPlayer());
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("CANNOT MOVE PAWN OF PLAYER WITH A CARD");
