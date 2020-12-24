@@ -8,8 +8,8 @@ public class ChanceCardDecorator implements CardStrategy {
 
     public boolean executeCard(GameManager mgr, Card card) {
         Card copied = new Card(card);
-        copied.setToEarn((((int) Math.random() * 50) + 1) * card.getToEarn());
-        copied.setToPay((((int) Math.random() * 50) + 1) * card.getToPay());
+        copied.setToEarn(((int) ((Math.random() * 3) + 1)) * card.getToEarn());
+        copied.setToPay(((int) ((Math.random() * 3) + 1)) * card.getToPay());
         System.out.println("YENİ EARN: " + copied.getToEarn());
         System.out.println("YENİ PAY: " + copied.getToPay());
         strategy.executeCard(mgr, copied);
